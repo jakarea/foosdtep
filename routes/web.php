@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\BackendController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +16,22 @@ use Illuminate\Support\Facades\App;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    App::setLocale('bn');
-    return view('welcome');
-});
+ 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// front end controller
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('/about', 'about')->name('about');
+    Route::get('/products', 'products')->name('products');
+});
+
+
+// back end controller
+Route::controller(BackendController::class)->group(function () {
+    Route::get('/dashboard', 'index')->name('dashboard'); 
+});
+
