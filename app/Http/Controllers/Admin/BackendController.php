@@ -11,4 +11,8 @@ class BackendController extends Controller
     {
         return view('backend/index');
     }
+    public function categories()
+    {
+        return view('backend/categories');
+    }
 }

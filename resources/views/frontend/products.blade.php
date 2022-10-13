@@ -2,6 +2,10 @@
 
 @section('content')
 
+<!-- breadcumb start -->
+@include('frontend.partials.breadcumb')
+<!-- breadcumb start -->
+
     <!-- :::::: Start Main Container Wrapper :::::: -->
     <main id="main-container" class="main-container">
         <div class="container">

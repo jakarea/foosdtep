@@ -33,5 +33,6 @@ Route::controller(HomeController::class)->group(function () {
 // back end controller
 Route::controller(BackendController::class)->group(function () {
     Route::get('/dashboard', 'index')->name('dashboard'); 
+    Route::get('/categories', 'categories')->name('dashboard.categories'); 
 });
 

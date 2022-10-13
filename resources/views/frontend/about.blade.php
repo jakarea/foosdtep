@@ -2,6 +2,11 @@
 
 @section('content')
 
+<!-- breadcumb start -->
+@include('frontend.partials.breadcumb')
+<!-- breadcumb start -->
+
+
 <!-- ::::::  Start  Main Container Section  ::::::  -->
 <main id="main-container" class="main-container">
         <div class="about-top">

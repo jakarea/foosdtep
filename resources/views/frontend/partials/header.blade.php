@@ -5,8 +5,8 @@
             <div class="col-12 d-flex justify-content-between align-items-center">
                 <!-- Start Logo -->
                 <div class="header__logo">
-                    <a href="index.php" class="header__logo-link img-responsive">
-                        <img class="header__logo-img img-fluid" src="assets/img/logo/logo.png" alt="Food Step">
+                    <a href="{{ url('/') }}" class="header__logo-link img-responsive">
+                        <img class="header__logo-img img-fluid" src="{{ url('frontend/assets/img/logo/logo.png') }}" alt="Food Step">
                     </a>
                 </div> <!-- End Logo -->
                     <!-- Start Header Menu -->
@@ -15,17 +15,17 @@
                         <ul class="header__nav">
                             <!--Start Single Nav link-->
                             <li class="header__nav-item pos-relative">
-                                <a href="index.php" class="header__nav-link">Home</a>
+                                <a href="{{ url('/') }}" class="header__nav-link">Home</a>
                             </li> <!-- End Single Nav link-->
                             
                             <!--Start Single Nav link-->
                             <li class="header__nav-item pos-relative">
-                                    <a href="about.php" class="header__nav-link">About Us</a>
+                                    <a href="{{ url('/about') }}" class="header__nav-link">About Us</a>
                             </li> <!-- End Single Nav link-->
 
                             <!--Start Single Nav link-->
                             <li class="header__nav-item pos-relative">
-                                    <a href="product.php" class="header__nav-link">Product</a>
+                                    <a href="{{ url('/products') }}" class="header__nav-link">Product</a>
                             </li> <!-- End Single Nav link-->
 
                             <!--Start Single Nav link-->
