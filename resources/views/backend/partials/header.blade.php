@@ -29,19 +29,19 @@
                     <div class="dropdown d-none d-sm-inline-block">
                         <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            <img class="" src="assets/images/flags/us.jpg" alt="Header Language" height="16">
+                            <img class="" src="backend/assets/images/flags/us.jpg" alt="Header Language" height="16">
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <img src="assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span
+                                <img src="backend/assets/images/flags/spain.jpg" alt="user-image" class="me-1" height="12"> <span
                                     class="align-middle">Spanish</span>
                             </a>
 
                             <!-- item-->
                             <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <img src="assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span
+                                <img src="backend/assets/images/flags/germany.jpg" alt="user-image" class="me-1" height="12"> <span
                                     class="align-middle">Dutch</span>
                             </a> 
                         </div>
@@ -91,7 +91,7 @@
                                 </a>
                                 <a href="" class="text-reset notification-item">
                                     <div class="d-flex align-items-start">
-                                        <img src="assets/images/users/avatar-3.jpg" class="me-3 rounded-circle avatar-xs"
+                                        <img src="backend/assets/images/users/avatar-3.jpg" class="me-3 rounded-circle avatar-xs"
                                             alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="mt-0 mb-1">James Lemire</h6>
@@ -121,7 +121,7 @@
 
                                 <a href="" class="text-reset notification-item">
                                     <div class="d-flex align-items-start">
-                                        <img src="assets/images/users/avatar-4.jpg" class="me-3 rounded-circle avatar-xs"
+                                        <img src="backend/assets/images/users/avatar-4.jpg" class="me-3 rounded-circle avatar-xs"
                                             alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="mt-0 mb-1">Salena Layfield</h6>
@@ -144,7 +144,7 @@
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-2.jpg"
+                            <img class="rounded-circle header-profile-user" src="backend/assets/images/users/avatar-2.jpg"
                                 alt="Header Avatar">
                             <span class="d-none d-xl-inline-block ms-1">Patrick</span>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
@@ -169,22 +169,22 @@
                         <a href="index.html" class="logo logo-dark">
                             <span class="logo-sm">
                                 <span style="color: #fff; font-size: 22px; font-weight: 700;">Food Step</span>
-                                <!-- <img src="assets/images/logo-sm.png" alt="" height="20"> -->
+                                <!-- <img src="backend/assets/images/logo-sm.png" alt="" height="20"> -->
                             </span>
                             <span class="logo-lg">
                             <span style="color: #fff; font-size: 22px; font-weight: 700;">Food Step</span>
-                                <!-- <img src="assets/images/logo-dark.png" alt="" height="17"> -->
+                                <!-- <img src="backend/assets/images/logo-dark.png" alt="" height="17"> -->
                             </span>
                         </a>
 
                         <a href="index.html" class="logo logo-light">
                             <span class="logo-sm">
                             <span style="color: #fff; font-size: 22px; font-weight: 700;">Food Step</span>
-                                <!-- <img src="assets/images/logo-sm.png" alt="" height="20"> -->
+                                <!-- <img src="backend/assets/images/logo-sm.png" alt="" height="20"> -->
                             </span>
                             <span class="logo-lg">
                             <span style="color: #fff; font-size: 22px; font-weight: 700;">Food Step</span>
-                                <!-- <img src="assets/images/logo-light.png" alt="" height="19"> -->
+                                <!-- <img src="backend/assets/images/logo-light.png" alt="" height="19"> -->
                             </span>
                         </a>
                     </div>
