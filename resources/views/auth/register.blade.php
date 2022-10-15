@@ -137,12 +137,12 @@
 
                                 <div class="mt-4">
                                     <button class="btn btn-primary w-100 waves-effect waves-light"
-                                        type="submit">Register</button>
+                                        type="submit">{{ __('Register') }}</button>
                                 </div>
 
                                 <div class="mt-4 text-center">
-                                    <p class="mb-0">By registering you agree to the Skote <a href="#"
-                                            class="text-primary">Terms of Use</a></p>
+                                    <p class="mb-0">{{ __('messages.agree_to_terms')}}<a href="#"
+                                            class="text-primary">{{ __('messages.terms_cond')}}</a></p>
                                 </div>
                             </form>
                         </div>
@@ -150,7 +150,7 @@
                     </div>
                 </div>
                 <div class="mt-5 text-center">
-                    <p>Already have an account ? 
+                    <p>{{__('messages.already_have_account')}}  
                         <a href="{{ route('login') }}" class="fw-medium text-primary">
                             Login</a> </p>
                     <p>©
