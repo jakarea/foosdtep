@@ -38,7 +38,6 @@
     </header> 
     <!-- :::::: End Header Section ::::::  -->  
 
-
     <div class="main-section">  
         @yield('content') 
     </div>

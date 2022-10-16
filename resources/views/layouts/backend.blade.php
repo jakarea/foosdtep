@@ -11,6 +11,7 @@
         <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.ico') }}">
         <!-- All Header Css -->
         @include('backend.partials.css')
+         
 
     </head>
 
