@@ -9,6 +9,7 @@
     
 <!-- apexcharts -->
     <script src="{{ asset('backend/assets/libs/apexcharts/apexcharts.min.js') }}"></script>
+    
 
 <!-- jquery.vectormap map -->
     <script src="{{ asset('backend/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
@@ -29,6 +30,15 @@
 <!-- Datatable init js -->
     <script src="{{ asset('backend/assets/js/pages/datatables.init.js') }}"></script>
 
+
+    
+<script src="{{ asset('backend/assets/libs/select2/js/select2.min.js') }}"></script> 
+<script src="{{ asset('backend/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ asset('backend/assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js') }}"></script>
+<script src="{{ asset('backend/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
+
+<!-- form advanced init -->
+<script src="{{ asset('backend/assets/js/pages/form-advanced.init.js') }}"></script>
 
     <!-- Notification script -->
     <script>
