@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Auth;
 use Response;
 use Session;
 
@@ -44,12 +45,10 @@ class LoginController extends Controller
 
 
     // Logout redirection
-    public function logout(Request $request)
+    public function logout()
     {
-        $this->guard()->logout();
-
-        $request->session()->invalidate();
-
-        return $this->loggedOut($request) ?: redirect('/login')->with('message','Logout Successfully');
+        Auth::logout();
+        $notification = session()->flash("success", "Logout Success");
+        return redirect('/login')->with($notification);
     }
 }
