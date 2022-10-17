@@ -55,9 +55,13 @@ Route::middleware(['verified'])->group(function () {
         Route::group(['middleware' => 'auth'], function () {
             Route::get('/dashboard', 'App\Http\Controllers\Backend\DashboardController@index')->name('admin.dashboard');
 
-            // Category request
+            // Category management
             Route::group(['prefix' => 'categories'], function() {
                 Route::resource('category', 'App\Http\Controllers\Backend\CategoryController');
+            });
+            // Brand management
+            Route::group(['prefix' => 'brands'], function() {
+                Route::resource('brand', 'App\Http\Controllers\Backend\BrandController');
             });
         });
     });
