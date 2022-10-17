@@ -169,31 +169,35 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
                                                 <a href="product-single-default.html" class="product__img--link">
+<<<<<<< HEAD
                                                     <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/size-normal/product-home-1-img-6.jpg" alt="">
+=======
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-6.webp" alt="">
+>>>>>>> 0c7e9ad3dbac55f5536017cd5eb4d4f6045dce65
                                                 </a>
                                                 <!-- Start Procuct Label -->
-                                                <span class="product__label product__label--sale-dis">-34%</span>
+                                               
                                                 <!-- End Procuct Label -->
                                                 <!-- Start Product Action Link-->
                                                 <ul class="product__action--link pos-absolute">
                                                     <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
-                                                    <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
-                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li>
+                                                    <!-- <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
+                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li> -->
                                                     <li><a href="#modalQuickView" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
                                                 </ul> <!-- End Product Action Link -->
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
                                             <div class="product__content m-t-20">
-                                                <ul class="product__review">
+                                                <!-- <ul class="product__review">
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--blank"><i class="icon-star"></i></li>
-                                                </ul>
+                                                </ul> -->
                                                 <a href="product-single-default.html" class="product__link">Fresh green apple</a>
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">$19.00 <del>$29.00</del></span>
+                                                    <span class="product__price">$19.00 </span>
                                                 </div>
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
@@ -204,31 +208,35 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
                                                 <a href="product-single-default.html" class="product__img--link">
+<<<<<<< HEAD
                                                     <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/size-normal/product-home-1-img-7.jpg" alt="">
+=======
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-7.webp" alt="">
+>>>>>>> 0c7e9ad3dbac55f5536017cd5eb4d4f6045dce65
                                                 </a>
                                                 <!-- Start Procuct Label -->
-                                                <span class="product__label product__label--sale-dis">-34%</span>
+                                                <!-- <span class="product__label product__label--sale-dis">-34%</span> -->
                                                 <!-- End Procuct Label -->
                                                 <!-- Start Product Action Link-->
                                                 <ul class="product__action--link pos-absolute">
                                                     <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
-                                                    <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
-                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li>
+                                                    <!-- <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
+                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li> -->
                                                     <li><a href="#modalQuickView" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
                                                 </ul> <!-- End Product Action Link -->
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
                                             <div class="product__content m-t-20">
-                                                <ul class="product__review">
+                                                <!-- <ul class="product__review">
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--blank"><i class="icon-star"></i></li>
-                                                </ul>
+                                                </ul> -->
                                                 <a href="product-single-default.html" class="product__link">Juice fresh orange</a>
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">$19.00 <del>$29.00</del></span>
+                                                    <span class="product__price">$19.00 </span>
                                                 </div>
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
@@ -239,35 +247,36 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
                                                 <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/size-normal/product-home-1-img-8.jpg" alt="">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-8.webp" alt="">
                                                 </a>
                                                 <!-- Start Procuct Label -->
-                                                <span class="product__label product__label--sale-dis">-35%</span>
+                                                <!-- <span class="product__label product__label--sale-dis">-35%</span> -->
                                                 <!-- End Procuct Label -->
                                                 <!-- Start Product Countdown -->
-                                                <div class="product__counter-box">
+                                                <!-- <div class="product__counter-box">
                                                     <div class="product__counter-item" data-countdown="2021/03/01"></div>
-                                                </div> <!-- End Product Countdown -->
+                                                </div> -->
+                                                 <!-- End Product Countdown -->
                                                 <!-- Start Product Action Link-->
                                                 <ul class="product__action--link pos-absolute">
-                                                    <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
-                                                    <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
+                                                    <!-- <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
+                                                    <li><a href="compare.html"><i class="icon-sliders"></i></a></li> -->
                                                     <li><a href="wishlist.html"><i class="icon-heart"></i></a></li>
                                                     <li><a href="#modalQuickView" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
                                                 </ul> <!-- End Product Action Link -->
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
                                             <div class="product__content m-t-20">
-                                                <ul class="product__review">
+                                                <!-- <ul class="product__review">
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--blank"><i class="icon-star"></i></li>
-                                                </ul>
+                                                </ul> -->
                                                 <a href="product-single-default.html" class="product__link">Best ripe grapes</a>
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">$39.00 <del>$60.00</del></span>
+                                                    <span class="product__price">$39.00 </span>
                                                 </div>
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
@@ -278,7 +287,7 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
                                                 <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-9.jpg" alt="">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-9.webp" alt="">
                                                 </a>
                                                 <!-- Start Procuct Label -->
                                                 <span class="product__label product__label--sale-out">Soldout</span>
@@ -302,7 +311,7 @@
                                                 </ul>
                                                 <a href="product-single-default.html" class="product__link">Cow fresh milk</a>
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">$55.00 <del>$75.00</del></span>
+                                                    <span class="product__price">$55.00 </span>
                                                 </div>
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
@@ -313,7 +322,7 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
                                                 <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-10.jpg" alt="">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-10.webp" alt="">
                                                 </a>
                                                 <!-- Start Procuct Label -->
                                                 <span class="product__label product__label--sale-out">Soldout</span>
@@ -348,10 +357,10 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
                                                 <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-1.jpg" alt="">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-1.webp" alt="">
                                                 </a>
                                                 <!-- Start Procuct Label -->
-                                                <span class="product__label product__label--sale-dis">-34%</span>
+                                                <!-- <span class="product__label product__label--sale-dis">-34%</span> -->
                                                 <!-- End Procuct Label -->
                                                 <!-- Start Product Action Link-->
                                                 <ul class="product__action--link pos-absolute">
@@ -372,7 +381,7 @@
                                                 </ul>
                                                 <a href="product-single-default.html" class="product__link">Fresh green vegetable</a>
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">$19.00 <del>$29.00</del></span>
+                                                    <span class="product__price">$19.00 </span>
                                                 </div>
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
@@ -383,7 +392,7 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
                                                 <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-2.jpg" alt="">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-2.webp" alt="">
                                                 </a>
                                                 <!-- Start Product Action Link-->
                                                 <ul class="product__action--link pos-absolute">
@@ -415,10 +424,10 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
                                                 <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-3.jpg" alt="">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-3.webp" alt="">
                                                 </a>
                                                 <!-- Start Procuct Label -->
-                                                <span class="product__label product__label--sale-dis">-10%</span>
+                                                <!-- <span class="product__label product__label--sale-dis">-10%</span> -->
                                                 <!-- End Procuct Label -->
                                                 <!-- Start Product Countdown -->
                                                 <div class="product__counter-box">
@@ -443,7 +452,7 @@
                                                 </ul>
                                                 <a href="product-single-default.html" class="product__link">Fresh pomegranate</a>
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">$19.00 <del>$21.00</del></span>
+                                                    <span class="product__price">$19.00 </span>
                                                 </div>
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
@@ -454,7 +463,7 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
                                                 <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-4.jpg" alt="">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-4.webp" alt="">
                                                 </a>
                                                 <!-- Start Product Action Link-->
                                                 <ul class="product__action--link pos-absolute">
@@ -490,7 +499,7 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative text-center">
                                                 <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-5.jpg" alt="">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-5.webp" alt="">
                                                 </a>
                                                 <!-- Start Procuct Label -->
                                                     <span class="product__label product__label--sale-dis">-31%</span>
@@ -530,7 +539,7 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative text-center">
                                                 <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-8.jpg" alt="">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-8.webp" alt="">
                                                 </a>
                                                  <!-- Start Procuct Label -->
                                                  <span class="product__label product__label--sale-dis">-35%</span>
@@ -574,7 +583,7 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative text-center">
                                                 <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-4.jpg" alt="">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-4.webp" alt="">
                                                 </a>
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
@@ -611,7 +620,7 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative text-center">
                                                 <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-9.jpg" alt="">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-9.webp" alt="">
                                                 </a>
                                                  <!-- Start Procuct Label -->
                                                  <span class="product__label product__label--sale-out">Soldout</span>

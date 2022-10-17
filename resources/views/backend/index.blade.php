@@ -209,3 +209,9 @@
 </div>
 <!-- end row -->
 @endsection
+
+@section('script')
+<script src="{{ asset('backend/assets/js/pages/dashboard.init.js') }}"></script>
+<!-- apexcharts -->
+<script src="{{ asset('backend/assets/libs/apexcharts/apexcharts.min.js') }}"></script>
+@endsection

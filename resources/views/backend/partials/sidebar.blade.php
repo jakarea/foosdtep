@@ -16,15 +16,15 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title">Menu</li>
 
-                <li>
-                    <a href="index.html" class="waves-effect">
+                <li class="@if( Route::currentRouteNamed('admin.dashboard')) mm-active @endif">
+                    <a href="{{ route('admin.dashboard') }}" class="waves-effect-@if( Route::currentRouteNamed('admin.dashboard')) active @endif">
                         <i class="mdi mdi-airplay"></i>
                         <span>Dashboard</span>
                     </a> 
                 </li>
 
-                <li>
-                    <a href="categories.html" class="waves-effect">
+                <li class="@if( Route::currentRouteNamed('category.index')) mm-active @endif">
+                    <a href="{{ route('category.index') }}" class="waves-effect-@if( Route::currentRouteNamed('category.index')) active @endif">
                         <i class="mdi mdi-newspaper"></i>
                         <span>Categories</span>
                     </a>
