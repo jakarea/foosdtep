@@ -16,4 +16,22 @@ class Category extends Model
         'image',
         'status',
     ];
+
+    // Parent Category
+    public function parent()
+    {
+       return $this->hasOne(Category::class, 'parent_cat','id');
+    }
+
+    // Sub Parent Category
+    public function children()
+    {
+       return $this->hasMany(Category::class, 'parent_cat');
+    }
+
+    // Parent Name
+    public function parentName() 
+    {
+        return $this->belongsTo(Category::class, 'parent_cat');
+    }
 }

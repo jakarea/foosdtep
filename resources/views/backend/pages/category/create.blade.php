@@ -25,18 +25,15 @@
                         <div class="col-lg-5">
                             <div class="mb-3">
                                 <label class="form-label">Parent Category</label>
-                                <div>
-                                    <select name="parent_cat" id="" class="form-select @error('parent_cat') is-invalid @enderror" aria-label="Default select example">
-                                        <option value="">Select Below</option>
-                                        <option value="">Parent One</option>
-                                        <option value="">Parent Two</option>
-                                        <option value="">Parent Three</option>
-                                        <option value="">Parent Four</option>
-                                        <option value="">Parent Five</option>
-                                        <option value="">Parent Six</option>
-                                        <option value="">Parent Seven</option>
-                                    </select> 
-                                </div>
+                                <select name="parent_cat" id="" class="form-select @error('parent_cat') is-invalid @enderror" aria-label="Default select example">
+                                    <option selected disabled>Select Below</option>
+                                    @foreach($categoies as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @foreach($category->children as $subcategory)
+                                        <option value="{{ $subcategory->id }}">-{{ $subcategory->name }}</option>
+                                    @endforeach
+                                    @endforeach
+                                </select> 
                             </div>
                         </div>
                         <div class="col-lg-7    ">

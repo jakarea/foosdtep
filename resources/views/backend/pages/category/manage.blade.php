@@ -42,6 +42,8 @@
                                 <td valign="middle">
                                     @if( $data->parent_cat == 0 )
                                         <span class="text-success">Primary</span>
+                                    @else
+                                        <span class="text-dark">{{ $data->parentName->name }}</span>
                                     @endif
                                 </td>
                                 <td valign="middle">

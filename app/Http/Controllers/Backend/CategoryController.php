@@ -32,7 +32,8 @@ class CategoryController extends Controller
     public function create()
     {
         //
-        return view('backend/pages/category/create');
+        $categoies = Category::where('parent_cat',0)->get();
+        return view('backend/pages/category/create', compact('categoies'));
 
     }
 
@@ -56,7 +57,7 @@ class CategoryController extends Controller
         $category->name        =   $request->name;
         $category->slug        =   Str::slug($category->name);
         $category->status      =   $request->status;
-
+        $category->parent_cat  =   empty($request['parent_cat']) ? 0 : $request['parent_cat'];
         $image = $request->file('image');
             if( !is_null($image) ){
                 // Delete Existing Image
@@ -99,8 +100,9 @@ class CategoryController extends Controller
     public function edit($slug)
     {
         //
+        $categories = Category::where('parent_cat',0)->get();
         $category = Category::where('slug', $slug)->first();
-        return view('backend/pages/category/edit', compact('category'));
+        return view('backend/pages/category/edit', compact('category', 'categories'));
 
     }
 
@@ -114,12 +116,6 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $request->validate([
-            'name'      =>  ['required', 'string', 'unique:categories,name', 'max:255'. $id],
-            'status'    =>  ['required', 'not_in:0'],
-            // 'image'     =>  ['required', 'mimes:jpg,jpeg,png,gif|max:1024'],
-        ]);
-
         $category = Category::find($id);
 
         $category->name        =   $request->name;
@@ -157,6 +153,15 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+        $subcat = Category::where('parent_cat', $id)->get();
+        if(!empty($subcat)) {
+            foreach($subcat as $cat) {
+                if( File::exists('backend/assets/images/category/' . $cat->image) ) {
+                    File::delete('backend/assets/images/category/' . $cat->image);
+                }
+                $cat->delete();
+            }
+        }
 
         $delete = Category::where('id', $id)->delete();
 
