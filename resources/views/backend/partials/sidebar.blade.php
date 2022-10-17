@@ -29,6 +29,12 @@
                         <span>Categories</span>
                     </a>
                 </li>
+                <li class="@if( Route::currentRouteNamed('brand.index')) mm-active @endif">
+                    <a href="{{ route('brand.index') }}" class="waves-effect-@if( Route::currentRouteNamed('brand.index')) active @endif">
+                        <i class="mdi mdi-newspaper"></i>
+                        <span>Brand</span>
+                    </a>
+                </li>
 
                 <li>
                     <a href="discount.html" class="waves-effect">
