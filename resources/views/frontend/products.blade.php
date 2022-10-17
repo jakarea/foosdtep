@@ -122,6 +122,9 @@
 
                 <!-- Start Rightside - Product Type View -->
                 <div class="col-lg-9"> 
+                <div class="img-responsive">
+                        <img src="https://template.hasthemes.com/gsore/gsore/assets/img/banner/size-wide/banner-shop-1-img-1-wide.jpg" alt="">
+                    </div>
                     <!-- ::::::  Start Sort Box Section  ::::::  -->
                     <div class="sort-box m-tb-40">
                         <!-- Start Sort Left Side -->
@@ -166,7 +169,7 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
                                                 <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-6.jpg" alt="">
+                                                    <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/size-normal/product-home-1-img-6.jpg" alt="">
                                                 </a>
                                                 <!-- Start Procuct Label -->
                                                 <span class="product__label product__label--sale-dis">-34%</span>
@@ -201,7 +204,7 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
                                                 <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-7.jpg" alt="">
+                                                    <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/size-normal/product-home-1-img-7.jpg" alt="">
                                                 </a>
                                                 <!-- Start Procuct Label -->
                                                 <span class="product__label product__label--sale-dis">-34%</span>
@@ -236,7 +239,7 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
                                                 <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-8.jpg" alt="">
+                                                    <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/size-normal/product-home-1-img-8.jpg" alt="">
                                                 </a>
                                                 <!-- Start Procuct Label -->
                                                 <span class="product__label product__label--sale-dis">-35%</span>
