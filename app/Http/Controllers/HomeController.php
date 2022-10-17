@@ -34,4 +34,8 @@ class HomeController extends Controller
     {
         return view('frontend/products');
     }
+    public function products_view()
+    {
+        return view('frontend/products-view');
+    }
 }
