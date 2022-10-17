@@ -79,4 +79,10 @@ Route::controller(BackendDesignController::class)->group(function () {
     Route::get('static/discount/add', 'discount_add')->name('dashboard.discount.add');
     Route::get('static/discount/view', 'discount_view')->name('dashboard.discount.view');
     Route::get('static/discount/edit', 'discount_edit')->name('dashboard.discount.edit');
+
+    // invoice route start
+    Route::get('static/invoice', 'invoice')->name('dashboard.invoice');
+
+    // order route start
+    Route::get('static/orders', 'orders')->name('dashboard.orders');
 });

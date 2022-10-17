@@ -169,11 +169,7 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
                                                 <a href="product-single-default.html" class="product__img--link">
-<<<<<<< HEAD
-                                                    <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/size-normal/product-home-1-img-6.jpg" alt="">
-=======
                                                     <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-6.webp" alt="">
->>>>>>> 0c7e9ad3dbac55f5536017cd5eb4d4f6045dce65
                                                 </a>
                                                 <!-- Start Procuct Label -->
                                                
@@ -208,11 +204,7 @@
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
                                                 <a href="product-single-default.html" class="product__img--link">
-<<<<<<< HEAD
-                                                    <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/size-normal/product-home-1-img-7.jpg" alt="">
-=======
                                                     <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-7.webp" alt="">
->>>>>>> 0c7e9ad3dbac55f5536017cd5eb4d4f6045dce65
                                                 </a>
                                                 <!-- Start Procuct Label -->
                                                 <!-- <span class="product__label product__label--sale-dis">-34%</span> -->

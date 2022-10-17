@@ -41,4 +41,12 @@ return [
     'discount_users' => 'Discount Users',
     'edit_discount' => 'Edit Discount',
     'discount_view' => 'Discount View',
+    'billed_to' => 'Billed To:',
+    'shipped_to' => 'Shipped To:',
+    'payment_method' => 'Payment Method:',
+    'order_date' => 'Order Date:',
+    'order_summary' => 'Order Summary:',
+    'send' => 'Send',
+    'orders_list' => 'Orders List',
+    'discount_single_view' => 'Discount Single View',
 ];
