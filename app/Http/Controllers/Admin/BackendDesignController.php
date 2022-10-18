@@ -57,4 +57,14 @@ class BackendDesignController extends Controller
         return view('backend/static-blade/orders');
     }
 
+    // products pages method
+    public function products()
+    {
+        return view('backend/static-blade/products');
+    }
+    public function products_add()
+    {
+        return view('backend/static-blade/products-add');
+    }
+
 }

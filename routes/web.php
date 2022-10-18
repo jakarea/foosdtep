@@ -90,4 +90,8 @@ Route::controller(BackendDesignController::class)->group(function () {
 
     // order route start
     Route::get('static/orders', 'orders')->name('dashboard.orders');
+
+    // product route start
+    Route::get('static/products', 'products')->name('dashboard.products');
+    Route::get('static/products/add', 'products_add')->name('dashboard.products.add');
 });

@@ -140,21 +140,30 @@
                                 <td>123-xdc-ert-rvc</td> 
                                 <td>$ 125</td> 
                                 <td><span class="badge badge-soft-success font-size-12">Complet</span> </td>
-                                <td><a href="#" class="btn btn-primary btn-sm">Details</a></td>
+                                <td>
+                                    <a href="#" class="btn btn-primary btn-sm">Details</a>
+                                    <a href="#" class="btn btn-success btn-sm">Reorder</a>
+                                </td>
                             </tr>
                             <tr>
                                 <td>1</td>
                                 <td>123-xdc-ert-rvc</td> 
                                 <td>$ 125</td> 
                                 <td><span class="badge badge-soft-danger font-size-12">Cancled</span></td>
-                                <td><a href="#" class="btn btn-primary btn-sm">Details</a></td>
+                                <td>
+                                    <a href="#" class="btn btn-primary btn-sm">Details</a>
+                                <a href="#" class="btn btn-success btn-sm">Reorder</a>
+                            </td>
                             </tr>
                             <tr>
                                 <td>1</td>
                                 <td>123-xdc-ert-rvc</td> 
                                 <td>$ 125</td> 
                                 <td><span class="badge badge-soft-warning font-size-12">Pending</span></td>
-                                <td><a href="#" class="btn btn-primary btn-sm">Details</a></td>
+                                <td>
+                                    <a href="#" class="btn btn-primary btn-sm">Details</a>
+                                    <a href="#" class="btn btn-success btn-sm">Reorder</a>
+                                </td>
                             </tr>
                             
                         </tbody>

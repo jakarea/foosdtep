@@ -20,7 +20,11 @@
 <!-- Responsive examples -->
 <script src="{{ asset('backend/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('backend/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
- 
+ <!--tinymce js-->
+<script src="{{ asset('backend/assets/libs/tinymce/tinymce.min.js') }}"></script>
+
+<!-- init js -->
+<script src="{{ asset('backend/assets/js/pages/form-editor.init.js') }}"></script>
     
 
     <!-- Sweetalert -->
