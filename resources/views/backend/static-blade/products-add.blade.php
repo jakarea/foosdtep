@@ -13,7 +13,7 @@
 
                 <form class="custom-validation" action="#">  
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-7">
                             <div class="mb-3">
                                 <label class="form-label">Product Name</label>
                                 <div>
@@ -29,38 +29,61 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-lg-2">
                             <div class="mb-3">
-                                <label class="form-label">Weight</label>
+                                <label class="form-label">{{ __('messages.status') }}</label>
                                 <div>
-                                    <input type="password" class="form-control" placeholder="Enter Weight">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="mb-3">
-                                <label class="form-label">Materials</label>
-                                <div>
-                                    <input type="text" class="form-control" placeholder="Enter Materials">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="mb-3">
-                                <label class="form-label">Dimensions</label>
-                                <div>
-                                    <input type="text" class="form-control" placeholder="Enter Dimensions">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="mb-3">
-                                <label class="form-label">Product Quantity</label>
-                                <div>
-                                    <input type="Text" placeholder="Enter Quantity" class="form-control">
+                                <select name="" id="" class="form-select" aria-label="Default select example">
+                                        <option value="">{{ __('messages.active') }}</option>
+                                        <option value="">{{ __('messages.inactive') }}</option>
+                                    </select>
                                 </div>
                             </div>
                         </div> 
+                        <div class="col-lg-12">
+                            <div class="mb-3">
+                                <label class="form-label">Category</label>
+                                <div class="d-flex">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="cat">
+                                        <label class="form-check-label" for="cat">
+                                            Cat 1
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="cat2">
+                                        <label class="form-check-label" for="cat2">
+                                        Cat 2
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="cat3">
+                                        <label class="form-check-label" for="cat3">
+                                        Cat 3
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="cat4">
+                                        <label class="form-check-label" for="cat4">
+                                        Cat 4
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="cat5">
+                                        <label class="form-check-label" for="cat5">
+                                        Cat 5
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="cat6">
+                                        <label class="form-check-label" for="cat6">
+                                        Cat 6
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        
                         
                         
                         <div class="col-lg-4">
@@ -79,21 +102,142 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2">
+                        
+                        <div class="col-lg-12">
                             <div class="mb-3">
-                                <label class="form-label">{{ __('messages.status') }}</label>
-                                <div>
-                                <select name="" id="" class="form-select" aria-label="Default select example">
-                                        <option value="">{{ __('messages.active') }}</option>
-                                        <option value="">{{ __('messages.inactive') }}</option>
-                                    </select>
+                                <label class="form-label">brand</label>
+                                <div class="d-flex">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="brand">
+                                        <label class="form-check-label" for="brand">
+                                            Product Group
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="brand2">
+                                        <label class="form-check-label" for="brand2">
+                                            Brand
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="brand3">
+                                        <label class="form-check-label" for="brand3">
+                                            Line
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="brand4">
+                                        <label class="form-check-label" for="brand4">
+                                            Faith
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="brand5">
+                                        <label class="form-check-label" for="brand5">
+                                            Allergens &amp; Diet Preference
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="brand6">
+                                        <label class="form-check-label" for="brand6">
+                                            Content
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div> 
+                        
                         <div class="col-lg-12">
                             <div class="mb-3">
-                                <label class="form-label">Attributes</label>
-                               
+                                <label class="form-label">Line</label>
+                                <div class="d-flex">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="line">
+                                        <label class="form-check-label" for="line">
+                                            Product Group
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="line2">
+                                        <label class="form-check-label" for="line2">
+                                            line
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="line3">
+                                        <label class="form-check-label" for="line3">
+                                            Line
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="line4">
+                                        <label class="form-check-label" for="line4">
+                                            Faith
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="line5">
+                                        <label class="form-check-label" for="line5">
+                                            Allergens &amp; Diet Preference
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="line6">
+                                        <label class="form-check-label" for="line6">
+                                            Content
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="col-lg-12">
+                            <div class="mb-3">
+                                <label class="form-label">Faith</label>
+                                <div class="d-flex">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="faith">
+                                        <label class="form-check-label" for="faith">
+                                            Product Group
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="faith2">
+                                        <label class="form-check-label" for="faith2">
+                                            faith
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="faith3">
+                                        <label class="form-check-label" for="faith3">
+                                            faith
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="faith4">
+                                        <label class="form-check-label" for="faith4">
+                                            Faith
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="faith5">
+                                        <label class="form-check-label" for="faith5">
+                                            Allergens &amp; Diet Preference
+                                        </label>
+                                    </div>
+                                    <div class="form-check ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="faith6">
+                                        <label class="form-check-label" for="faith6">
+                                            Content
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="col-lg-12">
+                            <div class="mb-3">
+                                <label class="form-label">brand</label>
                                 <div class="d-flex">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -134,13 +278,23 @@
                                 </div>
                             </div>
                         </div> 
-                        
                         <div class="col-lg-12">
                             <div class="mb-3">
                                 <label class="form-label">Product Details</label>
                                 <div> 
                                 <form method="post">
-                                    <textarea id="elm1" name="area"></textarea>
+                                    <textarea id="elm1" name="description"></textarea>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="mb-3">
+                                <label class="form-label">Specifications</label>
+                                <div> 
+                                <form method="post">
+                                    <textarea id="elm2" name="specification"></textarea>
                                 </form>
                                 </div>
                             </div>
