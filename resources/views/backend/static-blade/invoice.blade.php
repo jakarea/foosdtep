@@ -101,6 +101,8 @@
                 </div>
                 <div class="d-print-none">
                     <div class="float-end">
+                        <a href="{{ url('static/orders')}}"
+                            class="btn btn-secondary waves-effect waves-light">Reorder </a>
                         <a href="javascript:window.print()"
                             class="btn btn-success waves-effect waves-light"><i
                                 class="fa fa-print"></i></a>
