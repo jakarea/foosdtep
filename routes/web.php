@@ -82,6 +82,10 @@ Route::middleware(['verified'])->group(function () {
             Route::group(['prefix' => 'AllergensDPs'], function() {
                 Route::resource('AllergensDP', 'App\Http\Controllers\Backend\AllergensDPController');
             });
+            // Manage User
+            Route::group(['prefix' => 'users'], function() {
+                Route::resource('user', 'App\Http\Controllers\Backend\UserController');
+            });
         });
     });
 });
