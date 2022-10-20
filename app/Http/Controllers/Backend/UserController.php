@@ -48,10 +48,13 @@ class UserController extends Controller
         $request->validate([
             'name'          =>  ['required', 'string', 'unique:users,name', 'max:255'],
             'email'         =>  ['required', 'email', 'unique:users,email', 'max:255'],
-            'password'      =>  ['required', 'string', 'min:6','regex:/[a-z]/','regex:/[A-Z]/','regex:/[0-9]/','regex:/[@$!%*#?&]/'],
-            'phone'         =>  ['required', 'regex:/(01)[0-9]{9}/', 'min:6'],
+            'password'      =>  ['required', 'string', 'min:6'],
+            'phone'         =>  ['required', 'min:6'],
+            'homeaddress'   =>  ['required', 'max:255'],
+            // 'password'      =>  ['required', 'string', 'min:6','regex:/[a-z]/','regex:/[A-Z]/','regex:/[0-9]/','regex:/[@$!%*#?&]/'],
+            // 'phone'         =>  ['required', 'regex:/(01)[0-9]{9}/', 'min:6'],
             'status'        =>  ['required'],
-            // 'file'          =>  ['required', 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'],
+            'file'          =>  ['image|mimes:jpeg,png,jpg,gif,svg|max:2048'],
         ]);
 
         $user = new User;
@@ -88,7 +91,6 @@ class UserController extends Controller
 
         return redirect()->route('user.index')->with($notification);
 
-        
     }
 
     /**

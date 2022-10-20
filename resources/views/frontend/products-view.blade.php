@@ -130,7 +130,7 @@
                 <div class="section-content section-content--border m-b-35">
                     <h5 class="section-content__title">Related Product
                     </h5>
-                    <a href="shop-sidebar-grid-left.html" class="btn btn--icon-left btn--small btn--radius btn--transparent btn--border-green btn--border-green-hover-green font--regular text-capitalize">More Products<i class="fal fa-angle-right"></i></a>
+                    <a href="{{url('/')}}" class="btn btn--icon-left btn--small btn--radius btn--transparent btn--border-green btn--border-green-hover-green font--regular text-capitalize">More Products<i class="fal fa-angle-right"></i></a>
                 </div>  <!-- End Section Title -->
             </div>
         </div>

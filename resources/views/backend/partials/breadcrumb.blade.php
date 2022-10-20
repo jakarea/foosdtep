@@ -6,7 +6,7 @@
 
             <div class="page-title-right">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item active">Welcome to Qovex Dashboard</li>
+                    <li class="breadcrumb-item active">Welcome to FoodStep Dashboard</li>
                 </ol>
             </div>
 

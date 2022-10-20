@@ -107,11 +107,11 @@
                                 <li>
                                     <a href="#">Shop Layout</a>
                                     <ul class="sub-menu">
-                                        <li><a href="shop-sidebar-grid-left.html">Grid Left Sidebar</a></li>
-                                        <li><a href="shop-sidebar-grid-right.html">Grid Right Sidebar</a></li>
-                                        <li><a href="shop-sidebar-full-width.html">Full Width</a></li>
-                                        <li><a href="shop-sidebar-left-list-view.html">List Left Sidebar</a></li>
-                                        <li><a href="shop-sidebar-right-list-view.html">List Right Sidebar</a></li>
+                                        <li><a href="{{url('/')}}">Grid Left Sidebar</a></li>
+                                        <li><a href="{{url('/')}}">Grid Right Sidebar</a></li>
+                                        <li><a href="{{url('/')}}">Full Width</a></li>
+                                        <li><a href="{{url('/')}}">List Left Sidebar</a></li>
+                                        <li><a href="{{url('/')}}">List Right Sidebar</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -119,13 +119,13 @@
                                 <li>
                                     <a href="#">Shop Pages</a>
                                     <ul class="sub-menu">
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="compare.html">Compare</a></li>
-                                        <li><a href="empty-cart.html">Empty Cart</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                        <li><a href="my-account.html">My Account</a></li>
-                                        <li><a href="login.html">Login</a></li>
+                                        <li><a href="{{url('/')}}">Cart</a></li>
+                                        <li><a href="#">Checkout</a></li>
+                                        <li><a href="#">Compare</a></li>
+                                        <li><a href="#">Empty Cart</a></li>
+                                        <li><a href="#">Wishlist</a></li>
+                                        <li><a href="#">My Account</a></li>
+                                        <li><a href="#">Login</a></li>
                                                         
                                     </ul>
                                 </li>
@@ -134,10 +134,10 @@
                                 <li>
                                     <a href="#">Product Single</a>
                                     <ul class="sub-menu">
-                                        <li><a href="product-single-default.html">Simple</a></li>
-                                        <li><a href="product-single-affiliate.html">Affiliate</a></li>
-                                        <li><a href="product-single-group.html">Grouped</a></li>
-                                        <li><a href="product-single-variable.html">Variable</a></li>
+                                        <li><a href="#">Simple</a></li>
+                                        <li><a href="#">Affiliate</a></li>
+                                        <li><a href="{{url('/')}}">Grouped</a></li>
+                                        <li><a href="{{url('/')}}">Variable</a></li>
                                         <li><a href="product-single-tab-left.html">Left Tab</a></li>
                                         <li><a href="product-single-tab-right.html">Right Tab</a></li>
                                         <li><a href="product-single-slider.html">Single Slider</a></li>
@@ -209,11 +209,11 @@
                 <li class="offcanvas-add-cart__list pos-relative d-flex align-items-center justify-content-between ">
                     <div class="offcanvas-add-cart__content d-flex align-items-start m-r-10">
                         <div class="offcanvas-add-cart__img-box pos-relative">
-                            <a href="product-single-default.html" class="offcanvas-add-cart__img-link img-responsive"><img src="assets/img/product/size-small/product-home-1-img-1.jpg" alt="" class="add-cart__img"></a>
+                            <a href="#" class="offcanvas-add-cart__img-link img-responsive"><img src="assets/img/product/size-small/product-home-1-img-1.jpg" alt="" class="add-cart__img"></a>
                             <span class="offcanvas-add-cart__item-count pos-absolute">2x</span>
                         </div>
                         <div class="offcanvas-add-cart__detail">
-                            <a href="product-single-default.html" class="offcanvas-add-cart__link">Lucky Wooden Elephant</a>
+                            <a href="#" class="offcanvas-add-cart__link">Lucky Wooden Elephant</a>
                             <span class="offcanvas-add-cart__price">$29.00</span>
                             <span class="offcanvas-add-cart__info">Dimension: 40x60cm</span>
                         </div>
@@ -224,11 +224,11 @@
                 <li class="offcanvas-add-cart__list pos-relative d-flex align-items-center justify-content-between">
                     <div class="offcanvas-add-cart__content d-flex  align-items-start m-r-10">
                         <div class="offcanvas-add-cart__img-box pos-relative">
-                            <a href="product-single-default.html" class="offcanvas-add-cart__img-link img-responsive"><img src="assets/img/product/size-small/product-home-1-img-2.jpg" alt="" class="add-cart__img"></a>
+                            <a href="#" class="offcanvas-add-cart__img-link img-responsive"><img src="assets/img/product/size-small/product-home-1-img-2.jpg" alt="" class="add-cart__img"></a>
                             <span class="offcanvas-add-cart__item-count pos-absolute">2x</span>
                         </div>
                         <div class="offcanvas-add-cart__detail">
-                            <a href="product-single-default.html" class="offcanvas-add-cart__link">Lucky Wooden Elephant</a>
+                            <a href="#" class="offcanvas-add-cart__link">Lucky Wooden Elephant</a>
                             <span class="offcanvas-add-cart__price">$29.00</span>
                             <span class="offcanvas-add-cart__info">Dimension: 40x60cm</span>
                         </div>

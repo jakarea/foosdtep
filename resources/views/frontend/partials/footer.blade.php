@@ -88,7 +88,7 @@
                     <div class="col-lg-8 col-md-6 col-12">
                         <!-- Start Footer Copyright Text -->
                         <div class="footer__copyright-text">
-                            <p>Copyright &copy; <a href="https://giopio.com/">Giopio</a>. All Rights Reserved</p>
+                            <p>Copyright &copy; <a href="#">FoodStep</a>. All Rights Reserved</p>
                         </div> <!-- End Footer Copyright Text -->
                     </div>
                     <div class="col-lg-4 col-md-6 col-12">
