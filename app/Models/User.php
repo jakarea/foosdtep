@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Role;
+use App\Models\UserRole;
 
 class User extends Authenticatable {
     use HasApiTokens, HasFactory, Notifiable;
@@ -18,6 +20,11 @@ class User extends Authenticatable {
     protected $fillable = [
         'name',
         'email',
+        'phone',
+        'address',
+        'bio',
+        'avater',
+        'status',
         'password',
     ];
 
@@ -42,6 +49,12 @@ class User extends Authenticatable {
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function Userrole()
+    {
+        return $this->belongsToMany(Role::class, 'user_roles', 'user_id', 'role_id');
+    }
 
     public function roles() {
         return $this->belongsToMany(Role::class, 'user_roles');

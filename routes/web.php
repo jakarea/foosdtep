@@ -55,9 +55,37 @@ Route::middleware(['verified'])->group(function () {
         Route::group(['middleware' => 'auth'], function () {
             Route::get('/dashboard', 'App\Http\Controllers\Backend\DashboardController@index')->name('admin.dashboard');
 
-            // Category request
+            // Category management
             Route::group(['prefix' => 'categories'], function() {
                 Route::resource('category', 'App\Http\Controllers\Backend\CategoryController');
+            });
+            // Brand management
+            Route::group(['prefix' => 'brands'], function() {
+                Route::resource('brand', 'App\Http\Controllers\Backend\BrandController');
+            });
+            // Product Group management
+            Route::group(['prefix' => 'productsgrpup'], function() {
+                Route::resource('productgroup', 'App\Http\Controllers\Backend\ProductGroupController');
+            });
+            // Faith management
+            Route::group(['prefix' => 'faiths'], function() {
+                Route::resource('faith', 'App\Http\Controllers\Backend\FaithController');
+            });
+            // Line management
+            Route::group(['prefix' => 'lines'], function() {
+                Route::resource('line', 'App\Http\Controllers\Backend\LineController');
+            });
+            // Content management
+            Route::group(['prefix' => 'contents'], function() {
+                Route::resource('content', 'App\Http\Controllers\Backend\ContentController');
+            });
+            // AllergensDP management
+            Route::group(['prefix' => 'AllergensDPs'], function() {
+                Route::resource('AllergensDP', 'App\Http\Controllers\Backend\AllergensDPController');
+            });
+            // Manage User
+            Route::group(['prefix' => 'users'], function() {
+                Route::resource('user', 'App\Http\Controllers\Backend\UserController');
             });
         });
     });
