@@ -73,8 +73,8 @@
                             <a href="{{ route('register') }}"
                                 class="fw-medium text-primary"> {{ __('singup_now')}} </a> </p>
                         <p>©
-                            <script>document.write(new Date().getFullYear())</script> Qovex. Crafted with <i
-                                class="mdi mdi-heart text-danger"></i> by Themesbrand
+                            <script>document.write(new Date().getFullYear())</script> FoodStep. Crafted with <i
+                                class="mdi mdi-heart text-danger"></i>
                         </p>
                     </div>
 
