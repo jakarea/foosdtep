@@ -3,6 +3,17 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-lg-12">
+
+    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between mb-4">
@@ -96,7 +107,12 @@
                             <div class="mb-3"> 
                                 <label class="form-label">{{ __('messages.preview') }}</label>
                                 <div>
-                                    <img alt="User" src="{{ asset('frontend/assets/img/user/'. $user->avater) }}" style="width: 40px; border-radius: 4px;" class="img-fluid" id="image">
+                                    @if( $user->avater != null )
+                                        <img src="{{ asset('frontend/assets/img/user/'. $user->avater) }}" alt="" class="avatar-md"  style="width: 40px; border-radius: 4px;" class="img-fluid" id="image">
+                                    @else
+                                
+                                        <img src="{{asset('backend/assets/img/user/default.jpg')}}" alt="" class="avatar-md" style="width: 68px; border-radius: 4px;" class="img-fluid" id="image">
+                                    @endif  
                                 </div>
                             </div>
                         </div>

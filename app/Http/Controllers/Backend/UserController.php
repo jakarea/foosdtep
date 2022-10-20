@@ -136,9 +136,9 @@ class UserController extends Controller
         $request->validate([
             'name'          =>  ['required', 'string', 'max:255'],
             'email'         =>  ['required', 'email', 'max:255'],
-            'phone'         =>  ['required', 'regex:/(01)[0-9]{9}/', 'min:6'],
+            'phone'         =>  ['required', 'min:6'],
             'status'        =>  ['required'],
-            // 'file'          =>  ['required', 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'],
+            'file'          =>  ['required', 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'],
         ]);
 
         $user = User::find($id);

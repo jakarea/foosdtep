@@ -64,7 +64,7 @@ Route::controller(HomeController::class)->group(function () {
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+Auth::routes(); 
 
 Route::middleware(['verified'])->group(function () {
     Route::group(['prefix' => 'auth'], function(){
@@ -138,4 +138,4 @@ Route::controller(BackendDesignController::class)->group(function () {
     // product static route start
     Route::get('static/products', 'products')->name('dashboard.products');
     Route::get('static/products/add', 'products_add')->name('dashboard.products.add');
-});
+}); 
