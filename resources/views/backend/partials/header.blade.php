@@ -125,14 +125,21 @@
                 <div class="dropdown d-inline-block">
                     <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle header-profile-user" src="{{asset('backend/assets/img/user/default.jpg')}}"
+
+                        @if( \Auth::user()->avater != null )
+                            <img src="{{ asset('frontend/assets/img/user/'. \Auth::user()->avater) }}" alt="" class="rounded-circle header-profile-user">
+                        @else
+                            <img class="rounded-circle header-profile-user" src="{{asset('backend/assets/img/user/default.jpg')}}"
                             alt="Header Avatar">
+                        @endif
+
+                        
                         <span class="d-none d-xl-inline-block ms-1">{{ auth()->user()->name }}</span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
-                        <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i>
+                        <a class="dropdown-item" href="{{ route('user.show', \Auth::user()->id) }}"><i class="bx bx-user font-size-16 align-middle me-1"></i>
                             Profile</a> 
                         <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i
                                 class="bx bx-wrench font-size-16 align-middle me-1"></i> Settings</a> 
