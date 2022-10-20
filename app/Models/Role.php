@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Role extends Model {
     use HasFactory;
@@ -18,7 +19,7 @@ class Role extends Model {
         'updated_at',
     ];
 
-    public function users() {
-        return $this->belongsToMany(User::class, 'user_roles');
+    public function rolename() {
+        return $this->belongsToMany(Role::class, 'user_roles', 'user_id', 'role_id');
     }
 }

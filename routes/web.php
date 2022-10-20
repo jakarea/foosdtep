@@ -86,6 +86,10 @@ Route::middleware(['verified'])->group(function () {
             Route::group(['prefix' => 'users'], function() {
                 Route::resource('user', 'App\Http\Controllers\Backend\UserController');
             });
+            // Manage Discount
+            Route::group(['prefix' => 'discounts'], function() {
+                Route::resource('discount', 'App\Http\Controllers\Backend\DiscountController');
+            });
         });
     });
 });

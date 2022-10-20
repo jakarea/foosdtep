@@ -3,11 +3,17 @@
     <div class="h-100">
         <div class="user-wid text-center py-4">
             <div class="user-img">
+                @if( \Auth::user()->avater != null )
+                <img src="{{ asset('frontend/assets/img/user/'. \Auth::user()->avater) }}" alt="" class="avatar-md mx-auto rounded-circle">
+                @else
                 <img src="{{ asset('backend/assets/images/users/avatar-2.jpg') }}" alt="" class="avatar-md mx-auto rounded-circle">
+                @endif
             </div>
             <div class="mt-3">
                 <a href="#" class="text-dark fw-medium font-size-16">{{ auth()->user()->name }}</a>
-                <p class="text-body mt-1 mb-0 font-size-13">Web Developer</p>
+                <p class="text-body mt-1 mb-0 font-size-13">
+                    {{ auth()->user()->roles['0']->name }}
+                </p>
             </div>
         </div>
         <!--- Sidemenu -->
@@ -96,7 +102,7 @@
                 </li>
 
                 <li>
-                    <a href="discount.html" class="waves-effect">
+                    <a href="{{ route('discount.index') }}" class="waves-effect">
                         <i class="fab fa-dochub"></i>
                         <span>Discount</span>
                     </a>
