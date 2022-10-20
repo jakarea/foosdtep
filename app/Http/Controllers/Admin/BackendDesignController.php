@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class BackendDesignController extends Controller
 {
+    // user pages method
     public function users()
     {
         return view('backend/static-blade/users');
@@ -24,7 +25,7 @@ class BackendDesignController extends Controller
         return view('backend/static-blade/user-profile');
     }
 
-    // discount page methods
+    // discount pages methods
 
     public function discount()
     {
@@ -41,6 +42,29 @@ class BackendDesignController extends Controller
     public function discount_edit()
     {
         return view('backend/static-blade/discount-edit');
+    }
+
+    // invoice pages method
+    public function invoice()
+    {
+        return view('backend/static-blade/invoice');
+    }
+
+    
+    // orders pages method
+    public function orders()
+    {
+        return view('backend/static-blade/orders');
+    }
+
+    // products pages method
+    public function products()
+    {
+        return view('backend/static-blade/products');
+    }
+    public function products_add()
+    {
+        return view('backend/static-blade/products-add');
     }
 
 }

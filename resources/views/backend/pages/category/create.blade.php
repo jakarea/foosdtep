@@ -10,6 +10,15 @@
                     <a href="{{ route('category.index') }}" class="btn btn-primary btn-sm">Back</a> 
                 </div>
 
+                <!-- @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif -->
                 <form class="custom-validation" action="{{ route('category.store') }}" method="post" enctype="multipart/form-data">
                     @csrf  
                     <div class="row">
@@ -17,7 +26,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Category Name</label>
                                 <div>
-                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Enter category name">
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name')}}" placeholder="Enter category name">
                                     <span class="text-danger">@error('name'){{ $message }} @enderror</span>
                                 </div>
                             </div>
@@ -28,10 +37,10 @@
                                 <select name="parent_cat" id="" class="form-select @error('parent_cat') is-invalid @enderror" aria-label="Default select example">
                                     <option selected disabled>Select Below</option>
                                     @foreach($categoies as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                    @foreach($category->children as $subcategory)
-                                        <option value="{{ $subcategory->id }}">-{{ $subcategory->name }}</option>
-                                    @endforeach
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @foreach($category->children as $subcategory)
+                                            <option value="{{ $subcategory->id }}">-{{ $subcategory->name }}</option>
+                                        @endforeach
                                     @endforeach
                                 </select> 
                             </div>
@@ -41,6 +50,7 @@
                                 <label class="form-label">Category Image</label>
                                 <div>
                                     <input type="file" name="image" class="form-control @error('image') is-invalid @enderror">
+                                    <span class="text-danger">@error('image'){{ $message }} @enderror</span>
                                 </div>
                             </div>
                         </div>
@@ -48,11 +58,12 @@
                             <div class="mb-3">
                                 <label class="form-label">Status</label>
                                 <div>
-                                    <select name="status" id="" class="form-select @error('parent_cat') is-invalid @enderror" aria-label="Default select example">
+                                    <select name="status" class="form-select @error('status') is-invalid @enderror">
                                         <option selected disabled>Select Below</option>
-                                        <option value="active">Active</option>
-                                        <option value="inactive">In-Active</option>
+                                        <option value="active" @selected(old('status') == 'active')>Active</option>
+                                        <option value="inactive" @selected(old('status') == 'inactive')>In-Active</option>
                                     </select> 
+                                    <span class="text-danger">@error('status'){{ $message }} @enderror</span>
                                 </div>
                             </div>
                         </div>

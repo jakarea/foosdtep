@@ -26,11 +26,11 @@
                             <!--Start Single Nav link-->
                             <li class="header__nav-item pos-relative">
                                     <a href="{{ url('/products') }}" class="header__nav-link">Product</a>
-                            </li> <!-- End Single Nav link-->
-
+                            </li> <!-- End Single Nav link--> 
+                            
                             <!--Start Single Nav link-->
                             <li class="header__nav-item pos-relative">
-                                    <a href="contact.php" class="header__nav-link">Contact</a>
+                                    <a href="{{ url('/contact') }}" class="header__nav-link">Contact</a>
                             </li> <!-- End Single Nav link-->
 
                         </ul>
@@ -40,13 +40,19 @@
                 <ul class="header__user-action-icon">
                     <!-- Start Header Wishlist Box -->
                     <li>
-                        <a href="profile.php">
+                        <a href="{{ url('frontend/login') }}">
+                            <i class="fas fa-sign-in"></i>
+                        </a>
+                    </li> <!-- End Header Wishlist Box --> 
+                    <li>
+                        <a href="{{ url('/profile') }}">
                             <i class="icon-users"></i>
                         </a>
                     </li> <!-- End Header Wishlist Box --> 
+
                     <!-- Start Header Add Cart Box -->
                     <li>
-                        <a href="cart.php">
+                        <a href="{{ url('products/cart') }}">
                             <i class="icon-shopping-cart"></i>
                             <span class="wishlist-item-count pos-absolute">5</span>
                         </a>

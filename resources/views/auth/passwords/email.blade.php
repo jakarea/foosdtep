@@ -10,7 +10,7 @@
                             <div class="bg-login-overlay"></div>
                             <div class="position-relative">
                                 <h5 class="text-white font-size-20">Reset Password</h5>
-                                <p class="text-white-50 mb-0">Re-Password with Qovex.</p>
+                                <p class="text-white-50 mb-0">Re-Password with FoodStep.</p>
 
                                 <a href="index.html" class="logo logo-admin mt-4">
                                     <img src="backend/assets/images/logo-sm-dark.png" alt="" height="30">
@@ -47,7 +47,7 @@
                         <p>Remember It ? <a href="pages-login.html" class="fw-medium text-primary"> Sign In
                                 here</a> </p>
                         <p>©
-                            <script>document.write(new Date().getFullYear())</script>2022 Qovex. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand
+                            <script>document.write(new Date().getFullYear())</script>2022 FoodStep. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand
                         </p>
                     </div>
 

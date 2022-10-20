@@ -20,6 +20,7 @@
                             <th>No</th>
                             <th>Name</th>
                             <th>Discount</th> 
+                            <th>User</th> 
                             <th>Status</th> 
                             <th>Action</th>
                         </tr>
@@ -30,6 +31,7 @@
                             <td>01</td>
                             <td>Tiger Nixon</td> 
                             <td>10%</td>
+                            <td><a href="{{ url('static/users') }}">5</a></td>
                             <td>Active</td> 
                             <td>
                                 <a href="{{ url('static/discount/view') }}">
@@ -48,6 +50,7 @@
                             <td>01</td>
                             <td>Tiger Nixon</td> 
                             <td>10%</td>
+                            <td><a href="{{ url('static/users') }}">5</a></td>
                             <td>Active</td> 
                             <td>
                                 <a href="{{ url('static/discount/view') }}">
@@ -66,6 +69,7 @@
                             <td>01</td>
                             <td>Tiger Nixon</td> 
                             <td>10%</td>
+                            <td><a href="{{ url('static/users') }}">5</a></td>
                             <td>Active</td> 
                             <td>
                                 <a href="{{ url('static/discount/view') }}">
@@ -84,6 +88,7 @@
                             <td>01</td>
                             <td>Tiger Nixon</td> 
                             <td>10%</td>
+                            <td><a href="{{ url('static/users') }}">5</a></td>
                             <td>Active</td> 
                             <td>
                                 <a href="{{ url('static/discount/view') }}">
@@ -102,6 +107,7 @@
                             <td>01</td>
                             <td>Tiger Nixon</td> 
                             <td>10%</td>
+                            <td><a href="{{ url('static/users') }}">5</a></td>
                             <td>Active</td> 
                             <td>
                                 <a href="{{ url('static/discount/view') }}">

@@ -3,11 +3,15 @@
     <div class="h-100">
         <div class="user-wid text-center py-4">
             <div class="user-img">
+
                 @if( \Auth::user()->avater != null )
                 <img src="{{ asset('frontend/assets/img/user/'. \Auth::user()->avater) }}" alt="" class="avatar-md mx-auto rounded-circle">
                 @else
-                <img src="{{ asset('backend/assets/images/users/avatar-2.jpg') }}" alt="" class="avatar-md mx-auto rounded-circle">
+              
+                <img src="{{asset('backend/assets/img/user/default.jpg')}}" alt="" class="avatar-md mx-auto rounded-circle">
                 @endif
+                <img src="{{asset('backend/assets/img/user/default.jpg')}}" alt="" class="avatar-md mx-auto rounded-circle">
+
             </div>
             <div class="mt-3">
                 <a href="#" class="text-dark fw-medium font-size-16">{{ auth()->user()->name }}</a>

@@ -85,43 +85,15 @@
                                 </li>  <!-- End Single Menu Filter List -->
                             </ul>
                         </div>  <!-- Start Single Sidebar Widget - Filter [Brand] -->
-                        
-                        <!-- Start Single Sidebar Widget - Filter [Price] -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box">
-                                <h5 class="sidebar__title">FILTER BY Price ($)</h5>
-                            </div>
-                            <div class="sidebar__price-filter ">
-                                <div id="slider-range" class="price-filter-range"></div>
-                                <div class="slider__price-filter-input d-flex justify-content-between">
-                                    <input type="number" min=0 max="9900" oninput="validity.valid||(value='0');" id="min_price" class="price-range-field" />
-                                    <input type="number" min=0 max="10000" oninput="validity.valid||(value='1000');" id="max_price" class="price-range-field" />
-                                </div>
-                            </div>
-                        </div>  <!-- Start Single Sidebar Widget - Filter [Price] -->
-
- 
-
-                        <!-- ::::::  Start Sidebar Widget - Tag  ::::::  -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box">
-                                <h5 class="sidebar__title">Tags</h5>
-                            </div>
-                            <ul class="sidebar__tag list-space--small">
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">blue</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">gold</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">gray</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">green</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">maroon</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">red</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">white</a></li>
-                            </ul>
-                        </div> <!-- ::::::  Start Sidebar Widget - Tag  ::::::  -->
+                         
                     </div>
                 </div> <!-- End Left Sidebar Widget -->
 
                 <!-- Start Rightside - Product Type View -->
                 <div class="col-lg-9"> 
+                <div class="img-responsive">
+                        <img src="https://template.hasthemes.com/gsore/gsore/assets/img/banner/size-wide/banner-shop-1-img-1-wide.jpg" alt="">
+                    </div>
                     <!-- ::::::  Start Sort Box Section  ::::::  -->
                     <div class="sort-box m-tb-40">
                         <!-- Start Sort Left Side -->
@@ -165,32 +137,32 @@
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
-                                                <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-6.jpg" alt="">
+                                                <a href="{{ url('products/view')}}" class="product__img--link">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-6.webp" alt="">
                                                 </a>
                                                 <!-- Start Procuct Label -->
-                                                <span class="product__label product__label--sale-dis">-34%</span>
+                                               
                                                 <!-- End Procuct Label -->
                                                 <!-- Start Product Action Link-->
                                                 <ul class="product__action--link pos-absolute">
                                                     <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
-                                                    <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
-                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li>
+                                                    <!-- <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
+                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li> -->
                                                     <li><a href="#modalQuickView" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
                                                 </ul> <!-- End Product Action Link -->
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
                                             <div class="product__content m-t-20">
-                                                <ul class="product__review">
+                                                <!-- <ul class="product__review">
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--blank"><i class="icon-star"></i></li>
-                                                </ul>
-                                                <a href="product-single-default.html" class="product__link">Fresh green apple</a>
+                                                </ul> -->
+                                                <a href="{{ url('products/view')}}" class="product__link">Fresh green apple</a>
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">$19.00 <del>$29.00</del></span>
+                                                    <span class="product__price">$19.00 </span>
                                                 </div>
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
@@ -200,32 +172,32 @@
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
-                                                <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-7.jpg" alt="">
+                                                <a href="{{ url('products/view')}}" class="product__img--link">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-7.webp" alt="">
                                                 </a>
                                                 <!-- Start Procuct Label -->
-                                                <span class="product__label product__label--sale-dis">-34%</span>
+                                                <!-- <span class="product__label product__label--sale-dis">-34%</span> -->
                                                 <!-- End Procuct Label -->
                                                 <!-- Start Product Action Link-->
                                                 <ul class="product__action--link pos-absolute">
                                                     <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
-                                                    <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
-                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li>
+                                                    <!-- <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
+                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li> -->
                                                     <li><a href="#modalQuickView" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
                                                 </ul> <!-- End Product Action Link -->
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
                                             <div class="product__content m-t-20">
-                                                <ul class="product__review">
+                                                <!-- <ul class="product__review">
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--blank"><i class="icon-star"></i></li>
-                                                </ul>
-                                                <a href="product-single-default.html" class="product__link">Juice fresh orange</a>
+                                                </ul> -->
+                                                <a href="{{ url('products/view')}}" class="product__link">Juice fresh orange</a>
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">$19.00 <del>$29.00</del></span>
+                                                    <span class="product__price">$19.00 </span>
                                                 </div>
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
@@ -235,36 +207,37 @@
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
-                                                <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-8.jpg" alt="">
+                                                <a href="{{ url('products/view')}}" class="product__img--link">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-8.webp" alt="">
                                                 </a>
                                                 <!-- Start Procuct Label -->
-                                                <span class="product__label product__label--sale-dis">-35%</span>
+                                                <!-- <span class="product__label product__label--sale-dis">-35%</span> -->
                                                 <!-- End Procuct Label -->
                                                 <!-- Start Product Countdown -->
-                                                <div class="product__counter-box">
+                                                <!-- <div class="product__counter-box">
                                                     <div class="product__counter-item" data-countdown="2021/03/01"></div>
-                                                </div> <!-- End Product Countdown -->
+                                                </div> -->
+                                                 <!-- End Product Countdown -->
                                                 <!-- Start Product Action Link-->
                                                 <ul class="product__action--link pos-absolute">
-                                                    <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
-                                                    <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
+                                                    <!-- <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
+                                                    <li><a href="compare.html"><i class="icon-sliders"></i></a></li> -->
                                                     <li><a href="wishlist.html"><i class="icon-heart"></i></a></li>
                                                     <li><a href="#modalQuickView" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
                                                 </ul> <!-- End Product Action Link -->
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
                                             <div class="product__content m-t-20">
-                                                <ul class="product__review">
+                                                <!-- <ul class="product__review">
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--blank"><i class="icon-star"></i></li>
-                                                </ul>
-                                                <a href="product-single-default.html" class="product__link">Best ripe grapes</a>
+                                                </ul> -->
+                                                <a href="{{ url('products/view')}}" class="product__link">Best ripe grapes</a>
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">$39.00 <del>$60.00</del></span>
+                                                    <span class="product__price">$39.00 </span>
                                                 </div>
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
@@ -274,8 +247,8 @@
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
-                                                <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-9.jpg" alt="">
+                                                <a href="{{ url('products/view')}}" class="product__img--link">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-9.webp" alt="">
                                                 </a>
                                                 <!-- Start Procuct Label -->
                                                 <span class="product__label product__label--sale-out">Soldout</span>
@@ -297,9 +270,9 @@
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--blank"><i class="icon-star"></i></li>
                                                 </ul>
-                                                <a href="product-single-default.html" class="product__link">Cow fresh milk</a>
+                                                <a href="{{ url('products/view')}}" class="product__link">Cow fresh milk</a>
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">$55.00 <del>$75.00</del></span>
+                                                    <span class="product__price">$55.00 </span>
                                                 </div>
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
@@ -309,8 +282,8 @@
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
-                                                <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-10.jpg" alt="">
+                                                <a href="{{ url('products/view')}}" class="product__img--link">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-10.webp" alt="">
                                                 </a>
                                                 <!-- Start Procuct Label -->
                                                 <span class="product__label product__label--sale-out">Soldout</span>
@@ -332,7 +305,7 @@
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--blank"><i class="icon-star"></i></li>
                                                 </ul>
-                                                <a href="product-single-default.html" class="product__link">Fresh Red Tomato</a>
+                                                <a href="{{ url('products/view')}}" class="product__link">Fresh Red Tomato</a>
                                                 <div class="product__price m-t-5">
                                                     <span class="product__price">$10.00</span>
                                                 </div>
@@ -344,11 +317,11 @@
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
-                                                <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-1.jpg" alt="">
+                                                <a href="{{ url('products/view')}}" class="product__img--link">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-1.webp" alt="">
                                                 </a>
                                                 <!-- Start Procuct Label -->
-                                                <span class="product__label product__label--sale-dis">-34%</span>
+                                                <!-- <span class="product__label product__label--sale-dis">-34%</span> -->
                                                 <!-- End Procuct Label -->
                                                 <!-- Start Product Action Link-->
                                                 <ul class="product__action--link pos-absolute">
@@ -367,9 +340,9 @@
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--blank"><i class="icon-star"></i></li>
                                                 </ul>
-                                                <a href="product-single-default.html" class="product__link">Fresh green vegetable</a>
+                                                <a href="{{ url('products/view')}}" class="product__link">Fresh green vegetable</a>
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">$19.00 <del>$29.00</del></span>
+                                                    <span class="product__price">$19.00 </span>
                                                 </div>
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
@@ -379,8 +352,8 @@
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
-                                                <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-2.jpg" alt="">
+                                                <a href="{{ url('products/view')}}" class="product__img--link">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-2.webp" alt="">
                                                 </a>
                                                 <!-- Start Product Action Link-->
                                                 <ul class="product__action--link pos-absolute">
@@ -399,7 +372,7 @@
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--blank"><i class="icon-star"></i></li>
                                                 </ul>
-                                                <a href="product-single-default.html" class="product__link">Fresh river fish</a>
+                                                <a href="{{ url('products/view')}}" class="product__link">Fresh river fish</a>
                                                 <div class="product__price m-t-5">
                                                     <span class="product__price">$25.00</span>
                                                 </div>
@@ -411,11 +384,11 @@
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
-                                                <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-3.jpg" alt="">
+                                                <a href="{{ url('products/view')}}" class="product__img--link">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-3.webp" alt="">
                                                 </a>
                                                 <!-- Start Procuct Label -->
-                                                <span class="product__label product__label--sale-dis">-10%</span>
+                                                <!-- <span class="product__label product__label--sale-dis">-10%</span> -->
                                                 <!-- End Procuct Label -->
                                                 <!-- Start Product Countdown -->
                                                 <div class="product__counter-box">
@@ -438,9 +411,9 @@
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--blank"><i class="icon-star"></i></li>
                                                 </ul>
-                                                <a href="product-single-default.html" class="product__link">Fresh pomegranate</a>
+                                                <a href="{{ url('products/view')}}" class="product__link">Fresh pomegranate</a>
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">$19.00 <del>$21.00</del></span>
+                                                    <span class="product__price">$19.00 </span>
                                                 </div>
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
@@ -450,8 +423,8 @@
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
-                                                <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-4.jpg" alt="">
+                                                <a href="{{ url('products/view')}}" class="product__img--link">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-4.webp" alt="">
                                                 </a>
                                                 <!-- Start Product Action Link-->
                                                 <ul class="product__action--link pos-absolute">
@@ -470,7 +443,7 @@
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--blank"><i class="icon-star"></i></li>
                                                 </ul>
-                                                <a href="product-single-default.html" class="product__link">Cabbage vegetables</a>
+                                                <a href="{{ url('products/view')}}" class="product__link">Cabbage vegetables</a>
                                                 <div class="product__price m-t-5">
                                                     <span class="product__price">$50.00</span>
                                                 </div>
@@ -486,8 +459,8 @@
                                         <div class="product__box product__box--list">
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative text-center">
-                                                <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-5.jpg" alt="">
+                                                <a href="{{ url('products/view')}}" class="product__img--link">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-5.webp" alt="">
                                                 </a>
                                                 <!-- Start Procuct Label -->
                                                     <span class="product__label product__label--sale-dis">-31%</span>
@@ -502,7 +475,7 @@
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--blank"><i class="icon-star"></i></li>
                                                 </ul>
-                                                <a href="product-single-default.html" class="product__link"><h5 class="font--regular">Best Red Meat</h5></a>
+                                                <a href="{{ url('products/view')}}" class="product__link"><h5 class="font--regular">Best Red Meat</h5></a>
                                                 <div class="product__price m-t-5">
                                                     <span class="product__price">$55.00 <del>$80.00</del></span>
                                                 </div>
@@ -526,8 +499,8 @@
                                         <div class="product__box product__box--list">
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative text-center">
-                                                <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-8.jpg" alt="">
+                                                <a href="{{ url('products/view')}}" class="product__img--link">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-8.webp" alt="">
                                                 </a>
                                                  <!-- Start Procuct Label -->
                                                  <span class="product__label product__label--sale-dis">-35%</span>
@@ -546,7 +519,7 @@
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--blank"><i class="icon-star"></i></li>
                                                 </ul>
-                                                <a href="product-single-default.html" class="product__link"><h5 class="font--regular">Best Ripe Grapes</h5></a>
+                                                <a href="{{ url('products/view')}}" class="product__link"><h5 class="font--regular">Best Ripe Grapes</h5></a>
                                                 <div class="product__price m-t-5">
                                                     <span class="product__price">$39.00 <del>$60.00</del></span>
                                                 </div>
@@ -570,8 +543,8 @@
                                         <div class="product__box product__box--list">
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative text-center">
-                                                <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-4.jpg" alt="">
+                                                <a href="{{ url('products/view')}}" class="product__img--link">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-4.webp" alt="">
                                                 </a>
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
@@ -583,7 +556,7 @@
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--blank"><i class="icon-star"></i></li>
                                                 </ul>
-                                                <a href="product-single-default.html" class="product__link"><h5 class="font--regular">Cabbage Vegetables</h5></a>
+                                                <a href="{{ url('products/view')}}" class="product__link"><h5 class="font--regular">Cabbage Vegetables</h5></a>
                                                 <div class="product__price m-t-5">
                                                     <span class="product__price">$50.00</span>
                                                 </div>
@@ -607,8 +580,8 @@
                                         <div class="product__box product__box--list">
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative text-center">
-                                                <a href="product-single-default.html" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="assets/img/product/size-normal/product-home-1-img-9.jpg" alt="">
+                                                <a href="{{ url('products/view')}}" class="product__img--link">
+                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-9.webp" alt="">
                                                 </a>
                                                  <!-- Start Procuct Label -->
                                                  <span class="product__label product__label--sale-out">Soldout</span>
@@ -623,7 +596,7 @@
                                                     <li class="product__review--fill"><i class="icon-star"></i></li>
                                                     <li class="product__review--blank"><i class="icon-star"></i></li>
                                                 </ul>
-                                                <a href="product-single-default.html" class="product__link"><h5 class="font--regular">Cow Fresh Milk</h5></a>
+                                                <a href="{{ url('products/view')}}" class="product__link"><h5 class="font--regular">Cow Fresh Milk</h5></a>
                                                 <div class="product__price m-t-5">
                                                     <span class="product__price">$50.00</span>
                                                 </div>

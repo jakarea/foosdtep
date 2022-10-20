@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Food Step | Grocery and Organic Food Shop HTML Template</title>
+    <title>Food Step | @yield('title')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/vendor/vendor.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/plugin/plugins.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom/style.css') }}">
 
 </head>
 

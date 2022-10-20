@@ -4,7 +4,7 @@
                     <div class="row justify-content-between align-items-center">
                         <div class="col-xl-3 col-lg-3">
                             <div class="header-menu-vertical pos-relative">
-                                <h4 class="menu-title link--icon-left"><i class="far fa-align-left"></i>CATEGORIES</h4>
+                                <h4 class="menu-title link--icon-left d-flex justify-content-between"><span><i class="far fa-align-left"></i>CATEGORIES</span> <i class="far fa-angle-down"></i></h4>
                                 <ul class="menu-content pos-absolute">
                                     <li class="menu-item"><a href="#">Vlees </a></li>
                                     <li class="menu-item"><a href="#">Vis </a></li>

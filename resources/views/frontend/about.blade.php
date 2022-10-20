@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="about-content">
-                            <h4 class="font--regular">We Are A Gsore Focused On Delivering Best Organic Food And User Experiences.</h4>
+                            <h4 class="font--regular">We Are A FoodStep Focused On Delivering Best Organic Food And User Experiences.</h4>
                             <p class="para__text">Adipiscing lacus ut elementum, nec duis, tempor litora turpis dapibus. Imperdiet cursus odio tortor in elementum. Egestas nunc eleifend feugiat lectus laoreet, vel nunc taciti integer cras. Hac pede dis, praesent nibh ac dui mauris sit. Pellentesque mi, facilisi mauris, elit sociis leo sodales accumsan. Iaculis ac fringilla torquent lorem consectetuer, sociosqu phasellus risus urna aliquam, ornare. vel nunc taciti integer cras. Hac pede dis, praesent nibh ac dui mauris sit. Pellentesque</p>
                             <a href="#" class="btn btn--icon-left btn--small btn--radius btn--transparent btn--border-green btn--border-green-hover-green font--regular text-capitalize m-t-20">More Information<i class="fal fa-angle-right"></i></a>
                         </div>
@@ -31,7 +31,7 @@
         </div>
 
         <!-- ::::::  Start CMS Section  ::::::  -->
-        <div class="cms m-t-100">
+        <div class="cms m-t-100 m-b-100">
             <div class="container">
                 <div class="row">
                     <!-- Start Single CMS box -->
