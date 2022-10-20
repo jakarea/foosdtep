@@ -30,7 +30,7 @@
 
                             <!--Start Single Nav link-->
                             <li class="header__nav-item pos-relative">
-                                    <a href="contact.php" class="header__nav-link">Contact</a>
+                                    <a href="#" class="header__nav-link">Contact</a>
                             </li> <!-- End Single Nav link-->
 
                         </ul>

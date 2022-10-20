@@ -3,6 +3,17 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-lg-12">
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between mb-4">
@@ -95,7 +106,7 @@
                             <div class="mb-3"> 
                                 <label class="form-label">{{ __('messages.preview') }}</label>
                                 <div>
-                                    <img alt="User" style="width: 40px; border-radius: 4px;" class="img-fluid" id="image">
+                                    <img src="{{ asset('backend/assets/images/users/default.jpeg')}}" alt="User" style="width: 40px; border-radius: 4px;" class="img-fluid" id="image">
                                 </div>
                             </div>
                         </div>
@@ -103,7 +114,8 @@
                             <div class="mb-3">
                                 <label class="form-label">{{ __('messages.address_home') }}</label>
                                 <div>
-                                    <input type="Text" name="addresshome" placeholder="{{ __('messages.enter_address') }}" class="form-control" value="{{ old('addresshome') }}">
+                                    <input type="Text" name="homeaddress" placeholder="{{ __('messages.enter_address') }}" class="form-control @error('addresshome') is-invalid @enderror" value="{{ old('addresshome') }}">
+                                    <span class="text-danger">@error('homeaddress'){{ $message }} @enderror</span>
                                 </div>
                             </div>
                         </div>
