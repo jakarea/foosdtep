@@ -26,27 +26,7 @@
                         </form>
                     </div>
                 </div>
-
-                <div class="dropdown d-none d-sm-inline-block">
-                    <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <img class="" src="{{ asset('backend/assets/images/flags/us.jpg') }}" alt="Header Language" height="16">
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end">
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <img src="{{ asset('backend/assets/images/flags/spain.jpg') }}" alt="user-image" class="me-1" height="12"> <span
-                                class="align-middle">Spanish</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <img src="{{ asset('backend/assets/images/flags/germany.jpg') }}" alt="user-image" class="me-1" height="12"> <span
-                                class="align-middle">Dutch</span>
-                        </a> 
-                    </div>
-                </div>
+ 
 
                 <div class="dropdown d-none d-lg-inline-block ms-1">
                     <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
@@ -145,7 +125,7 @@
                 <div class="dropdown d-inline-block">
                     <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle header-profile-user" src="{{ asset('backend/assets/images/users/avatar-2.jpg') }}"
+                        <img class="rounded-circle header-profile-user" src="{{asset('backend/assets/img/user/default.jpg')}}"
                             alt="Header Avatar">
                         <span class="d-none d-xl-inline-block ms-1">{{ auth()->user()->name }}</span>
                         <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
@@ -170,25 +150,25 @@
             <div>
                 <!-- LOGO -->
                 <div class="navbar-brand-box">
-                    <a href="index.html" class="logo logo-dark">
+                    <a href="{{ url('/auth/dashboard') }}" class="logo logo-dark">
                         <span class="logo-sm">
-                            <span style="color: #fff; font-size: 22px; font-weight: 700;">Food Step</span>
-                            <!-- <img src="assets/images/logo-sm.png" alt="" height="20"> -->
+                            
+                            <img src="{{asset('backend/assets/img/logo/logo.png')}}" alt="Logo" height="40">
                         </span>
                         <span class="logo-lg">
-                        <span style="color: #fff; font-size: 22px; font-weight: 700;">Food Step</span>
-                            <!-- <img src="assets/images/logo-dark.png" alt="" height="17"> -->
+                        
+                        <img src="{{asset('backend/assets/img/logo/logo.png')}}" alt="Logo" height="40">
                         </span>
                     </a>
 
-                    <a href="index.html" class="logo logo-light">
+                    <a href="{{ url('/auth/dashboard') }}" class="logo logo-light">
                         <span class="logo-sm">
-                        <span style="color: #fff; font-size: 22px; font-weight: 700;">Food Step</span>
-                            <!-- <img src="assets/images/logo-sm.png" alt="" height="20"> -->
+                         
+                        <img src="{{asset('backend/assets/img/logo/logo.png')}}" alt="Logo" height="40">
                         </span>
                         <span class="logo-lg">
-                        <span style="color: #fff; font-size: 22px; font-weight: 700;">Food Step</span>
-                            <!-- <img src="assets/images/logo-light.png" alt="" height="19"> -->
+                         
+                        <img src="{{asset('backend/assets/img/logo/logo.png')}}" alt="Logo" height="40">
                         </span>
                     </a>
                 </div>
