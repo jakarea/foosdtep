@@ -31,7 +31,7 @@
         </div>
 
         <!-- ::::::  Start CMS Section  ::::::  -->
-        <div class="cms m-t-100">
+        <div class="cms m-t-100 m-b-100">
             <div class="container">
                 <div class="row">
                     <!-- Start Single CMS box -->

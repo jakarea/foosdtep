@@ -85,38 +85,10 @@
                                 </li>  <!-- End Single Menu Filter List -->
                             </ul>
                         </div>  <!-- Start Single Sidebar Widget - Filter [Brand] -->
-                        
-                        <!-- Start Single Sidebar Widget - Filter [Price] -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box">
-                                <h5 class="sidebar__title">FILTER BY Price ($)</h5>
-                            </div>
-                            <div class="sidebar__price-filter ">
-                                <div id="slider-range" class="price-filter-range"></div>
-                                <div class="slider__price-filter-input d-flex justify-content-between">
-                                    <input type="number" min=0 max="9900" oninput="validity.valid||(value='0');" id="min_price" class="price-range-field" />
-                                    <input type="number" min=0 max="10000" oninput="validity.valid||(value='1000');" id="max_price" class="price-range-field" />
-                                </div>
-                            </div>
-                        </div>  <!-- Start Single Sidebar Widget - Filter [Price] -->
+                         
 
  
-
-                        <!-- ::::::  Start Sidebar Widget - Tag  ::::::  -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box">
-                                <h5 class="sidebar__title">Tags</h5>
-                            </div>
-                            <ul class="sidebar__tag list-space--small">
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">blue</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">gold</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">gray</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">green</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">maroon</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">red</a></li>
-                                <li><a class="btn btn--box btn--tiny btn--radius-tiny btn--border-gray btn--border-gray-hover-green" href="#">white</a></li>
-                            </ul>
-                        </div> <!-- ::::::  Start Sidebar Widget - Tag  ::::::  -->
+ 
                     </div>
                 </div> <!-- End Left Sidebar Widget -->
 
