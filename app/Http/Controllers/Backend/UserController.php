@@ -64,7 +64,7 @@ class UserController extends Controller
         $user->email            =   $request->email;
         $user->phone            =   $request->phone;
         $user->officeaddress    =   $request->addressoffice;
-        $user->homeaddress      =   $request->addresshome;
+        $user->homeaddress      =   $request->homeaddress;
         $user->zipcode          =   $request->zipcode;
         // $user->discount         =   $request->discount;
         $user->bio              =   $request->bio;
