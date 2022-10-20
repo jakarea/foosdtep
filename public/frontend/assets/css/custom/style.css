@@ -1,10 +1,14 @@
 
+
+input[type=checkbox]:checked::after,
 .slider-dot-style--fill-white-active-green .slick-dots li.slick-active button,
 .product__label--sale-out,
 .cdown{
     background: #e0c77a!important;
 }
 
+.btn-success:hover,
+.btn-success,
 .material-scrolltop:hover,
 .footer .footer__social-link:hover,
 .btn--green,
@@ -17,6 +21,10 @@
     background-color: #e0c77a;
 }
 
+
+input[type=radio].shipping-select::after,
+.header-menu-vertical .menu-content li a:hover,
+.hero-slider__arrow:hover,
 .sidebar__menu>li a:hover,
 .page-breadcrumb__nav a:hover,
 .footer__copyright-text a,
@@ -31,7 +39,13 @@
     color: #e0c77a;
 }
 
+.btn-success:hover,
+.btn-success,
 .btn--border-green,
 .btn--border-green-hover-green:hover { 
     border-color: #e0c77a;
+}
+
+.header__logo a img{
+    width: 90px;
 }

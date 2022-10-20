@@ -31,10 +31,26 @@ use App\Http\Controllers\Admin\BackendDesignController;
 */
 // front end controller
 Route::controller(HomeController::class)->group(function () {
+    // home static blade route
     Route::get('/', 'index')->name('home');
+
+    // about static blade route
     Route::get('/about', 'about')->name('about');
+    Route::get('/profile', 'profile')->name('profile');
+
+    // product static blade route
     Route::get('/products', 'products')->name('products');
     Route::get('/products/view', 'products_view')->name('products.view');
+    Route::get('products/cart', 'cart')->name('products.cart');
+    Route::get('products/checkout', 'checkout')->name('products.checkout');
+
+    // contact static blade route
+    Route::get('contact', 'contact')->name('products.contact');
+
+    // auth static blade route
+    Route::get('frontend/login', 'login')->name('frontend.login');
+    Route::get('frontend/register', 'register')->name('frontend.register'); 
+    Route::get('frontend/invoice', 'invoice')->name('frontend.invoice'); 
 });
 
 

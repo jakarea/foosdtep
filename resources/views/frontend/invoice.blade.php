@@ -1,7 +1,8 @@
-@extends('layouts.backend')
+@extends('layouts.frontend')
 
-@section('content') 
-<!-- invoice form start -->
+@section('content')
+<div class="container">
+    <!-- invoice form start -->
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
@@ -102,11 +103,11 @@
                 <div class="d-print-none">
                     <div class="float-end">
                         <a href="{{ url('static/orders')}}"
-                            class="btn btn-secondary waves-effect waves-light">Reorder </a>
+                            class="btn btn-secondary waves-effect waves-light p-2">Reorder </a>
                         <a href="javascript:window.print()"
-                            class="btn btn-success waves-effect waves-light"><i
+                            class="btn btn-success waves-effect waves-light p-2"><i
                                 class="fa fa-print"></i></a>
-                        <a href="#" class="btn btn-primary w-md waves-effect waves-light">{{ __('messages.send') }}</a>
+                        <a href="#" class="btn btn-primary w-md waves-effect p-2 waves-light">{{ __('messages.send') }}</a>
                     </div>
                 </div>
             </div>
@@ -114,4 +115,5 @@
     </div>
     </div>
 <!-- invoice form end -->
+</div>
 @endsection
