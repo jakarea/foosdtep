@@ -64,7 +64,7 @@ Route::controller(HomeController::class)->group(function () {
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
+Auth::routes(); 
 
 Route::middleware(['verified'])->group(function () {
     Route::group(['prefix' => 'auth'], function(){
@@ -117,25 +117,25 @@ Route::controller(BackendController::class)->group(function () {
 
 // back end design controller
 Route::controller(BackendDesignController::class)->group(function () {
-    //user route start
+    // user static route start
     Route::get('static/users', 'users')->name('dashboard.users');  
     Route::get('static/users/add', 'user_add')->name('dashboard.users.add');  
     Route::get('static/users/edit', 'user_edit')->name('dashboard.users.edit');  
     Route::get('static/users/profile', 'user_view')->name('dashboard.users.view');  
 
-    // discount route start
+    // discount static route start
     Route::get('static/discount', 'discount')->name('dashboard.discount');
     Route::get('static/discount/add', 'discount_add')->name('dashboard.discount.add');
     Route::get('static/discount/view', 'discount_view')->name('dashboard.discount.view');
     Route::get('static/discount/edit', 'discount_edit')->name('dashboard.discount.edit');
 
-    // invoice route start
+    // invoice static route start
     Route::get('static/invoice', 'invoice')->name('dashboard.invoice');
 
-    // order route start
+    // order static route start
     Route::get('static/orders', 'orders')->name('dashboard.orders');
 
-    // product route start
+    // product static route start
     Route::get('static/products', 'products')->name('dashboard.products');
     Route::get('static/products/add', 'products_add')->name('dashboard.products.add');
-});
+}); 

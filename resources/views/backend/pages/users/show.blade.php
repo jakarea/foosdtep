@@ -10,8 +10,16 @@
                     <div class="text-center">
                     
                         <div class="">
+                        @if( $user->avater != null )
                             <img src="{{ asset('frontend/assets/img/user/'. $user->avater) }}" alt="Avater"
                                 class="avatar-lg mx-auto img-thumbnail rounded-circle img-fluid">
+                        @else
+                    
+                            <img src="{{asset('backend/assets/img/user/default.jpg')}}" alt="Avater"
+                                class="avatar-lg mx-auto img-thumbnail rounded-circle img-fluid">
+                        @endif 
+ 
+
                             <div class="online-circle"><i class="fas fa-circle text-success"></i>
                             </div>
                         </div> 
