@@ -30,7 +30,7 @@
                             @foreach( $discount as $key => $data )
                             <tr id="table_rrow{{$data->id}}">
                                 <td valign="middle">{{ $key+1 }}</td>
-                                <td valign="middle">{{ $data->discount }}%</td>
+                                <td valign="middle">{{ $data->value }}%</td>
                                 <td valign="middle">
                                     {{ $data->user->name }}
                                 </td>

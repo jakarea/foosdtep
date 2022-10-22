@@ -16,12 +16,25 @@
                 <form class="custom-validation" action="{{ route('discount.store') }}" method="post" enctype="multipart/form-data">
                     @csrf  
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">Discount(%)</label>
                                 <div>
-                                    <input type="text" class="form-control @error('discount') is-invalid @enderror" name="discount" placeholder="Enter Discount Number">
+                                    <input type="text" class="form-control @error('discount') is-invalid @enderror" name="discount" placeholder="Enter Discount">
                                     <span class="text-danger">@error('discount'){{ $message }} @enderror</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label class="form-label">Discount Type</label><br>
+                                <div class="form-check mb-2 d-inline-block">
+                                    <input class="form-check-input" type="radio" name="discount_type" id="discount_type" value="percentage" >
+                                    <label class="form-check-label" for="discount_type">Percentage</label>&nbsp;
+                                </div>
+                                <div class="form-check mb-2 d-inline-block">
+                                    <input class="form-check-input" type="radio" name="discount_type" id="flat_discount" value="numeric">
+                                    <label class="form-check-label" for="flat_discount">Flat</label>
                                 </div>
                             </div>
                         </div>
@@ -29,8 +42,8 @@
                             <div class="mb-3">
                                 <label class="form-label">Select Users</label>
                                 <div>
-                                    <select name="users" id="" class="form-control select2 @error('status') is-invalid @enderror" aria-label="Default select example">
-                                        <option selected disabled>Select Below</option>
+                                    <select name="users[]" class="select2 form-control select2-multiple" multiple="multiple"
+                                            data-placeholder="Choose ...">
                                         @foreach( $users as $user )
                                             <option value="{{ $user->id }}">{{ $user->name }}</option>
                                         @endforeach
@@ -70,4 +83,5 @@
 
 @section('script')
 <script src="{{ asset('backend/assets/libs/select2/js/select2.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/pages/form-advanced.init.js') }}"></script>
 @endsection

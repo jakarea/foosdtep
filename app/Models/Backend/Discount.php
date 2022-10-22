@@ -11,7 +11,8 @@ class Discount extends Model
     use HasFactory;
 
     protected $fillable = [
-        'discount',
+        'value',
+        'type',
         'status',
         'user_id',
     ];

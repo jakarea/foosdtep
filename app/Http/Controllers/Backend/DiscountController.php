@@ -43,18 +43,24 @@ class DiscountController extends Controller
     {
         //
         $request->validate([
-            'discount'  =>  ['required'],
-            'users'     =>  ['required', 'not_in:0'],
-            'status'    =>  ['required', 'not_in:0'],
+            'discount'          =>  ['required'],
+            'users'             =>  ['required', 'not_in:0'],
+            'discount_type'     =>  ['required', 'not_in:0'],
+            'status'            =>  ['required', 'not_in:0'],
         ]);
 
-        $discount = new Discount;
+        $usersId     =  $request->users;
 
-        $discount->discount    =   $request->discount;
-        $discount->status      =   $request->status;
-        $discount->user_id      =  $request->users;
+       
+        foreach( $usersId as $user ){
 
-        $discount->save();
+            Discount::insert([
+                    'value'         => $request->discount,
+                    'type'          => $request->discount_type,
+                    'status'        => $request->status,
+                    'user_id'       => $user
+                ]);
+        }
 
         $notification = session()->flash("success", "Data Create Successfully");
 

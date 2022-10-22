@@ -10,7 +10,6 @@
               
                 <img src="{{asset('backend/assets/img/user/default.jpg')}}" alt="" class="avatar-md mx-auto rounded-circle">
                 @endif
-                <img src="{{asset('backend/assets/img/user/default.jpg')}}" alt="" class="avatar-md mx-auto rounded-circle">
 
             </div>
             <div class="mt-3">
