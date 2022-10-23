@@ -1,7 +1,9 @@
 body[data-layout=detached] #layout-wrapper::before {
     background: linear-gradient(to right,#e0c77a,#342a0b); 
 }
-
+ul{
+    list-style: none;
+}
 .btn-primary{
     background-color: #e0c77a;
     border-color: #725c17b0;

@@ -107,6 +107,10 @@ Route::middleware(['verified'])->group(function () {
             Route::group(['prefix' => 'discounts'], function() {
                 Route::resource('discount', 'App\Http\Controllers\Backend\DiscountController');
             });
+            // Manage Products
+            Route::group(['prefix' => 'products'], function() {
+                Route::resource('product', 'App\Http\Controllers\Backend\ProductController');
+            });
         });
     });
 });
