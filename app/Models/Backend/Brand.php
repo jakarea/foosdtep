@@ -4,6 +4,7 @@ namespace App\Models\Backend;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Backend\Product;
 
 class Brand extends Model
 {
@@ -33,5 +34,11 @@ class Brand extends Model
     public function parentName() 
     {
         return $this->belongsTo(Brand::class, 'parent_id');
+    }
+
+    // Product according to brand
+    public function product()
+    {
+        return $this->hasMany(Product::class, 'id');
     }
 }

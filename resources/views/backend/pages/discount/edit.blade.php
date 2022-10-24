@@ -14,12 +14,25 @@
                 <input type="hidden" name="_method" value="PUT">
                     @csrf  
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">Discount(%)</label>
                                 <div>
-                                    <input type="text" class="form-control @error('discount') is-invalid @enderror" name="discount" placeholder="Enter Discount Number" value="{{ $discount->discount }}">
+                                    <input type="text" class="form-control @error('discount') is-invalid @enderror" name="discount" placeholder="Enter Discount" value="{{ $discount->value }}">
                                     <span class="text-danger">@error('discount'){{ $message }} @enderror</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label class="form-label">Discount Type</label><br>
+                                <div class="form-check mb-2 d-inline-block">
+                                    <input class="form-check-input" type="radio" name="discount_type" id="discount_type" value="percentage" >
+                                    <label class="form-check-label" for="discount_type">Percentage</label>&nbsp;
+                                </div>
+                                <div class="form-check mb-2 d-inline-block">
+                                    <input class="form-check-input" type="radio" name="discount_type" id="flat_discount" value="numeric">
+                                    <label class="form-check-label" for="flat_discount">Flat</label>
                                 </div>
                             </div>
                         </div>

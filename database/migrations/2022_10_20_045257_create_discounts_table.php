@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('discounts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('discount')->default('0');
-            $table->enum('status', ['active', 'inactive']);
+            $table->bigInteger('value')->default('0');
+            $table->enum('type', ['percentage', 'numeric'])->default('percentage');
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
