@@ -17,7 +17,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Productgroup Name</label>
                                 <div>
-                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Enter productgroup name">
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Enter productgroup name">
                                     <span class="text-danger">@error('name'){{ $message }} @enderror</span>
                                 </div>
                             </div>
