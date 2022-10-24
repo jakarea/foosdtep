@@ -46,7 +46,7 @@ class FaithController extends Controller
     {
         //
         $request->validate([
-            'name'      =>  ['required', 'string', 'unique:product_groups,name', 'max:255'],
+            'name'      =>  ['required', 'string', 'unique:faiths,name', 'max:255'],
             'status'    =>  ['required', 'not_in:0'],
             // 'image'     =>  ['required', 'mimes:jpg,jpeg,png,gif|max:1024'],
         ]);

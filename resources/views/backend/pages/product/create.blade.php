@@ -11,6 +11,16 @@
                     <a href="{{ url('static/products') }}" class="btn btn-primary btn-sm">{{ __('messages.view_all') }}</a> 
                 </div>
 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <form class="custom-validation" action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
@@ -28,8 +38,8 @@
                             <div class="form-group mb-3">
                                 <label for="Status">Status</label>
                                 <select name="status" id="" class="form-select" aria-label="Default select example">
-                                    <option value="active">{{ __('messages.active') }}</option>
-                                    <option value="inactive">{{ __('messages.inactive') }}</option>
+                                    <option {{ old('status')== 'active' ? 'selected':''}} value="active">{{ __('messages.active') }}</option>
+                                    <option {{ old('status')== 'inactive' ? 'selected':''}} value="inactive">{{ __('messages.inactive') }}</option>
                                 </select>
                                 <span class="text-danger">@error('status'){{ $message }} @enderror</span>
                             </div>
@@ -84,9 +94,11 @@
                 Categories
             </div>
             <div class="card-body">
+                
                 <ul class="m-0 p-0">
                 @foreach( $categoies as $key => $category )
                 <li>
+                    
                     <div class="form-check ">
                         <input class="form-check-input" type="checkbox" name="cat[]" value="{{ $category->id }}" id="cat{{ $key+1 }}">
                         <label class="form-check-label" for="cat{{ $key+1 }}">{{ $category->name }}</label>
@@ -96,8 +108,16 @@
                     @endif
                 </li>
                 @endforeach
-
+                <li>
+                    <div class="form-check ">
+                        <input class="form-check-input" type="checkbox" checked name="cat[]" value="0" id="cat0">
+                        <label class="form-check-label" for="cat0">Uncategorized</label>
+                    </div>
+                </li>
                 </ul>
+                <span class="text-danger">
+                    @error('cat'){{ $message }} @enderror
+                </span>
             </div>
         </div>
         <!-- Brand card -->
