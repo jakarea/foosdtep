@@ -3,17 +3,6 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-lg-12">
-
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between mb-4">
@@ -114,7 +103,7 @@
                             <div class="mb-3">
                                 <label class="form-label">{{ __('messages.address_home') }}</label>
                                 <div>
-                                    <input type="Text" name="homeaddress" placeholder="{{ __('messages.enter_address') }}" class="form-control @error('addresshome') is-invalid @enderror" value="{{ old('addresshome') }}">
+                                    <input type="Text" name="homeaddress" placeholder="{{ __('messages.enter_address') }}" class="form-control @error('homeaddress') is-invalid @enderror" value="{{ old('homeaddress') }}">
                                     <span class="text-danger">@error('homeaddress'){{ $message }} @enderror</span>
                                 </div>
                             </div>
