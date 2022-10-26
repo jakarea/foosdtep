@@ -16,6 +16,8 @@
     <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/vendor/vendor.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/plugin/plugins.min.css') }}"/>
+    <!-- Sweetalert2 -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/main.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/custom/style.css') }}">
 
@@ -49,9 +51,43 @@
 
     <script src="{{ asset('frontend/assets/js/vendor/vendor.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/plugin/plugins.min.js') }}"></script>
-
+    <!-- Sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.js"></script>
     <!-- Main js file that contents all jQuery plugins activation. -->
     <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
+
+    <!-- Notification script -->
+<script>
+$(function(){
+
+    const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    })
+
+    //Success Message 
+    @if(Session::has('success'))
+    Toast.fire({
+        icon: 'success',
+        title: '{{ Session::get("success") }}',
+    })
+    @endif
+
+    // Error Message
+    @if(Session::has('error'))
+    Toast.fire({
+        icon: 'error',
+        title: '{{ Session::get("error") }}',
+    })
+    @endif
+
+});
+</script>
+
+@yield('script')
 </body>
 
 </html>
