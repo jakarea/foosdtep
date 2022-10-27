@@ -26,8 +26,8 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/about', 'about')->name('about');
 
     // product static blade route
-    Route::get('/products', 'products')->name('products');
-    Route::get('/products/view', 'products_view')->name('products.view');
+    Route::get('/products', 'App\Http\Controllers\Frontend\ProductController@index')->name('products');
+    Route::get('/products/{slug}', 'App\Http\Controllers\Frontend\ProductController@show')->name('show.product');
     Route::get('products/cart', 'cart')->name('products.cart');
     Route::get('products/checkout', 'checkout')->name('products.checkout');
 
@@ -40,7 +40,12 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('frontend/invoice', 'invoice')->name('frontend.invoice'); 
 
     // Admin Login Form
+    Route::get('register', 'App\Http\Controllers\Auth\RegisterController@showRegistrationForm')->name('register');
     Route::get('auth/login', 'App\Http\Controllers\Auth\LoginController@adminloginform')->name('admin.login');
+
+    Route::get('/login', function () {
+        return redirect(route('customer.loginform'));
+    });
 
 
     // Customer Login and Registration
@@ -49,10 +54,6 @@ Route::controller(HomeController::class)->group(function () {
     // Customer Registration and verification
     Route::post('customer/register', 'App\Http\Controllers\Auth\RegisterController@CustomerRegistration')->name('customer.registration');
     Route::post('customer/login', 'App\Http\Controllers\Auth\LoginController@logincustomer')->name('customer.login');
-
-    Route::get('/login', function () {
-        return redirect(route('customer.loginform'));
-    });
 
 
     Route::group(['prefix' => 'customers'], function(){

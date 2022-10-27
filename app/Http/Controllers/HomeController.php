@@ -38,14 +38,6 @@ class HomeController extends Controller
     {
         return view('frontend/about');
     }
-    public function products()
-    {
-        return view('frontend/products');
-    }
-    public function products_view()
-    {
-        return view('frontend/products-view');
-    }
 
     // crat checkout method start
     public function cart()

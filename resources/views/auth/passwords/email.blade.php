@@ -12,7 +12,7 @@
                                 <h5 class="text-white font-size-20">Reset Password</h5>
                                 <p class="text-white-50 mb-0">Re-Password with FoodStep.</p>
 
-                                <a href="index.html" class="logo logo-admin mt-4">
+                                <a href="{{ route('home') }}" class="logo logo-admin mt-4">
                                     <img src="backend/assets/images/logo-sm-dark.png" alt="" height="30">
                                 </a>
                             </div>
@@ -21,7 +21,7 @@
 
                             <div class="p-2">
 
-                                <form class="form-horizontal" action="index.html">
+                                <form class="form-horizontal" action="{{ route('password.reset') }}">
 
                                     <div class="alert alert-success text-center mb-4" role="alert">
                                         Enter your Email and instructions will be sent to you!

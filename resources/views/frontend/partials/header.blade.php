@@ -25,7 +25,7 @@
 
                             <!--Start Single Nav link-->
                             <li class="header__nav-item pos-relative">
-                                    <a href="{{ url('/products') }}" class="header__nav-link">Product</a>
+                                    <a href="{{ route('products') }}" class="header__nav-link">Product</a>
                             </li> <!-- End Single Nav link--> 
                             
                             <!--Start Single Nav link-->

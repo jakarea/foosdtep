@@ -47,6 +47,12 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    // Register Form
+    public function showRegistrationForm()
+    {
+        return view('frontend/customer/register');
+    }
+
     // Registration Customer Account
     public function CustomerRegistration(Request $request)
     {
