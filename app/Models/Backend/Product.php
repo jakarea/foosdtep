@@ -48,7 +48,6 @@ class Product extends Model
         foreach ($categories as $key => $category) {
             $result = $category->name;
         }
-
         return $result;
     }
 

@@ -57,11 +57,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        //return $request->all();
         //
         $request->validate([
             'name'              =>  ['required', 'unique:products,name', 'max:255'],
             'status'            =>  ['required', 'not_in:0'],
             'price'             =>  ['required', 'min:1'],
+            'cat'               =>  ['required'],
             'short_desc'        =>  ['required'],
             'description'       =>  ['required'],
             'specification'     =>  ['required'],
@@ -73,13 +75,13 @@ class ProductController extends Controller
         $product->slug                  =   Str::slug($request->name);
         $product->price                 =   $request->price;
         $product->status                =   $request->status;
-        $product->cat_id                =   implode(',', $request->cat);
-        $product->brand_id              =   implode(',', $request->brand);
-        $product->prodcut_group_id      =   implode(',', $request->productgroup);
-        $product->faith_id              =   implode(',', $request->faith);
-        $product->line_id               =   implode(',', $request->line);
-        $product->content_id            =   implode(',', $request->content);
-        $product->allergens_dp_id       =   implode(',', $request->allergens);
+        $product->cat_id                =   $request->cat ? implode(',', $request->cat) : '';
+        $product->brand_id              =   $request->brand ? implode(',', $request->brand) : '';
+        $product->prodcut_group_id      =   $request->productgroup ? implode(',', $request->productgroup) : ''; 
+        $product->faith_id              =   $request->faith ? implode(',', $request->faith) : ''; 
+        $product->line_id               =   $request->line ? implode(',', $request->line) : ''; 
+        $product->content_id            =   $request->line ? implode(',', $request->line) : '';
+        $product->allergens_dp_id       =   $request->allergens ? implode(',', $request->allergens) : '';
         $product->user_id               =   Auth::user()->id;
         $product->sku_code              =   time();
         $product->short_description     =   $request->short_desc;

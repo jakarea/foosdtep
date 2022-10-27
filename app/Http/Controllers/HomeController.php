@@ -3,7 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Backend\Product;
+use App\Models\Backend\Category;
+use App\Models\Backend\ProductGroup;
+use App\Models\Backend\Faith;
+use App\Models\Backend\Line;
+use App\Models\Backend\Content;
+use App\Models\Backend\AllergensDP;
+use App\Models\Backend\Brand;
 class HomeController extends Controller
 {
     /**
@@ -24,7 +31,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend/index');
+        $categories = Category::orderby('name', 'asc')->get();
+        return view('frontend/index',compact('categories'));
     }
     public function about()
     {

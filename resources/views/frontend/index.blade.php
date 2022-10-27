@@ -24,156 +24,24 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="product__catagory">
+
+                        @foreach($categories as $cateogry)
                             <!-- Start Single catagory Product -->
                             <div class="product__catagory--single">
                                 <!-- Start Product Content -->
                                 <div class="product__content product__content--catagory">
-                                    <a href="{{ url('products')}}" class="product__link">Pure egg Collection </a>
-                                    <span class="product__items--text">2 Products</span>
+
+                                    <a href="{{ url('products/cat/'.$cateogry->slug)}}" class="product__link">{{ $cateogry->name }}</a>
+                                    <span class="product__items--text">{{ $cateogry->countProductByCat($cateogry->id)}} Products</span>
                                 </div> <!-- End Product Content -->
                                 <!-- Start Product Image -->
                                 <div class="product__img-box product__img-box--catagory">
-                                    <a href="{{ url('products')}}" class="product__img--link">
-                                        <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/category/category-home-1-img-1.jpg" alt="">
+                                    <a href="{{ url('products/cat/'.$cateogry->slug)}}" class="product__img--link">
+                                        <img class="product__img img-fluid" src="{{asset('backend/assets/images/category/'.$cateogry->image)  }}" alt="">
                                     </a>
                                 </div> <!-- End Product Image -->
                             </div> <!-- End Single Default Product -->
-                            
-                            <!-- Start Single catagory Product -->
-                            <div class="product__catagory--single">
-                                <!-- Start Product Content -->
-                                <div class="product__content product__content--catagory">
-                                    <a href="{{ url('products')}}" class="product__link">Vegetable Collection</a>
-                                    <span class="product__items--text">2 Products</span>
-                                </div> <!-- End Product Content -->
-                                <!-- Start Product Image -->
-                                <div class="product__img-box product__img-box--catagory">
-                                    <a href="{{ url('products')}}" class="product__img--link">
-                                        <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/category/category-home-1-img-2.jpg" alt="">
-                                    </a>
-                                </div> <!-- End Product Image -->
-                            </div> <!-- End Single Default Product -->
-                            
-                            <!-- Start Single catagory Product -->
-                            <div class="product__catagory--single">
-                                <!-- Start Product Content -->
-                                <div class="product__content product__content--catagory">
-                                    <a href="{{ url('products')}}" class="product__link">Fresh Milk Collection</a>
-                                    <span class="product__items--text">3 Products</span>
-                                </div> <!-- End Product Content -->
-                                <!-- Start Product Image -->
-                                <div class="product__img-box product__img-box--catagory">
-                                    <a href="{{ url('products')}}" class="product__img--link">
-                                        <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/category/category-home-1-img-3.jpg" alt="">
-                                    </a>
-                                </div> <!-- End Product Image -->
-                            </div> <!-- End Single Default Product -->
-                            
-                            <!-- Start Single catagory Product -->
-                            <div class="product__catagory--single">
-                                <!-- Start Product Content -->
-                                <div class="product__content product__content--catagory">
-                                    <a href="{{ url('products')}}" class="product__link">Vegetable Collection</a>
-                                    <span class="product__items--text">0 Products</span>
-                                </div> <!-- End Product Content -->
-                                <!-- Start Product Image -->
-                                <div class="product__img-box product__img-box--catagory">
-                                    <a href="{{ url('products')}}" class="product__img--link">
-                                        <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/category/category-home-1-img-4.jpg" alt="">
-                                    </a>
-                                </div> <!-- End Product Image -->
-                            </div> <!-- End Single Default Product -->
-                            
-                            <!-- Start Single catagory Product -->
-                            <div class="product__catagory--single">
-                                <!-- Start Product Content -->
-                                <div class="product__content product__content--catagory">
-                                    <a href="{{ url('products')}}" class="product__link">Best beef Collection</a>
-                                    <span class="product__items--text">3 Products</span>
-                                </div> <!-- End Product Content -->
-                                <!-- Start Product Image -->
-                                <div class="product__img-box product__img-box--catagory">
-                                    <a href="{{ url('products')}}" class="product__img--link">
-                                        <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/category/category-home-1-img-5.jpg" alt="">
-                                    </a>
-                                </div> <!-- End Product Image -->
-                            </div> <!-- End Single Default Product -->
-                            
-                            <!-- Start Single catagory Product -->
-                            <div class="product__catagory--single">
-                                <!-- Start Product Content -->
-                                <div class="product__content product__content--catagory">
-                                    <a href="{{ url('products')}}" class="product__link">Vegetable Collection</a>
-                                    <span class="product__items--text">0 Products</span>
-                                </div> <!-- End Product Content -->
-                                <!-- Start Product Image -->
-                                <div class="product__img-box product__img-box--catagory">
-                                    <a href="{{ url('products')}}" class="product__img--link">
-                                        <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/category/category-home-1-img-6.jpg" alt="">
-                                    </a>
-                                </div> <!-- End Product Image -->
-                            </div> <!-- End Single Default Product -->
-                            
-                            <!-- Start Single catagory Product -->
-                            <div class="product__catagory--single">
-                                <!-- Start Product Content -->
-                                <div class="product__content product__content--catagory">
-                                    <a href="{{ url('products')}}" class="product__link">Vegetable Collection</a>
-                                    <span class="product__items--text">3 Products</span>
-                                </div> <!-- End Product Content -->
-                                <!-- Start Product Image -->
-                                <div class="product__img-box product__img-box--catagory">
-                                    <a href="{{ url('products')}}" class="product__img--link">
-                                        <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/category/category-home-1-img-7.jpg" alt="">
-                                    </a>
-                                </div> <!-- End Product Image -->
-                            </div> <!-- End Single Default Product -->
-                            
-                            <!-- Start Single catagory Product -->
-                            <div class="product__catagory--single">
-                                <!-- Start Product Content -->
-                                <div class="product__content product__content--catagory">
-                                    <a href="{{ url('products')}}" class="product__link">Fresh Carrot Collection</a>
-                                    <span class="product__items--text">0 Products</span>
-                                </div> <!-- End Product Content -->
-                                <!-- Start Product Image -->
-                                <div class="product__img-box product__img-box--catagory">
-                                    <a href="{{ url('products')}}" class="product__img--link">
-                                        <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/category/category-home-1-img-8.jpg" alt="">
-                                    </a>
-                                </div> <!-- End Product Image -->
-                            </div> <!-- End Single Default Product -->
-                            
-                            <!-- Start Single catagory Product -->
-                            <div class="product__catagory--single">
-                                <!-- Start Product Content -->
-                                <div class="product__content product__content--catagory">
-                                    <a href="{{ url('products')}}" class="product__link">Pure Masroom Collection</a>
-                                    <span class="product__items--text">2 Products</span>
-                                </div> <!-- End Product Content -->
-                                <!-- Start Product Image -->
-                                <div class="product__img-box product__img-box--catagory">
-                                    <a href="{{ url('products')}}" class="product__img--link">
-                                        <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/category/category-home-1-img-9.jpg" alt="">
-                                    </a>
-                                </div> <!-- End Product Image -->
-                            </div> <!-- End Single Default Product -->
-                            
-                            <!-- Start Single catagory Product -->
-                            <div class="product__catagory--single">
-                                <!-- Start Product Content -->
-                                <div class="product__content product__content--catagory">
-                                    <a href="{{ url('products')}}" class="product__link">Best Mashroom Collection</a>
-                                    <span class="product__items--text">2 Products</span>
-                                </div> <!-- End Product Content -->
-                                <!-- Start Product Image -->
-                                <div class="product__img-box product__img-box--catagory">
-                                    <a href="{{ url('products')}}" class="product__img--link">
-                                        <img class="product__img img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/product/category/category-home-1-img-10.jpg" alt="">
-                                    </a>
-                                </div> <!-- End Product Image -->
-                            </div> <!-- End Single Default Product -->
-                            
+                        @endforeach
                         </div>
                     </div>
                 </div>
