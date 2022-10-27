@@ -29,7 +29,7 @@
 
                     <tbody>
                         @foreach( $products as $key => $product )
-                        <tr>
+                        <tr id="#table_rrow{{ $product->id }}">
                             <td>{{ $key+1 }}</td>
                             <td>{{ __($product->name) }}</td>
                             <td>
@@ -61,14 +61,14 @@
                                 @endforeach
                             </td>
                             <td>
-                                <a href="{{ url('static/users/profile') }}">
+                                <!-- <a href="{{ url('static/users/profile') }}">
                                     <i class="fas fa-eye"></i>
-                                </a>
+                                </a> -->
                                 <a href="{{ route('product.edit', 1) }}" class="mx-2">
                                     <i class="fas fa-pen text-success"></i>
                                 </a>
-                                <a href="#">
-                                    <i class="fas fa-trash text-danger"></i>
+                                <a href="javascript:void(0)" class="text-danger cat_delete" data-id="{{$product->id}}">
+                                    <i class="fas fa-trash"></i>
                                 </a>
                             </td>
                         </tr>
@@ -115,7 +115,7 @@
                 });
                 $.ajax({
                     type: "DELETE",
-                    url:  "{{url('/auth/brands/brand')}}/" + id,
+                    url:  "{{url('/auth/products/product')}}/" + id,
                     data: {_token: CSRF_TOKEN, id: id},
                     dataType: 'JSON',
                     success: function (results) {

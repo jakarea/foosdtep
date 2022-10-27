@@ -39,17 +39,21 @@
                 <!-- Start Wishlist-AddCart -->
                 <ul class="header__user-action-icon">
                     <!-- Start Header Wishlist Box -->
+                    @if(!Auth::check())
                     <li>
-                        <a href="{{ url('frontend/login') }}">
+                        <a href="{{ route('customer.loginform') }}">
                             <i class="fas fa-sign-in"></i>
                         </a>
                     </li> <!-- End Header Wishlist Box --> 
+                    @endif
+
+                    @if(Auth::check())
                     <li>
-                        <a href="{{ url('/profile') }}">
+                        <a href="{{ route('customer.dashboard') }}">
                             <i class="icon-users"></i>
                         </a>
                     </li> <!-- End Header Wishlist Box --> 
-
+                    @endif
                     <!-- Start Header Add Cart Box -->
                     <li>
                         <a href="{{ url('products/cart') }}">

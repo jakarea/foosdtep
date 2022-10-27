@@ -4,10 +4,16 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Role;
+use App\Models\UserRole;
+use Auth;
+use Response;
+use Session;
 
 class RegisterController extends Controller
 {
@@ -39,6 +45,38 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    // Registration Customer Account
+    public function CustomerRegistration(Request $request)
+    {
+        $validation =   $request->validate([
+            'name'          =>  ['required', 'string', 'unique:users,name', 'max:255'],
+            'email'         =>  ['required', 'email', 'unique:users,email', 'max:255'],
+            'password'      =>  ['required', 'string', 'min:6','regex:/[a-z]/','regex:/[A-Z]/','regex:/[0-9]/','regex:/[@$!%*#?&]/'],
+        ]);
+
+
+        if( !empty($request->all() ) )
+        {
+            $user = User::create([
+                'name'   =>  $request->name,
+                'email'   =>  $request->email,
+                'password'   =>  Hash::make($request->password),
+            ]);
+    
+            UserRole::create([
+                'user_id'   =>  $user->id,
+                'role_id'   =>  3,
+            ]);
+
+            $notification = session()->flash("success", "Account Created Successfull!");
+            return redirect()->route('customer.loginform')->with($notification);
+        }
+        else {
+            $notification = session()->flash("error", "Data Not Found");
+            return back()->with($notification);
+        }
     }
 
     /**

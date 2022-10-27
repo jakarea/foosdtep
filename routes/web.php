@@ -9,18 +9,6 @@ use App\Http\Controllers\Admin\BackendDesignController;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
- 
-
-/*
-|--------------------------------------------------------------------------
 | Frotend Route Routes
 |--------------------------------------------------------------------------
 |
@@ -36,7 +24,6 @@ Route::controller(HomeController::class)->group(function () {
 
     // about static blade route
     Route::get('/about', 'about')->name('about');
-    Route::get('/profile', 'profile')->name('profile');
 
     // product static blade route
     Route::get('/products', 'products')->name('products');
@@ -48,9 +35,32 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('contact', 'contact')->name('products.contact');
 
     // auth static blade route
-    Route::get('frontend/login', 'login')->name('frontend.login');
-    Route::get('frontend/register', 'register')->name('frontend.register'); 
+    Route::get('customer/login', 'login')->name('frontend.login');
+    Route::get('customer/register', 'register')->name('frontend.register'); 
     Route::get('frontend/invoice', 'invoice')->name('frontend.invoice'); 
+
+    // Admin Login Form
+    Route::get('auth/login', 'App\Http\Controllers\Auth\LoginController@adminloginform')->name('admin.login');
+
+
+    // Customer Login and Registration
+    Route::get('customer/login', 'App\Http\Controllers\Auth\LoginController@showloginform')->name('customer.loginform');
+    Route::get('customer/register', 'App\Http\Controllers\Auth\LoginController@showregisterform')->name('customer.registerform');
+    // Customer Registration and verification
+    Route::post('customer/register', 'App\Http\Controllers\Auth\RegisterController@CustomerRegistration')->name('customer.registration');
+    Route::post('customer/login', 'App\Http\Controllers\Auth\LoginController@logincustomer')->name('customer.login');
+
+    Route::get('/login', function () {
+        return redirect(route('customer.loginform'));
+    });
+
+
+    Route::group(['prefix' => 'customers'], function(){
+        Route::group(['middleware' => 'customer'], function () {
+            Route::get('/dashboard','App\Http\Controllers\Frontend\DashboardController@index')->name('customer.dashboard');
+            Route::post('/customer/{id}','App\Http\Controllers\Frontend\DashboardController@update')->name('customer.update');
+        });
+    });
 });
 
 

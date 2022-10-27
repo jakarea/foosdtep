@@ -124,6 +124,19 @@ class ProductController extends Controller
     public function edit($id)
     {
         //
+        $product = Product::find($id);
+        $categoies = Category::where('parent_cat',0)->get();
+        $productgroups = ProductGroup::where('parent_id',0)->get();
+        $faiths = Faith::where('parent_id',0)->get();
+        $lines = Line::where('parent_id',0)->get();
+        $contents = Content::where('parent_id',0)->get();
+        $allergensDP = AllergensDP::where('parent_id',0)->get();
+        $brands = Brand::where('parent_id',0)->get();
+
+        if( $product ) {
+            return view('backend/pages/product/edit', compact('product', 'categoies', 'productgroups', 'faiths', 'lines', 'contents', 'allergensDP', 'brands'));
+        }
+
     }
 
     /**
@@ -136,6 +149,53 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'name'              =>  ['required', 'max:255'],
+            'status'            =>  ['required', 'not_in:0'],
+            'price'             =>  ['required', 'min:1'],
+            'short_desc'        =>  ['required'],
+            'description'       =>  ['required'],
+            'specification'     =>  ['required'],
+        ]);
+
+        $product = Product::find($id);
+
+        $product->name                  =   $request->name;
+        $product->price                 =   $request->price;
+        $product->status                =   $request->status;
+        $product->cat_id                =   implode(',', $request->cat);
+        $product->brand_id              =   implode(',', $request->brand);
+        $product->prodcut_group_id      =   implode(',', $request->productgroup);
+        $product->faith_id              =   implode(',', $request->faith);
+        $product->line_id               =   implode(',', $request->line);
+        $product->content_id            =   implode(',', $request->content);
+        $product->allergens_dp_id       =   implode(',', $request->allergens);
+        $product->user_id               =   Auth::user()->id;
+        $product->sku_code              =   time();
+        $product->short_description     =   $request->short_desc;
+        $product->long_description      =   $request->description;
+        $product->specific_description  =   $request->specification;
+
+        if(!is_null($request->featureimage)){
+            $feature = $request->file('featureimage');
+            if( !is_null($feature) ){
+                // Delete Existing Image
+                if( File::exists('frontend/assets/img/product/' . $product->image) ) {
+                    File::delete('frontend/assets/img/product/' . $product->image);
+                }
+
+                $img = time() . '.' . $feature->getClientOriginalExtension();
+                $location = public_path('frontend/assets/img/product/' . $img);
+                Image::make($feature)->save($location);
+                $product->image = $img;
+            }
+        }
+
+        $product->save();
+
+        $notification = session()->flash("success", "Data Update Successfully");
+
+        return redirect()->route('product.index')->with($notification);
     }
 
     /**
@@ -147,5 +207,22 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+        $delete = Product::where('id', $id)->delete();
+
+        // check data deleted or not
+        if ($delete == 1) {
+            $success = true;
+            $message = "Data Deleted Successfull!!!";
+            
+        } else {
+            $success = true;
+            $message = "Something is wrong!!!";
+        }
+
+        //  Return response
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+        ]);
     }
 }
