@@ -32,10 +32,6 @@ class HomeController extends Controller
     }
 
     // crat checkout method start
-    public function cart()
-    {
-        return view('frontend/cart');
-    }
     public function checkout()
     {
         return view('frontend/checkout');
@@ -45,16 +41,6 @@ class HomeController extends Controller
     public function contact()
     {
         return view('frontend/contact');
-    }
-
-    // auth method start
-    public function login()
-    {
-        return view('frontend/login');
-    }
-    public function register()
-    {
-        return view('frontend/register');
     }
 
     // order method start

@@ -143,7 +143,7 @@
                                                     <img class="product__img img-fluid" src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="{{$product->slug}}">
                                                 </a>                                               
                                                 <ul class="product__action--link pos-absolute">
-                                                    <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
+                                                    <li><a href="{{ route('add.to.cart', $product->id) }}"><i class="icon-shopping-cart"></i></a></li>
                                                     <li><a href="#modalQuickView{{$product->id}}" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
                                                 </ul> <!-- End Product Action Link -->
                                             </div> <!-- End Product Image -->
@@ -248,7 +248,7 @@
                                                 </div>
                                                 <!-- Start Product Action Link-->
                                                 <ul class="product__action--link-list m-t-30">
-                                                    <li><a href="#modalAddCart" data-bs-toggle="modal" class="btn--black btn--black-hover-green">Add to cart</a></li>
+                                                    <li><a href="{{ route('add.to.cart', $product->id) }}" class="btn--black btn--black-hover-green">Add to cart</a></li>
                                                 </ul> <!-- End Product Action Link -->
                                             </div> <!-- End Product Content -->
                                         </div> 

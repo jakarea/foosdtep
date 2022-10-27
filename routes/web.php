@@ -25,18 +25,22 @@ Route::controller(HomeController::class)->group(function () {
     // about static blade route
     Route::get('/about', 'about')->name('about');
 
-    // product static blade route
+    // product route
     Route::get('/products', 'App\Http\Controllers\Frontend\ProductController@index')->name('products');
     Route::get('/products/{slug}', 'App\Http\Controllers\Frontend\ProductController@show')->name('show.product');
-    Route::get('products/cart', 'cart')->name('products.cart');
+
+    // Product cart routes
+    Route::get('/cart', 'App\Http\Controllers\Frontend\ProductController@cart')->name('product.cart');
+    Route::get('/add-to-cart/{id}', 'App\Http\Controllers\Frontend\ProductController@addToCart')->name('add.to.cart');
+    Route::patch('/update-cart', 'App\Http\Controllers\Frontend\ProductController@update')->name('update.cart');
+    Route::delete('/remove-from-cart', 'App\Http\Controllers\Frontend\ProductController@remove' )->name('remove.from.cart');
+    
     Route::get('products/checkout', 'checkout')->name('products.checkout');
 
     // contact static blade route
     Route::get('contact', 'contact')->name('products.contact');
 
     // auth static blade route
-    Route::get('customer/login', 'login')->name('frontend.login');
-    Route::get('customer/register', 'register')->name('frontend.register'); 
     Route::get('frontend/invoice', 'invoice')->name('frontend.invoice'); 
 
     // Admin Login Form
