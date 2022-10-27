@@ -21,13 +21,13 @@ class Category extends Model
     // Parent Category
     public function parent()
     {
-       return $this->hasOne(Category::class, 'parent_cat','id');
+        return $this->hasOne(Category::class, 'parent_cat','id');
     }
 
     // Sub Parent Category
     public function children()
     {
-       return $this->hasMany(Category::class, 'parent_cat');
+        return $this->hasMany(Category::class, 'parent_cat');
     }
 
     // Parent Name
@@ -36,7 +36,15 @@ class Category extends Model
         return $this->belongsTo(Category::class, 'parent_cat');
     }
 
+
     public function products(){
         return $this->belongsToMany(Product::class, 'cat_id');
    }
+
+     // Count the number of product in this category
+    public function countProductByCat($categoryID)
+    {
+        return Product::where('cat_id','like','%'.trim($categoryID).'%')->count();
+    }
+
 }
