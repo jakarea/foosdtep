@@ -86,19 +86,19 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="mdi mdi-account"></i>
+                        <i class="mdi mdi-camera-timer"></i>
                         <span>Product Management</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li class="@if( Route::currentRouteNamed('product.index')) mm-active @endif">
                             <a href="{{ route('product.index') }}" class="waves-effect-@if( Route::currentRouteNamed('product.index')) active @endif">
-                                <i class="mdi mdi-account"></i>
+                                <i class="mdi mdi-camera-timer"></i>
                                 <span>Product List</span>
                             </a>
                         </li>
                         <li class="@if( Route::currentRouteNamed('product.create')) mm-active @endif">
                             <a href="{{ route('product.create') }}" class="waves-effect-@if( Route::currentRouteNamed('product.create')) active @endif">
-                                <i class="mdi mdi-account"></i>
+                                <i class="mdi mdi-camera-timer"></i>
                                 <span>Product Create</span>
                             </a>
                         </li>

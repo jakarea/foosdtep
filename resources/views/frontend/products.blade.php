@@ -1,5 +1,6 @@
 @extends('layouts.frontend')
-
+@section('title') {{ __('Products') }} @endsection
+@section('breadcumbTitle') {{ __('Products') }} @endsection
 @section('content')
 
 <!-- breadcumb start -->
@@ -132,324 +133,30 @@
                         <div class="tab-content tab-animate-zoom">
                             <div class="tab-pane show active shop-grid" id="sort-grid">
                                 <div class="row">
+                                    @foreach( $products as $key => $product )
                                     <div class="col-md-4 col-12">
                                         <!-- Start Single Default Product -->
                                         <div class="product__box product__default--single text-center">
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
-                                                <a href="{{ url('products/view')}}" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-6.webp" alt="">
-                                                </a>
-                                                <!-- Start Procuct Label -->
-                                               
-                                                <!-- End Procuct Label -->
-                                                <!-- Start Product Action Link-->
+                                                <a href="{{ route('show.product', $product->slug) }}" class="product__img--link">
+                                                    <img class="product__img img-fluid" src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="{{$product->slug}}">
+                                                </a>                                               
                                                 <ul class="product__action--link pos-absolute">
                                                     <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
-                                                    <!-- <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
-                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li> -->
                                                     <li><a href="#modalQuickView" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
                                                 </ul> <!-- End Product Action Link -->
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
                                             <div class="product__content m-t-20">
-                                                <!-- <ul class="product__review">
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--blank"><i class="icon-star"></i></li>
-                                                </ul> -->
-                                                <a href="{{ url('products/view')}}" class="product__link">Fresh green apple</a>
+                                                <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a>
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">$19.00 </span>
+                                                    <span class="product__price">{{ __('$'). $product->price }} </span>
                                                 </div>
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
                                     </div>
-                                    <div class="col-md-4 col-sm-6 col-12">
-                                        <!-- Start Single Default Product -->
-                                        <div class="product__box product__default--single text-center">
-                                            <!-- Start Product Image -->
-                                            <div class="product__img-box  pos-relative">
-                                                <a href="{{ url('products/view')}}" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-7.webp" alt="">
-                                                </a>
-                                                <!-- Start Procuct Label -->
-                                                <!-- <span class="product__label product__label--sale-dis">-34%</span> -->
-                                                <!-- End Procuct Label -->
-                                                <!-- Start Product Action Link-->
-                                                <ul class="product__action--link pos-absolute">
-                                                    <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
-                                                    <!-- <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
-                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li> -->
-                                                    <li><a href="#modalQuickView" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
-                                                </ul> <!-- End Product Action Link -->
-                                            </div> <!-- End Product Image -->
-                                            <!-- Start Product Content -->
-                                            <div class="product__content m-t-20">
-                                                <!-- <ul class="product__review">
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--blank"><i class="icon-star"></i></li>
-                                                </ul> -->
-                                                <a href="{{ url('products/view')}}" class="product__link">Juice fresh orange</a>
-                                                <div class="product__price m-t-5">
-                                                    <span class="product__price">$19.00 </span>
-                                                </div>
-                                            </div> <!-- End Product Content -->
-                                        </div> <!-- End Single Default Product -->
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 col-12">
-                                        <!-- Start Single Default Product -->
-                                        <div class="product__box product__default--single text-center">
-                                            <!-- Start Product Image -->
-                                            <div class="product__img-box  pos-relative">
-                                                <a href="{{ url('products/view')}}" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-8.webp" alt="">
-                                                </a>
-                                                <!-- Start Procuct Label -->
-                                                <!-- <span class="product__label product__label--sale-dis">-35%</span> -->
-                                                <!-- End Procuct Label -->
-                                                <!-- Start Product Countdown -->
-                                                <!-- <div class="product__counter-box">
-                                                    <div class="product__counter-item" data-countdown="2021/03/01"></div>
-                                                </div> -->
-                                                 <!-- End Product Countdown -->
-                                                <!-- Start Product Action Link-->
-                                                <ul class="product__action--link pos-absolute">
-                                                    <!-- <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
-                                                    <li><a href="compare.html"><i class="icon-sliders"></i></a></li> -->
-                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li>
-                                                    <li><a href="#modalQuickView" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
-                                                </ul> <!-- End Product Action Link -->
-                                            </div> <!-- End Product Image -->
-                                            <!-- Start Product Content -->
-                                            <div class="product__content m-t-20">
-                                                <!-- <ul class="product__review">
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--blank"><i class="icon-star"></i></li>
-                                                </ul> -->
-                                                <a href="{{ url('products/view')}}" class="product__link">Best ripe grapes</a>
-                                                <div class="product__price m-t-5">
-                                                    <span class="product__price">$39.00 </span>
-                                                </div>
-                                            </div> <!-- End Product Content -->
-                                        </div> <!-- End Single Default Product -->
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 col-12">
-                                        <!-- Start Single Default Product -->
-                                        <div class="product__box product__default--single text-center">
-                                            <!-- Start Product Image -->
-                                            <div class="product__img-box  pos-relative">
-                                                <a href="{{ url('products/view')}}" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-9.webp" alt="">
-                                                </a>
-                                                <!-- Start Procuct Label -->
-                                                <span class="product__label product__label--sale-out">Soldout</span>
-                                                <!-- End Procuct Label -->
-                                                <!-- Start Product Action Link-->
-                                                <ul class="product__action--link pos-absolute">
-                                                    <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
-                                                    <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
-                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li>
-                                                    <li><a href="#modalQuickView" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
-                                                </ul> <!-- End Product Action Link -->
-                                            </div> <!-- End Product Image -->
-                                            <!-- Start Product Content -->
-                                            <div class="product__content m-t-20">
-                                                <ul class="product__review">
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--blank"><i class="icon-star"></i></li>
-                                                </ul>
-                                                <a href="{{ url('products/view')}}" class="product__link">Cow fresh milk</a>
-                                                <div class="product__price m-t-5">
-                                                    <span class="product__price">$55.00 </span>
-                                                </div>
-                                            </div> <!-- End Product Content -->
-                                        </div> <!-- End Single Default Product -->
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 col-12">
-                                        <!-- Start Single Default Product -->
-                                        <div class="product__box product__default--single text-center">
-                                            <!-- Start Product Image -->
-                                            <div class="product__img-box  pos-relative">
-                                                <a href="{{ url('products/view')}}" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-10.webp" alt="">
-                                                </a>
-                                                <!-- Start Procuct Label -->
-                                                <span class="product__label product__label--sale-out">Soldout</span>
-                                                <!-- End Procuct Label -->
-                                                <!-- Start Product Action Link-->
-                                                <ul class="product__action--link pos-absolute">
-                                                    <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
-                                                    <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
-                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li>
-                                                    <li><a href="#modalQuickView" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
-                                                </ul> <!-- End Product Action Link -->
-                                            </div> <!-- End Product Image -->
-                                            <!-- Start Product Content -->
-                                            <div class="product__content m-t-20">
-                                                <ul class="product__review">
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--blank"><i class="icon-star"></i></li>
-                                                </ul>
-                                                <a href="{{ url('products/view')}}" class="product__link">Fresh Red Tomato</a>
-                                                <div class="product__price m-t-5">
-                                                    <span class="product__price">$10.00</span>
-                                                </div>
-                                            </div> <!-- End Product Content -->
-                                        </div> <!-- End Single Default Product -->
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 col-12">
-                                        <!-- Start Single Default Product -->
-                                        <div class="product__box product__default--single text-center">
-                                            <!-- Start Product Image -->
-                                            <div class="product__img-box  pos-relative">
-                                                <a href="{{ url('products/view')}}" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-1.webp" alt="">
-                                                </a>
-                                                <!-- Start Procuct Label -->
-                                                <!-- <span class="product__label product__label--sale-dis">-34%</span> -->
-                                                <!-- End Procuct Label -->
-                                                <!-- Start Product Action Link-->
-                                                <ul class="product__action--link pos-absolute">
-                                                    <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
-                                                    <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
-                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li>
-                                                    <li><a href="#modalQuickView" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
-                                                </ul> <!-- End Product Action Link -->
-                                            </div> <!-- End Product Image -->
-                                            <!-- Start Product Content -->
-                                            <div class="product__content m-t-20">
-                                                <ul class="product__review">
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--blank"><i class="icon-star"></i></li>
-                                                </ul>
-                                                <a href="{{ url('products/view')}}" class="product__link">Fresh green vegetable</a>
-                                                <div class="product__price m-t-5">
-                                                    <span class="product__price">$19.00 </span>
-                                                </div>
-                                            </div> <!-- End Product Content -->
-                                        </div> <!-- End Single Default Product -->
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 col-12">
-                                        <!-- Start Single Default Product -->
-                                        <div class="product__box product__default--single text-center">
-                                            <!-- Start Product Image -->
-                                            <div class="product__img-box  pos-relative">
-                                                <a href="{{ url('products/view')}}" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-2.webp" alt="">
-                                                </a>
-                                                <!-- Start Product Action Link-->
-                                                <ul class="product__action--link pos-absolute">
-                                                    <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
-                                                    <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
-                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li>
-                                                    <li><a href="#modalQuickView" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
-                                                </ul> <!-- End Product Action Link -->
-                                            </div> <!-- End Product Image -->
-                                            <!-- Start Product Content -->
-                                            <div class="product__content m-t-20">
-                                                <ul class="product__review">
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--blank"><i class="icon-star"></i></li>
-                                                </ul>
-                                                <a href="{{ url('products/view')}}" class="product__link">Fresh river fish</a>
-                                                <div class="product__price m-t-5">
-                                                    <span class="product__price">$25.00</span>
-                                                </div>
-                                            </div> <!-- End Product Content -->
-                                        </div> <!-- End Single Default Product -->
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 col-12">
-                                        <!-- Start Single Default Product -->
-                                        <div class="product__box product__default--single text-center">
-                                            <!-- Start Product Image -->
-                                            <div class="product__img-box  pos-relative">
-                                                <a href="{{ url('products/view')}}" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-3.webp" alt="">
-                                                </a>
-                                                <!-- Start Procuct Label -->
-                                                <!-- <span class="product__label product__label--sale-dis">-10%</span> -->
-                                                <!-- End Procuct Label -->
-                                                <!-- Start Product Countdown -->
-                                                <div class="product__counter-box">
-                                                    <div class="product__counter-item" data-countdown="2023/09/27"></div>
-                                                </div> <!-- End Product Countdown -->
-                                                <!-- Start Product Action Link-->
-                                                <ul class="product__action--link pos-absolute">
-                                                    <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
-                                                    <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
-                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li>
-                                                    <li><a href="#modalQuickView" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
-                                                </ul> <!-- End Product Action Link -->
-                                            </div> <!-- End Product Image -->
-                                            <!-- Start Product Content -->
-                                            <div class="product__content m-t-20">
-                                                <ul class="product__review">
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--blank"><i class="icon-star"></i></li>
-                                                </ul>
-                                                <a href="{{ url('products/view')}}" class="product__link">Fresh pomegranate</a>
-                                                <div class="product__price m-t-5">
-                                                    <span class="product__price">$19.00 </span>
-                                                </div>
-                                            </div> <!-- End Product Content -->
-                                        </div> <!-- End Single Default Product -->
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 col-12">
-                                         <!-- Start Single Default Product -->
-                                        <div class="product__box product__default--single text-center">
-                                            <!-- Start Product Image -->
-                                            <div class="product__img-box  pos-relative">
-                                                <a href="{{ url('products/view')}}" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="frontend/assets/img/product/size-normal/product-home-1-img-4.webp" alt="">
-                                                </a>
-                                                <!-- Start Product Action Link-->
-                                                <ul class="product__action--link pos-absolute">
-                                                    <li><a href="#modalAddCart" data-bs-toggle="modal"><i class="icon-shopping-cart"></i></a></li>
-                                                    <li><a href="compare.html"><i class="icon-sliders"></i></a></li>
-                                                    <li><a href="wishlist.html"><i class="icon-heart"></i></a></li>
-                                                    <li><a href="#modalQuickView" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
-                                                </ul> <!-- End Product Action Link -->
-                                            </div> <!-- End Product Image -->
-                                            <!-- Start Product Content -->
-                                            <div class="product__content m-t-20">
-                                                <ul class="product__review">
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--fill"><i class="icon-star"></i></li>
-                                                    <li class="product__review--blank"><i class="icon-star"></i></li>
-                                                </ul>
-                                                <a href="{{ url('products/view')}}" class="product__link">Cabbage vegetables</a>
-                                                <div class="product__price m-t-5">
-                                                    <span class="product__price">$50.00</span>
-                                                </div>
-                                            </div> <!-- End Product Content -->
-                                        </div> <!-- End Single Default Product -->
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="tab-pane shop-list" id="sort-list">
@@ -619,14 +326,28 @@
                         </div>
                     </div>
 
-                    <div class="page-pagination">
-                        <ul class="page-pagination__list">
-                            <li class="page-pagination__item"><a class="page-pagination__link"  href="#">Prev</a>
-                            <li class="page-pagination__item"><a class="page-pagination__link active"  href="#">1</a></li>
-                            <li class="page-pagination__item"><a class="page-pagination__link"  href="#">2</a></li>
-                            <li class="page-pagination__item"><a class="page-pagination__link"  href="#">Next</a>
-                            </li>
-                          </ul>
+                    <div class="page-pagination">                          
+                        @if ($products->lastPage() > 1)
+                            <ul class="page-pagination__list">
+                                <li class="{{ ($products->currentPage() == 1) ? ' disabled' : '' }} page-pagination__item">
+                                    <a class="page-pagination__link" href="{{ $products->url(1) }}" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo; Prev</span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                @for ($i = 1; $i <= $products->lastPage(); $i++)
+                                    <li class="page-pagination__item">
+                                        <a class="page-pagination__link {{ ($products->currentPage() == $i) ? ' active' : '' }}" href="{{ $products->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
+                                <li class="{{ ($products->currentPage() == $products->lastPage()) ? ' disabled' : '' }} page-pagination__item">
+                                    <a href="{{ $products->url($products->currentPage()+1) }}" class="page-pagination__link" aria-label="Next">
+                                        <span aria-hidden="true">Next &raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        @endif
                     </div>
                 </div>  <!-- Start Rightside - Product Type View -->
             </div>

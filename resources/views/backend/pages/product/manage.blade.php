@@ -62,7 +62,7 @@
                                 <!-- <a href="{{ url('static/users/profile') }}">
                                     <i class="fas fa-eye"></i>
                                 </a> -->
-                                <a href="{{ route('product.edit', 1) }}" class="mx-2">
+                                <a href="{{ route('product.edit', $product->id) }}" class="mx-2">
                                     <i class="fas fa-pen text-success"></i>
                                 </a>
                                 <a href="javascript:void(0)" class="text-danger cat_delete" data-id="{{$product->id}}">
