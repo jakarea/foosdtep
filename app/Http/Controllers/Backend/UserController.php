@@ -44,11 +44,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //inspiring-raman_043y8s0obdy9
+        //1Gh9ORwl_0
         $request->validate([
             'name'          =>  ['required', 'string', 'unique:users,name', 'max:255'],
             'email'         =>  ['required', 'email', 'unique:users,email', 'max:255'],
-            'password'      =>  ['required', 'string', 'min:6'],
+            //'password'      =>  ['required', 'string', 'min:6'],
             'phone'         =>  ['required', 'min:6'],
             'homeaddress'   =>  ['required', 'max:255'],
             // 'password'      =>  ['required', 'string', 'min:6','regex:/[a-z]/','regex:/[A-Z]/','regex:/[0-9]/','regex:/[@$!%*#?&]/'],
@@ -138,7 +139,7 @@ class UserController extends Controller
             'email'         =>  ['required', 'email', 'max:255'],
             'phone'         =>  ['required', 'min:6'],
             'status'        =>  ['required'],
-            'file'          =>  ['required', 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'],
+            //'file'          =>  ['required', 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'],
         ]);
 
         $user = User::find($id);

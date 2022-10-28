@@ -59,7 +59,7 @@ class RegisterController extends Controller
         $validation =   $request->validate([
             'name'          =>  ['required', 'string', 'unique:users,name', 'max:255'],
             'email'         =>  ['required', 'email', 'unique:users,email', 'max:255'],
-            'password'      =>  ['required', 'string', 'min:6','regex:/[a-z]/','regex:/[A-Z]/','regex:/[0-9]/','regex:/[@$!%*#?&]/'],
+            'password'      =>  ['required', 'string', 'min:6'],
         ]);
 
 

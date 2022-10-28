@@ -108,12 +108,6 @@
                     @endif
                 </li>
                 @endforeach
-                <li>
-                    <div class="form-check ">
-                        <input class="form-check-input" type="checkbox" checked name="cat[]" value="0" id="cat0">
-                        <label class="form-check-label" for="cat0">Uncategorized</label>
-                    </div>
-                </li>
                 </ul>
                 <span class="text-danger">
                     @error('cat'){{ $message }} @enderror
