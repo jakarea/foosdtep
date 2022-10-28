@@ -27,7 +27,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::orderby('name', 'asc')->get();
+        $products = Product::orderby('name', 'asc')->get();        
         return view('backend/pages/product/manage', compact('products'));
     }
 

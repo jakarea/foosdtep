@@ -56,9 +56,9 @@
                     @endif
                     <!-- Start Header Add Cart Box -->
                     <li>
-                        <a href="{{ url('products/cart') }}">
+                        <a href="{{ route('product.cart') }}">
                             <i class="icon-shopping-cart"></i>
-                            <span class="wishlist-item-count pos-absolute">5</span>
+                            <span class="wishlist-item-count pos-absolute">{{ count((array) session('cart')) }}</span>
                         </a>
                     </li> <!-- End Header Add Cart Box -->
                 </ul> 
