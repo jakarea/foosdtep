@@ -27,8 +27,19 @@ class ProductController extends Controller
     public function index()
     {
         //
+        $shareButtons = \Share::page(
+            'https://www.itsolutionstuff.com',
+            'Your share text comes here',
+        )
+        ->facebook()
+        ->twitter()
+        ->linkedin()
+        ->telegram()
+        ->whatsapp()        
+        ->reddit();
+
         $products = Product::where('status', 'active')->orderby('id', 'asc')->paginate('12');
-        return view('frontend/products', compact('products'));
+        return view('frontend/products', compact('products', 'shareButtons'));
     }
 
     /**
@@ -69,7 +80,7 @@ class ProductController extends Controller
             $cart[$id] = [
                 "name" => $product->name,
                 "quantity" => 1,
-                "price" => $product->price,
+                "price" => $product->discount($id) ? : $product->price,
                 "image" => $product->image
             ];
         }

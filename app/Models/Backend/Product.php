@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Backend\Brand;
 use App\Models\Backend\Category;
+use App\Models\Backend\Discount;
+use App\Models\User;
+use Auth;
 
 class Product extends Model
 {
@@ -59,5 +62,45 @@ class Product extends Model
 
     public function categories(){
         return $this->belongsToMany(Category::class);
+    }
+
+    public static function discount($p_id)
+    {
+
+        $discount = Discount::where('user_id', Auth::user()->id )->first();
+
+        $p = Product::where('id', $p_id)->first();
+
+        if( !is_null($discount) ){
+            if( $discount->type == 'percentage' ){
+                $p_val = $p->price / 100 * $discount->value;
+                $p_price = $p->price - $p_val;
+            }
+            else {
+                $p_val = $p->price - $discount->value;
+                $p_price = $p_val;
+            }
+        }
+        else {
+            $p_price = $p->price;
+        }
+
+        return $p_price;
+
+    }
+
+    public function DiscountValue()
+    {
+        $discounts = Discount:: // pivot table
+        where('user_id', Auth::user()->id) // user id
+        ->first();
+
+        $discount = '';
+        if( !is_null($discounts) ) {
+            $discount = $discounts->value;
+        }
+
+        return $discount ? : '';
+
     }
 }
