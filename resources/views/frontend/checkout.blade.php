@@ -209,25 +209,31 @@
                         <div class="your-order-product-info">
                             <div class="your-order-top d-flex justify-content-between">
                                 <h6 class="your-order-top-left font--bold">Product</h6>
+                                <h6 class="your-order-top-left font--bold">Quantity</h6>
                                 <h6 class="your-order-top-right font--bold">Total</h6>
                             </div>
                             <ul class="your-order-middle">
+                            @if(session('cart'))
+                            @foreach(session('cart') as $id => $details)
                                 <li class="d-flex justify-content-between">
-                                    <span class="your-order-middle-left font--semi-bold">Product Name X 1</span>
-                                    <span class="your-order-middle-right font--semi-bold">$329</span>
+                                    <span class="your-order-middle-left font--semi-bold">{{ $details['name'] }}</span>
+                                    <span class="your-order-middle-right font--semi-bold">{{ $details['quantity'] }} Items</span>
+                                    <span class="your-order-middle-right font--semi-bold">${{ $details['price'] * $details['quantity'] }}</span>
                                 </li>
-                                <li class="d-flex justify-content-between">
-                                    <span class="your-order-middle-left font--semi-bold">Product Name X 1</span>
-                                    <span class="your-order-middle-right font--semi-bold">$329</span>
-                                </li>
+                            @endforeach
+                            @endif
                             </ul>
                             <div class="your-order-bottom d-flex justify-content-between">
                                 <h6 class="your-order-bottom-left font--bold">Shipping</h6>
                                 <span class="your-order-bottom-right font--semi-bold">Free shipping</span>
                             </div>
                             <div class="your-order-total d-flex justify-content-between">
+                            @php $total = 0 @endphp
+                            @foreach((array) session('cart') as $id => $details)
+                                @php $total += $details['price'] * $details['quantity'] @endphp
+                            @endforeach
                                 <h5 class="your-order-total-left font--bold">Total</h5>
-                                <h5 class="your-order-total-right font--bold">$329</h5>
+                                <h5 class="your-order-total-right font--bold">${{ $total }}</h5>
                             </div>
 
                             <div class="payment-method">

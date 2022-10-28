@@ -45,7 +45,7 @@
                                 </td>
                                 <td class="product-subtotal">${{ $details['price'] * $details['quantity'] }}</td>
                                 <td class="product-remove remove-from-cart">
-                                    <a href="#"><i class="fa fa-pencil-alt"></i></a>
+                                    <!-- <a href="#"><i class="fa fa-pencil-alt"></i></a> -->
                                     <a href="#"><i class="fa fa-times"></i></a>
                                 </td>
                             </tr>
@@ -57,11 +57,19 @@
                     <!-- Start Cart Table Button -->
                 <div class="cart-table-button m-t-10">
                     <div class="cart-table-button--left">
-                        <a href="#" class="btn btn--box btn--large btn--radius btn--green btn--green-hover-black btn--uppercase font--bold m-t-20">CONTINUE SHOPPING</a>
+                        <a href="{{ route('products') }}" class="btn btn--box btn--large btn--radius btn--green btn--green-hover-black btn--uppercase font--bold m-t-20">CONTINUE SHOPPING</a>
                     </div>
-                    <div class="cart-table-button--right">
+                    <!-- <div class="cart-table-button--right">
                         <a href="#" class="btn btn--box btn--large btn--radius btn--green btn--green-hover-black btn--uppercase font--bold m-t-20 m-r-20">UPDATE SHOPPING CART</a>
                         <a href="#" class="btn btn--box btn--large btn--radius btn--black btn--black-hover-green btn--uppercase font--bold m-t-20">Clear Shopping Cart</a>
+                    </div> -->
+                    <div class="sidebar__widget mb-3">
+                        @php $total = 0 @endphp
+                            @foreach((array) session('cart') as $id => $details)
+                                @php $total += $details['price'] * $details['quantity'] @endphp
+                            @endforeach
+                        <h4 class="grand-total m-tb-25">Grand Total: &nbsp; <span> ${{ $total }}</span></h4>
+                        <a href="{{ route('checkout.cart') }}" class="btn btn--box btn--small btn--radius btn--green btn--green-hover-black btn--uppercase font--semi-bold" type="submit">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>  <!-- End Cart Table Button -->
             </div>
@@ -72,17 +80,6 @@
             <div class="col-lg-4 col-md-6">
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="sidebar__widget m-t-40">
-                    <div class="sidebar__box">
-                        <h5 class="sidebar__title">Cart Total</h5>
-                    </div>
-                    @php $total = 0 @endphp
-                        @foreach((array) session('cart') as $id => $details)
-                            @php $total += $details['price'] * $details['quantity'] @endphp
-                        @endforeach
-                    <h4 class="grand-total m-tb-25">Grand Total <span>$ {{ $total }}</span></h4>
-                    <button class="btn btn--box btn--small btn--radius btn--green btn--green-hover-black btn--uppercase font--semi-bold" type="submit">PROCEED TO CHECKOUT</button>
-                </div>
             </div>
         </div>
     </div>

@@ -35,10 +35,10 @@
                         <p>{{ $product->short_description }}.</p>
                     </div>
                     <div class="product-var p-tb-30">
-                        <div class="product__stock m-b-20">
+                        <!-- <div class="product__stock m-b-20">
                             <span class="product__stock--in"><i class="fas fa-check-circle"></i> 199 IN STOCK</span>
-                        </div> 
-                        <div class="product-quantity product-var__item d-flex align-items-center">
+                        </div>  -->
+                        <!-- <div class="product-quantity product-var__item d-flex align-items-center">
                             <span class="product-var__text">Quantity: </span>
                             <form class="quantity-scale m-l-20">
                                 <div class="value-button" id="decrease" onclick="decreaseValue()">-</div>
@@ -46,10 +46,10 @@
                                 <div class="value-button" id="increase" onclick="increaseValue()">+</div>
                             </form>
                             <a href="wishlist.html" style="margin-left: 20px;" class="btn btn--round btn--round-size-small btn--green btn--green-hover-black"><i class="icon-shopping-cart"></i></a>
-                        </div> 
+                        </div>  -->
                         <div class="product-var__item">
                             <div class="dynmiac_checkout--button"> 
-                                <a href="cart.html" class="btn btn--block btn--long btn--radius-tiny btn--green btn--green-hover-black text-uppercase m-r-35">Buy It Now</a>
+                                <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn--block btn--long btn--radius-tiny btn--green btn--green-hover-black text-uppercase m-r-35">Buy It Now</a>
                             </div>
                         </div>  
                     </div>

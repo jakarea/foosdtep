@@ -39,12 +39,6 @@ class HomeController extends Controller
         return view('frontend/about');
     }
 
-    // crat checkout method start
-    public function checkout()
-    {
-        return view('frontend/checkout');
-    }
-
     // contact method start
     public function contact()
     {

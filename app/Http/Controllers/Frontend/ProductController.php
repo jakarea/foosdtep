@@ -111,6 +111,15 @@ class ProductController extends Controller
     }
 
     /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function checkout() 
+    {
+        return view('frontend/checkout');
+    }
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request

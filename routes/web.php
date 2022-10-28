@@ -34,8 +34,11 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/add-to-cart/{id}', 'App\Http\Controllers\Frontend\ProductController@addToCart')->name('add.to.cart');
     Route::patch('/update-cart', 'App\Http\Controllers\Frontend\ProductController@update')->name('update.cart');
     Route::delete('/remove-from-cart', 'App\Http\Controllers\Frontend\ProductController@remove' )->name('remove.from.cart');
+
+    // Checkout page
+    Route::get('/checkout', 'App\Http\Controllers\Frontend\ProductController@checkout')->name('checkout.cart');
     
-    Route::get('products/checkout', 'checkout')->name('products.checkout');
+    Route::get('product/checkout', 'checkout')->name('product.checkout');
 
     // contact static blade route
     Route::get('contact', 'contact')->name('products.contact');
