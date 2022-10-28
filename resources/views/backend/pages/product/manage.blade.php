@@ -38,7 +38,6 @@
                                 @endphp
                                 @foreach($categories as $catgoryID)
                                 <span class="bg-success badge">{{ $product->categoryName($catgoryID) }}</span>
-                                <span class="bg-success badge">{{ $product->countProductByCat($catgoryID) }}</span>
                                 
                                 @endforeach
                             </td>

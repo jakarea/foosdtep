@@ -21,7 +21,7 @@
                         <div class="col-md-6">
                             <div class="form-box__single-group">
                                 <label for="form-first-name">First Name</label>
-                                <input type="text" id="form-first-name">
+                                <input type="text" id="form-first-name" name="first-name">
                             </div>
                         </div>
                         <div class="col-md-6">

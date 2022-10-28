@@ -41,10 +41,5 @@ class Category extends Model
         return $this->belongsToMany(Product::class, 'cat_id');
    }
 
-     // Count the number of product in this category
-    public function countProductByCat($categoryID)
-    {
-        return Product::where('cat_id','like','%'.trim($categoryID).'%')->count();
-    }
 
 }
