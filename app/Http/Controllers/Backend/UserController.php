@@ -138,8 +138,9 @@ class UserController extends Controller
             'email'         =>  ['required', 'email', 'max:255'],
             'phone'         =>  ['required', 'min:6'],
             'status'        =>  ['required'],
-            'file'          =>  ['required', 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'],
         ]);
+
+        // return response()->json($request);
 
         $user = User::find($id);
 
