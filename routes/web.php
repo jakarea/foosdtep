@@ -67,6 +67,7 @@ Route::controller(HomeController::class)->group(function () {
         Route::group(['middleware' => 'customer'], function () {
             Route::get('/dashboard','App\Http\Controllers\Frontend\DashboardController@index')->name('customer.dashboard');
             Route::post('/customer/{id}','App\Http\Controllers\Frontend\DashboardController@update')->name('customer.update');
+            Route::resource('order', 'App\Http\Controllers\Backend\OrderController');
         });
     });
 });
@@ -129,6 +130,10 @@ Route::middleware(['verified'])->group(function () {
             Route::group(['prefix' => 'products'], function() {
                 Route::resource('product', 'App\Http\Controllers\Backend\ProductController');
             });
+            // Manage Order
+            Route::group(['prefix' => 'orderviews'], function() {
+                Route::resource('orders', 'App\Http\Controllers\Backend\OrderRecievedController');
+            });
         });
     });
 });
@@ -156,8 +161,4 @@ Route::controller(BackendDesignController::class)->group(function () {
 
     // order static route start
     Route::get('static/orders', 'orders')->name('dashboard.orders');
-
-    // product static route start
-    Route::get('static/products', 'products')->name('dashboard.products');
-    Route::get('static/products/add', 'products_add')->name('dashboard.products.add');
 }); 

@@ -28,7 +28,7 @@ class ProductController extends Controller
     {
         //
         $shareButtons = \Share::page(
-            'https://www.itsolutionstuff.com',
+            'https://www.yoursite.com',
             'Your share text comes here',
         )
         ->facebook()

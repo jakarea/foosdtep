@@ -38,6 +38,13 @@
                         <span>Categories</span>
                     </a>
                 </li>
+                <li class="@if( Route::currentRouteNamed('orders.index')) mm-active @endif">
+                    <a href="{{ route('orders.index') }}" class="waves-effect-@if( Route::currentRouteNamed('orders.index')) active @endif">
+                        <i class="mdi mdi-newspaper"></i>
+                        <span class="badge rounded-pill bg-danger float-end">{{ App\Models\Backend\Order::OrderCount() }}</span>
+                        <span>Order</span>
+                    </a>
+                </li>
                 <li class="menu-title">User Interface</li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
