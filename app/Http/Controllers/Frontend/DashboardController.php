@@ -76,15 +76,20 @@ class DashboardController extends Controller
      */
     public function update(Request $request, $id)
     {
+    //    dd($request->image('image'));
+    //    exit();
+
         //
         $request->validate([
-            'old_password'          => 'required|confirmed',
-            'password'              => 'required|min:4',
-            'password_confirmation' => 'required|same:password'
+            'old_password'          => $request->old_password != null ?'sometimes|confirmed|min:8': '',
+            'password'              => $request->password != null ?'sometimes|required|min:8': '',
+            'password_confirmation' => $request->password_confirmation != null ?'sometimes|required|same:password': '',
+            'image'                  => 'sometimes|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $user = User::find($id);
 
+        
         $user->name             =   $request->name;
         if( !empty($request->password) ){
             $user->password         =   Hash::make($request->only('password'));
@@ -98,12 +103,12 @@ class DashboardController extends Controller
         $user->bio              =   $request->bio;
         $user->status           =   'active';
 
-        if(!is_null($request->image)){
+        if(!empty($request->image)){
             $avater = $request->file('image');
-            if( !is_null($avater) ){
+            if( !empty($avater) ){
                 // Delete Existing Image
-                if( File::exists('frontend/assets/img/user/' . $user->image) ) {
-                    File::delete('frontend/assets/img/user/' . $user->image);
+                if( File::exists('frontend/assets/img/user/' . $user->avater) ) {
+                    File::delete('frontend/assets/img/user/' . $user->avater);
                 }
                 $img = time() . '.' . $avater->getClientOriginalExtension();
                 $location = public_path('frontend/assets/img/user/' . $img);

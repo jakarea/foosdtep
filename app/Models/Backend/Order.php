@@ -42,4 +42,17 @@ class Order extends Model
         return $count;
     }
 
+    public static function CustomerOrderCount($user_id)
+    {
+        $count = Order::where('user_id', $user_id)->count();
+        return $count;
+    }
+
+    public static function CustomerSpendAmount($user_id)
+    {
+        $spendmoney = Order::where('user_id', $user_id)->sum('grand_total');
+
+        return $spendmoney ? : '0';
+    }
+
 }

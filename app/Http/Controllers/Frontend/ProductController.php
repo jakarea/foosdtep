@@ -47,9 +47,14 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function category($slug)
     {
         //
+        $cat = Category::where('slug', $slug)->first();
+
+        $products = Product::whereIn('cat_id', [$cat->id])->where('status', 'active')->orderby('id', 'asc')->paginate('12');
+
+        return view('frontend/Catproducts', compact('products', 'cat'));
     }
 
     /**

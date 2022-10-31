@@ -11,19 +11,9 @@ use App\Models\Backend\Line;
 use App\Models\Backend\Content;
 use App\Models\Backend\AllergensDP;
 use App\Models\Backend\Brand;
+
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-       //  $this->middleware('auth');
-        
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -31,8 +21,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderby('name', 'asc')->get();
-        return view('frontend/index',compact('categories'));
+        $categories = Category::where('parent_cat', 0)->orderby('name', 'asc')->get();
+        
+        $prodcutCat = Category::where('parent_cat', 0)->with('products')->take(3)->get();
+
+        $products = Product::where('status', 'active')->take('12')->get();
+
+        return view('frontend/index',compact('products', 'prodcutCat', 'categories'));
     }
     public function about()
     {

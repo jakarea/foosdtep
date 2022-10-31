@@ -64,6 +64,11 @@ class Product extends Model
         return $this->belongsToMany(Category::class);
     }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
     public static function discount($p_id)
     {
 

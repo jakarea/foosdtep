@@ -28,6 +28,7 @@ Route::controller(HomeController::class)->group(function () {
     // product route
     Route::get('/products', 'App\Http\Controllers\Frontend\ProductController@index')->name('products');
     Route::get('/products/{slug}', 'App\Http\Controllers\Frontend\ProductController@show')->name('show.product');
+    Route::get('/products/category/{slug}', 'App\Http\Controllers\Frontend\ProductController@category')->name('show.category');
 
     // Product cart routes
     Route::get('/cart', 'App\Http\Controllers\Frontend\ProductController@cart')->name('product.cart');
