@@ -15,15 +15,27 @@
                     <div class="col-md-6">
                         <div class="about-img">
                             <div class="img-responsive">
-                                <img src="assets/img/about/about-1.jpg" alt="">
+                            <img src="https://thumbs.dreamstime.com/b/woman-shopping-supermarket-young-grocery-store-mature-checking-food-label-latin-holding-basket-94502144.jpg" alt="">
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="about-content">
-                            <h4 class="font--regular">We Are A FoodStep Focused On Delivering Best Organic Food And User Experiences.</h4>
-                            <p class="para__text">Adipiscing lacus ut elementum, nec duis, tempor litora turpis dapibus. Imperdiet cursus odio tortor in elementum. Egestas nunc eleifend feugiat lectus laoreet, vel nunc taciti integer cras. Hac pede dis, praesent nibh ac dui mauris sit. Pellentesque mi, facilisi mauris, elit sociis leo sodales accumsan. Iaculis ac fringilla torquent lorem consectetuer, sociosqu phasellus risus urna aliquam, ornare. vel nunc taciti integer cras. Hac pede dis, praesent nibh ac dui mauris sit. Pellentesque</p>
-                            <a href="#" class="btn btn--icon-left btn--small btn--radius btn--transparent btn--border-green btn--border-green-hover-green font--regular text-capitalize m-t-20">More Information<i class="fal fa-angle-right"></i></a>
+                        <h4 class="font--regular">Food Steps is een distributeur, groothandel in fine food.</h4>
+                            <p class="para__text"> Na jaren genieten van prachtig eten en mooie wijnen is het tijd om die passie te delen.
+Puur op basis van kwaliteit en smaak maken wij een bewuste keuze voor leveranciers en hun producten. Niet alleen hebben deze leveranciers een eigen verhaal maar staan zij ook achter dat van ons. 
+</p>
+<p class="para__text">Food Steps verkoopt en distribueert producten in Belgie en Nedertland op basis van importeursafspraken met de producenten en het maakt dan ook onderdeel uit van de keten. In overleg met zowel de chefs in beide landen als de leveranciers bepalen we wat interessant is voor onze markt. De producten zijn van uitmuntende kwaliteit en winnen waar mogelijk zelfs prijzen over de hele wereld.
+</p>
+<p class="para__text">We nodigen u graag uit voor een gesprek met ons en we laten u hierbij ook graag producten proeven want U weet wat u zoekt en wat bij uw onderneming past!
+</p>
+<p class="para__text">We hebben nu (en in de toekomst) de volgende categorieën nodig op de site. Is het mogelijk een aantal categorieën nog niet zichtbaar te laten zijn op de site? Of is het beter om deze later toe te voegen?
+</p>
+<p class="para__text">Is het mogelijk dat je via twee wegen bij 1 product kunt komen, bijvoorbeeld via conserven EN via vis bij een blikje sardines?
+</p>
+<p class="para__text"></p>
+
+                            
                         </div>
                     </div>
                 </div>
