@@ -143,36 +143,18 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                    @foreach( App\Models\Backend\Order::customerOrderList(Auth::user()->id) as $key => $data )
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>Mostarizing Oil</td>
-                                                        <td>Aug 22, 2020</td>
-                                                        <td>Pending</td> 
+                                                        <td>{{ $key+1 }}</td>
+                                                        <td> {{ $data->items[0]->product->name }} </td>
+                                                        <td>{{ date('d-m-Y', strtotime($data->created_at)); }}</td>
+                                                        <td>{{ $data->status }}</td> 
                                                         <td>
                                                             <a href="#" title="Reorder" class="btn btn-success p-2"><i class="fas fa-repeat"></i></a>
                                                             <a href="#" title="View" class="btn text-white btn-info p-2 ms-2"><i class="fas fa-eye"></i></a> 
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>Katopeno Altuni</td>
-                                                        <td>July 22, 2020</td>
-                                                        <td>Approved</td>
-                                                        <td>
-                                                            <a href="#" title="Reorder" class="btn btn-success p-2"><i class="fas fa-repeat"></i></a>
-                                                            <a href="#" title="View" class="btn text-white btn-info p-2 ms-2"><i class="fas fa-eye"></i></a> 
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>Murikhete Paris</td>
-                                                        <td>June 22, 2020</td>
-                                                        <td>On Hold</td>
-                                                        <td>
-                                                            <a href="#" title="Reorder" class="btn btn-success p-2"><i class="fas fa-repeat"></i></a>
-                                                            <a href="#" title="View" class="btn text-white btn-info p-2 ms-2"><i class="fas fa-eye"></i></a> 
-                                                        </td>
-                                                    </tr>
+                                                    @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>

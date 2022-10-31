@@ -143,16 +143,20 @@
                                                     <img class="product__img img-fluid" src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="{{$product->slug}}">
                                                 </a>                                               
                                                 <ul class="product__action--link pos-absolute">
+                                                    @if( Auth::check() )
                                                     <li><a href="{{ route('add.to.cart', $product->id) }}"><i class="icon-shopping-cart"></i></a></li>
+                                                    @endif
                                                     <li><a href="#modalQuickView{{$product->id}}" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
                                                 </ul> <!-- End Product Action Link -->
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
                                             <div class="product__content m-t-20">
                                                 <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a>
+                                                @if(Auth::check())
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">{{ __('$'). $product->price }} </span>
+                                                    <span class="product__price">{{ __('$'). $product->discount($product->id) }}</span>
                                                 </div>
+                                                @endif
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
                                     </div>
@@ -180,33 +184,25 @@
                                                             <div class="col-md-6">
                                                                 <div class="product-details-box">
                                                                     <h5 class="title title--normal m-b-20">{{ $product->name }}</h5>
+                                                                    @if(Auth::check())
                                                                     <div class="product__price">
-                                                                        <span class="product__price-del">{{ __('$'). $product->price }}</span>
+                                                                        <span class="product__price-del">{{ __('$'). $product->discount($product->id) }}</span>
                                                                     </div>
+                                                                    @endif
                                                                     <div class="product__desc m-t-25 m-b-30">
                                                                         <p>{{ $product->short_description }}</p>
                                                                     </div>
-
+                                                                    @if( Auth::check() )
                                                                     <div class="product-var p-t-30">
                                                                         <div class="product-quantity product-var__item d-flex align-items-center flex-wrap">
-                                                                            <span class="product-var__text">Quantity: </span>
-                                                                            <form class="modal-quantity-scale m-l-20">
-                                                                                <div class="value-button" id="modal-decrease" onclick="decreaseValueModal()">-</div>
-                                                                                <input type="number" id="modal-number" value="1" />
-                                                                                <div class="value-button" id="modal-increase" onclick="increaseValueModal()">+</div>
-                                                                            </form>
+                                                                        <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn--block btn--long btn--radius-tiny btn--green btn--green-hover-black text-uppercase m-r-35">Buy It Now</a>
                                                                         </div>
                                                                     </div>
-                                                                    
+                                                                    @endif
                                                                     <div class="product-links">
                                                                         <div class="product-social m-tb-30">
                                                                             <span>SHARE THIS PRODUCT</span>
-                                                                            <ul class="product-social-link">
-                                                                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                                                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-                                                                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                                                                            </ul>
+                                                                            {!! Share::page(url('/products/'. $product->slug))->facebook()->twitter()->whatsapp() !!}
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -238,9 +234,11 @@
                                             <!-- Start Product Content -->
                                             <div class="product__content">
                                                 <a href="{{ route('show.product', $product->slug) }}" class="product__link"><h5 class="font--regular">{{ $product->name }}</h5></a>
+                                                @if(Auth::check())
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">{{ __('$'). $product->price }} <del>{{ __('$'). $product->price }}</del></span>
+                                                    <span class="product__price">{{ __('$'). $product->discount($product->id) }}</span>
                                                 </div>
+                                                @endif
                                                 <div class="product__desc">
                                                     <p>
                                                         {{ $product->short_description }}
