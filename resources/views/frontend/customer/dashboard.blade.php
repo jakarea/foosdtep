@@ -61,7 +61,7 @@
                                                         <div class="profile-widgets py-3 pb-0">
                                                             <div class="text-center">
                                                                 <div> 
-                                                                    @if( !is_null( Auth::user()->image ) )
+                                                                    @if( !empty( Auth::user()->avater ) )
                                                                     
                                                                     <img src="{{ asset('frontend/assets/img/user/'. Auth::user()->avater) }}" alt="Profile" style="width: 100px;" class="avatar-lg mx-auto">
                                                                     @else
@@ -89,7 +89,7 @@
                                                         <div class="row align-items-center">
                                                             <div class="col-8">
                                                                 <p class="mb-2">Total Orders</p>
-                                                                <h4 class="mb-0">3,524</h4>
+                                                                <h4 class="mb-0">{{ App\Models\Backend\Order::CustomerOrderCount(Auth::user()->id) }}</h4>
                                                             </div>
                                                             <div class="col-4">
                                                                 <div class="text-end">
@@ -105,8 +105,8 @@
                                                     <div class="card-body">
                                                         <div class="row align-items-center">
                                                             <div class="col-8">
-                                                                <p class="mb-2">Saves</p>
-                                                                <h4 class="mb-0">3,524</h4>
+                                                                <p class="mb-2">Total Spend</p>
+                                                                <h4 class="mb-0">{{ App\Models\Backend\Order::CustomerSpendAmount(Auth::user()->id) }}</h4>
                                                             </div>
                                                             <div class="col-4">
                                                                 <div class="text-end">
@@ -232,7 +232,7 @@
                                         <h4 class="account-title">Account Details</h4>
 
                                         <div class="account-details">
-                                            <form action="{{ route('customer.update', Auth::user()->id) }}" method="POST" enctype="multipart/form-data">
+                                            <form action="{{ route('customer.update', Auth::user()->id) }}" method="POST" enctype="multipart/form-data">                                                
                                             <div class="row">
                                                 @csrf
                                                 <div class="col-md-6">
@@ -264,7 +264,11 @@
                                                 <div class="col-md-4">
                                                     <div class="form-box__single-group">
                                                         <label for="">Preview</label>
+                                                        @if( !empty(Auth::user()->avater) )
+                                                        <img src="{{ asset('frontend/assets/img/user/'. Auth::user()->avater ) }}" alt="a" class="img-fluid" style="width: 40px;" id="image">
+                                                        @else
                                                         <img src="{{ asset('frontend/assets/img/user/default.jpg') }}" alt="a" class="img-fluid" style="width: 40px;" id="image">
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">

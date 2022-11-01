@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Notifications\OrderAdminNotification;
+use Illuminate\Support\Facades\Notification;
 use App\Models\Backend\Product;
 use App\Models\Backend\Category;
 use App\Models\Backend\ProductGroup;
@@ -14,6 +16,7 @@ use App\Models\Backend\AllergensDP;
 use App\Models\Backend\Brand;
 use App\Models\Backend\OrderItem;
 use App\Models\Backend\Order;
+use App\Models\User;
 use Image;
 use Str;
 use File;
@@ -102,6 +105,11 @@ class OrderController extends Controller
             }
         }
         $cart = session()->flush('cart');
+
+
+        // Order Notification
+        $adminEmail = User::where('id', 2)->get();
+        Notification::send($adminEmail, new OrderAdminNotification($order));
     
         return redirect()->route('order.show', $order);
 

@@ -64,4 +64,36 @@ $(function(){
 });
 </script>
 
+
+<script>
+    jQuery(document).ready(function(){
+        jQuery('a[data-id]').click(function (e) {
+            e.preventDefault();
+            
+            jQuery.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': jQuery('meta[name="_token"]').attr('content')
+                }
+            });
+            var token = '{{ Session::token() }}';
+        
+            var notif_id   = jQuery(this).attr('data-id');
+            var href        = jQuery(this).attr('href');
+            jQuery.ajax({
+                type:'GET',
+                url:'/auth/mark-as-read/'+notif_id,
+                headers: {'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')},
+                data : {id:notif_id, _token: token},
+                success:function(data){
+                    if(data.success){
+                        console.log('Success for read notification');
+                        window.location= href;
+                    }
+                }
+            });
+            return false;
+        });
+    });
+</script>
+
 @yield('script')

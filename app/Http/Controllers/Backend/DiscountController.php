@@ -51,15 +51,27 @@ class DiscountController extends Controller
 
         $usersId     =  $request->users;
 
-       
         foreach( $usersId as $user ){
+            $userExit = Discount::where('user_id', $user)->first();
 
-            Discount::insert([
+            if( $user == $userExit->user_id  )
+            {
+                Discount::where('user_id', $userExit->user_id)->update([
                     'value'         => $request->discount,
                     'type'          => $request->discount_type,
                     'status'        => $request->status,
                     'user_id'       => $user
                 ]);
+            }
+            else
+            {
+                Discount::insert([
+                    'value'         => $request->discount,
+                    'type'          => $request->discount_type,
+                    'status'        => $request->status,
+                    'user_id'       => $user
+                ]);
+            }
         }
 
         $notification = session()->flash("success", "Data Create Successfully");

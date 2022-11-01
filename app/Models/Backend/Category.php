@@ -38,7 +38,7 @@ class Category extends Model
 
 
     public function products(){
-        return $this->belongsToMany(Product::class, 'cat_id');
+        return $this->hasMany(Product::class, 'cat_id', 'id');
    }
 
      // Count the number of product in this category
