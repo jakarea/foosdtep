@@ -91,6 +91,8 @@ Route::middleware(['verified'])->group(function () {
         Route::group(['middleware' => 'auth'], function () {
             Route::get('/dashboard', 'App\Http\Controllers\Backend\DashboardController@index')->name('admin.dashboard');
 
+            Route::get('/mark-as-read/{id}', 'App\Http\Controllers\Backend\DashboardController@markNotification')->name('markNotification');
+
             // Category management
             Route::group(['prefix' => 'categories'], function() {
                 Route::resource('category', 'App\Http\Controllers\Backend\CategoryController');

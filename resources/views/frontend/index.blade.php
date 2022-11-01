@@ -58,7 +58,7 @@
                             <h5 class="section-content__title">Top categories</h5>
                             <ul class="tablist tablist--style-blue tablist--style-gap-20 nav">
                             @foreach( $prodcutCat as $keyCat => $category )
-                                <li><a class="nav-link" data-bs-toggle="tab" href="#{{ $category->slug.$category->id }}">{{ $category->name }}</a></li>
+                                <li><a class="nav-link {{ $keyCat == 0 ? 'active' : '' }}" data-bs-toggle="tab" href="#{{ $category->slug.$category->id }}">{{ $category->name }}</a></li>
                             @endforeach
                             </ul>
                         </div>  <!-- End Section Title -->
@@ -69,11 +69,11 @@
                         <div class="tab-content tab-animate-zoom">
                         @foreach( $prodcutCat as $keyCat => $category )
                             <!-- Start Single Tab Item -->
-                            <div class="tab-pane show active" id="{{ $category->slug.$category->id }}">
+                            <div class="tab-pane show {{ $keyCat == 0 ? 'active' : '' }}" id="{{ $category->slug.$category->id }}">
                                 <div class="default-slider default-slider--hover-bg-red product-default-slider">
                                     <div class="product-default-slider-4grid-2rows gap__col--30 gap__row--40"> 
                                         @php
-                                        $catWiseProduct = App\Models\Backend\Product::whereIn('cat_id', [$category->id])->where('status', 'active')->take('12')->get();
+                                        $catWiseProduct = App\Models\Backend\Product::where('cat_id','like','%'.trim($category->id).'%')->where('status', 'active')->take('12')->get();
                                         @endphp
                                         @foreach( $catWiseProduct as $keyProduct => $product )       
                                         <!-- Start Single Default Product -->

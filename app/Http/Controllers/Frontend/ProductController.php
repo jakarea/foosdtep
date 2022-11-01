@@ -52,7 +52,13 @@ class ProductController extends Controller
         //
         $cat = Category::where('slug', $slug)->first();
 
-        $products = Product::whereIn('cat_id', [$cat->id])->where('status', 'active')->orderby('id', 'asc')->paginate('12');
+        $catId = $cat->id;
+        
+        $products = Product::where('cat_id','like','%'.trim($catId).'%') 
+        ->where('status', 'active')
+        ->orderby('id', 'asc')
+        ->paginate('12');;
+        
 
         return view('frontend/Catproducts', compact('products', 'cat'));
     }

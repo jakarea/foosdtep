@@ -28,9 +28,15 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function markNotification(Request $request, $id)
     {
         //
+        $notification = auth()->user()->notifications()->find($id);
+
+        if($notification) {
+            $notification->markAsRead();
+        }
+        return response()->json(['success' =>true, 'message'=> 'mark as read!!!']);
     }
 
     /**
