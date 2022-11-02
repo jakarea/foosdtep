@@ -1,6 +1,7 @@
 @extends('layouts.frontend')
 
 @section('content')
+@section('title') {{ __('Dashboard') }} @endsection
 @section('breadcumbTitle') Dashboard @endsection
 <!-- breadcumb start -->
 @include('frontend.partials.breadcumb')

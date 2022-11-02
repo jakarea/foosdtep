@@ -19,10 +19,13 @@
                         <address>
                             <strong>{{ __('messages.billed_to') }}</strong><br>
                             {{ $order->user->name }}<br>
-                            {{ $order->address }}<br>
-                            {{ $order->city }}
+                            @if( $order->address_type == 1 )
+                            {{ $order->user->officeaddress }}<br>
                             {{ $order->post_code }}<br>
-                            {{ $order->country }}<br>
+                            @else
+                            {{ $order->user->homeaddress }}<br>
+                            {{ $order->post_code }}<br>
+                            @endif
                         </address>
                     </div>
                     <div class="col-6 text-end">
