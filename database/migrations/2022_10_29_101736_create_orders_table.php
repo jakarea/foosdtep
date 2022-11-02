@@ -26,12 +26,14 @@ return new class extends Migration
             $table->boolean('payment_status')->default(1);
             $table->string('payment_method')->nullable();
 
+            $table->boolean('address_type')->default(1);
+
             $table->string('first_name');
             $table->string('last_name');
-            $table->text('address');
-            $table->string('city');
-            $table->string('country');
-            $table->string('post_code');
+            $table->text('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
+            $table->string('post_code')->nullable();
             $table->string('phone_number');
             $table->text('notes')->nullable();
 

@@ -58,12 +58,10 @@ class OrderController extends Controller
         $request->validate([
             'firstname'     => ['required', 'string', 'max:255'],
             'lastname'      => ['required', 'string', 'max:255'],
-            'country'       => ['required', 'not_in:0'],
-            'state'     => ['required', 'not_in:0'],
-            'zipcode'       => ['required', 'max:8'],
             'phone'     => ['required', 'max:15'],
             'email'     => ['required', 'email', 'max:255'],
         ]);
+
 
         $order = Order::create([
             'order_number'      =>  'ORD-'.strtoupper(uniqid()),
@@ -75,9 +73,7 @@ class OrderController extends Controller
             'payment_method'    =>  null,
             'first_name'        =>  $request->firstname,
             'last_name'         =>  $request->lastname,
-            'address'           =>  $request->address1,
-            'city'              =>  $request->state,
-            'country'           =>  $request->country,
+            'address_type'      =>  $request->address_select,
             'post_code'         =>  $request->zipcode,
             'phone_number'      =>  $request->phone,
             'notes'             =>  $request->ordernote

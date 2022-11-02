@@ -7,7 +7,20 @@
 <!-- breadcumb start -->
 @include('frontend.partials.breadcumb')
 <!-- breadcumb start -->
+<style>
+.card-input-element {
+    display: none;
+}
 
+.card-input:hover {
+    cursor: pointer;
+}
+
+.card-input-element:checked + .card-input {
+     box-shadow: 0 0 1px 1px #2ecc71;
+}
+
+</style>
 <!-- ::::::  Start  Main Container Section  ::::::  -->
 
 <main id="main-container" class="main-container">
@@ -45,55 +58,6 @@
                                 <span class="text-danger">@error('lastname'){{ $message }} @enderror</span>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="form-box__single-group">
-                                <label for="form-company-name">Company Name</label>
-                                <input type="text" id="form-company-name" name="companyname" value="{{ old('companyname') }}">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-box__single-group">
-                                <label for="form-country">* Country</label>
-                                <select id="form-country" name="country">
-                                    <option value="select-country" selected>Select a country</option>
-                                    <option value="BD">Bangladesh</option>
-                                    <option value="US">USA</option>
-                                    <option value="UK">UK</option>
-                                    <option value="TR">Turkey</option>
-                                    <option value="CA">Canada</option>
-                                </select>
-                                <span class="text-danger">@error('country'){{ $message }} @enderror</span>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-box__single-group">
-                                <label for="form-address-1">Street Address</label>
-                                <input type="text" id="form-address-1" name="address1" value="{{ old('address1') }}" placeholder="House number and street name">
-                                <input type="text" class="m-t-10" id="form-address-2" name="address2" value="{{ old('address2') }}" placeholder="Apartment, suite, unit etc.">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-box__single-group">
-                                <label for="form-state">* Region / State</label>
-                                <select id="form-state" name="state">
-                                    <option value="Dha" selected>Dhaka</option>
-                                    <option value="Kha">Khulna</option>
-                                    <option value="Raj">Rajshahi</option>
-                                    <option value="Syl">Sylet</option>
-                                    <option value="Chi">Chittagong</option>
-                                </select>
-                                <span class="text-danger">@error('state'){{ $message }} @enderror</span>
-
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-box__single-group">
-                                <label for="form-zipcode">* Zip/Postal Code</label>
-                                <input type="text" id="form-zipcode" name="zipcode" value="{{ old('zipcode') }}">
-                                <span class="text-danger">@error('zipcode'){{ $message }} @enderror</span>
-
-                            </div>
-                        </div>
                         <div class="col-md-6">
                             <div class="form-box__single-group">
                                 <label for="form-phone">Phone</label>
@@ -107,6 +71,45 @@
                                 <label for="form-email">Email Address</label>
                                 <input type="email" id="form-email" name="email" value="{{ old('email', Auth::user()->email) }}">
                                 <span class="text-danger">@error('email'){{ $message }} @enderror</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-box__single-group">
+                                <label for="form-company-name">Company Name</label>
+                                <input type="text" id="form-company-name" name="companyname" value="{{ old('companyname') }}">
+                            </div>
+                        </div>
+  
+                        <div class="col-md-6 mt-3">
+                        <label class="w-100">
+                            <input type="radio" name="address_select" selected checked class="card-input-element" value="1" />
+
+                                <div class="card card-default card-input pl-0">
+                                <div class="card-header">Office Address</div>
+                                    <div class="card-body">
+                                        <p>{{ Auth::user()->officeaddress }}</p>
+                                    </div>
+                                </div>
+                            </label>                        
+                        </div>
+                        <div class="col-md-6 mt-3">                        
+                            <label class="w-100">
+                            <input type="radio" name="address_select" class="card-input-element" value="0" />
+
+                                <div class="card card-default card-input">
+                                <div class="card-header">Home Address</div>
+                                    <div class="card-body">
+                                        <p>{{ Auth::user()->homeaddress }}</p>
+                                    </div>
+                                </div>
+                            </label>                        
+                        </div>
+                        <div class="col-md-6 d-none">
+                            <div class="form-box__single-group">
+                                <label for="form-zipcode">* Zip/Postal Code</label>
+                                <input type="text" id="form-zipcode" name="zipcode" value="{{ old('zipcode', Auth::user()->zipcode) }}">
+                                <span class="text-danger">@error('zipcode'){{ $message }} @enderror</span>
+
                             </div>
                         </div>
                         <div class="col-md-12">
