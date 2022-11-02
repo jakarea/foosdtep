@@ -55,7 +55,7 @@
                     <div class="col-12">
                          <!-- Start Section Title -->
                         <div class="section-content section-content--border m-b-35">
-                            <h5 class="section-content__title">Top categories</h5>
+                            <h5 class="section-content__title">Products</h5>
                             <ul class="tablist tablist--style-blue tablist--style-gap-20 nav">
                             @foreach( $prodcutCat as $keyCat => $category )
                                 <li><a class="nav-link {{ $keyCat == 0 ? 'active' : '' }}" data-bs-toggle="tab" href="#{{ $category->slug.$category->id }}">{{ $category->name }}</a></li>
@@ -65,52 +65,44 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
-                        <div class="tab-content tab-animate-zoom">
-                        @foreach( $prodcutCat as $keyCat => $category )
-                            <!-- Start Single Tab Item -->
-                            <div class="tab-pane show {{ $keyCat == 0 ? 'active' : '' }}" id="{{ $category->slug.$category->id }}">
-                                <div class="default-slider default-slider--hover-bg-red product-default-slider">
-                                    <div class="product-default-slider-4grid-2rows gap__col--30 gap__row--40"> 
-                                        @php
-                                        $catWiseProduct = App\Models\Backend\Product::where('cat_id','like','%'.trim($category->id).'%')->where('status', 'active')->take('12')->get();
-                                        @endphp
-                                        @foreach( $catWiseProduct as $keyProduct => $product )       
-                                        <!-- Start Single Default Product -->
-                                        <div class="product__box product__default--single text-center">
-                                            <!-- Start Product Image -->
-                                            <div class="product__img-box  pos-relative">
-                                                <a href="{{ route('show.product', $product->slug) }}" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="{{$product->slug}}">
-                                                </a>                                               
-                                                <ul class="product__action--link pos-absolute">
-                                                    @if( Auth::check() )
-                                                    <li><a href="{{ route('add.to.cart', $product->id) }}"><i class="icon-shopping-cart"></i></a></li>
-                                                    @endif
-                                                    <li><a href="#modalQuickView{{$product->id}}" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
-                                                </ul> <!-- End Product Action Link -->
-                                            </div> <!-- End Product Image -->
-                                            <!-- Start Product Content -->
-                                            <div class="product__content m-t-20">
-                                                <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a>
-                                                @if(Auth::check())
-                                                <div class="product__price m-t-5">
-                                                    <span class="product__price">{{ __('$'). $product->discount($product->id) }}</span>
-                                                </div>
-                                                @endif
-                                            </div> <!-- End Product Content -->
-                                        </div> 
-                                        <!-- End Single Default Product -->
-                                        @endforeach
-                                    </div>
-                                </div>
-                            </div> 
-                             <!-- End Single Tab Item -->
-                            @endforeach
+                @foreach( $prodcutCat as $keyCat => $category )
 
-                            
-                        </div>
+                @php
+                $catWiseProduct = App\Models\Backend\Product::where('cat_id','like','%'.trim($category->id).'%')->where('status', 'active')->take('12')->get();
+                @endphp
+                @foreach( $catWiseProduct as $keyProduct => $product )
+                
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 ">
+                         <!-- Start Single Default Product -->
+                         <div class="product__box product__default--single text-center">
+                            <!-- Start Product Image -->
+                            <div class="product__img-box  pos-relative">
+                                <a href="{{ route('show.product', $product->slug) }}" class="product__img--link">
+                                    <img class="product__img img-fluid" src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="">
+                                </a>
+                                <!-- Start Procuct Label --> 
+                                <!-- End Procuct Label -->
+                                <!-- Start Product Action Link-->
+                                <ul class="product__action--link pos-absolute">
+                                    @if( Auth::check() )
+                                    <li><a href="{{ route('add.to.cart', $product->id) }}"><i class="icon-shopping-cart"></i></a></li>
+                                    @endif
+                                    <li><a href="#modalQuickView{{$product->id}}" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
+                                </ul> <!-- End Product Action Link -->
+                            </div> <!-- End Product Image -->
+                            <!-- Start Product Content -->
+                            <div class="product__content m-t-20"> 
+                                <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a>
+                                @if(Auth::check())
+                                <div class="product__price m-t-5">
+                                    <span class="product__price">{{ __('$'). $product->discount($product->id) }}</span>
+                                </div>
+                                @endif
+                            </div> <!-- End Product Content -->
+                        </div> <!-- End Single Default Product -->
                     </div>
+                    @endforeach
+                    @endforeach 
                 </div>
             </div>
         </div> <!-- ::::::  End  Product Style - Default Section  ::::::  -->
