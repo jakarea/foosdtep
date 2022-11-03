@@ -25,7 +25,7 @@
 
                             <!--Start Single Nav link-->
                             <li class="header__nav-item pos-relative">
-                                    <a href="{{ route('products') }}" class="header__nav-link">Product</a>
+                                    <a href="{{ route('products') }}" class="header__nav-link">Products</a>
                             </li> <!-- End Single Nav link--> 
                             
                             <!--Start Single Nav link-->
@@ -41,7 +41,7 @@
                     <!-- Start Header Wishlist Box -->
                     @if(!Auth::check())
                     <li>
-                        <a href="{{ route('customer.loginform') }}">
+                        <a href="{{ url('login') }}">
                             <i class="fas fa-sign-in"></i>
                         </a>
                     </li> <!-- End Header Wishlist Box --> 

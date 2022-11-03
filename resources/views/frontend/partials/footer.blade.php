@@ -2,7 +2,7 @@
 <footer class="footer">
         <div class="container">
             <!-- Start Footer Top Section --> 
-            <div class="footer__top">
+            <!--  <div class="footer__top">
                 <div class="row">
                     <div class="col-lg-4 col-md-5">
                         <div class="footer__about">
@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-6 col-12">
-                        <!-- Start Footer Nav -->  
+                        
                         <div class="footer__menu">
                             <h4 class="footer__nav-title footer__nav-title--dash footer__nav-title--dash-red">INFORMATION</h4>
                             <ul class="footer__nav">
@@ -37,7 +37,7 @@
                                 <li class="footer__list"><a href="" class="footer__link">Deliveries</a></li>
                                 <li class="footer__list"><a href="" class="footer__link"> Refund & Returns</a></li>
                             </ul>
-                        </div> <!-- End Footer Nav --> 
+                        </div> 
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-6 col-12">
                         <div class="footer__menu">
@@ -80,8 +80,9 @@
                             </ul>
                         </div>
                     </div>
-                </div>
-            </div> <!-- End Footer Top Section -->
+                </div> 
+            </div> -->
+         <!-- End Footer Top Section -->
             <!-- Start Footer Bottom Section --> 
             <div class="footer__bottom">
                 <div class="row">

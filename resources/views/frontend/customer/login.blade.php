@@ -54,7 +54,7 @@
                             <div class="d-flex justify-content-between flex-wrap m-tb-20 pt-3 align-middle">
                                 <button class="btn btn--box btn--medium btn--radius btn--black btn--black-hover-green btn--uppercase font--semi-bold" type="submit">LOGIN</button>
                                 <div class="regiter-acc text-end">
-                                    <span>Don't have an account? <a href="{{ route('customer.registerform') }}">Register Here</a></span>
+                                    <span>Don't have an account? <a href="{{ url('register') }}">Register Here</a></span>
                                 </div>
                             </div>
                         </form>

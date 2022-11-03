@@ -130,9 +130,13 @@
 
                 <!-- Start Rightside - Product Type View -->
                 <div class="col-lg-9"> 
+<<<<<<< HEAD
                     <div class="img-responsive">
+=======
+                    <!-- <div class="img-responsive">
+>>>>>>> 201c6f838bde322f52af6f38e3ff70b784d56b2d
                         <img src="https://template.hasthemes.com/gsore/gsore/assets/img/banner/size-wide/banner-shop-1-img-1-wide.jpg" alt="">
-                    </div>
+                    </div> -->
                     <!-- ::::::  Start Sort Box Section  ::::::  -->
                     <div class="sort-box m-tb-40">
                         <!-- Start Sort Left Side -->

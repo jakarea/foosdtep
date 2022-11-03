@@ -48,8 +48,8 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('frontend/invoice', 'invoice')->name('frontend.invoice'); 
 
     // Admin Login Form
-    Route::get('register', 'App\Http\Controllers\Auth\RegisterController@showRegistrationForm')->name('register');
-    Route::get('auth/login', 'App\Http\Controllers\Auth\LoginController@adminloginform')->name('admin.login');
+    Route::get('admin/register', 'App\Http\Controllers\Auth\RegisterController@showRegistrationForm')->name('admin.register');
+    Route::get('admin/login', 'App\Http\Controllers\Auth\LoginController@adminloginform')->name('admin.login');
 
     Route::get('/login', function () {
         return redirect(route('customer.loginform'));
@@ -97,6 +97,12 @@ Route::middleware(['verified'])->group(function () {
             Route::group(['prefix' => 'categories'], function() {
                 Route::resource('category', 'App\Http\Controllers\Backend\CategoryController');
             });
+
+            // Blog management
+            Route::group(['prefix' => 'blogs'], function() {
+                Route::resource('blog', 'App\Http\Controllers\Backend\BlogController');
+            });
+
             // Brand management
             Route::group(['prefix' => 'brands'], function() {
                 Route::resource('brand', 'App\Http\Controllers\Backend\BrandController');
