@@ -22,26 +22,28 @@
                 <form class="custom-validation" action="{{ route('blog.store') }}" method="post" enctype="multipart/form-data">
                     @csrf  
                     <div class="row">
-                        <div class="col-lg-7">
+                        <div class="col-lg-12">
                             <div class="mb-3">
-                                <label class="form-label">Blog Name</label>
+                                <label class="form-label">Title</label>
                                 <div>
-                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name')}}" placeholder="Enter Blog name">
-                                    <span class="text-danger">@error('name'){{ $message }} @enderror</span>
+                                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title')}}" placeholder="Enter Blog Title">
+                                    <span class="text-danger">@error('title'){{ $message }} @enderror</span>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="col-lg-7    ">
+                        <div class="col-lg-6 ">
                             <div class="mb-3">
-                                <label class="form-label">Blog Image</label>
+                                <label class="form-label">Image</label>
                                 <div>
                                     <input type="file" name="image" class="form-control @error('image') is-invalid @enderror">
                                     <span class="text-danger">@error('image'){{ $message }} @enderror</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-5">
+                        
+
+                        <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">Status</label>
                                 <div>
@@ -51,6 +53,17 @@
                                         <option value="inactive" @selected(old('status') == 'inactive')>In-Active</option>
                                     </select> 
                                     <span class="text-danger">@error('status'){{ $message }} @enderror</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="mb-3">
+                                <label class="form-label">Body</label>
+                                <div>
+                                    <textarea name="body" placeholder="Enter Blog Description" class="form-control @error('body') is-invalid @enderror">{{ old('body')}}</textarea>
+                                     
+                                    <span class="text-danger">@error('body'){{ $message }} @enderror</span>
                                 </div>
                             </div>
                         </div>

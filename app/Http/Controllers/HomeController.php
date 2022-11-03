@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Backend\Product;
+use App\Models\Backend\Blog;
 use App\Models\Backend\Category;
 use App\Models\Backend\ProductGroup;
 use App\Models\Backend\Faith;
@@ -27,7 +28,9 @@ class HomeController extends Controller
 
         $products = Product::where('status', 'active')->take('12')->get();
 
-        return view('frontend/index',compact('products', 'prodcutCat', 'categories'));
+        $blogs = Blog::where('status', 'active')->orderby('id', 'desc')->take('12')->get(); 
+
+        return view('frontend/index',compact('products', 'prodcutCat', 'categories','blogs'));
     }
     public function about()
     {

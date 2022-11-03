@@ -27,6 +27,7 @@ Route::controller(HomeController::class)->group(function () {
 
     // product route
     Route::get('/products', 'App\Http\Controllers\Frontend\ProductController@index')->name('products');
+    Route::post('/autocomplete-search', 'App\Http\Controllers\Frontend\ProductController@autocompleteSearch')->name('autocompleteSearch');
     Route::get('/products/{slug}', 'App\Http\Controllers\Frontend\ProductController@show')->name('show.product');
     Route::get('/products/category/{slug}', 'App\Http\Controllers\Frontend\ProductController@category')->name('show.category');
 
@@ -38,9 +39,8 @@ Route::controller(HomeController::class)->group(function () {
 
     // Checkout page
     Route::get('/checkout', 'App\Http\Controllers\Frontend\ProductController@checkout')->name('checkout.cart');
+    Route::get('/filter/attributes/{id}', 'App\Http\Controllers\Frontend\ProductController@store')->name('filter.attribute');
     
-    Route::get('product/checkout', 'checkout')->name('product.checkout');
-
     // contact static blade route
     Route::get('contact', 'contact')->name('products.contact');
 

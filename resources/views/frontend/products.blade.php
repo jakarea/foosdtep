@@ -6,7 +6,6 @@
 <!-- breadcumb start -->
 @include('frontend.partials.breadcumb')
 <!-- breadcumb start -->
-
     <!-- :::::: Start Main Container Wrapper :::::: -->
     <main id="main-container" class="main-container">
         <div class="container">
@@ -14,85 +13,128 @@
                 <!-- Start Leftside - Sidebar Widget -->
                 <div class="col-lg-3">
                     <div class="sidebar">
-                        <!-- Start Single Sidebar Widget - Filter [Catagory] -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box">
-                                <h5 class="sidebar__title">PRODUCT CATEGORIES</h5>
-                            </div>
-                            <ul class="sidebar__menu">
-                                <li>
-                                    <ul class="sidebar__menu-collapse">
-                                        <!-- Start Single Menu Collapse List -->
-                                       <li class="sidebar__menu-collapse-list">
-                                           <div class="accordion">
-                                               <a href="#" class="accordion__title collapsed" data-bs-toggle="collapse"data-bs-target="#men-fashion" aria-expanded="false">Men <i class="far fa-chevron-down"></i></a>
-                                               <div id="men-fashion" class="collapse">
-                                                   <ul class="accordion__category-list">
-                                                       <li><a href="#">Dresses</a></li>
-                                                       <li><a href="#">Jackets &amp; Coats</a></li>
-                                                       <li><a href="#">Sweaters</a></li>
-                                                       <li><a href="#">Jeans</a></li>
-                                                       <li><a href="#">Blouses &amp; Shirts</a></li>
-                                                   </ul>
-                                               </div>
-                                           </div>
-                                       </li> <!-- End Single Menu Collapse List -->
-                                   </ul>
-                                </li>
-                               <li ><a href="#">Football</a></li>   
-                               <li ><a href="#"> Men's</a></li>   
-                               <li ><a href="#"> Portable Audio</a></li>   
-                               <li ><a href="#"> Smart Watches</a></li>   
-                               <li ><a href="#">Tennis</a></li>   
-                               <li ><a href="#"> Uncategorized</a></li>   
-                               <li ><a href="#"> Video Games</a></li>   
-                               <li ><a href="#">Women's</a></li>
-                            </ul>
-                        </div>  <!-- End SSingle Sidebar Widget - Filter [Catagory] -->
- 
- 
-
-                        <!-- Start Single Sidebar Widget - Filter [Gender] -->
+                        <!-- Category Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY Fashion</h5>
+                                <h5 class="sidebar__title">FILTER BY CATEGORY</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
+                                @foreach($categories as $key => $category)
                                  <!-- Start Single Menu Filter List -->
                                 <li class="sidebar__menu-filter-list">
-                                    <label for="men"><input type="checkbox" name="gender" value="Men" id="men"><span>Men</span></label>
+                                    <label for="cat_{{ $category->id }}"><input type="checkbox" name="catFilter" class="attributes_Filter" value="{{ $category->id }}" id="cat_{{ $category->id }}"><span>{{ $category->name }} ({{ $category->countProductByCat($category->id) }})</span></label>
                                 </li>  <!-- End Single Menu Filter List -->
-                                <li class="sidebar__menu-filter-list">
-                                    <label for="women"><input type="checkbox" name="gender" value="women" id="women"><span>Women</span></label>
-                                </li>  <!-- End Single Menu Filter List -->
-                                <li class="sidebar__menu-filter-list">
-                                    <label for="kids"><input type="checkbox" name="gender" value="kids" id="kids"><span>Kids</span></label>
-                                </li>  <!-- End Single Menu Filter List -->
+                                @endforeach
                             </ul>
-                        </div><!-- End Single Sidebar Widget - Filter [Gender] -->
+                        </div>
+                        <!-- Category Filter -->
 
-                        <!-- Start Single Sidebar Widget - Filter [Brand] -->
+                        <!-- Brand Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY Brand</h5>
+                                <h5 class="sidebar__title">FILTER BY BRAND</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
+                                @foreach($brands as $key => $brand)
                                  <!-- Start Single Menu Filter List -->
                                 <li class="sidebar__menu-filter-list">
-                                    <label for="graphic-corner"><input type="checkbox" name="brand" value="graphic-corner" id="graphic-corner"><span>Graphic Corner</span></label>
+                                    <label for="brand_{{ $brand->id }}"><input type="checkbox" name="brandFilter" class="attributes_Filter" value="{{ $brand->id }}" id="brand_{{ $brand->id }}"><span>{{ $brand->name }} ({{ $brand->countProductByBrand($brand->id) }})</span></label>
                                 </li>  <!-- End Single Menu Filter List -->
-                                <li class="sidebar__menu-filter-list">
-                                    <label for="studio-design"><input type="checkbox" name="brand" value="studio-design" id="studio-design"><span>Studio Design</span></label>
-                                </li>  <!-- End Single Menu Filter List -->
+                                @endforeach
                             </ul>
-                        </div>  <!-- Start Single Sidebar Widget - Filter [Brand] -->
+                        </div>
+                        <!-- Brand Filter -->
+
+                        <!-- ProductGroup Filter -->
+                        <div class="sidebar__widget">
+                            <div class="sidebar__box m-t-40">
+                                <h5 class="sidebar__title">FILTER BY PRODUCT GROUP</h5>
+                            </div>
+                            <ul class="sidebar__menu-filter ">
+                                @foreach($PGroups as $key => $PGroup)
+                                 <!-- Start Single Menu Filter List -->
+                                <li class="sidebar__menu-filter-list">
+                                    <label for="pgroup_{{ $PGroup->id }}"><input type="checkbox" name="pgroupFilter" class="attributes_Filter" value="{{ $PGroup->id }}" id="pgroup_{{ $PGroup->id }}"><span>{{ $PGroup->name }} ({{ $PGroup->countProductByPGroup($PGroup->id) }})</span></label>
+                                </li>  <!-- End Single Menu Filter List -->
+                                @endforeach
+                            </ul>
+                        </div>
+                        <!-- ProductGroup Filter -->
+
+                        <!-- Faith Filter -->
+                        <div class="sidebar__widget">
+                            <div class="sidebar__box m-t-40">
+                                <h5 class="sidebar__title">FILTER BY FAITH</h5>
+                            </div>
+                            <ul class="sidebar__menu-filter ">
+                                @foreach($faiths as $key => $faith)
+                                 <!-- Start Single Menu Filter List -->
+                                <li class="sidebar__menu-filter-list">
+                                    <label for="faith_{{ $faith->id }}"><input type="checkbox" name="faithFilter" class="attributes_Filter" value="{{ $faith->id }}" id="faith_{{ $faith->id }}"><span>{{ $faith->name }} ({{ $faith->countProductByFaith($faith->id) }})</span></label>
+                                </li>  <!-- End Single Menu Filter List -->
+                                @endforeach
+                            </ul>
+                        </div>
+                        <!-- Faith Filter -->
+
+                        <!-- Faith Filter -->
+                        <div class="sidebar__widget">
+                            <div class="sidebar__box m-t-40">
+                                <h5 class="sidebar__title">FILTER BY LINES</h5>
+                            </div>
+                            <ul class="sidebar__menu-filter ">
+                                @foreach($lines as $key => $line)
+                                 <!-- Start Single Menu Filter List -->
+                                <li class="sidebar__menu-filter-list">
+                                    <label for="line_{{ $line->id }}"><input type="checkbox" name="lineFilter" class="attributes_Filter" value="{{ $line->id }}" id="line_{{ $line->id }}"><span>{{ $line->name }} ({{ $line->countProductByline($line->id) }})</span></label>
+                                </li>  <!-- End Single Menu Filter List -->
+                                @endforeach
+                            </ul>
+                        </div>
+                        <!-- Faith Filter -->
+
+                        <!-- Faith Filter -->
+                        <div class="sidebar__widget">
+                            <div class="sidebar__box m-t-40">
+                                <h5 class="sidebar__title">FILTER BY CONTENTS</h5>
+                            </div>
+                            <ul class="sidebar__menu-filter ">
+                                @foreach($contents as $key => $content)
+                                 <!-- Start Single Menu Filter List -->
+                                <li class="sidebar__menu-filter-list">
+                                    <label for="conten_{{ $content->id }}"><input type="checkbox" name="contentFilter" class="attributes_Filter" value="{{ $content->id }}" id="conten_{{ $content->id }}"><span>{{ $content->name }} ({{ $content->countProductByContent($content->id) }})</span></label>
+                                </li>  <!-- End Single Menu Filter List -->
+                                @endforeach
+                            </ul>
+                        </div>
+                        <!-- Faith Filter -->
+
+                        <!-- Faith Filter -->
+                        <div class="sidebar__widget">
+                            <div class="sidebar__box m-t-40">
+                                <h5 class="sidebar__title">FILTER BY Allergens & Diet Preference</h5>
+                            </div>
+                            <ul class="sidebar__menu-filter ">
+                                @foreach($AllergensDPs as $key => $AllergensDP)
+                                 <!-- Start Single Menu Filter List -->
+                                <li class="sidebar__menu-filter-list">
+                                    <label for="AllergensDP_{{ $AllergensDP->id }}"><input type="checkbox" name="allergensFilter" class="attributes_Filter" value="{{ $AllergensDP->id }}" id="AllergensDP_{{ $AllergensDP->id }}"><span>{{ $AllergensDP->name }} ({{ $AllergensDP->countProductByAllergensDP($AllergensDP->id) }})</span></label>
+                                </li>  <!-- End Single Menu Filter List -->
+                                @endforeach
+                            </ul>
+                        </div>
+                        <!-- Faith Filter -->
                          
                     </div>
                 </div> <!-- End Left Sidebar Widget -->
 
                 <!-- Start Rightside - Product Type View -->
                 <div class="col-lg-9"> 
+<<<<<<< HEAD
+                    <div class="img-responsive">
+=======
                     <!-- <div class="img-responsive">
+>>>>>>> 201c6f838bde322f52af6f38e3ff70b784d56b2d
                         <img src="https://template.hasthemes.com/gsore/gsore/assets/img/banner/size-wide/banner-shop-1-img-1-wide.jpg" alt="">
                     </div> -->
                     <!-- ::::::  Start Sort Box Section  ::::::  -->
@@ -129,7 +171,7 @@
                             <span>Showing {{ $products->onFirstPage() . __(' - '). $products->count() }} of {{ $products->count() }} result</span>
                         </div>
 
-                    <div class="product-tab-area pb-5">
+                    <div class="product-tab-area pb-5 attributes_wise" id="attributes_wise">
                         <div class="tab-content tab-animate-zoom">
                             <div class="tab-pane show active shop-grid" id="sort-grid">
                                 <div class="row">
@@ -286,4 +328,83 @@
     </main>  <!-- :::::: End MainContainer Wrapper :::::: -->
 
 
-    @endsection
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function() {
+        $('.attributes_Filter').on('change', function(e) {
+            e.preventDefault();
+            if ($(this).is(':checked')) {
+                let id = $(this).val();
+                $('.attributes_Filter').not(this).prop('checked', false);
+                // store original html
+                var originalHtml = $('.attributes_wise').innerHTML;
+
+                // Filter Type
+                var cat_filter = $("input[name='catFilter']:checked")
+                    .map(function(){
+                        return $(this).val();
+                    }).get();
+
+                // Filter Type
+                var brand_filter = $("input[name='brandFilter']:checked")
+                    .map(function(){
+                        return $(this).val();
+                    }).get();
+                // product group Type
+                var Pgroup_filter = $("input[name='pgroupFilter']:checked")
+                    .map(function(){
+                        return $(this).val();
+                    }).get();
+
+                // faith Type
+                var faith_filter = $("input[name='faithFilter']:checked")
+                    .map(function(){
+                        return $(this).val();
+                    }).get();
+
+                // line Type
+                var line_filter = $("input[name='lineFilter']:checked")
+                    .map(function(){
+                        return $(this).val();
+                    }).get();
+
+                // line type
+                var content_filter = $("input[name='contentFilter']:checked")
+                    .map(function(){
+                        return $(this).val();
+                    }).get();
+                
+                // line type
+                var allergens_filter = $("input[name='allergensFilter']:checked")
+                    .map(function(){
+                        return $(this).val();
+                    }).get();
+                
+                // Hide Current Products
+                $(".attributes_wise").hide();
+
+                $.ajax({
+                    data: {id:id, cat_id: cat_filter[0], brand_id: brand_filter[0], pgroup_id: Pgroup_filter[0], faith_id: faith_filter[0], line_id: line_filter[0], content_id: content_filter[0], allergens_id: allergens_filter[0]},
+                    url: '/filter/attributes/'+ id,
+                    type: 'GET',
+                    beforeSend: function (request) {
+                        $('.spinner-container').css("display", "block");
+                        return request.setRequestHeader('X-CSRF-Token', $("meta[name='csrf-token']").attr('content'));
+                    },
+                    success: function(response){
+                        $(".spinner-container").hide();
+                        $(".attributes_wise").show();
+                        $("#attributes_wise").html(response);                        
+                        // console.log(response);
+                    }
+                })
+
+            } else {
+                location.reload();
+            }  
+        });
+    });
+</script>
+@endsection

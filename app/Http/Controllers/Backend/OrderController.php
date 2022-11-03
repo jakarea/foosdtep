@@ -21,6 +21,8 @@ use Image;
 use Str;
 use File;
 use Auth;
+use PDF;
+use Mail;
 
 class OrderController extends Controller
 {
@@ -61,6 +63,23 @@ class OrderController extends Controller
             'phone'     => ['required', 'max:15'],
             'email'     => ['required', 'email', 'max:255'],
         ]);
+
+
+        $data["email"] = "arifypp@gmail.com";
+        $data["title"] = "From ItSolutionStuff.com";
+        $data["body"] = "This is Demo";
+  
+        $pdf = PDF::loadView('emails.myTestMail', $data);
+  
+        Mail::send('emails.myTestMail', $data, function($message)use($data, $pdf) {
+            $message->to($data["email"], $data["email"])
+                    ->subject($data["title"])
+                    ->attachData($pdf->output(), "text.pdf");
+        });
+  
+        dd('Mail sent successfully');
+
+        exit();
 
 
         $order = Order::create([

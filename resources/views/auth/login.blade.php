@@ -16,7 +16,7 @@
                                 <h5 class="text-white font-size-20">{{ __('messages.welcome_back') }}</h5>
                                 <p class="text-white-50 mb-0">{{ __('messages.singin_continue')}}</p>
                                 <a href="index.html" class="logo logo-admin mt-4">
-                                    <img src="{{asset ('backend/assets/images/logo-sm-dark.png') }}" alt="" height="30">
+                                    <img src="{{asset ('frontend/assets/img/logo/logo.png') }}" alt="Logo" height="30">
                                 </a>
                             </div>
                         </div>

@@ -19,10 +19,9 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Image</th>
-                                <th>Name</th>
-                                <th>Parent blog</th>
-                                <th>Slug</th>
+                                <th>Image</th> 
+                                <th>Blog Title</th> 
+                                <th>Body</th> 
                                 <th>Action</th> 
                             </tr>
                         </thead>
@@ -38,20 +37,13 @@
                                     <span class="text-danger">No Photo</span>
                                     @endif
                                 </td>
-                                <td valign="middle">{{ $data->name }}</td>
+                                <td valign="middle">{{ $data->title }}</td> 
                                 <td valign="middle">
-                                    @if( $data->parent_cat == 0 )
-                                        <span class="text-success">Primary</span>
-                                    @else
-                                        <span class="text-dark">{{ $data->parentName->name }}</span>
-                                    @endif
-                                </td>
-                                <td valign="middle">
-                                    {{ $data->slug }}
-                                </td>
+                                    {{ $data->body }}
+                                </td> 
                                 <td valign="middle">
                                     <a href="{{ route('blog.edit', $data->slug) }}" class="me-2"><i class="fas fa-pencil-alt"></i></a>
-                                    <a href="javascript:void(0)" class="text-danger cat_delete" data-id="{{$data->id}}"><i class="fas fa-trash"></i></a>
+                                    <a href="javascript:void(0)" class="text-danger cat_delete" data-id="{{$data->slug}}"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>   
                             @endforeach                                     

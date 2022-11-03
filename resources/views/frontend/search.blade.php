@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
-@section('title') {{ __( $cat->name ) }} @endsection
-@section('breadcumbTitle') {{ __( $cat->name ) }} @endsection
+@section('title') {{ __('Result') }} @endsection
+@section('breadcumbTitle') {{ __('Result') }} @endsection
 @section('content')
 
 <!-- breadcumb start -->
@@ -129,11 +129,10 @@
                     </div>
                 </div>
                 <!-- End Left Sidebar Widget -->
-
                 <!-- Start Rightside - Product Type View -->
                 <div class="col-lg-9"> 
                     <div class="alert alert-success">
-                        <span>You are visiting category: {{ $cat->name }}</span>
+                        <span>You are searching: <b> {{ $query }} </b></span>
                     </div>
                     <!-- ::::::  Start Sort Box Section  ::::::  -->
                     <div class="sort-box m-tb-40">
@@ -166,9 +165,10 @@
                     </div> <!-- ::::::  Start Sort Box Section  ::::::  -->
 
                     <div class="sort-box-item">
-                            <span>Showing {{ $products->onFirstPage() . __(' - '). $products->count() }} of {{ $products->count() }} result</span>
-                        </div>
+                        <span>Showing {{ $products->onFirstPage() . __(' - '). $products->count() }} of {{ $products->count() }} result</span>
+                    </div>
 
+                    @if( count($products) > 0 )
                     <div class="product-tab-area pb-5 attributes_wise" id="attributes_wise">
                         <div class="tab-content tab-animate-zoom">
                             <div class="tab-pane show active shop-grid" id="sort-grid">
@@ -299,26 +299,31 @@
 
                     @if ($products->lastPage() > 1)
                     <div class="page-pagination">                          
-                            <ul class="page-pagination__list">
-                                <li class="{{ ($products->currentPage() == 1) ? ' disabled' : '' }} page-pagination__item">
-                                    <a class="page-pagination__link" href="{{ $products->url(1) }}" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo; Prev</span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
+                        <ul class="page-pagination__list">
+                            <li class="{{ ($products->currentPage() == 1) ? ' disabled' : '' }} page-pagination__item">
+                                <a class="page-pagination__link" href="{{ $products->url(1) }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo; Prev</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            @for ($i = 1; $i <= $products->lastPage(); $i++)
+                                <li class="page-pagination__item">
+                                    <a class="page-pagination__link {{ ($products->currentPage() == $i) ? ' active' : '' }}" href="{{ $products->url($i) }}">{{ $i }}</a>
                                 </li>
-                                @for ($i = 1; $i <= $products->lastPage(); $i++)
-                                    <li class="page-pagination__item">
-                                        <a class="page-pagination__link {{ ($products->currentPage() == $i) ? ' active' : '' }}" href="{{ $products->url($i) }}">{{ $i }}</a>
-                                    </li>
-                                @endfor
-                                <li class="{{ ($products->currentPage() == $products->lastPage()) ? ' disabled' : '' }} page-pagination__item">
-                                    <a href="{{ $products->url($products->currentPage()+1) }}" class="page-pagination__link" aria-label="Next">
-                                        <span aria-hidden="true">Next &raquo;</span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                            @endfor
+                            <li class="{{ ($products->currentPage() == $products->lastPage()) ? ' disabled' : '' }} page-pagination__item">
+                                <a href="{{ $products->url($products->currentPage()+1) }}" class="page-pagination__link" aria-label="Next">
+                                    <span aria-hidden="true">Next &raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    @endif
+                    @else
+                    <div class="alert alert-danger">
+                        <span> Sorry! Product Not Found...</span>
+                    </div>
                     @endif
                 </div>  <!-- Start Rightside - Product Type View -->
             </div>
@@ -326,8 +331,9 @@
     </main>  <!-- :::::: End MainContainer Wrapper :::::: -->
 
 
-@endsection
+    @endsection
 
+    
 @section('script')
 <script>
     $(document).ready(function() {

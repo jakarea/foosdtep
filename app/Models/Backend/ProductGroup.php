@@ -4,6 +4,7 @@ namespace App\Models\Backend;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Backend\Product;
 
 class ProductGroup extends Model
 {
@@ -16,4 +17,10 @@ class ProductGroup extends Model
         'parent_id',
         'status',
     ];
+
+    // Count the number of product in this brand
+    public function countProductByPGroup($pgroup_id)
+    {
+        return Product::where('prodcut_group_id','like','%'.trim($pgroup_id).'%')->count();
+    }
 }

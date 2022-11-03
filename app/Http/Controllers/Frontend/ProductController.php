@@ -38,8 +38,16 @@ class ProductController extends Controller
         ->whatsapp()        
         ->reddit();
 
+        $categories = Category::where('parent_cat', 0)->get();
+        $brands = Brand::where('parent_id', 0)->get();
+        $PGroups = ProductGroup::where('parent_id', 0)->get();
+        $faiths = Faith::where('parent_id', 0)->get();
+        $lines = Line::where('parent_id', 0)->get();
+        $contents = Content::where('parent_id', 0)->get();
+        $AllergensDPs = AllergensDP::where('parent_id', 0)->get();
+        
         $products = Product::where('status', 'active')->orderby('id', 'asc')->paginate('12');
-        return view('frontend/products', compact('products', 'shareButtons'));
+        return view('frontend/products', compact('products', 'shareButtons', 'categories', 'brands', 'PGroups', 'faiths', 'lines', 'contents', 'AllergensDPs'));
     }
 
     /**
@@ -57,7 +65,7 @@ class ProductController extends Controller
         $products = Product::where('cat_id','like','%'.trim($catId).'%') 
         ->where('status', 'active')
         ->orderby('id', 'asc')
-        ->paginate('12');;
+        ->paginate('12');
         
 
         return view('frontend/Catproducts', compact('products', 'cat'));
@@ -147,9 +155,69 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         //
+        $product = Product::query();
+
+        // Category filter data
+        if(isset($request->cat_id)) {
+            $product->orWhere('cat_id','like','%'.trim($request->cat_id).'%')
+            ->where('status', 'active')
+            ->orderby('id', 'asc')
+            ->get();
+        }
+
+        // Brand Filter Data
+        if(isset($request->brand_id)) {
+            $product->orWhere('brand_id','like','%'.trim($request->brand_id).'%')
+            ->where('status', 'active')
+            ->orderby('id', 'asc')
+            ->get();
+        }
+
+        // Product Group Filter Data
+        if(isset($request->pgroup_id)) {
+            $product->orWhere('prodcut_group_id','like','%'.trim($request->pgroup_id).'%')
+            ->where('status', 'active')
+            ->orderby('id', 'asc')
+            ->get();
+        }
+        // Faith Filter Data
+        if(isset($request->faith_id)) {
+            $product->orWhere('faith_id','like','%'.trim($request->faith_id).'%')
+            ->where('status', 'active')
+            ->orderby('id', 'asc')
+            ->get();
+        }
+
+        // Faith Filter Data
+        if(isset($request->line_id)) {
+            $product->orWhere('line_id','like','%'.trim($request->line_id).'%')
+            ->where('status', 'active')
+            ->orderby('id', 'asc')
+            ->get();
+        }
+
+        // Content Filter Data
+        if(isset($request->content_id)) {
+            $product->orWhere('content_id','like','%'.trim($request->content_id).'%')
+            ->where('status', 'active')
+            ->orderby('id', 'asc')
+            ->get();
+        }
+        
+        // Content allergens_id Data
+        if(isset($request->allergens_id)) {
+            $product->orWhere('allergens_dp_id','like','%'.trim($request->allergens_id).'%')
+            ->where('status', 'active')
+            ->orderby('id', 'asc')
+            ->get();
+        }
+
+        $products = $product->get();
+
+        return view('frontend.filter', compact('products'));
     }
 
     /**
@@ -183,19 +251,12 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function autocompleteSearch(Request $request)
     {
         //
-    }
+        $query = $request->get('search');
+        $products = Product::where('name', 'LIKE', '%'. $query. '%')->where('status', 'active')->orderby('id', 'asc')->paginate('12');
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return view('frontend.search', compact('products', 'query'));
     }
 }
