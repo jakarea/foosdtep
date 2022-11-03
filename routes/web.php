@@ -97,6 +97,12 @@ Route::middleware(['verified'])->group(function () {
             Route::group(['prefix' => 'categories'], function() {
                 Route::resource('category', 'App\Http\Controllers\Backend\CategoryController');
             });
+
+            // Blog management
+            Route::group(['prefix' => 'blogs'], function() {
+                Route::resource('blog', 'App\Http\Controllers\Backend\BlogController');
+            });
+
             // Brand management
             Route::group(['prefix' => 'brands'], function() {
                 Route::resource('brand', 'App\Http\Controllers\Backend\BrandController');
