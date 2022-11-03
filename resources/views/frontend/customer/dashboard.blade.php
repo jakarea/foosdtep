@@ -53,7 +53,6 @@
                                     <div class="my-account-dashboard account-wrapper">
                                         <div class="d-flex justify-content-between mb-2">
                                         <h4 class="account-title">Profile</h4>
-                                        <a href="#"><i class="fas fa-pen"></i></a>
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-6">
@@ -209,9 +208,9 @@
                                                 <div class="my-account-address account-wrapper">
                                                 <h4 class="account-title">Home Adress</h4>
                                                 <div class="account-address m-t-30">
-                                                    <p>{{ Auth::user()->homeaddress }}</p>
+                                                    <p>Address: {{ Auth::user()->homeaddress }}</p>
                                                     <p>Mobile: {{ Auth::user()->phone }}</p>
-                                                    <a class="box-btn m-t-25 " href="#"  id="pills-account-tab" data-bs-toggle="pill" href="#pills-account" role="tab" aria-controls="pills-account" aria-selected="false"><i class="far fa-edit"></i> Edit Address</a>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -219,9 +218,9 @@
                                                 <div class="my-account-address account-wrapper">
                                                 <h4 class="account-title">Office Adress</h4>
                                                 <div class="account-address m-t-30">
-                                                    <p>{{ Auth::user()->officeaddress }}</p>
+                                                    <p>Address: {{ Auth::user()->officeaddress }}</p>
                                                     <p>Mobile: {{ Auth::user()->phone }}</p>
-                                                    <a class="box-btn m-t-25 " id="pills-account-tab" data-bs-toggle="pill" href="#pills-account" role="tab" aria-controls="pills-account" aria-selected="false"><i class="far fa-edit"></i> Edit Address</a>
+                                                   
                                                 </div>
                                             </div>
                                         </div>

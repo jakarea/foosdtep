@@ -15,7 +15,7 @@
                     <div class="col-md-6">
                         <div class="about-img">
                             <div class="img-responsive">
-                            <img src="https://thumbs.dreamstime.com/b/woman-shopping-supermarket-young-grocery-store-mature-checking-food-label-latin-holding-basket-94502144.jpg" alt="">
+                            <img src="{{ asset('frontend/assets/img/about/about-us.webp')}}" alt="">
                             </div>
                         </div>
                     </div>

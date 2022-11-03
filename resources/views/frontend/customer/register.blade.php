@@ -62,7 +62,7 @@
                             <div class="d-flex justify-content-between flex-wrap m-tb-20 pt-3 align-middle">
                                 <button class="btn btn--box btn--medium btn--radius btn--black btn--black-hover-green btn--uppercase font--semi-bold" type="submit">REGISTER NOW</button>
                                 <div class="regiter-acc text-end">
-                                    <span>Already have an account? <a href="{{ route('customer.loginform') }}">Login Here</a></span>
+                                    <span>Already have an account? <a href="{{ url('login') }}">Login Here</a></span>
                                 </div>
                             </div>
                         </form>

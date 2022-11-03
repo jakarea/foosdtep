@@ -70,7 +70,7 @@
                     </div>
                     <div class="mt-5 text-center">
                         <p>{{ __('messages.dont_have_account')}} 
-                            <a href="{{ route('register') }}"
+                            <a href="{{ route('admin.register') }}"
                                 class="fw-medium text-primary"> {{ __('singup_now')}} </a> </p>
                         <p>©
                             <script>document.write(new Date().getFullYear())</script> FoodStep. Crafted with <i
