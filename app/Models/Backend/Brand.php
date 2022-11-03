@@ -41,4 +41,10 @@ class Brand extends Model
     {
         return $this->hasMany(Product::class, 'id');
     }
+
+    // Count the number of product in this brand
+    public function countProductByBrand($brand_id)
+    {
+        return Product::where('brand_id','like','%'.trim($brand_id).'%')->count();
+    }
 }

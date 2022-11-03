@@ -1,11 +1,12 @@
 @extends('layouts.frontend')
-@section('title') {{ __('Products') }} @endsection
-@section('breadcumbTitle') {{ __('Products') }} @endsection
+@section('title') {{ __('Result') }} @endsection
+@section('breadcumbTitle') {{ __('Result') }} @endsection
 @section('content')
 
 <!-- breadcumb start -->
 @include('frontend.partials.breadcumb')
 <!-- breadcumb start -->
+
     <!-- :::::: Start Main Container Wrapper :::::: -->
     <main id="main-container" class="main-container">
         <div class="container">
@@ -19,8 +20,8 @@
                                 <h5 class="sidebar__title">FILTER BY CATEGORY</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
-                                @foreach($categories as $key => $category)
-                                 <!-- Start Single Menu Filter List -->
+                                @foreach(App\Models\Backend\Category::all() as $key => $category)
+                                    <!-- Start Single Menu Filter List -->
                                 <li class="sidebar__menu-filter-list">
                                     <label for="cat_{{ $category->id }}"><input type="checkbox" name="catFilter" class="attributes_Filter" value="{{ $category->id }}" id="cat_{{ $category->id }}"><span>{{ $category->name }} ({{ $category->countProductByCat($category->id) }})</span></label>
                                 </li>  <!-- End Single Menu Filter List -->
@@ -35,8 +36,8 @@
                                 <h5 class="sidebar__title">FILTER BY BRAND</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
-                                @foreach($brands as $key => $brand)
-                                 <!-- Start Single Menu Filter List -->
+                                @foreach(App\Models\Backend\Brand::all() as $key => $brand)
+                                    <!-- Start Single Menu Filter List -->
                                 <li class="sidebar__menu-filter-list">
                                     <label for="brand_{{ $brand->id }}"><input type="checkbox" name="brandFilter" class="attributes_Filter" value="{{ $brand->id }}" id="brand_{{ $brand->id }}"><span>{{ $brand->name }} ({{ $brand->countProductByBrand($brand->id) }})</span></label>
                                 </li>  <!-- End Single Menu Filter List -->
@@ -51,8 +52,8 @@
                                 <h5 class="sidebar__title">FILTER BY PRODUCT GROUP</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
-                                @foreach($PGroups as $key => $PGroup)
-                                 <!-- Start Single Menu Filter List -->
+                                @foreach(App\Models\Backend\ProductGroup::all() as $key => $PGroup)
+                                    <!-- Start Single Menu Filter List -->
                                 <li class="sidebar__menu-filter-list">
                                     <label for="pgroup_{{ $PGroup->id }}"><input type="checkbox" name="pgroupFilter" class="attributes_Filter" value="{{ $PGroup->id }}" id="pgroup_{{ $PGroup->id }}"><span>{{ $PGroup->name }} ({{ $PGroup->countProductByPGroup($PGroup->id) }})</span></label>
                                 </li>  <!-- End Single Menu Filter List -->
@@ -67,8 +68,8 @@
                                 <h5 class="sidebar__title">FILTER BY FAITH</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
-                                @foreach($faiths as $key => $faith)
-                                 <!-- Start Single Menu Filter List -->
+                                @foreach(App\Models\Backend\Faith::all() as $key => $faith)
+                                    <!-- Start Single Menu Filter List -->
                                 <li class="sidebar__menu-filter-list">
                                     <label for="faith_{{ $faith->id }}"><input type="checkbox" name="faithFilter" class="attributes_Filter" value="{{ $faith->id }}" id="faith_{{ $faith->id }}"><span>{{ $faith->name }} ({{ $faith->countProductByFaith($faith->id) }})</span></label>
                                 </li>  <!-- End Single Menu Filter List -->
@@ -83,8 +84,8 @@
                                 <h5 class="sidebar__title">FILTER BY LINES</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
-                                @foreach($lines as $key => $line)
-                                 <!-- Start Single Menu Filter List -->
+                                @foreach(App\Models\Backend\Line::all() as $key => $line)
+                                    <!-- Start Single Menu Filter List -->
                                 <li class="sidebar__menu-filter-list">
                                     <label for="line_{{ $line->id }}"><input type="checkbox" name="lineFilter" class="attributes_Filter" value="{{ $line->id }}" id="line_{{ $line->id }}"><span>{{ $line->name }} ({{ $line->countProductByline($line->id) }})</span></label>
                                 </li>  <!-- End Single Menu Filter List -->
@@ -99,8 +100,8 @@
                                 <h5 class="sidebar__title">FILTER BY CONTENTS</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
-                                @foreach($contents as $key => $content)
-                                 <!-- Start Single Menu Filter List -->
+                                @foreach(App\Models\Backend\Content::all() as $key => $content)
+                                    <!-- Start Single Menu Filter List -->
                                 <li class="sidebar__menu-filter-list">
                                     <label for="conten_{{ $content->id }}"><input type="checkbox" name="contentFilter" class="attributes_Filter" value="{{ $content->id }}" id="conten_{{ $content->id }}"><span>{{ $content->name }} ({{ $content->countProductByContent($content->id) }})</span></label>
                                 </li>  <!-- End Single Menu Filter List -->
@@ -115,8 +116,8 @@
                                 <h5 class="sidebar__title">FILTER BY Allergens & Diet Preference</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
-                                @foreach($AllergensDPs as $key => $AllergensDP)
-                                 <!-- Start Single Menu Filter List -->
+                                @foreach(App\Models\Backend\AllergensDP::all() as $key => $AllergensDP)
+                                    <!-- Start Single Menu Filter List -->
                                 <li class="sidebar__menu-filter-list">
                                     <label for="AllergensDP_{{ $AllergensDP->id }}"><input type="checkbox" name="allergensFilter" class="attributes_Filter" value="{{ $AllergensDP->id }}" id="AllergensDP_{{ $AllergensDP->id }}"><span>{{ $AllergensDP->name }} ({{ $AllergensDP->countProductByAllergensDP($AllergensDP->id) }})</span></label>
                                 </li>  <!-- End Single Menu Filter List -->
@@ -124,14 +125,14 @@
                             </ul>
                         </div>
                         <!-- Faith Filter -->
-                         
+                            
                     </div>
-                </div> <!-- End Left Sidebar Widget -->
-
+                </div>
+                <!-- End Left Sidebar Widget -->
                 <!-- Start Rightside - Product Type View -->
                 <div class="col-lg-9"> 
-                    <div class="img-responsive">
-                        <img src="https://template.hasthemes.com/gsore/gsore/assets/img/banner/size-wide/banner-shop-1-img-1-wide.jpg" alt="">
+                    <div class="alert alert-success">
+                        <span>You are searching: <b> {{ $query }} </b></span>
                     </div>
                     <!-- ::::::  Start Sort Box Section  ::::::  -->
                     <div class="sort-box m-tb-40">
@@ -164,9 +165,10 @@
                     </div> <!-- ::::::  Start Sort Box Section  ::::::  -->
 
                     <div class="sort-box-item">
-                            <span>Showing {{ $products->onFirstPage() . __(' - '). $products->count() }} of {{ $products->count() }} result</span>
-                        </div>
+                        <span>Showing {{ $products->onFirstPage() . __(' - '). $products->count() }} of {{ $products->count() }} result</span>
+                    </div>
 
+                    @if( count($products) > 0 )
                     <div class="product-tab-area pb-5 attributes_wise" id="attributes_wise">
                         <div class="tab-content tab-animate-zoom">
                             <div class="tab-pane show active shop-grid" id="sort-grid">
@@ -297,26 +299,31 @@
 
                     @if ($products->lastPage() > 1)
                     <div class="page-pagination">                          
-                            <ul class="page-pagination__list">
-                                <li class="{{ ($products->currentPage() == 1) ? ' disabled' : '' }} page-pagination__item">
-                                    <a class="page-pagination__link" href="{{ $products->url(1) }}" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo; Prev</span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
+                        <ul class="page-pagination__list">
+                            <li class="{{ ($products->currentPage() == 1) ? ' disabled' : '' }} page-pagination__item">
+                                <a class="page-pagination__link" href="{{ $products->url(1) }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo; Prev</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            @for ($i = 1; $i <= $products->lastPage(); $i++)
+                                <li class="page-pagination__item">
+                                    <a class="page-pagination__link {{ ($products->currentPage() == $i) ? ' active' : '' }}" href="{{ $products->url($i) }}">{{ $i }}</a>
                                 </li>
-                                @for ($i = 1; $i <= $products->lastPage(); $i++)
-                                    <li class="page-pagination__item">
-                                        <a class="page-pagination__link {{ ($products->currentPage() == $i) ? ' active' : '' }}" href="{{ $products->url($i) }}">{{ $i }}</a>
-                                    </li>
-                                @endfor
-                                <li class="{{ ($products->currentPage() == $products->lastPage()) ? ' disabled' : '' }} page-pagination__item">
-                                    <a href="{{ $products->url($products->currentPage()+1) }}" class="page-pagination__link" aria-label="Next">
-                                        <span aria-hidden="true">Next &raquo;</span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                            @endfor
+                            <li class="{{ ($products->currentPage() == $products->lastPage()) ? ' disabled' : '' }} page-pagination__item">
+                                <a href="{{ $products->url($products->currentPage()+1) }}" class="page-pagination__link" aria-label="Next">
+                                    <span aria-hidden="true">Next &raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    @endif
+                    @else
+                    <div class="alert alert-danger">
+                        <span> Sorry! Product Not Found...</span>
+                    </div>
                     @endif
                 </div>  <!-- Start Rightside - Product Type View -->
             </div>
@@ -324,8 +331,9 @@
     </main>  <!-- :::::: End MainContainer Wrapper :::::: -->
 
 
-@endsection
+    @endsection
 
+    
 @section('script')
 <script>
     $(document).ready(function() {
