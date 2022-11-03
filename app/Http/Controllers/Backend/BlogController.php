@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Backend\Blog;
 use Image;
 use Str;
+use Auth;
 use File;
 use Session;
 
@@ -30,7 +31,7 @@ class BlogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    { 
         return view('backend/pages/blog/create');
 
     }
@@ -43,19 +44,24 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
         $request->validate([
-            'name'      =>  ['required', 'string', 'unique:categories,name', 'max:255'],
+            'title'      =>  ['required', 'string', 'max:255'],
             'status'    =>  ['required', 'not_in:0'],
-            // 'image'     =>  ['required', 'mimes:jpg,jpeg,png,gif|max:1024'],
+            'body'    =>  ['required','string'],
+            'image'     =>  ['required', 'mimes:jpg,jpeg,png,gif|max:1024'],
         ]);
 
         $blog = new Blog;
 
-        $blog->name        =   $request->name;
-        $blog->slug        =   Str::slug($blog->name);
+        $blog->title        =   $request->title;
+        $blog->slug        =   Str::slug($blog->title).'-'.time();
         $blog->status      =   $request->status;
-        $blog->parent_cat  =   empty($request['parent_cat']) ? 0 : $request['parent_cat'];
+        $blog->user_id      =  Auth::user()->id;
+
+        $blog->body      =   $request->body;
+ 
+
         $image = $request->file('image');
             if( !is_null($image) ){
                 // Delete Existing Image
@@ -97,10 +103,9 @@ class BlogController extends Controller
      */
     public function edit($slug)
     {
-        //
-        $categories = Blog::where('parent_cat',0)->get();
+        // 
         $blog = Blog::where('slug', $slug)->first();
-        return view('backend/pages/blog/edit', compact('blog', 'categories'));
+        return view('backend/pages/blog/edit', compact('blog'));
 
     }
 
@@ -116,9 +121,10 @@ class BlogController extends Controller
         //
         $blog = Blog::find($id);
 
-        $blog->name        =   $request->name;
-        $blog->slug        =   Str::slug($blog->name);
+        $blog->title        =   $request->title;
+        $blog->slug        =   Str::slug($blog->title).'-'.time();
         $blog->status      =   $request->status;
+        $blog->body      =   $request->body;
 
         $image = $request->file('image');
             if( !is_null($image) ){
@@ -137,7 +143,7 @@ class BlogController extends Controller
 
         $blog->save();
 
-        $notification = session()->flash("success", "blog Update Successfully");
+        $notification = session()->flash("success", "Blog Update Successfully");
 
         return redirect()->route('blog.index')->with($notification);
     }
@@ -148,12 +154,12 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        //
-        $subcat = Blog::where('parent_cat', $id)->get();
-        if(!empty($subcat)) {
-            foreach($subcat as $cat) {
+        //  
+        $blog = Blog::where('slug', $slug)->get();
+        if(!empty($blog)) {
+            foreach($blog as $cat) {
                 if( File::exists('backend/assets/images/blog/' . $cat->image) ) {
                     File::delete('backend/assets/images/blog/' . $cat->image);
                 }
@@ -161,7 +167,7 @@ class BlogController extends Controller
             }
         }
 
-        $delete = Blog::where('id', $id)->delete();
+        $delete = Blog::where('slug', $slug)->delete();
 
         // check data deleted or not
         if ($delete == 1) {
