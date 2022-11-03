@@ -103,6 +103,11 @@ Route::middleware(['verified'])->group(function () {
                 Route::resource('blog', 'App\Http\Controllers\Backend\BlogController');
             });
 
+            // Blog management
+            Route::group(['prefix' => 'sliders'], function() {
+                Route::resource('slider', 'App\Http\Controllers\Backend\SliderController');
+            });
+
             // Brand management
             Route::group(['prefix' => 'brands'], function() {
                 Route::resource('brand', 'App\Http\Controllers\Backend\BrandController');
