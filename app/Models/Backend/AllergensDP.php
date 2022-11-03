@@ -4,6 +4,7 @@ namespace App\Models\Backend;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Backend\Product;
 
 class AllergensDP extends Model
 {
@@ -16,4 +17,10 @@ class AllergensDP extends Model
         'parent_id',
         'status',
     ];
+
+    // Count the number of product in this brand
+    public function countProductByAllergensDP($adp_id)
+    {
+        return Product::where('allergens_dp_id','like','%'.trim($adp_id).'%')->count();
+    }
 }
