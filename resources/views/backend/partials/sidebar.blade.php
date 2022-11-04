@@ -145,8 +145,7 @@
                         <span>Settings</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="email-inbox.html">Profile</a></li>
-                        <li><a href="email-read.html">General</a></li>
+                        <li class="@if( Route::currentRouteNamed('setting.index')) mm-active @endif"><a href="{{ route('setting.index') }}" class="waves-effect-@if( Route::currentRouteNamed('setting.index')) active @endif">Besic Settings</a></li>
                     </ul>
                 </li>
 

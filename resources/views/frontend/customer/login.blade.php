@@ -1,4 +1,5 @@
 @extends('layouts.frontend')
+@section('title') {{ __('Login Customer') }} @endsection
 
 @section('content')
 
@@ -49,7 +50,7 @@
                                     <input type="checkbox" name="account-remember" id="account-remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                     <span>Remember me</span>
                                 </label>
-                                <a class="link--gray" href="{{ route('password.request') }}">Forgot Password?</a>
+                                <a class="link--gray" href="{{ route('forget.password.get') }}">Forgot Password?</a>
                             </div>
                             <div class="d-flex justify-content-between flex-wrap m-tb-20 pt-3 align-middle">
                                 <button class="btn btn--box btn--medium btn--radius btn--black btn--black-hover-green btn--uppercase font--semi-bold" type="submit">LOGIN</button>

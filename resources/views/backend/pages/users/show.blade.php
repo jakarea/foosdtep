@@ -14,7 +14,6 @@
                             <img src="{{ asset('frontend/assets/img/user/'. $user->avater) }}" alt="Avater"
                                 class="avatar-lg mx-auto img-thumbnail rounded-circle img-fluid">
                         @else
-                    
                             <img src="{{asset('backend/assets/img/user/default.jpg')}}" alt="Avater"
                                 class="avatar-lg mx-auto img-thumbnail rounded-circle img-fluid">
                         @endif 
@@ -47,7 +46,7 @@
                         <div class="row align-items-center">
                             <div class="col-8">
                                 <p class="mb-2">Total Orders</p>
-                                <h4 class="mb-0">3,524</h4>
+                                <h4 class="mb-0">{{ count(App\Models\Backend\Order::where('user_id', Auth::user()->id)->get() ) }}</h4>
                             </div>
                             <div class="col-4">
                                 <div class="text-end">
@@ -66,7 +65,7 @@
                         <div class="row align-items-center">
                             <div class="col-8">
                                 <p class="mb-2">Total Discount</p>
-                                <h4 class="mb-0">3,524</h4>
+                                <h4 class="mb-0">0</h4>
                             </div>
                             <div class="col-4">
                                 <div class="text-end">
@@ -135,6 +134,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
+                                <th scope="col">Product Name</th>
                                 <th scope="col">Order Id</th> 
                                 <th scope="col">Amount</th>
                                 <th scope="col">Order Status</th>
@@ -142,41 +142,28 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach( App\Models\Backend\Order::orderby('id', 'desc')->where('user_id', Auth::user()->id)->get() as $order )
                             <tr>
-                                <td>1</td>
-                                <td>123-xdc-ert-rvc</td> 
-                                <td>$ 125</td> 
-                                <td><span class="badge badge-soft-success font-size-12">Complet</span> </td>
-                                <td><a href="#" class="btn btn-primary btn-sm">Details</a></td>
+                                <td>{{ $key+1 }}</td>
+                                <td>{{ $order->order_number }}</td> 
+                                <td>{{ $order->order_number }}</td> 
+                                <td>{{ __('$'). $order->grand_total }}</td> 
+                                <td>
+                                    @if( $order->status == 'pending' )
+                                    <span class="badge badge-soft-danger font-size-12">Pending</span>
+                                    @elseif( $order->status == 'processing' )
+                                    <span class="badge badge-soft-info font-size-12">Processing</span>
+                                    @elseif( $order->status == 'completed' )
+                                    <span class="badge badge-soft-success font-size-12">Completed</span>
+                                    @elseif( $order->status == 'decline' )
+                                    <span class="badge badge-soft-warning font-size-12">Declined</span>
+                                    @endif
+                                </td>
+                                <td><a href="{{ route('orders.show', $order->id) }}" class="btn btn-primary btn-sm">Details</a></td>
                             </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>123-xdc-ert-rvc</td> 
-                                <td>$ 125</td> 
-                                <td><span class="badge badge-soft-danger font-size-12">Cancled</span></td>
-                                <td><a href="#" class="btn btn-primary btn-sm">Details</a></td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>123-xdc-ert-rvc</td> 
-                                <td>$ 125</td> 
-                                <td><span class="badge badge-soft-warning font-size-12">Pending</span></td>
-                                <td><a href="#" class="btn btn-primary btn-sm">Details</a></td>
-                            </tr>
-                            
+                        @endforeach
                         </tbody>
                     </table>
-                </div>
-                <div class="mt-3">
-                    <ul class="pagination pagination-rounded justify-content-center mb-0">
-                        <li class="page-item">
-                            <a class="page-link" href="#">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
                 </div>
             </div>
         </div>

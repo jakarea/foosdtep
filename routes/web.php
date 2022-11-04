@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use  App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\BackendController;
 use App\Http\Controllers\Admin\BackendDesignController;
@@ -62,6 +63,11 @@ Route::controller(HomeController::class)->group(function () {
     // Customer Registration and verification
     Route::post('customer/register', 'App\Http\Controllers\Auth\RegisterController@CustomerRegistration')->name('customer.registration');
     Route::post('customer/login', 'App\Http\Controllers\Auth\LoginController@logincustomer')->name('customer.login');
+
+    Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+    Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+    Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+    Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 
     Route::group(['prefix' => 'customers'], function(){
@@ -147,6 +153,10 @@ Route::middleware(['verified'])->group(function () {
             // Manage Order
             Route::group(['prefix' => 'orderviews'], function() {
                 Route::resource('orders', 'App\Http\Controllers\Backend\OrderRecievedController');
+            });
+            // Setting Setup
+            Route::group(['prefix' => 'settings'], function() {
+                Route::resource('setting', 'App\Http\Controllers\Backend\SettingController');
             });
         });
     });

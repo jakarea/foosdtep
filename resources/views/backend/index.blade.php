@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-
+@section('title'){{ __('Dashboard') }} @endsection
 @section('content')
 <div class="row">
     <div class="col-xl-3">
@@ -15,16 +15,16 @@
                         <div class="font-size-16 mt-2">New Orders</div>
                     </div>
                 </div>
-                <h4 class="mt-4">1,368</h4>
+                <h4 class="mt-4">{{ App\Models\Backend\Order::NewOrders() }}</h4>
                 <div class="row">
                     <div class="col-7">
-                        <p class="mb-0"><span class="text-success me-2"> 0.28% <i
+                        <p class="mb-0"><span class="text-success me-2"> {{ App\Models\Backend\Order::NewOrders() / 100 * count($orders) }}% <i
                                     class="mdi mdi-arrow-up"></i> </span></p>
                     </div>
                     <div class="col-5 align-self-center">
                         <div class="progress progress-sm">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 62%"
-                                aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: {{ App\Models\Backend\Order::NewOrders() / 100 * count($orders) }}%"
+                                aria-valuenow="{{ App\Models\Backend\Order::NewOrders() / 100 * count($orders) }}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
@@ -43,16 +43,16 @@
 
                     </div>
                 </div>
-                <h4 class="mt-4">2,456</h4>
+                <h4 class="mt-4">{{ App\Models\User::UserCount() }}</h4>
                 <div class="row">
                     <div class="col-7">
-                        <p class="mb-0"><span class="text-success me-2"> 0.16% <i
+                        <p class="mb-0"><span class="text-success me-2"> {{ App\Models\User::UserCount() / 100 * App\Models\User::UserCount() }}% <i
                                     class="mdi mdi-arrow-up"></i> </span></p>
                     </div>
                     <div class="col-5 align-self-center">
                         <div class="progress progress-sm">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 62%"
-                                aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-success" role="progressbar" style="width: {{ App\Models\User::UserCount() / 100 * App\Models\User::UserCount() }}%"
+                                aria-valuenow="{{ App\Models\User::UserCount() / 100 * App\Models\User::UserCount() }}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
@@ -60,22 +60,12 @@
         </div>
     </div>
 
-    <div class="col-xl-6">
+    <div class="col-xl-9">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title mb-4">Sales Report</h4>
 
-                <div id="line-chart" class="apex-charts"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-xl-3">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title mb-4">Revenue</h4>
-
-                <div id="column-chart" class="apex-charts"></div>
+                <div id="area-chart" class="apex-charts"></div>
             </div>
         </div>
     </div>
@@ -83,135 +73,121 @@
 <!-- end row -->
 
 <div class="row">
-    <div class="col-xl-5">
+    <div class="col-md-12 col-xl-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title mb-4">Sales Analytics</h4>
+                <h4 class="card-title mb-4">Recent Orders</h4>
 
-                <div class="row align-items-center">
-                    <div class="col-sm-6">
-                        <div id="donut-chart" class="apex-charts"></div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="py-3">
-                                        <p class="mb-1 text-truncate"><i
-                                                class="mdi mdi-circle text-primary me-1"></i> Online
-                                        </p>
-                                        <h5>$ 2,652</h5>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="py-3">
-                                        <p class="mb-1 text-truncate"><i
-                                                class="mdi mdi-circle text-success me-1"></i>
-                                            Offline</p>
-                                        <h5>$ 2,284</h5>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="py-3">
-                                        <p class="mb-1 text-truncate"><i
-                                                class="mdi mdi-circle text-warning me-1"></i>
-                                            Marketing</p>
-                                        <h5>$ 1,753</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="table-responsive">
+                    <table id="datatable" class="table table-bordered dt-responsive nowrap">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Customer Name</th> 
+                                <th scope="col">Order Id</th> 
+                                <th scope="col">Amount</th>
+                                <th scope="col">Order Status</th>
+                                <th scope="col" colspan="2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($orders as $key => $order)    
+                            <tr>
+                                <td>{{ $key+1 }}</td>
+                                <td>{{ $order->user->name }}</td> 
+                                <td>{{ $order->order_number }}</td> 
+                                <td>{{ __('$'). $order->grand_total }}</td> 
+                                <td>
+                                    @if( $order->status == 'pending' )
+                                    <span class="badge badge-soft-danger font-size-12">Pending</span>
+                                    @elseif( $order->status == 'processing' )
+                                    <span class="badge badge-soft-info font-size-12">Processing</span>
+                                    @elseif( $order->status == 'completed' )
+                                    <span class="badge badge-soft-success font-size-12">Completed</span>
+                                    @elseif( $order->status == 'decline' )
+                                    <span class="badge badge-soft-warning font-size-12">Declined</span>
+                                    @endif
+                                </td>
+                                <td><a href="{{ route('orders.show', $order->id) }}" class="btn btn-primary btn-sm">Details</a></td>
+                            </tr>
+                        @endforeach                                
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="col-xl-4">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title mb-4">Monthly Sales</h4>
-
-                <div id="scatter-chart" class="apex-charts"></div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-3">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title mb-4">Overview</h4>
-
-                <div>
-                    <div class="pb-3 border-bottom">
-                        <div class="row align-items-center">
-                            <div class="col-8">
-                                <p class="mb-2">New Visitors</p>
-                                <h4 class="mb-0">3,524</h4>
-                            </div>
-                            <div class="col-4">
-                                <div class="text-end">
-                                    <div>
-                                        2.06 % <i class="mdi mdi-arrow-up text-success ms-1"></i>
-                                    </div>
-                                    <div class="progress progress-sm mt-3">
-                                        <div class="progress-bar" role="progressbar" style="width: 62%"
-                                            aria-valuenow="62" aria-valuemin="0" aria-valuemax="100">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="py-3 border-bottom">
-                        <div class="row align-items-center">
-                            <div class="col-8">
-                                <p class="mb-2">Product Views</p>
-                                <h4 class="mb-0">2,465</h4>
-                            </div>
-                            <div class="col-4">
-                                <div class="text-end">
-                                    <div>
-                                        0.37 % <i class="mdi mdi-arrow-up text-success ms-1"></i>
-                                    </div>
-                                    <div class="progress progress-sm mt-3">
-                                        <div class="progress-bar bg-warning" role="progressbar"
-                                            style="width: 48%" aria-valuenow="48" aria-valuemin="0"
-                                            aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pt-3">
-                        <div class="row align-items-center">
-                            <div class="col-8">
-                                <p class="mb-2">Revenue</p>
-                                <h4 class="mb-0">$ 4,653</h4>
-                            </div>
-                            <div class="col-4">
-                                <div class="text-end">
-                                    <div>
-                                        2.18 % <i class="mdi mdi-arrow-up text-success ms-1"></i>
-                                    </div>
-                                    <div class="progress progress-sm mt-3">
-                                        <div class="progress-bar bg-success" role="progressbar"
-                                            style="width: 78%" aria-valuenow="78" aria-valuemin="0"
-                                            aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </div> 
 </div>
 <!-- end row -->
 @endsection
 
 @section('script')
-<script src="{{ asset('backend/assets/js/pages/dashboard.init.js') }}"></script>
 <!-- apexcharts -->
 <script src="{{ asset('backend/assets/libs/apexcharts/apexcharts.min.js') }}"></script>
+
+<!-- Required datatable js -->
+<script src="{{ asset('backend/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('backend/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+
+<!-- Responsive examples -->
+<script src="{{ asset('backend/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('backend/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
+
+
+<script>
+        (function() { 
+
+var options = {
+series: [{
+    name: '2022',
+    data: [{{ $current }}]
+}, {
+    name: '2023',
+    data: [{{ $previous }}]
+}],
+chart: {
+    height: 260,
+    type: 'area',
+    toolbar: {
+    show: false
+    }
+},
+colors: ['#556ee6', '#f1b44c'],
+dataLabels: {
+    enabled: false
+},
+stroke: {
+    curve: 'smooth',
+    width: 2
+},
+fill: {
+    type: 'gradient',
+    gradient: {
+    shadeIntensity: 1,
+    inverseColors: false,
+    opacityFrom: 0.45,
+    opacityTo: 0.05,
+    stops: [20, 100, 100, 100]
+    }
+},
+xaxis: {
+    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+},
+markers: {
+    size: 3,
+    strokeWidth: 3,
+    hover: {
+    size: 4,
+    sizeOffset: 2
+    }
+},
+legend: {
+    position: 'top',
+    horizontalAlign: 'right'
+}
+};
+var chart = new ApexCharts(document.querySelector("#area-chart"), options);
+chart.render();
+})();
+</script>
 @endsection
