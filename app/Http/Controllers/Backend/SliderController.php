@@ -46,6 +46,7 @@ class SliderController extends Controller
         //
         $request->validate([
             'title'      =>  ['required', 'string', 'max:255'],
+
             'top_subtitle'    =>  ['required', 'string'],
             'bottom_subtitle'    =>  ['required', 'string'],
             'button_text'    =>  ['required', 'string'],

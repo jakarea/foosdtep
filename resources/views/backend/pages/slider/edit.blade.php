@@ -80,7 +80,6 @@
                                 <img src="{{ asset('backend/assets/images/slider/'. $slider->image) }}" alt="image" width="50" class="img-fluid mt-2">
                                 </div>
                             </div>
-                        
                         </div>
                         <div class="col-lg-5">
                             <div class="mb-3">

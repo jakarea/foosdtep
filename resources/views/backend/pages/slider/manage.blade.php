@@ -31,7 +31,6 @@
                             @foreach( $sliders as $key => $data )
                             <tr id="table_rrow{{$data->id}}">
                                 <td valign="middle">{{ $key+1 }}</td>
-                               
                                 <td valign="middle">
                                     @if( !empty($data->image) )
                                     <img src="{{ asset('backend/assets/images/slider/'. $data->image) }}" alt="Cate" class="img-fluid" width="50">
