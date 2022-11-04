@@ -4,6 +4,16 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Backend\Product;
+use App\Models\Backend\Category;
+use App\Models\Backend\ProductGroup;
+use App\Models\Backend\Faith;
+use App\Models\Backend\Line;
+use App\Models\Backend\Content;
+use App\Models\Backend\AllergensDP;
+use App\Models\Backend\Brand;
+use App\Models\Backend\OrderItem;
+use App\Models\Backend\Order;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\UserRole;
@@ -54,6 +64,9 @@ class DashboardController extends Controller
     public function show($id)
     {
         //
+        $data = Order::find($id);
+
+        return view('frontend.customer.invoice', compact('data'));
     }
 
     /**
