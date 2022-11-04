@@ -146,7 +146,6 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="email-inbox.html">Profile</a></li>
-                        <li><a href="email-read.html">General</a></li>
                     </ul>
                 </li>
 

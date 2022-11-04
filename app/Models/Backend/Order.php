@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Backend\OrderItem;
 use App\Models\User;
 use Carbon\Carbon;
-
+use DB;
 class Order extends Model
 {
     use HasFactory;
@@ -53,6 +53,22 @@ class Order extends Model
         $spendmoney = Order::where('user_id', $user_id)->sum('grand_total');
 
         return $spendmoney ? : '0';
+    }
+
+    public static function NewOrders()
+    {        
+        $date = Carbon::now()->subDays(7);
+        $get_order = Order::where('created_at', '>=', $date)->count();
+
+        return $get_order;
+    }
+
+    static public function getCountVisitor($start_date, $end_date)
+    {
+        $totalvisitors = self::select('orders.id');
+        $totalvisitors = $totalvisitors->where(DB::raw("(DATE_FORMAT(orders.created_at,'%Y-%m-%d'))"), '>=' , $start_date);
+        $totalvisitors = $totalvisitors->where(DB::raw("(DATE_FORMAT(orders.created_at,'%Y-%m-%d'))"), '<=' , $end_date);
+        return $totalvisitors->count();
     }
 
 }

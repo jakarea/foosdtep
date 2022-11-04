@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Models\Role;
 use App\Models\UserRole;
-
+use Carbon\Carbon;
 class User extends Authenticatable {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -62,5 +62,13 @@ class User extends Authenticatable {
 
     public function role() {
         return $this->belongsTo(Role::class, 'user_roles', 'user_id', 'role_id');
+    }
+
+    public static function UserCount()
+    {
+        $date = Carbon::now()->subDays(30);
+        $get_user = User::where('created_at', '>=', $date)->count();
+
+        return $get_user;
     }
 }
