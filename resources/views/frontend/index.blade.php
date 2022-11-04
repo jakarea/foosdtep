@@ -137,7 +137,7 @@
                          <!-- Start Section Title -->
                         <div class="section-content section-content--border m-b-35">
                             <h5 class="section-content__title">Our Latest News</h5>
-                            <a href="blog-list-sidebar-left.html" class="btn btn--icon-left btn--small btn--radius btn--transparent btn--border-green btn--border-green-hover-green font--regular text-capitalize">More blogs <i class="fal fa-angle-right"></i></a>
+                            <!-- <a href="blog-list-sidebar-left.html" class="btn btn--icon-left btn--small btn--radius btn--transparent btn--border-green btn--border-green-hover-green font--regular text-capitalize">More blogs <i class="fal fa-angle-right"></i></a> -->
                         </div>  <!-- End Section Title -->
                     </div>
                 </div>

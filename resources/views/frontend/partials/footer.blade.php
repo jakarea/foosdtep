@@ -109,47 +109,4 @@
     
     <!-- material-scrolltop button -->
     <button class="material-scrolltop" type="button"></button>
-
-    <!-- Start Modal Add cart -->
-    <div class="modal fade" id="modalAddCart" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog  modal-dialog-centered modal-xl" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col text-end">
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true"> <i class="fal fa-times"></i></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-7">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="modal__product-img">
-                                        <img class="img-fluid" src="assets/img/product/size-normal/product-home-1-img-1.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="link--green link--icon-left"><i class="fal fa-check-square"></i>Added to cart successfully!</div>
-                                    <div class="modal__product-cart-buttons m-tb-15">
-                                        <a href="cart.html" class="btn btn--box  btn--tiny btn--green btn--green-hover-black btn--uppercase">View Cart</a>
-                                        <a href="checkout.html" class="btn btn--box  btn--tiny btn--green btn--green-hover-black btn--uppercaset">Checkout</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5 modal__border">
-                            <ul class="modal__product-shipping-info">
-                                <li class="link--icon-left"><i class="icon-shopping-cart"></i> There Are 5 Items In Your Cart.</li>
-                                <li>TOTAL PRICE: <span>$187.00</span></li>
-                                <li><a href="#" class="btn text-underline color-green" data-bs-dismiss="modal">CONTINUE SHOPPING</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div> <!-- End Modal Add cart -->
+ 
