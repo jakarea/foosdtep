@@ -49,6 +49,10 @@ class LoginController extends Controller
     // Admin Controller
     public function adminloginform()
     {
+        echo  __('messages.welcome');
+        echo __('messages.title');
+        exit;
+        App::setLocale('en');
         return view('auth/login');
     }
 
