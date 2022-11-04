@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Backend\Product;
 use App\Models\Backend\Blog;
+use App\Models\Backend\Slider;
 use App\Models\Backend\Category;
 use App\Models\Backend\ProductGroup;
 use App\Models\Backend\Faith;
@@ -30,7 +31,9 @@ class HomeController extends Controller
 
         $blogs = Blog::where('status', 'active')->orderby('id', 'desc')->take('12')->get(); 
 
-        return view('frontend/index',compact('products', 'prodcutCat', 'categories','blogs'));
+        $sliders = Slider::where('status', 'active')->orderby('id', 'desc')->take('3')->get(); 
+
+        return view('frontend/index',compact('products', 'prodcutCat', 'categories','blogs','sliders'));
     }
     public function about()
     {

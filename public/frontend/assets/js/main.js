@@ -134,6 +134,7 @@
             arrows: true,
             fade: true,
             dots: true,
+            
             easing: 'linear',
             speed: 2000,
             prevArrow: '<button type="button" class="hero-slider__arrow hero-slider__arrow--left"><i class="far fa-chevron-left"></i></button>',

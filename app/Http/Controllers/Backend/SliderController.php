@@ -46,8 +46,12 @@ class SliderController extends Controller
         //
         $request->validate([
             'title'      =>  ['required', 'string', 'max:255'],
+
+            'top_subtitle'    =>  ['required', 'string'],
+            'bottom_subtitle'    =>  ['required', 'string'],
+            'button_text'    =>  ['required', 'string'],
             'status'    =>  ['required', 'not_in:0'],
-            // 'image'     =>  ['required', 'mimes:jpg,jpeg,png,gif|max:1024'],
+            'image'     =>  ['required', 'mimes:jpg,jpeg,png,gif|max:1024']
         ]);
 
         $slider = new Slider;

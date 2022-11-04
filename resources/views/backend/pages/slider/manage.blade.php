@@ -19,12 +19,10 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
+                                <th>Image</th>
                                 <th>Title</th>
                                 <th>Top SubTitle</th>
-                                <th>Bottom SubTitle</th>
-                                <th>Button Text</th>
-                                <th>Button Link</th>
-                                <th>Image</th>
+                                <th>Bottom SubTitle</th>  
                                 <th>Action</th> 
                             </tr>
                         </thead>
@@ -39,12 +37,10 @@
                                     @else
                                     <span class="text-danger">No Photo</span>
                                     @endif
-                                </td>
-                                <td valign="middle">{{ $data->name }}</td>
-                                
-                                <td valign="middle">
-                                    {{ $data->slug }}
-                                </td>
+                                </td> 
+                                <td valign="middle">{{ $data->title }}</td>
+                                <td valign="middle">{{ $data->top_subtitle }}</td> 
+                                <td valign="middle">{{ $data->bottom_subtitle }}</td> 
                                 <td valign="middle">
                                     <a href="{{ route('slider.edit', $data->id) }}" class="me-2"><i class="fas fa-pencil-alt"></i></a>
                                     <a href="javascript:void(0)" class="text-danger cat_delete" data-id="{{$data->id}}"><i class="fas fa-trash"></i></a>
