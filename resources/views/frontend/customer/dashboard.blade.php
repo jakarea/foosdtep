@@ -150,8 +150,7 @@
                                                         <td>{{ date('d-m-Y', strtotime($data->created_at)); }}</td>
                                                         <td>{{ $data->status }}</td> 
                                                         <td>
-                                                            <a href="#" title="Reorder" class="btn btn-success p-2"><i class="fas fa-repeat"></i></a>
-                                                            <a href="#" title="View" class="btn text-white btn-info p-2 ms-2"><i class="fas fa-eye"></i></a> 
+                                                            <a href="{{ route('customer.invoice', $data->id) }}" title="View" class="btn text-white btn-info p-2 ms-2"><i class="fas fa-eye"></i></a> 
                                                         </td>
                                                     </tr>
                                                     @endforeach

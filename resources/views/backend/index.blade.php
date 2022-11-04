@@ -91,10 +91,11 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @if( count($orders) > 0 )
                         @foreach($orders as $key => $order)    
                             <tr>
                                 <td>{{ $key+1 }}</td>
-                                <td>{{ $order->user->name }}</td> 
+                                
                                 <td>{{ $order->order_number }}</td> 
                                 <td>{{ __('$'). $order->grand_total }}</td> 
                                 <td>
@@ -110,7 +111,12 @@
                                 </td>
                                 <td><a href="{{ route('orders.show', $order->id) }}" class="btn btn-primary btn-sm">Details</a></td>
                             </tr>
-                        @endforeach                                
+                        @endforeach  
+                        @else
+                        <tr>
+                            No Order
+                        </tr>
+                        @endif
                         </tbody>
                     </table>
                 </div>

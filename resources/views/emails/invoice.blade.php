@@ -111,7 +111,7 @@
                 <h1 style="font-size: 38px; line-height:0px; font-weight:bold;">Food Steps</h1>
                  
                 <p style="font-weight: bold; color: #000; margin-top: 15px; font-size: 18px;">
-                  Invoice #25647886
+                  Invoice #{{ $order->order_number }}
                 </p>
                 <p style="margin: 15px auto;">
                   A2, Test Street <br>
@@ -129,30 +129,14 @@
                   </tr>
                 </thead>
                 <tbody>
+                @foreach( $order->items as $index => $item )
                   <tr class="invoice-items">
-                    <td>01</td>
-                    <td >Tropicana Purenectar Pomegr</td>
-                    <td>5 PC</td>
-                    <td style="text-align: right;">₹ 100</td>
+                    <td>{{ $index+1 }}</td>
+                    <td >{{ $item->product->name }}</td>
+                    <td>{{ $item->quantity }}</td>
+                    <td style="text-align: right;">{{ __('$'). $item->product->discount($item->product_id) * $item->quantity }}</td>
                   </tr>
-                  <tr class="invoice-items">
-                    <td>02</td>
-                    <td >Tropicana Purenectar Pomegr</td>
-                    <td>5 PC</td>
-                    <td style="text-align: right;">₹ 100</td>
-                  </tr>
-                  <tr class="invoice-items">
-                    <td>03</td>
-                    <td >Tropicana Purenectar Pomegr</td>
-                    <td>5 PC</td>
-                    <td style="text-align: right;">₹ 100</td>
-                  </tr>
-                  <tr class="invoice-items">
-                    <td>04</td>
-                    <td >Tropicana Purenectar Pomegr</td>
-                    <td>5 PC</td>
-                    <td style="text-align: right;">₹ 100</td>
-                  </tr>
+                  @endforeach
                
                 </tbody>
               </table>
@@ -163,9 +147,8 @@
                 <thead>
                   <tr>
                     <th>Total</th>
-                    <th style="text-align: center;">Item (10)</th>
                     <th>&nbsp;</th>
-                    <th style="text-align: right;">₹ 396</th>
+                    <th style="text-align: right;">{{ __('$'). $order->grand_total }}</th>
                     
                   </tr>
                 </thead>

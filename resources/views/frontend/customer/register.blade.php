@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-
+@section('title') {{ __('Register Customer') }} @endsection
 @section('content')
  
 
