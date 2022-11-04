@@ -6,8 +6,8 @@
                         <ul class="header__mobile--leftside d-flex align-items-center justify-content-start">
                             <li>
                                 <div class="header__mobile-logo">
-                                    <a href="index.html" class="header__mobile-logo-link">
-                                        <img src="assets/img/logo/logo.png" alt="" class="header__mobile-logo-img">
+                                    <a href="{{url('/')}}" class="header__mobile-logo-link">
+                                        <img src="{{asset('frontend/assets/img/logo/logo.png')}}" alt="" class="header__mobile-logo-img">
                                     </a>
                                 </div>
                             </li>
@@ -79,20 +79,20 @@
                 <ul class="header__user-action-icon m-tb-15 text-center">
                     <!-- Start Header Wishlist Box -->
                     <li>
-                        <a href="my-account.html">
+                        <a href="#">
                             <i class="icon-users"></i>
                         </a>
                     </li> <!-- End Header Wishlist Box -->
                     <!-- Start Header Wishlist Box -->
                     <li>
-                        <a href="wishlist.html">
+                        <a href="#">
                             <i class="icon-heart"></i>
                             <span class="item-count pos-absolute">3</span>
                         </a>
                     </li> <!-- End Header Wishlist Box -->
                     <!-- Start Header Add Cart Box -->
                     <li>
-                        <a href="cart.html">
+                        <a href="#">
                             <i class="icon-shopping-cart"></i>
                             <span class="wishlist-item-count pos-absolute">3</span>
                         </a>
@@ -100,7 +100,7 @@
                 </ul>  <!-- End Mobile User Action -->
                 <div class="offcanvas-menu">
                     <ul>
-                        <li><a href="index.html"><span>Home</span></a></li>
+                        <li><a href="{{url('/')}}"><span>Home</span></a></li>
                         <li>
                             <a href="#"><span>Shop</span></a>
                             <ul class="sub-menu">
@@ -120,12 +120,12 @@
                                     <a href="#">Shop Pages</a>
                                     <ul class="sub-menu">
                                         <li><a href="{{url('/')}}">Cart</a></li>
-                                        <li><a href="#">Checkout</a></li>
-                                        <li><a href="#">Compare</a></li>
-                                        <li><a href="#">Empty Cart</a></li>
-                                        <li><a href="#">Wishlist</a></li>
-                                        <li><a href="#">My Account</a></li>
-                                        <li><a href="#">Login</a></li>
+                                        <li><a href="{{url('/')}}">Checkout</a></li>
+                                        <li><a href="{{url('/')}}">Compare</a></li>
+                                        <li><a href="{{url('/')}}">Empty Cart</a></li>
+                                        <li><a href="{{url('/')}}">Wishlist</a></li>
+                                        <li><a href="{{url('/')}}">My Account</a></li>
+                                        <li><a href="{{url('/')}}">Login</a></li>
                                                         
                                     </ul>
                                 </li>
@@ -138,13 +138,13 @@
                                         <li><a href="#">Affiliate</a></li>
                                         <li><a href="{{url('/')}}">Grouped</a></li>
                                         <li><a href="{{url('/')}}">Variable</a></li>
-                                        <li><a href="product-single-tab-left.html">Left Tab</a></li>
-                                        <li><a href="product-single-tab-right.html">Right Tab</a></li>
-                                        <li><a href="product-single-slider.html">Single Slider</a></li>
-                                        <li><a href="product-single-gallery-left.html">Gallery Left</a></li>
-                                        <li><a href="product-single-gallery-right.html">Gallery Right</a></li>
-                                        <li><a href="product-single-sticky-left.html">Sticky Left</a></li>
-                                        <li><a href="product-single-sticky-right.html">Sticky Right</a></li>
+                                        <li><a href="{{url('/')}}">Left Tab</a></li>
+                                        <li><a href="{{url('/')}}">Right Tab</a></li>
+                                        <li><a href="{{url('/')}}">Single Slider</a></li>
+                                        <li><a href="{{url('/')}}">Gallery Left</a></li>
+                                        <li><a href="{{url('/')}}">Gallery Right</a></li>
+                                        <li><a href="{{url('/')}}">Sticky Left</a></li>
+                                        <li><a href="{{url('/')}}>Sticky Right</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -155,22 +155,22 @@
                                 <li>
                                     <a href="#">Blog Grid</a>
                                     <ul class="sub-menu">
-                                        <li><a href="blog-grid-sidebar-left.html"> Blog Grid Left Sidebar</a></li>
-                                        <li><a href="blog-grid-sidebar-right.html"> Blog Grid Right Sidebar</a></li>
+                                        <li><a href="{{url('/')}}"> Blog Grid Left Sidebar</a></li>
+                                        <li><a href="{{url('/')}}"> Blog Grid Right Sidebar</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a href="#">Blog List</a>
                                     <ul class="sub-menu">
-                                        <li><a href="blog-list-sidebar-left.html"> Blog List Left Sidebar</a></li>
-                                        <li><a href="blog-list-sidebar-right.html"> Blog List Right Sidebar</a></li>
+                                        <li><a href="{{url('/')}}"> Blog List Left Sidebar</a></li>
+                                        <li><a href="{{url('/')}}"> Blog List Right Sidebar</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a href="#">Blog Single</a>
                                     <ul class="sub-menu">
-                                        <li><a href="blog-single-sidebar-left.html"> Blog Single Left Sidebar</a></li>
-                                        <li><a href="blog-single-sidebar-right.html"> Blog Single Right Sidebar</a></li>
+                                        <li><a href="{{url('/')}}"> Blog Single Left Sidebar</a></li>
+                                        <li><a href="{{url('/')}}"> Blog Single Right Sidebar</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -178,13 +178,13 @@
                         <li>
                             <a href="#"><span>Pages</span></a>
                             <ul class="sub-menu">
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="frequently-questions.html">Frequently Questions</a></li>
-                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                                <li><a href="404.html">404 Page</a></li>
+                                <li><a href="{{url('/about')}}">About Us</a></li>
+                                <li><a href="{{url('/')}}">Frequently Questions</a></li>
+                                <li><a href="{{url('/')}}">Privacy Policy</a></li>
+                                <li><a href="{{url('/')}}">404 Page</a></li>
                             </ul>
                         </li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="{{url('/contact')}}">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -263,7 +263,7 @@
                 </ul> <!-- End offcanvas Add Cart Checkout Info-->
 
                 <div class="offcanvas-add-cart__btn-checkout">
-                    <a href="checkout.html" class="btn btn--block btn--radius btn--box btn--black btn--black-hover-green btn--large btn--uppercase font--bold">Checkout</a>
+                    <a href="{{url('/')}}" class="btn btn--block btn--radius btn--box btn--black btn--black-hover-green btn--large btn--uppercase font--bold">Checkout</a>
                 </div>
             </div> <!-- End Add Cart Checkout Box-->
         </div> <!-- End Popup Add Cart -->

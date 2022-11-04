@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="home-btn d-none d-sm-block">
-        <a href="index.html" class="text-dark"><i class="fas fa-home h2"></i></a>
+        <a href="{{url('/')}}" class="text-dark"><i class="fas fa-home h2"></i></a>
     </div>
     <div class="account-pages my-5 pt-sm-5">
         <div class="container">
@@ -15,7 +15,7 @@
                             <div class="position-relative">
                                 <h5 class="text-white font-size-20">{{ __('messages.welcome_back') }}</h5>
                                 <p class="text-white-50 mb-0">{{ __('messages.singin_continue')}}</p>
-                                <a href="index.html" class="logo logo-admin mt-4">
+                                <a href="{{url('/')}}" class="logo logo-admin mt-4">
                                     <img src="{{asset ('frontend/assets/img/logo/logo.png') }}" alt="Logo" height="30">
                                 </a>
                             </div>
@@ -54,7 +54,7 @@
                                         </label>
                                     </div>
 
-                                    <div class="mt-3">
+                                    <div class="mt-3 login-bttn">
                                         <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">Log
                                             In</button>
                                     </div>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="mt-5 text-center">
                         <p>{{ __('messages.dont_have_account')}} 
-                            <a href="{{ route('admin.register') }}"
+                            <a href="javascript:void(0)"
                                 class="fw-medium text-primary"> {{ __('singup_now')}} </a> </p>
                         <p>©
                             <script>document.write(new Date().getFullYear())</script> FoodStep. Crafted with <i

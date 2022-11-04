@@ -6,10 +6,10 @@
 ul{
     list-style: none;
 }
-
+.btn-primary,
 .btn-primary{
-    background-color: #e0c77a;
-    border-color: #725c17b0;
+    background-color: #e0c77a!important;
+    border-color: #725c17b0!important;
 }
 
 .btn-primary:hover{
@@ -28,4 +28,8 @@ ul{
 .mm-active .active i,
 .mm-active .active{
     color: #e0c77a!important;
+}
+
+.bg-login-overlay{
+    background: linear-gradient(to right,#e0c77a,#342a0b)!important;
 }
