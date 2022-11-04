@@ -105,7 +105,7 @@ class OrderController extends Controller
 
 
         // Order Notification
-        $data["email"] = ["arifypp@gmail.com", $request->email];
+        $data["email"] = ["foodstep@yopmail.com", $request->email];
         $data["title"] = "From FoodStep.com";
 
         $data["order"] = $order;
