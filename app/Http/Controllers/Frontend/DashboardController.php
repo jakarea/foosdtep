@@ -92,7 +92,7 @@ class DashboardController extends Controller
         
         $user->name             =   $request->name;
         if( !empty($request->password) ){
-            $user->password         =   Hash::make($request->only('password'));
+            $user->password         =   Hash::make($request->password);
         }
         $user->email            =   $request->email;
         $user->phone            =   $request->phone;
