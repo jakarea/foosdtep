@@ -64,24 +64,6 @@ class OrderController extends Controller
             'email'     => ['required', 'email', 'max:255'],
         ]);
 
-
-        $data["email"] = "arifypp@gmail.com";
-        $data["title"] = "From ItSolutionStuff.com";
-        $data["body"] = "This is Demo";
-  
-        $pdf = PDF::loadView('emails.myTestMail', $data);
-  
-        Mail::send('emails.myTestMail', $data, function($message)use($data, $pdf) {
-            $message->to($data["email"], $data["email"])
-                    ->subject($data["title"])
-                    ->attachData($pdf->output(), "text.pdf");
-        });
-  
-        dd('Mail sent successfully');
-
-        exit();
-
-
         $order = Order::create([
             'order_number'      =>  'ORD-'.strtoupper(uniqid()),
             'user_id'           =>  auth()->user()->id,
@@ -123,8 +105,18 @@ class OrderController extends Controller
 
 
         // Order Notification
-        $adminEmail = User::where('id', 2)->get();
-        Notification::send($adminEmail, new OrderAdminNotification($order));
+        $data["email"] = ["arifypp@gmail.com", $request->email];
+        $data["title"] = "From FoodStep.com";
+
+        $data["order"] = $order;
+  
+        $pdf = PDF::loadView('emails.invoice', $data);
+  
+        Mail::send('emails.invoice', $data, function($message)use($data, $pdf) {
+            $message->to($data["email"], $data["email"])
+                    ->subject($data["title"])
+                    ->attachData($pdf->output(), "invoice.pdf");
+        });
     
         return redirect()->route('order.show', $order);
 

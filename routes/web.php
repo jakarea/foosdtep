@@ -73,6 +73,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::group(['prefix' => 'customers'], function(){
         Route::group(['middleware' => 'customer'], function () {
             Route::get('/dashboard','App\Http\Controllers\Frontend\DashboardController@index')->name('customer.dashboard');
+            Route::get('/invoice/{id}','App\Http\Controllers\Frontend\DashboardController@show')->name('customer.invoice');
             Route::post('/customer/{id}','App\Http\Controllers\Frontend\DashboardController@update')->name('customer.update');
             Route::resource('order', 'App\Http\Controllers\Backend\OrderController');
         });
