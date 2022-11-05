@@ -28,7 +28,7 @@ Route::controller(HomeController::class)->group(function () {
 
     // product route
     Route::get('/products', 'App\Http\Controllers\Frontend\ProductController@index')->name('products');
-    Route::post('/autocomplete-search', 'App\Http\Controllers\Frontend\ProductController@autocompleteSearch')->name('autocompleteSearch');
+    Route::post('/products', 'App\Http\Controllers\Frontend\ProductController@autocompleteSearch')->name('autocompleteSearch');
     Route::get('/products/{slug}', 'App\Http\Controllers\Frontend\ProductController@show')->name('show.product');
     Route::get('/products/category/{slug}', 'App\Http\Controllers\Frontend\ProductController@category')->name('show.category');
 
@@ -74,6 +74,8 @@ Route::controller(HomeController::class)->group(function () {
         Route::group(['middleware' => 'customer'], function () {
             Route::get('/dashboard','App\Http\Controllers\Frontend\DashboardController@index')->name('customer.dashboard');
             Route::get('/invoice/{id}','App\Http\Controllers\Frontend\DashboardController@show')->name('customer.invoice');
+            Route::get('/recart/{id}','App\Http\Controllers\Frontend\DashboardController@recart')->name('customer.recart');
+            Route::get('/reorder/{id}','App\Http\Controllers\Frontend\DashboardController@reorder')->name('customer.reorder');
             Route::post('/customer/{id}','App\Http\Controllers\Frontend\DashboardController@update')->name('customer.update');
             Route::resource('order', 'App\Http\Controllers\Backend\OrderController');
         });
