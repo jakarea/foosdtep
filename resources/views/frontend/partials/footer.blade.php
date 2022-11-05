@@ -88,8 +88,8 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-6 col-12">
                         <!-- Start Footer Copyright Text -->
-                        <div class="footer__copyright-text">
-                            <p>Copyright &copy; <a href="#">FoodStep</a>. All Rights Reserved</p>
+                        <div class="footer__copyright-text"> 
+                            <p>&copy; 2022 <a href="#">FoodStep.</a> Crafted with <i class="fas fa-heart text-danger"></i></p>
                         </div> <!-- End Footer Copyright Text -->
                     </div>
                     <div class="col-lg-4 col-md-6 col-12">

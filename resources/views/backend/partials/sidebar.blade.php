@@ -38,6 +38,18 @@
                         <span>Categories</span>
                     </a>
                 </li>
+                <li class="@if( Route::currentRouteNamed('blog.index')) mm-active @endif">
+                    <a href="{{ route('blog.index') }}" class="waves-effect-@if( Route::currentRouteNamed('blog.index')) active @endif">
+                        <i class="mdi mdi-newspaper"></i>
+                        <span>Blogs</span>
+                    </a>
+                </li>
+                <li class="@if( Route::currentRouteNamed('slider.index')) mm-active @endif">
+                    <a href="{{ route('slider.index') }}" class="waves-effect-@if( Route::currentRouteNamed('slider.index')) active @endif">
+                        <i class="mdi mdi-newspaper"></i>
+                        <span>Sliders</span>
+                    </a>
+                </li>
                 <li class="@if( Route::currentRouteNamed('orders.index')) mm-active @endif">
                     <a href="{{ route('orders.index') }}" class="waves-effect-@if( Route::currentRouteNamed('orders.index')) active @endif">
                         <i class="mdi mdi-newspaper"></i>

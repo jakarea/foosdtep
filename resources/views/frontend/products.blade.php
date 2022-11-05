@@ -264,10 +264,7 @@
                                             <div class="product__img-box  pos-relative text-center">
                                                 <a href="{{ route('show.product', $product->slug) }}" class="product__img--link">
                                                     <img class="product__img img-fluid" src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="{{ $product->slug }}">
-                                                </a>
-                                                <!-- Start Procuct Label -->
-                                                    <span class="product__label product__label--sale-dis">-31%</span>
-                                                <!-- End Procuct Label -->
+                                                </a> 
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
                                             <div class="product__content">
