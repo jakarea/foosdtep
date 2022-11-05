@@ -46,8 +46,15 @@
                         </a>
                     </li> <!-- End Header Wishlist Box --> 
                     @endif
-
-                    @if(Auth::check())
+                    @if(Auth::check() && Auth::user()->userrole[0]->slug == 'admin')
+                    <li>
+                        <a href="{{ route('admin.dashboard') }}">
+                            <i class="icon-users"></i>
+                        </a>
+                    </li> <!-- End Header Wishlist Box --> 
+                    @endif
+                    
+                    @if(Auth::check() && Auth::user()->userrole[0]->slug == 'customer')
                     <li>
                         <a href="{{ route('customer.dashboard') }}">
                             <i class="icon-users"></i>
