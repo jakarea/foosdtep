@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-
+@section('breadcumbTitle') {{ __('About') }} @endsection
 @section('content')
 
 <!-- breadcumb start -->

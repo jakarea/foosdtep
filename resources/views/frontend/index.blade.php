@@ -23,8 +23,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="product__catagory">
-
+                        <div class="product__catagory custom-img-cls">
                         @foreach($categories as $cateogry)
                             <!-- Start Single catagory Product -->
                             <div class="product__catagory--single">
@@ -56,11 +55,7 @@
                          <!-- Start Section Title -->
                         <div class="section-content section-content--border m-b-35">
                             <h5 class="section-content__title">Products</h5>
-                            <ul class="tablist tablist--style-blue tablist--style-gap-20 nav">
-                            @foreach( $prodcutCat as $keyCat => $category )
-                                <li><a class="nav-link {{ $keyCat == 0 ? 'active' : '' }}" data-bs-toggle="tab" href="#{{ $category->slug.$category->id }}">{{ $category->name }}</a></li>
-                            @endforeach
-                            </ul>
+                            
                         </div>  <!-- End Section Title -->
                     </div>
                 </div>
