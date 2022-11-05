@@ -279,10 +279,12 @@
                                                         {{ $product->short_description }}
                                                     </p>
                                                 </div>
+                                                @if(Auth::check())
                                                 <!-- Start Product Action Link-->
                                                 <ul class="product__action--link-list m-t-30">
                                                     <li><a href="{{ route('add.to.cart', $product->id) }}" class="btn--black btn--black-hover-green">Add to cart</a></li>
                                                 </ul> <!-- End Product Action Link -->
+                                                @endif
                                             </div> <!-- End Product Content -->
                                         </div> 
                                     </div> <!-- End Single List Product -->
