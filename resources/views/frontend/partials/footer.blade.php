@@ -89,7 +89,7 @@
                     <div class="col-lg-8 col-md-6 col-12">
                         <!-- Start Footer Copyright Text -->
                         <div class="footer__copyright-text"> 
-                            <p>&copy; 2022 <a href="#">FoodStep.</a> Crafted with <i class="fas fa-heart text-danger"></i></p>
+                            <p>&copy; 2022 <a href="#">FoodStep.</a> {{ __('text.crafted_with')}} <i class="fas fa-heart text-danger"></i></p>
                         </div> <!-- End Footer Copyright Text -->
                     </div>
                     <div class="col-lg-4 col-md-6 col-12">
