@@ -18,7 +18,7 @@
                             <li>
                                 <a href="{{ route('product.cart') }}">
                                     <i class="icon-shopping-cart"></i>
-                                    <span class="wishlist-item-count pos-absolute">3</span>
+                                    <span class="wishlist-item-count pos-absolute">{{ count((array) session('cart')) }}</span>
                                 </a>
                             </li> <!-- End Header Add Cart Box -->
                             <li><a href="#offcanvas-mobile-menu" class="offcanvas-toggle"><i class="far fa-bars"></i></a></li>
@@ -32,7 +32,7 @@
         <!--  Start Mobile-offcanvas Menu Section   -->
         <div id="offcanvas-mobile-menu" class="offcanvas offcanvas-mobile-menu">
             <div class="offcanvas__top">
-                <span class="offcanvas__top-text">Menu</span>
+                <span class="offcanvas__top-text">{{ __('text.menu')}}</span>
                 <button class="offcanvas-close"><i class="fal fa-times"></i></button>
             </div>
             
@@ -41,19 +41,19 @@
                  
                 <div class="offcanvas-menu">
                     <ul>
-                        <li> <a href="{{ url('/') }}" >Home</a></li>
+                        <li> <a href="{{ url('/') }}" >{{ __('text.home')}}</a></li>
                         <li>
-                            <a href="{{ url('/about') }}">About Us</a>
+                            <a href="{{ url('/about') }}">{{ __('text.about_us')}}</a>
                         </li> <!-- End Single Nav link-->
 
                         <!--Start Single Nav link-->
                         <li>
-                                <a href="{{ route('products') }}">Products</a>
+                                <a href="{{ route('products') }}">{{ __('text.products')}}</a>
                         </li> <!-- End Single Nav link--> 
                         
                         <!--Start Single Nav link-->
                         <li>
-                                <a href="{{ url('/contact') }}">Contact</a>
+                                <a href="{{ url('/contact') }}">{{ __('text.contacts')}}</a>
                         </li>
                     </ul>
                 </div>
