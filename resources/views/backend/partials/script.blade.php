@@ -67,7 +67,7 @@ $(function(){
 
 <script>
     jQuery(document).ready(function(){
-        jQuery('a[data-id]').click(function (e) {
+        jQuery('a[data-notify]').click(function (e) {
             e.preventDefault();
             
             jQuery.ajaxSetup({
@@ -77,7 +77,7 @@ $(function(){
             });
             var token = '{{ Session::token() }}';
         
-            var notif_id   = jQuery(this).attr('data-id');
+            var notif_id   = jQuery(this).attr('data-notify');
             var href        = jQuery(this).attr('href');
             jQuery.ajax({
                 type:'GET',
