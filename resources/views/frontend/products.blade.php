@@ -332,7 +332,7 @@
             e.preventDefault();
             if ($(this).is(':checked')) {
                 let id = $(this).val();
-                $('.attributes_Filter').not(this).prop('checked', false);
+                // $('.attributes_Filter').not(this).prop('checked', false);
                 // store original html
                 var originalHtml = $('.attributes_wise').innerHTML;
 

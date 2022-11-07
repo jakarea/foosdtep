@@ -77,9 +77,13 @@
                 </div>
                 <div class="d-print-none">
                     <div class="float-end">
+                        <a href="{{ route('customer.reorder', $data->id) }}"
+                            class="btn btn-secondary waves-effect waves-light p-2">Re-Order </a>
                         <a href="javascript:window.print()"
                             class="btn btn-success waves-effect waves-light p-2"><i
                                 class="fa fa-print"></i></a>
+                        <a href="{{ route('customer.recart', $data->id) }}" class="btn btn-primary w-md waves-effect p-2 waves-light"><i
+                                class="fa fa-shopping-cart"></i> {{ __('Re-Cart') }}</a>
                     </div>
                 </div>
             </div>
