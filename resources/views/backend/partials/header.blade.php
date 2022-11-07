@@ -42,7 +42,7 @@
                         </div>
                         <div data-simplebar style="max-height: 230px;">
                         @forelse (auth()->user()->unreadNotifications as $notification)
-                            <a href="{{ route('orders.index') }}" data-id="{{ $notification->id }}" data-attr="{{ route('markNotification', $notification->id) }}" class="text-reset notification-item">
+                            <a href="{{ route('orders.index') }}" data-notify="{{ $notification->id }}" data-attr="{{ route('markNotification', $notification->id) }}" class="text-reset notification-item">
                                 <div class="d-flex align-items-start">
                                     <div class="avatar-xs me-3">
                                         <span class="avatar-title bg-primary rounded-circle font-size-16">
