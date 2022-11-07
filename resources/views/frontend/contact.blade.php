@@ -18,8 +18,7 @@
                             <i class="fas fa-phone-alt"></i>
                         </div>
                         <div class="contact-info-dec">
-                            <a href="tel://+012-345-678-102">+012 345 678 102</a>
-                            <a href="tel://+012-345-678-102">+012 345 678 102</a>
+                            <a href="tel://+31 6 11 21 71 70">+31 6 11 21 71 70</a>
                         </div>
                     </div>
                     <div class="single-contact-info">
@@ -27,8 +26,7 @@
                             <i class="fas fa-globe-asia"></i>
                         </div>
                         <div class="contact-info-dec">
-                            <a href="mailto://urname@email.com">urname@email.com</a>
-                            <a href="mailto://urwebsitenaem.com">urwebsitenaem.com</a>
+                            <a href="mailto://info@foodsteps.nl">info@foodsteps.nl</a>
                         </div>
                     </div>
                     <div class="single-contact-info">
@@ -41,7 +39,7 @@
                         </div>
                     </div>
                     <div class="contact-social m-t-40">
-                        <h5>Follow Us</h5>
+                        <h5>{{__('text.follow_us')}}</h5>
                         <div class="social-link">
                             <ul>
                                 <li>
@@ -67,30 +65,30 @@
             <div class="col-lg-8 col-md-7">
                 <div class="contact-form gray-bg m-t-40">
                     <div class="section-content">
-                        <h5 class="section-content__title">Get In Touch</h5>
+                        <h5 class="section-content__title">{{__('text.get_in_touch')}}</h5>
                     </div>
                     <form class="contact-form-style" id="contact-form" action="#" method="POST">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-box__single-group">
-                                    <input type="text" placeholder="Name" required>
+                                    <input type="text" placeholder="{{__('text.name')}}" required>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-box__single-group">
-                                    <input type="email" placeholder="Email" required>
+                                    <input type="email" placeholder="{{__('text.email')}}" required>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-box__single-group">
-                                    <input type="text" placeholder="Subject" required>
+                                    <input type="text" placeholder="{{__('text.subject')}}" required>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-box__single-group">
-                                    <textarea rows="10" placeholder="Your Messege" required></textarea>
+                                    <textarea rows="10" placeholder="{{__('text.your_message')}}" required></textarea>
                                 </div>
-                                <button class="btn btn--box btn--medium btn--radius-tiny btn--black btn--black-hover-green btn--uppercase font--bold m-t-30" type="submit">Send</button>
+                                <button class="btn btn--box btn--medium btn--radius-tiny btn--black btn--black-hover-green btn--uppercase font--bold m-t-30" type="submit">{{ __('text.send')}}</button>
                             </div>
                         </div>
                     </form>

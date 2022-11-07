@@ -132,7 +132,7 @@
                 <!-- Start Rightside - Product Type View -->
                 <div class="col-lg-9"> 
                     <div class="alert alert-success">
-                        <span>You are searching: <b> {{ $query }} </b></span>
+                        <span>{{ __('text.you_are_searching') }}: <b> {{ $query }} </b></span>
                     </div>
                     <!-- ::::::  Start Sort Box Section  ::::::  -->
                     <div class="sort-box m-tb-40">
@@ -146,16 +146,17 @@
                             </div>
                         </div> <!-- Start Sort Left Side -->
 
+
                         <div class="sort-box-item d-flex align-items-center flex-warp">
                             <span>Sort By:</span>
                             <div class="sort-box__option">
                                 <label class="select-sort__arrow">
                                     <select name="select-sort" class="select-sort">
-                                        <option value="1">Relevance</option>
-                                        <option value="2">Name, A to Z</option>
-                                        <option value="3"> Name, Z to A </option>
-                                        <option value="4"> Price, low to high</option>
-                                        <option value="5">Price, high to low</option>
+                                        <option value="1">{{ __('text.relevance')}}</option>
+                                        <option value="2">{{ __('text.name_a_z')}}</option>
+                                        <option value="3"> {{ __('text.name_z_a')}} </option>
+                                        <option value="4"> {{ __('text.price_low_high')}}</option>
+                                        <option value="5"> {{ __('text.showing')}}</option>
                                     </select>
                                 </label>
                             </div>
@@ -165,7 +166,7 @@
                     </div> <!-- ::::::  Start Sort Box Section  ::::::  -->
 
                     <div class="sort-box-item">
-                        <span>Showing {{ $products->onFirstPage() . __(' - '). $products->count() }} of {{ $products->count() }} result</span>
+                        <span>{{ __('text.showing')}} {{ $products->onFirstPage() . __(' - '). $products->count() }} {{ __('text.of')}} {{ $products->count() }} {{ __('text.result')}}</span>
                     </div>
 
                     @if( count($products) > 0 )
@@ -241,7 +242,7 @@
                                                                     @endif
                                                                     <div class="product-links">
                                                                         <div class="product-social m-tb-30">
-                                                                            <span>SHARE THIS PRODUCT</span>
+                                                                            <span>{{ __('text.share_this_product')}}</span>
                                                                             {!! Share::page(url('/products/'. $product->slug))->facebook()->twitter()->whatsapp() !!}
                                                                         </div>
                                                                     </div>
@@ -286,7 +287,7 @@
                                                 </div>
                                                 <!-- Start Product Action Link-->
                                                 <ul class="product__action--link-list m-t-30">
-                                                    <li><a href="{{ route('add.to.cart', $product->id) }}" class="btn--black btn--black-hover-green">Add to cart</a></li>
+                                                    <li><a href="{{ route('add.to.cart', $product->id) }}" class="btn--black btn--black-hover-green">{{ __('text.add_to_cart')}}</a></li>
                                                 </ul> <!-- End Product Action Link -->
                                             </div> <!-- End Product Content -->
                                         </div> 
@@ -302,8 +303,8 @@
                         <ul class="page-pagination__list">
                             <li class="{{ ($products->currentPage() == 1) ? ' disabled' : '' }} page-pagination__item">
                                 <a class="page-pagination__link" href="{{ $products->url(1) }}" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo; Prev</span>
-                                    <span class="sr-only">Previous</span>
+                                    <span aria-hidden="true">&laquo; {{ __('text.prev') }}</span>
+                                    <span class="sr-only">{{ __('text.previous') }}</span>
                                 </a>
                             </li>
                             @for ($i = 1; $i <= $products->lastPage(); $i++)
@@ -313,8 +314,8 @@
                             @endfor
                             <li class="{{ ($products->currentPage() == $products->lastPage()) ? ' disabled' : '' }} page-pagination__item">
                                 <a href="{{ $products->url($products->currentPage()+1) }}" class="page-pagination__link" aria-label="Next">
-                                    <span aria-hidden="true">Next &raquo;</span>
-                                    <span class="sr-only">Next</span>
+                                    <span aria-hidden="true">{{ __('text.next') }} &raquo;</span>
+                                    <span class="sr-only">{{ __('text.next') }}</span>
                                 </a>
                             </li>
                         </ul>
@@ -322,7 +323,7 @@
                     @endif
                     @else
                     <div class="alert alert-danger">
-                        <span> Sorry! Product Not Found...</span>
+                        <span> {{ __('text.sorry_no_product_found') }} </span>
                     </div>
                     @endif
                 </div>  <!-- Start Rightside - Product Type View -->
