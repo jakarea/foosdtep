@@ -20,7 +20,9 @@ use App\Models\UserRole;
 use Image;
 use File;
 use Hash;
-
+use Auth;
+use PDF;
+use Mail;
 class DashboardController extends Controller
 {
     /**
@@ -138,13 +140,96 @@ class DashboardController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Recart the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function recart($id)
     {
         //
+        $Order = Order::findOrFail($id);
+        $items = OrderItem::where('order_id', $Order->id)->get();
+        
+        foreach ($items as $key => $value) {
+            $cart = session()->get('cart', []);
+  
+            if(isset($cart[$id])) {
+                $cart[$id]['quantity']++;
+            } else {
+                $cart[$id] = [
+                    "name" => $value->product->name,
+                    "quantity" => 1,
+                    "price" => $value->product->discount($value->product->id) ? : $value->product->price,
+                    "image" => $value->product->image
+                ];
+            }
+            
+            session()->put('cart', $cart);
+
+            return redirect()->route('product.cart')->with('success', 'Product added to cart successfully!');
+        }
+
+    }
+
+    public function reorder($id)
+    {
+
+        $reorder = Order::findOrFail($id);
+        $order = Order::create([
+            'order_number'      =>  'ORD-'.strtoupper(uniqid()),
+            'user_id'           =>  auth()->user()->id,
+            'status'            =>  'pending',
+            'grand_total'       =>  $reorder->grand_total,
+            'item_count'        =>  count($reorder->items),
+            'payment_status'    =>  0,
+            'payment_method'    =>  null,
+            'first_name'        =>  $reorder->first_name,
+            'last_name'         =>  $reorder->last_name,
+            'address_type'      =>  $reorder->address_type,
+            'post_code'         =>  $reorder->post_code,
+            'phone_number'      =>  $reorder->phone_number,
+            'notes'             =>  $reorder->notes
+        ]);
+
+        if ($order) {
+
+            $items = $reorder->items;
+    
+            foreach ($items as $item)
+            {
+                // A better way will be to bring the product id with the cart items
+                // you can explore the package documentation to send product id with the cart
+                $product = Product::where('name', $item['name'])->first();
+    
+                $orderItem = new OrderItem([
+                    'product_id'    =>  $item->product_id,
+                    'quantity'      =>  $item['quantity'],
+                    'price'         =>  $item['price'] * $item['quantity']
+                ]);
+    
+                $order->items()->save($orderItem);
+
+                
+            }
+        }
+        $cart = session()->flush('cart');
+
+
+        // Order Notification
+        $data["email"] = ["arifypp@gmail.com", $reorder->user->email];
+        $data["title"] = "From FoodStep.com";
+
+        $data["order"] = $order;
+  
+        $pdf = PDF::loadView('emails.invoice', $data);
+  
+        Mail::send('emails.invoice', $data, function($message)use($data, $pdf) {
+            $message->to($data["email"], $data["email"])
+                    ->subject($data["title"])
+                    ->attachData($pdf->output(), "invoice.pdf");
+        });
+    
+        return redirect()->route('order.show', $order);
     }
 }
