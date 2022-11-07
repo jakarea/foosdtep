@@ -335,7 +335,7 @@
             e.preventDefault();
             if ($(this).is(':checked')) {
                 let id = $(this).val();
-                $('.attributes_Filter').not(this).prop('checked', false);
+                // $('.attributes_Filter').not(this).prop('checked', false);
                 // store original html
                 var originalHtml = $('.attributes_wise').innerHTML;
 
@@ -385,7 +385,7 @@
 
                 $.ajax({
                     data: {id:id, cat_id: cat_filter[0], brand_id: brand_filter[0], pgroup_id: Pgroup_filter[0], faith_id: faith_filter[0], line_id: line_filter[0], content_id: content_filter[0], allergens_id: allergens_filter[0]},
-                    url: '/filter/attributes/'+ id,
+                    url: '/filter/attributes/',
                     type: 'GET',
                     beforeSend: function (request) {
                         $('.spinner-container').css("display", "block");
@@ -400,7 +400,7 @@
                 })
 
             } else {
-                location.reload();
+                console.log("Unchecked");
             }  
         });
     });
