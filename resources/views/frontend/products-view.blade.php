@@ -27,7 +27,7 @@
                     <h4 class="font--regular m-b-20">{{ $product->name }}</h4> 
                     @if( Auth::check() )
                     <div class="product__price m-t-5">
-                        <span class="product__price product__price--large">{{ __('$'). $product->discount($product->id) }}</span>
+                        <span class="product__price product__price--large">{{ __('€'). $product->discount($product->id) }}</span>
                     </div>
                     @endif
                     <div class="product__desc m-t-25 m-b-30">

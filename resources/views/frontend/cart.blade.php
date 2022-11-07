@@ -37,13 +37,13 @@
                                     <a href="#"><img class="img-fluid" src="{{ asset('frontend/assets/img/product/'. $details['image'] ) }}" alt=""></a>
                                 </td>
                                 <td class="product-name"><a href="#">{{ $details['name'] }}</a></td>
-                                <td class="product-price-cart"><span class="amount">${{ $details['price'] }}</span></td>
+                                <td class="product-price-cart"><span class="amount">€{{ $details['price'] }}</span></td>
                                 <td class="product-quantities" data-th="Quantity">
                                     <div class="quantity d-inline-block">
                                         <input type="number" min="1" step="1" value="{{ $details['quantity'] }}" class="quantities update-cart">
                                     </div>
                                 </td>
-                                <td class="product-subtotal">${{ $details['price'] * $details['quantity'] }}</td>
+                                <td class="product-subtotal">€{{ $details['price'] * $details['quantity'] }}</td>
                                 <td class="product-remove remove-from-cart">
                                     <!-- <a href="#"><i class="fa fa-pencil-alt"></i></a> -->
                                     <a href="#"><i class="fa fa-times"></i></a>
@@ -68,7 +68,7 @@
                             @foreach((array) session('cart') as $id => $details)
                                 @php $total += $details['price'] * $details['quantity'] @endphp
                             @endforeach
-                        <h4 class="grand-total m-tb-25">Grand Total: &nbsp; <span> ${{ $total }}</span></h4>
+                        <h4 class="grand-total m-tb-25">Grand Total: &nbsp; <span> €{{ $total }}</span></h4>
                         <a href="{{ route('checkout.cart') }}" class="btn btn--box btn--small btn--radius btn--green btn--green-hover-black btn--uppercase font--semi-bold" type="submit">PROCEED TO CHECKOUT</a>
                     </div>
                 </div>  <!-- End Cart Table Button -->

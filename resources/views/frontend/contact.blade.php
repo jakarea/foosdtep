@@ -34,8 +34,8 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-info-dec">
-                            <span>Address goes here,</span>
-                            <span>street, Crossroad 123.</span>
+                            <span>Burgemeester van loonstraat 83,</span>
+                            <span> 4651 VG, Steenbergen</span>
                         </div>
                     </div>
                     <div class="contact-social m-t-40">

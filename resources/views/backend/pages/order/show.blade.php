@@ -69,14 +69,14 @@
                                 <td>{{ $item->product->name }}</td>
                                 <td>{{ $item->quantity }}</td>
                                 <td class="text-end">
-                                    {{ __('$'). $item->product->discount($item->product_id) * $item->quantity }}
+                                    {{ __('€'). $item->product->discount($item->product_id) * $item->quantity }}
                                 </td>
                             </tr>
                             @endforeach
                             
                             <tr>
                                 <td colspan="3" class="text-end">Sub Total</td>
-                                <td class="text-end">{{ __('$'). $order->grand_total }}</td>
+                                <td class="text-end">{{ __('€'). $order->grand_total }}</td>
                             </tr>
 
                             <tr>
@@ -84,7 +84,7 @@
                                     <strong>Total</strong>
                                 </td>
                                 <td class="border-0 text-end">
-                                    <h4 class="m-0">{{ __('$'). $order->grand_total }}</h4>
+                                    <h4 class="m-0">{{ __('€'). $order->grand_total }}</h4>
                                 </td>
                             </tr>
                         </tbody>

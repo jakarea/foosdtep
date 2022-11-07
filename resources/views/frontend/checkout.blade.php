@@ -142,7 +142,7 @@
                                 <li class="d-flex justify-content-between">
                                     <span class="your-order-middle-left font--semi-bold">{{ $details['name'] }}</span>
                                     <span class="your-order-middle-right font--semi-bold">{{ $details['quantity'] }} Items</span>
-                                    <span class="your-order-middle-right font--semi-bold">${{ $details['price'] * $details['quantity'] }}</span>
+                                    <span class="your-order-middle-right font--semi-bold">€{{ $details['price'] * $details['quantity'] }}</span>
                                 </li>
                             @endforeach
                             @endif
@@ -157,7 +157,7 @@
                                 @php $total += $details['price'] * $details['quantity'] @endphp
                             @endforeach
                                 <h5 class="your-order-total-left font--bold">Total</h5>
-                                <h5 class="your-order-total-right font--bold">${{ $total }}</h5>
+                                <h5 class="your-order-total-right font--bold">€{{ $total }}</h5>
                             </div>
                         </div>
                     </div>

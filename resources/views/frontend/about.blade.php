@@ -42,51 +42,6 @@ Puur op basis van kwaliteit en smaak maken wij een bewuste keuze voor leverancie
             </div>         
         </div>
 
-        <!-- ::::::  Start CMS Section  ::::::  -->
-        <div class="cms m-t-100 m-b-100">
-            <div class="container">
-                <div class="row">
-                    <!-- Start Single CMS box -->
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="cms__content">
-                            <div class="cms__icon">
-                                <i class="fas fa-truck"></i>
-                            </div>
-                            <div class="cms__text">
-                                <h6 class="cms__title">Free Shipping</h6>
-                                <p class="para__text">Erat metus sodales eget dolor consectetuer, porta ut purus at et alias, nulla ornare velit amet</p>
-                            </div>
-                        </div>
-                    </div> <!-- End Single CMS box -->
-                    <!-- Start Single CMS box -->
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="cms__content">
-                            <div class="cms__icon">
-                                <i class="far fa-money-bill-alt"></i>
-                            </div>
-                            <div class="cms__text">
-                                <h6 class="cms__title">100% Money Back Guarantee</h6>
-                                <p class="para__text">Erat metus sodales eget dolor consectetuer, porta ut purus at et alias, nulla ornare velit amet</p>
-                            </div>
-                        </div>
-                    </div> <!-- End Single CMS box -->
-                    <!-- Start Single CMS box -->
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="cms__content">
-                            <div class="cms__icon">
-                                <i class="far fa-life-ring"></i>
-                            </div>
-                            <div class="cms__text">
-                                <h6 class="cms__title">Online Support 24/7</h6>
-                                <p class="para__text">Erat metus sodales eget dolor consectetuer, porta ut purus at et alias, nulla ornare velit amet</p>
-                            </div>
-                        </div>
-                    </div> <!-- End Single CMS box -->
-                </div>
-            </div>
-        </div> <!-- ::::::  End CMS Section  ::::::  -->
-         
-       
     </main> <!-- ::::::  End  Main Container Section  ::::::  -->
 
 

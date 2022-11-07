@@ -90,7 +90,7 @@
                                 <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a>
                                 @if(Auth::check())
                                 <div class="product__price m-t-5">
-                                    <span class="product__price">{{ __('$'). $product->discount($product->id) }}</span>
+                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
                                 </div>
                                 @endif
                             </div> <!-- End Product Content -->
@@ -105,7 +105,7 @@
          <!-- ::::::  Start banner Section  ::::::  -->
          <div class="banner m-t-100 pos-relative">
             <div class="banner__bg">
-                <img src="https://template.hasthemes.com/gsore/gsore/assets/img/banner/size-extra-large-wide/banner-home-1-img-1-extra-large-wide.jpg" alt="">
+                 <img src="{{ asset('frontend/assets/img/foodstep-promo.png')}}" alt="">
             </div>
             <div class="banner__box banner__box--single-text-style-2">
                 <div class="container">

@@ -35,69 +35,69 @@
                 <li class="@if( Route::currentRouteNamed('category.index')) mm-active @endif">
                     <a href="{{ route('category.index') }}" class="waves-effect-@if( Route::currentRouteNamed('category.index')) active @endif">
                         <i class="mdi mdi-newspaper"></i>
-                        <span>Categories</span>
+                        <span>{{ __('b.categories')}}</span>
                     </a>
                 </li>
                 <li class="@if( Route::currentRouteNamed('blog.index')) mm-active @endif">
                     <a href="{{ route('blog.index') }}" class="waves-effect-@if( Route::currentRouteNamed('blog.index')) active @endif">
                         <i class="mdi mdi-newspaper"></i>
-                        <span>Blogs</span>
+                        <span>{{ __('b.blogs')}}</span>
                     </a>
                 </li>
                 <li class="@if( Route::currentRouteNamed('slider.index')) mm-active @endif">
                     <a href="{{ route('slider.index') }}" class="waves-effect-@if( Route::currentRouteNamed('slider.index')) active @endif">
                         <i class="mdi mdi-newspaper"></i>
-                        <span>Sliders</span>
+                        <span>{{ __('b.sliders')}}</span>
                     </a>
                 </li>
                 <li class="@if( Route::currentRouteNamed('orders.index')) mm-active @endif">
                     <a href="{{ route('orders.index') }}" class="waves-effect-@if( Route::currentRouteNamed('orders.index')) active @endif">
                         <i class="mdi mdi-newspaper"></i>
                         <span class="badge rounded-pill bg-danger float-end">{{ App\Models\Backend\Order::OrderCount() }}</span>
-                        <span>Order</span>
+                        <span>{{ __('b.order')}}</span>
                     </a>
                 </li>
-                <li class="menu-title">User Interface</li>
+                <li class="menu-title">{{ __('b.user_interface')}}</li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-book"></i>
-                        <span>Product Attributes</span>
+                        <span>{{ __('b.prod_attr')}}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                     <li class="@if( Route::currentRouteNamed('brand.index')) mm-active @endif">
                         <a href="{{ route('brand.index') }}" class="waves-effect-@if( Route::currentRouteNamed('brand.index')) active @endif">
                             <i class="mdi mdi-newspaper"></i>
-                            <span>Brand</span>
+                            <span>{{ __('b.')}} Brand</span>
                         </a>
                     </li>
                     <li class="@if( Route::currentRouteNamed('productgroup.index')) mm-active @endif">
                         <a href="{{ route('productgroup.index') }}" class="waves-effect-@if( Route::currentRouteNamed('productgroup.index')) active @endif">
                             <i class="mdi mdi-newspaper"></i>
-                            <span>Productgroup</span>
+                            <span>{{ __('b.')}} Productgroup</span>
                         </a>
                     </li>
                     <li class="@if( Route::currentRouteNamed('faith.index')) mm-active @endif">
                         <a href="{{ route('faith.index') }}" class="waves-effect-@if( Route::currentRouteNamed('faith.index')) active @endif">
                             <i class="mdi mdi-newspaper"></i>
-                            <span>Faith</span>
+                            <span>{{ __('b.')}} Faith</span>
                         </a>
                     </li>
                     <li class="@if( Route::currentRouteNamed('line.index')) mm-active @endif">
                         <a href="{{ route('line.index') }}" class="waves-effect-@if( Route::currentRouteNamed('line.index')) active @endif">
                             <i class="mdi mdi-newspaper"></i>
-                            <span>Line</span>
+                            <span>{{ __('b.')}} Line</span>
                         </a>
                     </li>
                     <li class="@if( Route::currentRouteNamed('content.index')) mm-active @endif">
                         <a href="{{ route('content.index') }}" class="waves-effect-@if( Route::currentRouteNamed('content.index')) active @endif">
                             <i class="mdi mdi-newspaper"></i>
-                            <span>Content</span>
+                            <span>{{ __('b.')}} Content</span>
                         </a>
                     </li>
                     <li class="@if( Route::currentRouteNamed('AllergensDP.index')) mm-active @endif">
                         <a href="{{ route('AllergensDP.index') }}" class="waves-effect-@if( Route::currentRouteNamed('AllergensDP.index')) active @endif">
                             <i class="mdi mdi-newspaper"></i>
-                            <span>AllergensDP</span>
+                            <span>{{ __('b.')}} AllergensDP</span>
                         </a>
                     </li>
                     </ul>
@@ -106,19 +106,19 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-camera-timer"></i>
-                        <span>Product Management</span>
+                        <span>{{ __('b.prod_manage')}}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li class="@if( Route::currentRouteNamed('product.index')) mm-active @endif">
                             <a href="{{ route('product.index') }}" class="waves-effect-@if( Route::currentRouteNamed('product.index')) active @endif">
                                 <i class="mdi mdi-camera-timer"></i>
-                                <span>Product List</span>
+                                <span>{{ __('b.prod_list')}} </span>
                             </a>
                         </li>
                         <li class="@if( Route::currentRouteNamed('product.create')) mm-active @endif">
                             <a href="{{ route('product.create') }}" class="waves-effect-@if( Route::currentRouteNamed('product.create')) active @endif">
                                 <i class="mdi mdi-camera-timer"></i>
-                                <span>Product Create</span>
+                                <span>{{ __('b.product_create')}}</span>
                             </a>
                         </li>
                     </ul>
@@ -126,19 +126,19 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-account"></i>
-                        <span>User Management</span>
+                        <span>{{ __('b.user_management')}} </span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li class="@if( Route::currentRouteNamed('user.index')) mm-active @endif">
                             <a href="{{ route('user.index') }}" class="waves-effect-@if( Route::currentRouteNamed('user.index')) active @endif">
                                 <i class="mdi mdi-account"></i>
-                                <span>User List</span>
+                                <span>{{ __('b.user_list')}}</span>
                             </a>
                         </li>
                         <li class="@if( Route::currentRouteNamed('user.create')) mm-active @endif">
                             <a href="{{ route('user.create') }}" class="waves-effect-@if( Route::currentRouteNamed('user.create')) active @endif">
                                 <i class="mdi mdi-account"></i>
-                                <span>User Create</span>
+                                <span>{{ __('b.user_create')}}</span>
                             </a>
                         </li>
                     </ul>
@@ -147,17 +147,17 @@
                 <li>
                     <a href="{{ route('discount.index') }}" class="waves-effect">
                         <i class="fab fa-dochub"></i>
-                        <span>Discount</span>
+                        <span>{{ __('b.discount')}} </span>
                     </a>
                 </li>
                 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-settings"></i>
-                        <span>Settings</span>
+                        <span>{{ __('b.settings')}} </span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li class="@if( Route::currentRouteNamed('setting.index')) mm-active @endif"><a href="{{ route('setting.index') }}" class="waves-effect-@if( Route::currentRouteNamed('setting.index')) active @endif">Besic Settings</a></li>
+                        <li class="@if( Route::currentRouteNamed('setting.index')) mm-active @endif"><a href="{{ route('setting.index') }}" class="waves-effect-@if( Route::currentRouteNamed('setting.index')) active @endif">{{ __('b.b_settings')}}</a></li>
                     </ul>
                 </li>
 

@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title'){{ __('Dashboard') }} @endsection
+@section('title'){{ __('b.dashboard') }} @endsection
 @section('content')
 <div class="row">
     <div class="col-xl-3">
@@ -12,7 +12,7 @@
                         </span>
                     </div>
                     <div class="flex-1">
-                        <div class="font-size-16 mt-2">New Orders</div>
+                        <div class="font-size-16 mt-2">{{ __('b.new_orders') }} </div>
                     </div>
                 </div>
                 <h4 class="mt-4">{{ App\Models\Backend\Order::NewOrders() }}</h4>
@@ -39,7 +39,7 @@
                         </span>
                     </div>
                     <div class="flex-1">
-                        <div class="font-size-16 mt-2">New Users</div>
+                        <div class="font-size-16 mt-2">{{ __('b.new_users') }} </div>
 
                     </div>
                 </div>
@@ -63,7 +63,7 @@
     <div class="col-xl-9">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title mb-4">Sales Report</h4>
+                <h4 class="card-title mb-4">{{ __('b.salse_report') }} </h4>
 
                 <div id="area-chart" class="apex-charts"></div>
             </div>
@@ -76,18 +76,18 @@
     <div class="col-md-12 col-xl-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title mb-4">Recent Orders</h4>
+                <h4 class="card-title mb-4"> {{ __('b.recent_orders') }} </h4>
 
                 <div class="table-responsive">
                     <table id="datatable" class="table table-bordered dt-responsive nowrap">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Customer Name</th> 
-                                <th scope="col">Order Id</th> 
-                                <th scope="col">Amount</th>
-                                <th scope="col">Order Status</th>
-                                <th scope="col" colspan="2">Action</th>
+                                <th scope="col">{{ __('b.no') }} </th>
+                                <th scope="col">{{ __('b.customer_name') }} </th> 
+                                <th scope="col">{{ __('b.order_id') }} </th> 
+                                <th scope="col">{{ __('b.amount') }} </th>
+                               
+                                <th scope="col" colspan="2">{{ __('b.action') }} </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -97,24 +97,24 @@
                                 <td>{{ $key+1 }}</td>
                                 
                                 <td>{{ $order->order_number }}</td> 
-                                <td>{{ __('$'). $order->grand_total }}</td> 
+                                <td>{{ __('€'). $order->grand_total }}</td> 
                                 <td>
                                     @if( $order->status == 'pending' )
-                                    <span class="badge badge-soft-danger font-size-12">Pending</span>
+                                    <span class="badge badge-soft-danger font-size-12">{{ __('b.pending') }} </span>
                                     @elseif( $order->status == 'processing' )
-                                    <span class="badge badge-soft-info font-size-12">Processing</span>
+                                    <span class="badge badge-soft-info font-size-12">{{ __('b.processing') }} </span>
                                     @elseif( $order->status == 'completed' )
-                                    <span class="badge badge-soft-success font-size-12">Completed</span>
+                                    <span class="badge badge-soft-success font-size-12">{{ __('b.completed') }} </span>
                                     @elseif( $order->status == 'decline' )
-                                    <span class="badge badge-soft-warning font-size-12">Declined</span>
+                                    <span class="badge badge-soft-warning font-size-12">{{ __('b.declined') }} </span>
                                     @endif
                                 </td>
-                                <td><a href="{{ route('orders.show', $order->id) }}" class="btn btn-primary btn-sm">Details</a></td>
+                                <td><a href="{{ route('orders.show', $order->id) }}" class="btn btn-primary btn-sm">{{ __('b.details') }} </a></td>
                             </tr>
                         @endforeach  
                         @else
                         <tr>
-                            No Order
+                        {{ __('b.no_order_found') }}  
                         </tr>
                         @endif
                         </tbody>

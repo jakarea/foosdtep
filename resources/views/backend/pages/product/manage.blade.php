@@ -41,7 +41,7 @@
                                 
                                 @endforeach
                             </td>
-                            <td>${{ __($product->price) }}</td>
+                            <td>€{{ __($product->price) }}</td>
                             <td>
                                 @if( $product->status == 'active' )
                                 <span class="bg-success badge">{{ __('Active') }}</span>
@@ -99,10 +99,10 @@
         e.preventDefault();
         var id = $(this).data('id');
         Swal.fire({
-                title: "Are you sure!",
+                title: "Weet je het zeker!",
                 icon: "error",
                 confirmButtonClass: "btn-danger",
-                confirmButtonText: "Yes!",
+                confirmButtonText: "Ja!",
                 showCancelButton: true,
             }).then((result) => {
             if (result.isConfirmed) {
