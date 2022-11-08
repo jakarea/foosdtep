@@ -68,5 +68,11 @@ return [
     'no_data' => 'Geen data gevonden!',
     'data_created' => 'De operatie is geslaagd!',
     'data_updated' => 'De gegevens zijn succesvol bijgewerkt!',
+    'name' => 'Naam',
+    'email' => 'E-mail',
+    'subject' => 'Onderwerp',
+    'message' => 'Bericht',
+    
+
 ];
 ?>

@@ -20,7 +20,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::orderby('id', 'desc')->get();
+        $contacts = Contact::orderby('id', 'desc')->paginate(4);
+
         return view('backend/pages/contact/manage', compact('contacts'));
     }
 
