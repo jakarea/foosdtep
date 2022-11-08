@@ -18,6 +18,11 @@ body{
   padding-bottom: 100px;
 }
 
+.blog-feed__img-box img{
+  height: 230px;
+  object-fit: cover;
+}
+
 input[type=checkbox]:checked::after,
 .slider-dot-style--fill-white-active-green .slick-dots li.slick-active button,
 .product__label--sale-out,
