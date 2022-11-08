@@ -38,7 +38,7 @@
                     <div class="product-var p-tb-30">
                         <div class="product-var__item">
                             <div class="dynmiac_checkout--button"> 
-                                <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn--block btn--long btn--radius-tiny btn--green btn--green-hover-black text-uppercase m-r-35">Buy It Now</a>
+                                <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn--block btn--long btn--radius-tiny btn--green btn--green-hover-black text-uppercase m-r-35">{{__('messages.buy_it_now')}}</a>
                             </div>
                         </div> 
                     </div>
@@ -56,8 +56,8 @@
             <div class="col-12">
                 <div class="product-details-content">
                     <ul class="tablist tablist--style-black tablist--style-title tablist--style-gap-30 nav">
-                        <li><a class="nav-link active" data-bs-toggle="tab" href="#product-desc">Description</a></li>
-                        <li><a class="nav-link" data-bs-toggle="tab" href="#product-dis">Product Details</a></li> 
+                        <li><a class="nav-link active" data-bs-toggle="tab" href="#product-desc">{{__('messages.description')}}</a></li>
+                        <li><a class="nav-link" data-bs-toggle="tab" href="#product-dis">{{ __('messages.prod_details')}}</a></li> 
                     </ul>
                     <div class="product-details-tab-box">
                         <div class="tab-content">
@@ -89,9 +89,8 @@
             <div class="col-12">
                  <!-- Start Section Title -->
                 <div class="section-content section-content--border m-b-35">
-                    <h5 class="section-content__title">Related Product
-                    </h5>
-                    <a href="{{ route('products') }}" class="btn btn--icon-left btn--small btn--radius btn--transparent btn--border-green btn--border-green-hover-green font--regular text-capitalize">More Products<i class="fal fa-angle-right"></i></a>
+                    <h5 class="section-content__title"> {{ __('messages.related_prod')}} : </h5>
+                    <a href="{{ route('products') }}" class="btn btn--icon-left btn--small btn--radius btn--transparent btn--border-green btn--border-green-hover-green font--regular text-capitalize">{{ __('messages.more_prod')}}<i class="fal fa-angle-right"></i></a>
                 </div>  <!-- End Section Title -->
             </div>
         </div>
@@ -131,9 +130,7 @@
             </div>
         </div>
     </div>
-</div> <!-- ::::::  End  Product Style - Default Section  ::::::  -->
-
-
-</main>  <!-- :::::: End MainContainer Wrapper :::::: -->
+</div>
+</main>
 
     @endsection
