@@ -65,7 +65,7 @@ class HomeController extends Controller
 
         $contact->save();
 
-        $notification = session()->flash("success", "Contact Info Send Successfully");
+        $notification = session()->flash("success", __("messages.contact_send_success"));
 
         return redirect()->route('products.contact')->with($notification);
     }

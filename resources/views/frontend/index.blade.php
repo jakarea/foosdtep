@@ -153,7 +153,7 @@
                                         <a href="{{route('blog.index')}}" class="blog-feed__link">{{$blog->title}}</a>
                                         
                                         <div class="blog-feed__post-meta">
-                                            By
+                                            {{ __('messages.by')}}
                                             <a class="blog-feed__post-meta--link" href="javascript:void(0)"><span class="blog-feed__post-meta--author">{{$blog->user->name}} /</span></a> 
                                             <a class="blog-feed__post-meta--link" href="javascript:void(0)"><span class="blog-feed__post-meta--date">{{ date('M d,Y', strtotime($blog->created_at)); }}</span></a> 
                                             

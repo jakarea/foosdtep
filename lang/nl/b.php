@@ -64,7 +64,9 @@ return [
     'AllergensDP' => 'AllergensDP',
     'image_upload' => 'Afbeelding uploaden',
     'contact' => 'Contact',
-    
-
+    'account_created' => 'Account succesvol aangemaakt!',
+    'no_data' => 'Geen data gevonden!',
+    'data_created' => 'De operatie is geslaagd!',
+    'data_updated' => 'De gegevens zijn succesvol bijgewerkt!',
 ];
 ?>

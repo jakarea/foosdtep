@@ -78,11 +78,11 @@ class RegisterController extends Controller
                 'role_id'   =>  3,
             ]);
 
-            $notification = session()->flash("success", "Account Created Successfull!");
+            $notification = session()->flash("success", __('b.account_created'));
             return redirect()->route('customer.loginform')->with($notification);
         }
         else {
-            $notification = session()->flash("error", "Data Not Found");
+            $notification = session()->flash("error", __('b.no_data'));
             return back()->with($notification);
         }
     }

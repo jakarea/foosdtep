@@ -59,7 +59,7 @@ class ContentController extends Controller
 
         $content->save();
 
-        $notification = session()->flash("success", "Data Create Successfully");
+        $notification = session()->flash("success",__('b.data_created'));
 
         return redirect()->route('content.index')->with($notification);
     }
@@ -107,7 +107,7 @@ class ContentController extends Controller
 
         $content->save();
 
-        $notification = session()->flash("success", "Data Update Successfully");
+        $notification = session()->flash("success",__('b.data_updated'));
 
         return redirect()->route('content.index')->with($notification);
     }

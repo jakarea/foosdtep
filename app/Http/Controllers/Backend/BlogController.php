@@ -79,7 +79,7 @@ class BlogController extends Controller
 
         $blog->save();
 
-        $notification = session()->flash("success", "blog Create Successfully");
+        $notification = session()->flash("success", __('b.data_created'));
 
         return redirect()->route('blog.index')->with($notification);
     }
@@ -143,7 +143,7 @@ class BlogController extends Controller
 
         $blog->save();
 
-        $notification = session()->flash("success", "Blog Update Successfully");
+        $notification = session()->flash("success", __('b.data_updated'));
 
         return redirect()->route('blog.index')->with($notification);
     }

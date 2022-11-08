@@ -74,7 +74,7 @@ class DiscountController extends Controller
             }
         }
 
-        $notification = session()->flash("success", "Data Create Successfully");
+        $notification = session()->flash("success", __('b.data_created'));
 
         return redirect()->route('discount.index')->with($notification);
     }
@@ -128,7 +128,7 @@ class DiscountController extends Controller
 
         $discount->save();
 
-        $notification = session()->flash("success", "Data Updated Successfully");
+        $notification = session()->flash("success", __('b.data_updated'));
 
         return redirect()->route('discount.index')->with($notification);
     }

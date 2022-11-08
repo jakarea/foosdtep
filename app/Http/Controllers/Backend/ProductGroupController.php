@@ -60,7 +60,7 @@ class ProductGroupController extends Controller
 
         $brand->save();
 
-        $notification = session()->flash("success", "Data Create Successfully");
+        $notification = session()->flash("success", __('b.data_created'));
 
         return redirect()->route('productgroup.index')->with($notification);
     }
@@ -108,7 +108,7 @@ class ProductGroupController extends Controller
 
         $productgroup->save();
 
-        $notification = session()->flash("success", "Data Update Successfully");
+        $notification = session()->flash("success", __('b.data_updated'));
 
         return redirect()->route('productgroup.index')->with($notification);
     }

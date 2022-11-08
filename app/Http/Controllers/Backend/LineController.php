@@ -60,7 +60,7 @@ class LineController extends Controller
 
         $line->save();
 
-        $notification = session()->flash("success", "Data Create Successfully");
+        $notification = session()->flash("success", __('b.data_created'));
 
         return redirect()->route('line.index')->with($notification);
     }
@@ -108,7 +108,7 @@ class LineController extends Controller
 
         $line->save();
 
-        $notification = session()->flash("success", "Data Update Successfully");
+        $notification = session()->flash("success", __('b.data_updated'));
 
         return redirect()->route('line.index')->with($notification);
     }

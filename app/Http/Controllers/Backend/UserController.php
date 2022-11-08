@@ -88,7 +88,7 @@ class UserController extends Controller
             'role_id'   =>  $request->auth_role,
         ]);
 
-        $notification = session()->flash("success", "Data Create Successfully");
+        $notification = session()->flash("success", __('b.data_created'));
 
         return redirect()->route('user.index')->with($notification);
 
@@ -179,7 +179,7 @@ class UserController extends Controller
             'role_id'   =>  $request->auth_role,
         ]);
 
-        $notification = session()->flash("success", "Data Update Successfully");
+        $notification = session()->flash("success", __('b.data_updated'));
 
         return redirect()->route('user.index')->with($notification);
     }

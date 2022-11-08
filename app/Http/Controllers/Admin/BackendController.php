@@ -12,7 +12,7 @@ class BackendController extends Controller
     public function index()
     {
         
-        $notification = session()->flash("title", "Hi!", "success", "Logged Successfully");
+        $notification = session()->flash("title", "Hi!", "success", __("messages.login_success"));
 
         return view('backend/index')->with($notification);
     }

@@ -134,7 +134,7 @@ class DashboardController extends Controller
 
         $user->save();
 
-        $notification = session()->flash("success", "Data Update Successfully");
+        $notification = session()->flash("success", __('b.data_updated'));
 
         return redirect()->route('customer.dashboard')->with($notification);
     }
