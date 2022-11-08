@@ -43,6 +43,6 @@ return [
     'sliders' => 'Schuifregelaars',
     'order' => 'bestellingen',
     'prod_attr' => 'Productkenmerken',
-    'welcome_to_dashboard' => 'Welkom op het Food Steps Dashboard'
+    'welcome_to_dashboard' => 'Welkom op het Food Steps Dashboard', 
 ];
 ?>
