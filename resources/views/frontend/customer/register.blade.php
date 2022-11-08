@@ -43,6 +43,16 @@
                                 @enderror
                             </div>
                             <div class="form-box__single-group">
+                                <label for="kvk">KVK nummer *</label>
+                                <input type="text" class="@error('kvk') is-invalid @enderror" id="kvk"
+                                value="{{ old('kvk') }}" name="kvk" placeholder="KVK nummer" autofocus required>
+                                @error('kvk')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-box__single-group">
                                 <label for="email">{{__('text.email_address') }} *</label>
                                 <input type="email" class="@error('email') is-invalid @enderror" id="email"
                                 value="{{ old('email') }}" name="email" placeholder="{{__('text.') }} Enter email" autofocus required>

@@ -120,7 +120,7 @@
                                 <a href="{{ route('show.product', $related->slug) }}" class="product__link">{{ $related->name }}</a>
                                 @if(Auth::check())
                                 <div class="product__price m-t-5">
-                                    <span class="product__price">{{ __('$'). $product->discount($related->id) }}}</span>
+                                    <span class="product__price">{{ __('€'). $product->discount($related->id) }}</span>
                                 </div>
                                 @endif
                             </div> <!-- End Product Content -->
