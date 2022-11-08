@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between mb-4">
-                    <h4 class="card-title">Add Products</h4>
+                    <h4 class="card-title">{{ __('b.add_product')}}</h4>
                     <a href="{{ url('static/products') }}" class="btn btn-primary btn-sm">{{ __('messages.view_all') }}</a> 
                 </div>
 
@@ -26,7 +26,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="mb-3">
-                                <label class="form-label">Product Name</label>
+                                <label class="form-label">{{ __('b.product_name')}} </label>
                                 <div>
                                     <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="{{ __('messages.enter_name') }}" name="name" value="{{ old('name') }}">
                                     <span class="text-danger">@error('name'){{ $message }} @enderror</span>
@@ -36,7 +36,7 @@
 
                         <div class="col-lg-6">
                             <div class="form-group mb-3">
-                                <label for="Status">Status</label>
+                                <label for="Status">{{ __('b.status')}}</label>
                                 <select name="status" id="" class="form-select" aria-label="Default select example">
                                     <option {{ old('status')== 'active' ? 'selected':''}} value="active">{{ __('messages.active') }}</option>
                                     <option {{ old('status')== 'inactive' ? 'selected':''}} value="inactive">{{ __('messages.inactive') }}</option>
@@ -47,15 +47,15 @@
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <label for="Price">Price</label>
-                                <input type="text" name="price" value="{{ old('price') }}" class="form-control @error('price') is-invalid @enderror" placeholder="Enter Price">
+                                <label for="Price">{{ __('b.price')}}</label>
+                                <input type="text" name="price" value="{{ old('price') }}" class="form-control @error('price') is-invalid @enderror" placeholder="{{ __('b.')}}Enter Price">
                                 <span class="text-danger">@error('price'){{ $message }} @enderror</span>
                             </div>
                         </div>
 
                         <div class="col-lg-12">
                             <div class="mb-3">
-                                <label class="form-label">Short Description</label>
+                                <label class="form-label">{{ __('b.short_desc')}} </label>
                                 <textarea id="elm3" name="short_desc" class="form-control @error('short_desc') is-invalid @enderror" name="short_desc">{{ old('short_desc') }}</textarea>
                                 <span class="text-danger">@error('short_desc'){{ $message }} @enderror</span>
                             </div>
@@ -63,7 +63,7 @@
 
                         <div class="col-lg-12">
                             <div class="mb-3">
-                                <label class="form-label">Product Details</label>
+                                <label class="form-label">{{ __('b.prod_details')}}</label>
                                 <textarea id="elm1" name="description" class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
                                 <span class="text-danger">@error('description'){{ $message }} @enderror</span>
                             </div>
@@ -71,7 +71,7 @@
 
                         <div class="col-lg-12">
                             <div class="mb-3">
-                                <label class="form-label">Specifications</label>
+                                <label class="form-label">{{ __('b.ppecifications')}} </label>
                                 <textarea id="elm2" name="specification" class="form-control @error('specification') is-invalid @enderror"> {{ old('specification') }}</textarea>
                                 <span class="text-danger">@error('specification'){{ $message }} @enderror</span>
                             </div>
@@ -91,7 +91,7 @@
         <!-- Category card -->
         <div class="card rounded">
             <div class="card-header bg-primary text-white">
-                Categories
+            {{ __('b.categories')}}
             </div>
             <div class="card-body">
                 
@@ -116,7 +116,7 @@
         </div>
         <!-- Brand card -->
         <div class="card rounded">
-            <div class="card-header bg-primary text-white">Brand</div>
+            <div class="card-header bg-primary text-white">{{ __('b.brand')}}</div>
             <div class="card-body">
                 @foreach( $brands as $key => $brand )
                 <div class="form-check">
@@ -129,7 +129,7 @@
         <!-- Productgroup card -->
         <div class="card rounded">
             <div class="card-header bg-primary text-white">
-                Product Group
+            {{ __('b.product_group')}}
             </div>
             <div class="card-body">
                 @foreach($productgroups as $key => $productgroup)
@@ -143,7 +143,7 @@
         <!-- Faith card -->
         <div class="card rounded">
             <div class="card-header bg-primary text-white">
-                Faith
+            {{ __('b.faith')}}
             </div>
             <div class="card-body">
                 @foreach($faiths as $key => $faith)
@@ -157,7 +157,7 @@
         <!-- Line card -->
         <div class="card rounded">
             <div class="card-header bg-primary text-white">
-                Line
+            {{ __('b.line') }}
             </div>
             <div class="card-body">
                 @foreach($lines as $key => $line)
@@ -171,7 +171,7 @@
         <!-- Content card -->
         <div class="card rounded">
             <div class="card-header bg-primary text-white">
-                Contents
+            {{ __('b.contents')}}
             </div>
             <div class="card-body">
                 @foreach($contents as $key => $content)
@@ -185,7 +185,7 @@
         <!-- AllergensDP card -->
         <div class="card rounded">
             <div class="card-header bg-primary text-white">
-                AllergensDP
+            {{ __('b.AllergensDP')}}
             </div>
             <div class="card-body">
                 @foreach($allergensDP as $key => $allergens)
@@ -199,7 +199,7 @@
         <!-- Image card -->
         <div class="card rounded">
             <div class="card-header bg-primary text-white">
-                Image Upload
+            {{ __('b.image_upload')}}
             </div>
             <div class="card-body">
                 <label class="form-label">{{ __('messages.image') }}</label>
