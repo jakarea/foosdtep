@@ -38,6 +38,12 @@
                         <span>{{ __('b.categories')}}</span>
                     </a>
                 </li>
+                <li class="@if( Route::currentRouteNamed('contact.index')) mm-active @endif">
+                    <a href="{{ route('contact.index') }}" class="waves-effect-@if( Route::currentRouteNamed('contact.index')) active @endif">
+                        <i class="mdi mdi-newspaper"></i>
+                        <span>{{ __('b.contact')}}</span>
+                    </a>
+                </li>
                 <li class="@if( Route::currentRouteNamed('blog.index')) mm-active @endif">
                     <a href="{{ route('blog.index') }}" class="waves-effect-@if( Route::currentRouteNamed('blog.index')) active @endif">
                         <i class="mdi mdi-newspaper"></i>

@@ -67,26 +67,33 @@
                     <div class="section-content">
                         <h5 class="section-content__title">{{__('text.get_in_touch')}}</h5>
                     </div>
-                    <form class="contact-form-style" id="contact-form" action="#" method="POST">
+                    <form class="contact-form-style" id="contact-form" action="{{url('/contact')}}" method="POST">
+                     @csrf
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="form-box__single-group">
-                                    <input type="text" placeholder="{{__('text.name')}}" required>
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="{{__('text.name')}}" >
+
+                                    <span class="text-danger">@error('name'){{ $message }} @enderror</span>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-box__single-group">
-                                    <input type="email" placeholder="{{__('text.email')}}" required>
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="{{__('text.email')}}" >
+                                    <span class="text-danger">@error('email'){{ $message }} @enderror</span>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-box__single-group">
-                                    <input type="text" placeholder="{{__('text.subject')}}" required>
+                                    <input type="text" class="form-control @error('subject') is-invalid @enderror" name="subject" placeholder="{{__('text.subject')}}" >
+
+                                    <span class="text-danger">@error('subject'){{ $message }} @enderror</span>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-box__single-group">
-                                    <textarea rows="10" placeholder="{{__('text.your_message')}}" required></textarea>
+                                    <textarea rows="10" class="form-control @error('message') is-invalid @enderror" name="message" placeholder="{{__('text.your_message')}}" ></textarea>
+                                    <span class="text-danger">@error('message'){{ $message }} @enderror</span>
                                 </div>
                                 <button class="btn btn--box btn--medium btn--radius-tiny btn--black btn--black-hover-green btn--uppercase font--bold m-t-30" type="submit">{{ __('text.send')}}</button>
                             </div>

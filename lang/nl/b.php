@@ -63,6 +63,7 @@ return [
     'contents' => 'Inhoud',
     'AllergensDP' => 'AllergensDP',
     'image_upload' => 'Afbeelding uploaden',
+    'contact' => 'Contact',
     
 
 ];
