@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use  App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\BackendController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\BackendDesignController;
 
 /*
@@ -44,6 +45,7 @@ Route::controller(HomeController::class)->group(function () {
     
     // contact static blade route
     Route::get('contact', 'contact')->name('products.contact');
+    Route::post('contact', 'contact_store')->name('products.contact_store');
 
     // auth static blade route
     Route::get('frontend/invoice', 'invoice')->name('frontend.invoice'); 
@@ -112,6 +114,11 @@ Route::middleware(['verified'])->group(function () {
                 Route::resource('blog', 'App\Http\Controllers\Backend\BlogController');
             });
 
+            // Contact management
+            Route::group(['prefix' => 'contacts'], function() {
+                Route::resource('contact', 'App\Http\Controllers\Backend\ContactController');
+            });
+
             // Blog management
             Route::group(['prefix' => 'sliders'], function() {
                 Route::resource('slider', 'App\Http\Controllers\Backend\SliderController');
@@ -121,6 +128,7 @@ Route::middleware(['verified'])->group(function () {
             Route::group(['prefix' => 'brands'], function() {
                 Route::resource('brand', 'App\Http\Controllers\Backend\BrandController');
             });
+
             // Product Group management
             Route::group(['prefix' => 'productsgrpup'], function() {
                 Route::resource('productgroup', 'App\Http\Controllers\Backend\ProductGroupController');

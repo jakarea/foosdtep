@@ -4,7 +4,7 @@
 
 
  <!-- :::::: Start Main Container Wrapper :::::: -->
- <main id="main-container" class="main-container">
+ <main id="main-container" class="main-container pb-0">
         <!-- ::::::  Start Hero Section  ::::::  -->
         @include('frontend.partials.hero')
          <!-- ::::::  End Hero Section  ::::::  -->
