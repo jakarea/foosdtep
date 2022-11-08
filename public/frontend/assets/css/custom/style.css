@@ -1,4 +1,22 @@
 
+body{
+  background-color: #e0c7790d!important;
+}
+
+.blog-feed__content{
+  background-color: transparent;
+}
+
+.sidebar__menu-filter-list {
+  display: flex;
+  align-items: center;
+}
+.sidebar__menu-filter-list label{
+  display: inline;
+}
+.main-container{
+  padding-bottom: 100px;
+}
 
 input[type=checkbox]:checked::after,
 .slider-dot-style--fill-white-active-green .slick-dots li.slick-active button,
@@ -54,6 +72,29 @@ input[type=radio].shipping-select::after,
   background: linear-gradient(to right,#e0c77a,#342a0b)!important;
 }
 
+.page-breadcrumb__menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-bg-ol{
+  position: relative;
+}
+
+.custom-bg-ol:before{
+  background-color: rgba(51, 41, 10, 0.476)!important;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+} 
+
+.page-breadcrumb__nav {
+  display: inline; 
+}
 .spinner-container {
     width: 100%;
     height: 100%;
@@ -92,7 +133,7 @@ input[type=radio].shipping-select::after,
   }
 
 /* Extra small devices (portrait phones, less than 576px) XS */
-@media(min-width: 320px) and (max-width: 575px) {
+@media(min-width: 320px) and (max-width: 767px) {
   .header__logo-img, .header__mobile-logo-img{
     width: 70px;
   }

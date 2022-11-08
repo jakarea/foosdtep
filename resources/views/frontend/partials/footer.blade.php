@@ -40,11 +40,11 @@
                         <div class="footer__menu">
                             <h4 class="footer__nav-title footer__nav-title--dash footer__nav-title--dash-red">CATEGORIES</h4>
                             <ul class="footer__nav">
-                                <li class="footer__list"><a href="{{ url('products/category/news') }}" class="footer__link">News</a></li> 
-                                <li class="footer__list"><a href="{{ url('products/category/meat') }}" class="footer__link">MEAT</a></li> 
-                                <li class="footer__list"><a href="{{ url('products/category/game-poultry') }}" class="footer__link">GAME & POULTRY</a></li> 
-                                <li class="footer__list"><a href="{{ url('products/category/fish') }}" class="footer__link">Fish</a></li> 
-                                <li class="footer__list"><a href="{{ url('products/category/subcategory') }}" class="footer__link">Subcategory</a></li>  
+                                @foreach(App\Models\Backend\Category::all() as $key => $category)
+                                    <li class="footer__list"><a href="{{ route('show.category', $category->slug)}}" class="footer__link">{{ $category->name }} </a></li> 
+                                @endforeach
+ 
+                                
                             </ul>
                         </div>
                     </div>
