@@ -64,6 +64,10 @@ return [
     'AllergensDP' => 'AllergensDP',
     'image_upload' => 'Afbeelding uploaden',
     'contact' => 'Contact',
+    'name' => 'Naam',
+    'email' => 'E-mail',
+    'subject' => 'Onderwerp',
+    'message' => 'Bericht',
     
 
 ];

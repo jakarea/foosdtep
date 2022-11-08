@@ -79,10 +79,11 @@ input[type=radio].shipping-select::after,
 
 .page-breadcrumb__menu{
   display: flex;
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
 }
-
+ 
 .custom-bg-ol{
   position: relative;
 }

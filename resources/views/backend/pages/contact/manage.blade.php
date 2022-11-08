@@ -14,36 +14,55 @@
                         <!-- <a href="#" class="btn btn-primary btn-sm">Add</a>  -->
                     </div>
 
-                    <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
-                        style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th> 
-                                <th>Email</th> 
-                                <th>Subject</th> 
-                                <th>Message</th> 
-                                <th>Action</th> 
-                            </tr>
-                        </thead>
+                   
+                    <div class="row justify-content-center">
+                    @foreach( $contacts as $key => $data )
+                        <div class="col-md-10">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="profile-widgets pb-0">
+                                        <div class="text-center"> 
+                                            <div class="row">
+                                                <div class="col-md-6 text-start">
+                                                    <p class="text-muted">
+                                                   {{ __('b.name') }}: {{ $data->name }}
+                                                    </p>
+                                                </div> 
+                                                <div class="col-md-6 text-end"> 
+                                                    <p class="text-muted">
+                                                    {{ __('b.email') }}: {{ $data->email }}
+                                                    </p> 
+                                                </div> 
+                                                <div class="col-md-6 text-start">
+                                                    <h6 class="mb-2">{{ __('b.subject') }}: {{ $data->subject }}</h6>
+                                                </div> 
+                                                <div class="col-md-6 text-end"> 
+                                                    <a href="javascript:void(0)" class="text-danger cat_delete" data-id="{{$data->id}}"><i class="fas fa-trash"></i></a>
+                                                </div> 
+                                                <div class="col-md-12 text-start"> 
+                                                    <p>{{ __('b.message') }}: {{ $data->message }}</p>
+                                                </div>
+                                            </div> 
+                                        </div>
 
-                        <tbody>
-                            @foreach( $contacts as $key => $data )
-                            <tr id="table_rrow{{$data->id}}">
-                                <td valign="middle">{{ $key+1 }}</td> 
-                                <td valign="middle">{{ $data->name }}</td> 
-                                <td valign="middle">{{ $data->email }}</td> 
-                                <td valign="middle">{{ $data->subject }}</td> 
-                                <td valign="middle">
-                                    {{ $data->message }}
-                                </td> 
-                                <td valign="middle"> 
-                                    <a href="javascript:void(0)" class="text-danger cat_delete" data-id="{{$data->id}}"><i class="fas fa-trash"></i></a>
-                                </td>
-                            </tr>   
-                            @endforeach   
-                        </tbody>
-                    </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="text-center  mt-4">
+                            @if ($contacts->hasPages())
+                                <div class="pagination-wrapper text-center"> 
+                                {{ $contacts->links("pagination::bootstrap-4") }}
+                                </div>
+                            @endif
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
