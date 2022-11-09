@@ -14,7 +14,7 @@
                             <ul class="footer__address">
                                 <li class="footer__address-item"><i class="fa fa-home"></i>Burgemeester van loonstraat 83, 4651 VG, Steenbergen</li>
                                 <li class="footer__address-item"><i class="fa fa-phone-alt"></i>+31 6 11 21 71 70</li>
-                                <li class="footer__address-item"><i class="fa fa-envelope"></i>info@foodsteps.nl</li>
+                                <li class="footer__address-item"><i class="fa fa-envelope"></i>info@contact@ood-steps.nl</li>
                             </ul>
                             <ul class="footer__social-nav">
                                 <li class="footer__social-list"><a href="#" class="footer__social-link"><i class="fab fa-facebook-f"></i></a></li>

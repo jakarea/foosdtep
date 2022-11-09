@@ -217,8 +217,8 @@ class DashboardController extends Controller
 
 
         // Order Notification
-        $data["email"] = ["arifypp@gmail.com", $reorder->user->email];
-        $data["title"] = "From FoodStep.com";
+        $data["email"] = ["admin@food-steps.nl", $reorder->user->email];
+        $data["title"] = "From food-steps.nl";
 
         $data["order"] = $order;
   

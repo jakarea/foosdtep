@@ -26,7 +26,7 @@
                             <i class="fas fa-globe-asia"></i>
                         </div>
                         <div class="contact-info-dec">
-                            <a href="mailto://info@foodsteps.nl">info@foodsteps.nl</a>
+                            <a href="mailto://info@contact@ood-steps.nl">info@contact@ood-steps.nl</a>
                         </div>
                     </div>
                     <div class="single-contact-info">
