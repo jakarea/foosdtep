@@ -1,5 +1,8 @@
-@extends('layouts.frontend')
-@section('breadcumbTitle') {{ __('About') }} @endsection
+@extends('layouts.frontend') 
+
+@section('title') {{ __('Over Ons') }} @endsection
+@section('breadcumbTitle') {{ __('Over Ons') }} @endsection
+
 @section('content')
 
 <!-- breadcumb start -->
@@ -28,12 +31,7 @@ Puur op basis van kwaliteit en smaak maken wij een bewuste keuze voor leverancie
 <p class="para__text">Food Steps verkoopt en distribueert producten in Belgie en Nedertland op basis van importeursafspraken met de producenten en het maakt dan ook onderdeel uit van de keten. In overleg met zowel de chefs in beide landen als de leveranciers bepalen we wat interessant is voor onze markt. De producten zijn van uitmuntende kwaliteit en winnen waar mogelijk zelfs prijzen over de hele wereld.
 </p>
 <p class="para__text">We nodigen u graag uit voor een gesprek met ons en we laten u hierbij ook graag producten proeven want U weet wat u zoekt en wat bij uw onderneming past!
-</p>
-<p class="para__text">We hebben nu (en in de toekomst) de volgende categorieën nodig op de site. Is het mogelijk een aantal categorieën nog niet zichtbaar te laten zijn op de site? Of is het beter om deze later toe te voegen?
-</p>
-<p class="para__text">Is het mogelijk dat je via twee wegen bij 1 product kunt komen, bijvoorbeeld via conserven EN via vis bij een blikje sardines?
-</p>
-<p class="para__text"></p>
+</p> 
 
                             
                         </div>

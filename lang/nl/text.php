@@ -80,7 +80,11 @@ return [
     'confirm_password' => 'Bevestig wachtwoord',
     'do_you_remember_password'=>'Weet je het wachtwoord nog?',
     'enter_email' => 'Vul je e-mail in',
-    'singup_now' => 'Meld u nu aan'
+    'singup_now' => 'Meld u nu aan',
+    'wide_offer' => 'Ruim assortiment en aanbiedingen',
+    'plenty_inspier' => 'Volop inspiratie en oplossingen',
+    'always_branch' => 'Altijd een vestiging in de buurt',
+    'become_member' => 'Klant worden',
 
 
 

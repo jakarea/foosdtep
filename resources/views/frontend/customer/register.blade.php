@@ -5,7 +5,7 @@
 
 <!-- ::::::  Start  Main Container Section  ::::::  -->
 
-<main id="main-container" class="main-container m-b-40">
+<main id="main-container" class="main-container m-b-40 m-t-40">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6">

@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
-@section('title') {{ __('Products') }} @endsection
-@section('breadcumbTitle') {{ __('Products') }} @endsection
+@section('title') {{ __('Producten') }} @endsection
+@section('breadcumbTitle') {{ __('Producten') }} @endsection
 @section('content')
 
 <!-- breadcumb start -->
