@@ -72,6 +72,8 @@ return [
     'email' => 'E-mail',
     'subject' => 'Onderwerp',
     'message' => 'Bericht',
+    'categories_list' => 'Categorieën Lijst',
+    'categories_add' => 'Categorieën toevoegen',
     
 
 ];

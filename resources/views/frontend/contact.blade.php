@@ -1,4 +1,6 @@
 @extends('layouts.frontend')
+
+@section('title') {{ __('Contact') }} @endsection
 @section('breadcumbTitle') {{ __('Contact') }} @endsection
 @section('content')
 

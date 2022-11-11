@@ -29,10 +29,27 @@
                     <div class="product__price m-t-5">
                         <span class="product__price product__price--large">{{ __('€'). $product->discount($product->id) }}</span>
                     </div>
+                    
                     @endif
+
+                    <p>{{ $product->short_description }}.</p>
+
+                    @if(!Auth::check())
                     <div class="product__desc m-t-25 m-b-30">
-                        <p>{{ $product->short_description }}.</p>
+                        <div class="card">
+                            <div class="card-body"> 
+                                <h6>WAAROM KAN IK GEEN PRIJZEN ZIEN?</h6>
+                                <p>Je kunt alleen prijzen zien als je ingelogd bent. Geen inlog? Dan kan je het assortiment verkennen en je laten inspireren. Nog geen klant?</p>
+
+                                <a href="{{url('login')}}" class="btn btn-primarys">klantenkaart aanvragen</a>
+                            </div>
+                        </div> 
                     </div>
+                    @endif
+
+                    
+
+                    
 
                     @if(Auth::check())
                     <div class="product-var p-tb-30">
