@@ -233,7 +233,7 @@
                                                                     @if( Auth::check() )
                                                                     <div class="product-var p-t-30">
                                                                         <div class="product-quantity product-var__item d-flex align-items-center flex-wrap">
-                                                                        <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn--block btn--long btn--radius-tiny btn--green btn--green-hover-black text-uppercase m-r-35">Buy It Now</a>
+                                                                        <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn--block btn--long btn--radius-tiny btn--green btn--green-hover-black text-uppercase m-r-35">{{ __('text.buy_it_now')}}</a>
                                                                         </div>
                                                                     </div>
                                                                     @endif

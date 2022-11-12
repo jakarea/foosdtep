@@ -125,4 +125,5 @@ return [
     'we_received_your_order' => 'We hebben uw bestelling ontvangen. Uw bestelling is momenteel standaard in behandeling, ons ondersteuningsteam zal u de volgende stap laten weten.',
     'go_to_dashboard' => 'Ga Naar Het Dashboard',
     'thank_you' => 'Dank je',   
+    'buy_it_now' => 'Koop het nu'
 ];
