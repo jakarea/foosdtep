@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
-@section('title') {{ __('Contact') }} @endsection
-@section('breadcumbTitle') {{ __('Contact') }} @endsection
+@section('title') {{ __('text.contacts') }} @endsection
+@section('breadcumbTitle') {{ __('text.contacts') }} @endsection
 @section('content')
 
 <!-- breadcumb start -->
