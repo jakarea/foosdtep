@@ -239,12 +239,6 @@
                                                                         </div>
                                                                     </div>
                                                                     @endif
-                                                                    <div class="product-links">
-                                                                        <div class="product-social m-tb-30">
-                                                                            <span>{{ __('messages.share_this_product') }}</span>
-                                                                            {!! Share::page(url('/products/'. $product->slug))->facebook()->twitter()->whatsapp() !!}
-                                                                        </div>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
