@@ -14,19 +14,19 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-content">
-                    <h5 class="section-content__title">Your cart items</h5>
+                    <h5 class="section-content__title">{{ __('text.cart_item')}}</h5>
                 </div>
                 <!-- Start Cart Table -->
                 <div class="table-content table-responsive cart-table-content m-t-30">
                     <table>
                         <thead class="gray-bg" >
                             <tr>
-                                <th>Image</th>
-                                <th>Product Name</th>
-                                <th>Until Price</th>
-                                <th>Qty</th>
-                                <th>Subtotal</th>
-                                <th>Action</th>
+                                <th>{{ __('text.image')}}</th>
+                                <th>{{ __('text.product_name')}}</th>
+                                <th>{{ __('text.unit_price')}}</th>
+                                <th>{{ __('text.qty')}}</th>
+                                <th>{{ __('text.sub_total')}}</th>
+                                <th>{{ __('text.action')}}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -57,7 +57,7 @@
                     <!-- Start Cart Table Button -->
                 <div class="cart-table-button m-t-10">
                     <div class="cart-table-button--left">
-                        <a href="{{ route('products') }}" class="btn btn--box btn--large btn--radius btn--green btn--green-hover-black btn--uppercase font--bold m-t-20">CONTINUE SHOPPING</a>
+                        <a href="{{ route('products') }}" class="btn btn--box btn--large btn--radius btn--green btn--green-hover-black btn--uppercase font--bold m-t-20">{{ __('text.continue_shopping')}} </a>
                     </div>
                     <!-- <div class="cart-table-button--right">
                         <a href="#" class="btn btn--box btn--large btn--radius btn--green btn--green-hover-black btn--uppercase font--bold m-t-20 m-r-20">UPDATE SHOPPING CART</a>
@@ -68,8 +68,8 @@
                             @foreach((array) session('cart') as $id => $details)
                                 @php $total += $details['price'] * $details['quantity'] @endphp
                             @endforeach
-                        <h4 class="grand-total m-tb-25">Grand Total: &nbsp; <span> €{{ $total }}</span></h4>
-                        <a href="{{ route('checkout.cart') }}" class="btn btn--box btn--small btn--radius btn--green btn--green-hover-black btn--uppercase font--semi-bold" type="submit">PROCEED TO CHECKOUT</a>
+                        <h4 class="grand-total m-tb-25">{{ __('text.grand_total')}}: &nbsp; <span> €{{ $total }}</span></h4>
+                        <a href="{{ route('checkout.cart') }}" class="btn btn--box btn--small btn--radius btn--green btn--green-hover-black btn--uppercase font--semi-bold" type="submit">{{ __('text.proceed_to_checkout')}} </a>
                     </div>
                 </div>  <!-- End Cart Table Button -->
             </div>
