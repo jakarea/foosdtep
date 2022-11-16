@@ -68,6 +68,8 @@ class DashboardController extends Controller
         //
         $data = Order::find($id);
 
+       // return $data;
+
         return view('frontend.customer.invoice', compact('data'));
     }
 

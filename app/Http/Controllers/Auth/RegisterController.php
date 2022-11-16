@@ -59,6 +59,7 @@ class RegisterController extends Controller
         $validation =   $request->validate([
             'name'          =>  ['required', 'string', 'unique:users,name', 'max:255'],
             'kvk'         =>  ['required', 'string', 'max:255'],
+            'vat'         =>  ['required', 'string', 'max:255'],
             'email'         =>  ['required', 'email', 'unique:users,email', 'max:255'],
             'password'      =>  ['required', 'string', 'min:6'],
         ]);
@@ -69,6 +70,7 @@ class RegisterController extends Controller
             $user = User::create([
                 'name'   =>  $request->name,
                 'kvk'   =>  $request->kvk,
+                'vat'   =>  $request->vat,
                 'email'   =>  $request->email,
                 'password'   =>  Hash::make($request->password),
             ]);
