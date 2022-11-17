@@ -26,16 +26,16 @@
             </div>
         </div> 
         <div class="row pt-2">
-            <div class="col-lg-8">
+            <div class="col-lg-9">
                 <div class="slogan-list-wrap">
-                    <ul>
+                    <ul class="text-center">
                         <li><a href="#"><i class="fas fa-check"></i> {{ __('text.wide_offer')}}</a></li>
                         <li><a href="#"><i class="fas fa-check"></i> {{ __('text.plenty_inspier')}}</a></li>
-                        <li><a href="#"><i class="fas fa-check"></i> {{ __('text.always_branch')}}</a></li>
+                        <!-- <li><a href="#"><i class="fas fa-check"></i> {{ __('text.always_branch')}}</a></li> -->
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-3">
                 <div class="slogan-bttn-wrap">
                     <a href="{{url('register')}}">{{ __('text.become_member')}}</a>
                     <a href="{{url('login')}}"><i class="fas fa-lock"></i>{{ __('text.login')}}</a>

@@ -96,11 +96,11 @@
 
         if ($lis.length > 0) {
             $ul
-                .append($('<li class="expand">' + (isExpanded ? '<a href="javascript:;"><div><i class="icon-minus-square"></i>Close Categories</div></a>' : '<a href="javascript:;"><div><i class="icon-plus-square"></i>More Categories</div></a>') + '</li>')
+                .append($('<li class="expand">' + (isExpanded ? '<a href="javascript:;"><div><i class="icon-minus-square"></i>Categorieën sluiten</div></a>' : '<a href="javascript:;"><div><i class="icon-plus-square"></i>alle categorieën</div></a>') + '</li>')
                     .on('click', function (event) {
                         var isExpanded = $ul.hasClass('expanded');
                         event.preventDefault();
-                        $(this).html(isExpanded ? '<a href="javascript:;"><div><i class="icon-plus-square"></i>More Categories</div></a>' : '<a href="javascript:;"><div><i class="icon-minus-square"></i>Close Categories</div></a>');
+                        $(this).html(isExpanded ? '<a href="javascript:;"><div><i class="icon-plus-square"></i>alle categorieën</div></a>' : '<a href="javascript:;"><div><i class="icon-minus-square"></i>Categorieën sluiten</div></a>');
                         $ul.toggleClass('expanded');
                         $lis.toggle(300);
                     }));
@@ -116,8 +116,8 @@
 
         e.preventDefault();
         $(".category-menu li.hidden").toggle(500);
-        var htmlAfter = '<i class="ion-ios-minus-empty" aria-hidden="true"></i> Less Categories';
-        var htmlBefore = '<i class="ion-ios-plus-empty" aria-hidden="true"></i> More Categories';
+        var htmlAfter = '<i class="ion-ios-minus-empty" aria-hidden="true"></i> Minder categorieën';
+        var htmlBefore = '<i class="ion-ios-plus-empty" aria-hidden="true"></i> alle categorieën';
 
 
         if ($(this).html() == htmlBefore) {

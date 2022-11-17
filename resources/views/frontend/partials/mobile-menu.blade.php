@@ -1,40 +1,53 @@
 <!--  Start Mobile Header Section   -->
-<div class="header__mobile mobile-header--1 d-block d-lg-none p-tb-20">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-12 d-flex align-items-center justify-content-between">
-                        <ul class="header__mobile--leftside d-flex align-items-center justify-content-start" style="width: 80px;">
-                            <li>
-                                <div class="header__mobile-logo">
-                                    <a href="{{url('/')}}" class="header__mobile-logo-link">
-                                        <img src="{{asset('frontend/assets/img/logo/logo.png')}}" alt="" class="header__mobile-logo-img">
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
-                        <form class="header-search" action="{{ route('autocompleteSearch') }}" method="post">
+<div class="header__mobile mobile-header--1 d-block d-lg-none p-tb-20 pt-1">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                <div class="slogan-bttn-wrap">
+                    <a href="{{url('register')}}">{{ __('text.become_member')}}</a>
+                    <a href="{{url('login')}}"><i class="fas fa-lock"></i>{{ __('text.login')}}</a>
+                </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-12 d-flex align-items-center justify-content-between">
+                    <ul class="header__mobile--leftside d-flex align-items-center justify-content-start" style="width: 80px;">
+                        <li>
+                            <div class="header__mobile-logo">
+                                <a href="{{url('/')}}" class="header__mobile-logo-link">
+                                    <img src="{{asset('frontend/assets/img/logo/logo.png')}}" alt="" class="header__mobile-logo-img">
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <!-- Start User Action -->
+                    <ul class="header__mobile--rightside header__user-action-icon  d-flex align-items-center justify-content-end" style="margin-left: 12px;"> 
+                        <!-- Start Header Add Cart Box -->
+                        <li>
+                            <a href="{{ route('product.cart') }}">
+                                <img src="{{asset('frontend/assets/img/list.png')}}" alt="a" class="img-fluid" width="25">
+                                <span class="wishlist-item-count pos-absolute">{{ count((array) session('cart')) }}</span>
+                            </a>
+                        </li> <!-- End Header Add Cart Box -->
+                        <li><a href="#offcanvas-mobile-menu" class="offcanvas-toggle"><i class="far fa-bars"></i></a></li>
+                    </ul>   
+                    <!-- End User Action -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mt-3">
+                <form class="header-search" action="{{ route('autocompleteSearch') }}" method="post">
                         @csrf
                         <div class="header-search__content pos-relative">
-                            <input type="text" id="search" name="search" placeholder="Search" required style="border-radius: 25px;">
+                            <input type="text" id="search" name="search" placeholder="Zoeken" required style="border-radius: 1px;">
                             <button class="pos-absolute" type="submit"><i class="icon-search"></i></button>
                         </div>
                     </form>
-                        <!-- Start User Action -->
-                        <ul class="header__mobile--rightside header__user-action-icon  d-flex align-items-center justify-content-end" style="margin-left: 12px;"> 
-                            <!-- Start Header Add Cart Box -->
-                            <li>
-                                <a href="{{ route('product.cart') }}">
-                                    <i class="icon-shopping-cart"></i>
-                                    <span class="wishlist-item-count pos-absolute">{{ count((array) session('cart')) }}</span>
-                                </a>
-                            </li> <!-- End Header Add Cart Box -->
-                            <li><a href="#offcanvas-mobile-menu" class="offcanvas-toggle"><i class="far fa-bars"></i></a></li>
-                        </ul>   
-                        <!-- End User Action -->
-                    </div>
-                </div> 
-            </div>
-        </div> 
+                </div>
+            </div> 
+        </div>
+    </div> 
         <!--  Start Mobile Header Section   -->
 
         <!--  Start Mobile-offcanvas Menu Section   -->

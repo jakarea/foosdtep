@@ -5,17 +5,14 @@
 
 <!-- ::::::  Start  Main Container Section  ::::::  -->
 
-<main id="main-container" class="main-container m-b-40 my-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6 col-12">
-                <div class="section-content m-b-40">
+<main id="main-container" class="main-container m-b-40 my-5 py-3">
+    <div class="container"> 
+        <div class="row">
+            <!-- Start Login Area -->
+            <div class="col-lg-6 col-md-8 col-12 pe-md-0">
+                <div class="section-content m-b-20">
                     <h5 class="section-content__title text-center">{{ __('text.my_account')}}</h5>
                 </div>
-            </div>
-            <div class="col-lg-12"></div>
-            <!-- Start Login Area -->
-            <div class="col-lg-6 col-12">
                 <div class="login-form-container">
                     <h5 class="sidebar__title">{{ __('text.login') }}</h5>
                     <div class="login-register-form">
@@ -52,16 +49,29 @@
                                 </label>
                                 <a class="link--gray" href="{{ route('forget.password.get') }}">{{ __('text.forgot_password') }} </a>
                             </div>
-                            <div class="d-flex justify-content-between flex-wrap m-tb-20 pt-3 align-middle">
-                                <button class="btn btn--box btn--medium btn--radius btn--black btn--black-hover-green btn--uppercase font--semi-bold" type="submit">{{ __('text.login') }} </button>
-                                <div class="regiter-acc text-end">
+                            <div class="d-flex align-items-center justify-content-between flex-wrap m-tb-20 pt-3 align-middle">
+                            <div class="regiter-acc text-end">
                                     <span>{{ __('text.dont_have_account') }}  <a href="{{ url('register') }}">{{ __('text.register_here') }} </a></span>
                                 </div>
+                                <button class="btn btn--box btn--medium btn--radius btn--black btn--black-hover-green btn--uppercase font--semi-bold" type="submit">{{ __('text.login') }} </button>
+                                
                             </div>
                         </form>
                     </div>
                 </div>
             </div>  <!-- End Login Area -->
+            <div class="col-lg-6 col-md-8 col-12 ps-md-0">
+                <div class="login-txt-wrap">
+                    <h4>Onbezorgd ondernemen. <br> Word nu Sligro klant.</h4>
+
+                    <p>Als ondernemer of instelling inkopen doen bij een Sligro-vestiging? Krijg met de klantenkaart vandaag nog exclusief toegang tot al onze vestigingen.</p>
+                    <p>Grote verpakkingen, kleine prijzen <br>
+Breed assortiment A-merken en eigen merken <br>
+Altijd dichtbij en makkelijk bereikbaar <br>
+Persoonlijk advies van échte vakmensen</p>
+<a href="{{url('register')}}">{{ __('text.become_member')}}</a>
+                </div>
+            </div>
         </div>
     </div>
 </main> <!-- ::::::  End  Main Container Section  ::::::  -->

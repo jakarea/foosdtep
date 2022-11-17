@@ -66,7 +66,7 @@ return [
     'enter_password' => 'Enter password',
     'remember_me' => 'Remember me',
     'forgot_password' => 'Forgot Password?',
-    'login' => 'LOGIN',
+    'login' => 'Inloggen',
     'dont_have_account' => 'Don\'t have an account?',
     'register_here' => 'Register Here'
 

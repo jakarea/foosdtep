@@ -36,9 +36,12 @@
 
                     @if(!Auth::check())
                     <div class="product__desc m-t-25 m-b-30">
-                        <div class="card">
+                        <div class="card" id="parent_clse">
                             <div class="card-body"> 
-                                <h6>WAAROM KAN IK GEEN PRIJZEN ZIEN?</h6>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <h6>WAAROM KAN IK GEEN PRIJZEN ZIEN?</h6>
+                                    <a href="javascript:void(0)" onclick="parent_close();"><i class="fas fa-times"></i></a>
+                                </div>
                                 <p>Je kunt alleen prijzen zien als je ingelogd bent. Geen inlog? Dan kan je het assortiment verkennen en je laten inspireren. Nog geen klant?</p>
 
                                 <a href="{{url('login')}}" class="btn btn-primarys">klantenkaart aanvragen</a>
@@ -46,10 +49,6 @@
                         </div> 
                     </div>
                     @endif
-
-                    
-
-                    
 
                     @if(Auth::check())
                     <div class="product-var p-tb-30">
@@ -70,32 +69,39 @@
 <div class="product-details-tab-area">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <div class="product-details-content">
-                    <ul class="tablist tablist--style-black tablist--style-title tablist--style-gap-30 nav">
-                        <li><a class="nav-link active" data-bs-toggle="tab" href="#product-desc">{{__('messages.description')}}</a></li>
-                        <li><a class="nav-link" data-bs-toggle="tab" href="#product-dis">{{ __('messages.prod_details')}}</a></li> 
-                    </ul>
-                    <div class="product-details-tab-box">
-                        <div class="tab-content">
-                            <!-- Start Tab - Product Description -->
-                            <div class="tab-pane show active" id="product-desc">
+            <div class="col-lg-12">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        {{__('messages.description')}}
+                        </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
                                 <div class="para__content">
                                 {!! $product->long_description !!}
-                                </div>    
-                            </div>  <!-- End Tab - Product Description -->
-
-                            <!-- Start Tab - Product Details -->
-                            <div class="tab-pane" id="product-dis">
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        {{ __('messages.prod_details')}}
+                        </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
                                 <div class="product-dis__content">
                                     {!! $product->specific_description !!}
                                 </div>
-                            </div>  <!-- End Tab - Product Details --> 
+                            </div>
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
-        </div>
+        </div> 
     </div>
 </div>  <!-- End Product Details Tab -->
 
@@ -150,4 +156,16 @@
 </div>
 </main>
 
-    @endsection
+@endsection
+
+@section('script')
+
+<script>
+
+function parent_close(parent_clse){
+    document.getElementById('parent_clse').style.display = 'none';
+}
+
+</script>
+
+@endsection

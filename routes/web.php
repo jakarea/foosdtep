@@ -197,3 +197,4 @@ Route::controller(BackendDesignController::class)->group(function () {
     // order static route start
     Route::get('static/orders', 'orders')->name('dashboard.orders');
 }); 
+ 

@@ -69,7 +69,7 @@
                     <!-- Start Header Add Cart Box -->
                     <li>
                         <a href="{{ route('product.cart') }}">
-                            <i class="icon-shopping-cart"></i>
+                            <img src="{{ asset('frontend/assets/img/list.png') }}" alt="a" class="img-fluid" width="25">
                             <span class="wishlist-item-count pos-absolute">{{ count((array) session('cart')) }}</span>
                         </a>
                     </li> 

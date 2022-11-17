@@ -85,6 +85,7 @@ return [
     'act_details' => 'Accountgegevens',
     'logout' => 'Uitloggen',
     'total_orders' => 'Totale bestelling',
+    'total_spend' => 'Totale uitgaven',
     'personal_info' => 'Persoonlijke informatie',
     'orders' => 'Bestellingen',
     'no' => '#',
