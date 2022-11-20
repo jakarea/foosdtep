@@ -485,6 +485,12 @@ input[type=radio].shipping-select::after,
   }
 }
 
+#result_query {
+  display: none;
+  position: absolute;
+  width: 97%;
+  z-index: 999;
+}
 
 #cart__result {
   display: none;

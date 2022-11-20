@@ -16,10 +16,13 @@
                 <form class="header-search" action="{{ route('autocompleteSearch') }}" method="post">
                     @csrf
                     <div class="header-search__content pos-relative">
-                        <input type="text" name="search" placeholder="Zoeken" required />
+                        <input type="text" id="search__header" name="search" placeholder="Zoeken" required />
                         <button class="pos-absolute" type="submit"><i class="icon-search"></i></button>
                     </div>
                 </form>
+                <div id="result_query" class="card">
+                    <div class="card-body result_html"></div>
+                </div>
             </div>
             <div class="col-xl-2 col-lg-3">
             <a href="{{ route('products') }}" class="btn btn--icon-left btn--small btn--radius btn--transparent btn--border-green btn--border-green-hover-green font--regular text-capitalize">{{ __('text.shop_now')}} <i class="fal fa-angle-right"></i></a>
