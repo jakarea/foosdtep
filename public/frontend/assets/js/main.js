@@ -559,13 +559,29 @@
      /*----------------------------------
         Auto Result Suggest for search
     -----------------------------------*/
+    
 
-    $('#search__header').keyup(function(e) {
+    $('body').click(function(e) {
+
+        var boxClose = "";
+        
+        boxClose = $('.search__headerm').val();
+
+        var boxLength = boxClose.length;
+
+        if(boxLength == 0){
+            
+            $('#result_query').hide();
+        }
+         
+        
+    });
+
+    $('.search__headerm').keyup(function(e) {
         e.preventDefault();
         var timer2 = '';
         $('#result_query').hide();
-
-
+ 
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -583,7 +599,8 @@
                 url: '/search/query',
                 data:{_token: token, "inputdata": inputdata},
                 success:function(data){
-                    $('#result_query').show();
+                    
+                    $('.result_querym').show();
                     $('.result_html').empty();
                     if( data.length > 0 ){
                         $.each( data, function( key, value ) { 

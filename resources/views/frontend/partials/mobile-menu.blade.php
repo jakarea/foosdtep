@@ -37,18 +37,18 @@
             </div>
             <div class="row">
                 <div class="col-12 mt-3">
-
+               
                 <form class="header-search" action="{{ route('autocompleteSearch') }}" method="post">
                     @csrf
                     <div class="header-search__content pos-relative">
-                        <input type="text" id="search__header" name="search" placeholder="Zoeken" required />
+                        <input type="text" class="search__headerm" id="search__header" name="search" placeholder="Zoeken" required />
                         <button class="pos-absolute" type="submit"><i class="icon-search"></i></button>
                     </div>
                 </form>
-                <div id="result_query" class="card">
+                <div id="result_query" class="car result_querym">
                     <div class="card-body result_html"></div>
                 </div>
-
+            
                 </div>
             </div> 
         </div>
