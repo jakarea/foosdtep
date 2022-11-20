@@ -486,9 +486,9 @@ input[type=radio].shipping-select::after,
 }
 
 
-#result_query {
+#cart__result {
   display: none;
   position: absolute;
-  width: 97%;
+  width: 100%;
   z-index: 999;
 }

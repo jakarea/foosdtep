@@ -17,13 +17,15 @@
                     <h5 class="section-content__title">{{ __('text.purchase_list')}}</h5>
 
                     <!-- add product form start -->
-                    <form action="" class="add_product_box">
+                    <form class="add_product_box position-relative">
                         <label for="">{{ __('text.add_prodct') }}</label>
                         <div class="form-group">
-                            <input type="text" placeholder="{{__('text.find_product')}}" class="form-control">
-                            <a href="#"><i class="fas fa-search"></i></a>
+                            <input type="text" id="cart__search" placeholder="{{__('text.find_product')}}" class="form-control">
+                            <!-- <a href="#"><i class="fas fa-search"></i></a> -->
                         </div>
-                        
+                        <div id="cart__result" class="card">
+                            <div class="card-body result_html"></div>
+                        </div>
 
                     </form>
                     <!-- add product form end -->
@@ -191,5 +193,46 @@
 
      document.body.innerHTML = originalContents;
 }
+</script>
+
+<script>
+    /*----------------------------------
+        Auto Result Suggest for search
+    -----------------------------------*/
+
+    $('#cart__search').on('change', function(e) {
+        e.preventDefault();
+
+        $('#cart__result').hide();
+
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        let token = $('meta[name="csrf_token"]').attr('content');
+        var inputdata = $(this).val();
+
+        $.ajax({
+            type: 'post',
+            dataType: "json",
+            url: '/search/query',
+            data:{_token: token, "inputdata": inputdata},
+            success:function(data){
+                $('#cart__result').show();
+                $('.result_html').empty();
+                if( data.length > 0 ){
+                    $.each( data, function( key, value ) { 
+                        $('.result_html').append('<a href="/add-to-cart/'+value.id+'""><div class="search-item d-inline-block align-item-center align-middle"><div class="search__p-image d-inline-block"><img src="/frontend/assets/img/product/'+value.image+'" alt="Image" class="img-fluid" width="50" style="vertical-align: bottom; margin-right:5px"></div><div class="search__p-product d-inline-block"><h5 class="m-0">'+value.name+'</h5><p class="m-0">'+value.short_description.slice(0, 50)+'...</p></div></div></a><hr>');
+                    })
+                } else {
+                    // $('#cart__result').hide();
+                    $('.result_html').append('Data Not found');
+                }
+            }
+        });
+    })
 </script>
 @endsection
