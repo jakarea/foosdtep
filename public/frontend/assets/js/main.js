@@ -559,13 +559,29 @@
      /*----------------------------------
         Auto Result Suggest for search
     -----------------------------------*/
+    
+
+    $('body').click(function(e) {
+
+        var boxClose = "";
+        
+        boxClose = $('.search__headerm').val();
+
+        var boxLength = boxClose.length;
+
+        if(boxLength == 0){
+            
+            $('#result_query').hide();
+        }
+         
+        
+    });
 
     $('.search__headerm').keyup(function(e) {
         e.preventDefault();
         var timer2 = '';
         $('#result_query').hide();
-
-        console.log(1234)
+ 
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

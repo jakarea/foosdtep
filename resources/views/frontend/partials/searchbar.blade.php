@@ -11,12 +11,12 @@
                     @endforeach
                     </ul>
                 </div>
-            </div>
+            </div> 
             <div class="col-xl-7 col-lg-6 position-relative">
                 <form class="header-search" action="{{ route('autocompleteSearch') }}" method="post">
                     @csrf
                     <div class="header-search__content pos-relative">
-                        <input type="text"  class="search__headerm" id="search__header" name="search" placeholder="Zoeken" required />
+                        <input type="text" class="search__headerm" id="search__header" name="search" placeholder="Zoeken" required />
                         <button class="pos-absolute" type="submit"><i class="icon-search"></i></button>
                     </div>
                 </form>

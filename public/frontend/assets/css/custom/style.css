@@ -433,6 +433,13 @@ input[type=radio].shipping-select::after,
   .search__p-product p{
     font-size: 14px;
   }
+  .result_html{
+    background-color: #fff!important;
+  }
+  #result_query {
+    width: 100%; 
+    left: 0;
+  }
 }
 
 #printableArea {
