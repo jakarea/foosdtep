@@ -32,9 +32,9 @@
             <div class="col-lg-9">
                 <div class="slogan-list-wrap">
                     <ul class="text-center">
-                        <li><a href="#"><i class="fas fa-check"></i> {{ __('text.wide_offer')}}</a></li>
-                        <li><a href="#"><i class="fas fa-check"></i> {{ __('text.plenty_inspier')}}</a></li>
-                        <!-- <li><a href="#"><i class="fas fa-check"></i> {{ __('text.always_branch')}}</a></li> -->
+                        <li><a href="javascript:void(0)"><i class="fas fa-check"></i> {{ __('text.wide_offer')}}</a></li>
+                        <li><a href="javascript:void(0)"><i class="fas fa-check"></i> {{ __('text.plenty_inspier')}}</a></li>
+                        <!-- <li><a href="javascript:void(0)"><i class="fas fa-check"></i> {{ __('text.always_branch')}}</a></li> -->
                     </ul>
                 </div>
             </div>
