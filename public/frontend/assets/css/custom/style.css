@@ -427,6 +427,12 @@ input[type=radio].shipping-select::after,
     flex-direction: column;
     align-items: flex-start;
   }
+  .search__p-product h5{
+    font-size: 12px;
+  }
+  .search__p-product p{
+    font-size: 14px;
+  }
 }
 
 #printableArea {
@@ -498,3 +504,4 @@ input[type=radio].shipping-select::after,
   width: 100%;
   z-index: 999;
 }
+
