@@ -225,7 +225,7 @@ class ProductController extends Controller
     public function searchComplete(Request $request)
     {
         if( !empty($request->inputdata ) ) {
-            $result = Product::where("name","LIKE","%{$request->inputdata}%")->get();
+            $result = Product::where("name","LIKE","%{$request->inputdata}%")->take(10)->get();
             return response()->json($result);
         }
     }
