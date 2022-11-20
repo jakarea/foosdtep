@@ -11,7 +11,7 @@
                     @endforeach
                     </ul>
                 </div>
-            </div>
+            </div> 
             <div class="col-xl-7 col-lg-6 position-relative">
                 <form class="header-search" action="{{ route('autocompleteSearch') }}" method="post">
                     @csrf
