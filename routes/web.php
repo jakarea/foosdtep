@@ -42,6 +42,7 @@ Route::controller(HomeController::class)->group(function () {
     // Checkout page
     Route::get('/checkout', 'App\Http\Controllers\Frontend\ProductController@checkout')->name('checkout.cart');
     Route::get('/filter/attributes', 'App\Http\Controllers\Frontend\ProductController@filter')->name('filter.attribute');
+    Route::post('/search/query', 'App\Http\Controllers\Frontend\ProductController@searchComplete')->name('searchComplete');
     
     // contact static blade route
     Route::get('contact', 'contact')->name('products.contact');
