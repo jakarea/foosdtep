@@ -220,6 +220,16 @@ class ProductController extends Controller
         return view('frontend.filter', compact('products'));
     }
 
+
+    // Custom search 
+    public function searchComplete(Request $request)
+    {
+        if( !empty($request->inputdata ) ) {
+            $result = Product::where("name","LIKE","%{$request->inputdata}%")->get();
+            return response()->json($result);
+        }
+    }
+
     /**
      * Display the specified resource.
      *
