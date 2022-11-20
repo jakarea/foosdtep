@@ -89,9 +89,9 @@
             </div>  <!-- End Login Area -->
             <div class="col-lg-6 col-md-8 col-12 ps-md-0">
                 <div class="login-txt-wrap" style="height: 90.5%;">
-                    <h4>Onbezorgd ondernemen. <br> Word nu Sligro klant.</h4>
+                    <h4>Onbezorgd ondernemen. <br> Word nu FoodSteps klant.</h4>
 
-                    <p>Als ondernemer of instelling inkopen doen bij een Sligro-vestiging? Krijg met de klantenkaart vandaag nog exclusief toegang tot al onze vestigingen.</p>
+                    <p>Als ondernemer of instelling inkopen doen bij een FoodSteps-vestiging? Krijg met de klantenkaart vandaag nog exclusief toegang tot al onze vestigingen.</p>
                     <p>Grote verpakkingen, kleine prijzen <br>
 Breed assortiment A-merken en eigen merken <br>
 Altijd dichtbij en makkelijk bereikbaar <br>

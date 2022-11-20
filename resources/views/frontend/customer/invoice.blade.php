@@ -20,7 +20,6 @@
                             <!-- <strong>{{ __('Billing To') }}</strong><br> -->
                             {{ $data->user->name }}<br>
                             {{ $data->user->email  }}<br>
-                            {{ $data->user->phone  }}<br>
                             {{ $data->user->kvk }}<br>
                             {{ $data->user->vat }}<br>
                             @if( $data->address_type == 1 )
