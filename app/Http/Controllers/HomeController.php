@@ -70,15 +70,5 @@ class HomeController extends Controller
         return redirect()->route('products.contact')->with($notification);
     }
 
-    // order method start
-    public function invoice()
-    {
-        return view('frontend/invoice');
-    }
-    
-    // profile method start
-    public function profile()
-    {
-        return view('frontend/profile');
-    }
+      
 }

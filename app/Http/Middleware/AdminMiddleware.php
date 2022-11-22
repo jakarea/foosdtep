@@ -8,7 +8,7 @@ use Auth;
 use Response;
 use Session;
 
-class CustomerMiddleware
+class AdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -28,22 +28,22 @@ class CustomerMiddleware
                         'message' => 'Uw account uitgeschakeld!',
                         'alert-type' => 'fout'
                     );
-                    return redirect()->route('customer.loginform')->with($notification);
+                    return redirect()->route('login')->with($notification);
                 }
     
-                if (Auth::user()->status == 'active' && Auth::user()->Userrole[0]->id === 3) {
+                if (Auth::user()->status == 'active' && Auth::user()->Userrole[0]->id === 1) {
                     return $next($request);
                 }
                 else{
                     Auth::logout();
-                    $notification = session()->flash("fout", "Sorry! Je bent geen klant.");
-                    return redirect()->route('customer.loginform')->with($notification);
+                    $notification = session()->flash("fout", "Sorry! U bent geen beheerder.");
+                    return redirect()->route('login')->with($notification);
                 }
             }
             else {
                 $notification = session()->flash("error", "Er is iets mis!");
                 Auth::logout();
-                return redirect()->route('customer.loginform')->with($notification);
+                return redirect()->route('login')->with($notification);
             }
             
             //if not user 

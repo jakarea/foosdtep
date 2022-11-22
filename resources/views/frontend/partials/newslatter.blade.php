@@ -1,13 +1,13 @@
 <div class="newsletter m-t-100 pos-relative">
             <div class="newsletter__bg">
-                <img src="https://template.hasthemes.com/gsore/gsore/assets/img/newsletter/newsletter-bg.jpg" alt="">
+                <img src="{{asset('frontend/assets/img/newsletter/Speciale kortingen.webp')}}" alt="a">
             </div>
             <div class="newsletter__content pos-absolute absolute-center text-center">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
                             <div class="section-content__inner">
-                                <h2>{{ __('text.subscribe_us')}}</h2>
+                                <h2 class="text-white">{{ __('text.subscribe_us')}}</h2>
                             </div>
                         </div>
                         <div class="col-10 offset-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
