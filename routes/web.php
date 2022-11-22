@@ -26,6 +26,7 @@ Route::controller(HomeController::class)->group(function () {
 
     // about blade route
     Route::get('/about', 'about')->name('about');
+    Route::post('/subscribe','subscribe')->name('subscribe');
     Route::get('/blog', 'blog')->name('blog');
     Route::get('/blog/{slug}', 'single_blog')->name('single_blog');
     // product route
