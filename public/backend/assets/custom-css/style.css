@@ -20,7 +20,9 @@ ul{
     background-color: #e0c77a;
     border-color: #e0c77a;
 } 
-
+.pagination-wrapper .pagination {
+    justify-content: center!important;
+}
 .mm-active>i,
 .mm-active,
 .mm-active>a i,

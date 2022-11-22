@@ -4,7 +4,7 @@
 
 
  <!-- :::::: Start Main Container Wrapper :::::: -->
- <main id="main-container" class="main-container">
+ <main id="main-container" class="main-container pb-0">
         <!-- ::::::  Start Hero Section  ::::::  -->
         @include('frontend.partials.hero')
          <!-- ::::::  End Hero Section  ::::::  -->
@@ -90,7 +90,7 @@
                                 <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a>
                                 @if(Auth::check())
                                 <div class="product__price m-t-5">
-                                    <span class="product__price">{{ __('$'). $product->discount($product->id) }}</span>
+                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
                                 </div>
                                 @endif
                             </div> <!-- End Product Content -->
@@ -105,7 +105,7 @@
          <!-- ::::::  Start banner Section  ::::::  -->
          <div class="banner m-t-100 pos-relative">
             <div class="banner__bg">
-                <img src="https://template.hasthemes.com/gsore/gsore/assets/img/banner/size-extra-large-wide/banner-home-1-img-1-extra-large-wide.jpg" alt="">
+                 <img src="{{ asset('frontend/assets/img/newsletter/Nieuwsbrief.webp')}}" alt="Nieuwsbrief">
             </div>
             <div class="banner__box banner__box--single-text-style-2">
                 <div class="container">
@@ -153,7 +153,7 @@
                                         <a href="{{route('blog.index')}}" class="blog-feed__link">{{$blog->title}}</a>
                                         
                                         <div class="blog-feed__post-meta">
-                                            By
+                                            {{ __('messages.by')}}
                                             <a class="blog-feed__post-meta--link" href="javascript:void(0)"><span class="blog-feed__post-meta--author">{{$blog->user->name}} /</span></a> 
                                             <a class="blog-feed__post-meta--link" href="javascript:void(0)"><span class="blog-feed__post-meta--date">{{ date('M d,Y', strtotime($blog->created_at)); }}</span></a> 
                                             

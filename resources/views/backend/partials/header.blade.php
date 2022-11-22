@@ -33,16 +33,16 @@
                         <div class="p-3">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h6 class="m-0"> Notifications </h6>
+                                    <h6 class="m-0"> {{ __('b.notifications') }} </h6>
                                 </div>
                                 <div class="col-auto">
-                                    <a href="#!" class="small" id="mark-all"> Mark all as read</a>
+                                    <a href="#!" class="small" id="mark-all"> {{ __('b.mark_all_as_read') }}</a>
                                 </div>
                             </div>
                         </div>
                         <div data-simplebar style="max-height: 230px;">
                         @forelse (auth()->user()->unreadNotifications as $notification)
-                            <a href="{{ route('orders.index') }}" data-id="{{ $notification->id }}" data-attr="{{ route('markNotification', $notification->id) }}" class="text-reset notification-item">
+                            <a href="{{ route('orders.index') }}" data-notify="{{ $notification->id }}" data-attr="{{ route('markNotification', $notification->id) }}" class="text-reset notification-item">
                                 <div class="d-flex align-items-start">
                                     <div class="avatar-xs me-3">
                                         <span class="avatar-title bg-primary rounded-circle font-size-16">
@@ -50,9 +50,9 @@
                                         </span>
                                     </div>
                                     <div class="flex-1">
-                                        <h6 class="mt-0 mb-1">{{ $notification->data['username'] }} Order is placed </h6>
+                                        <h6 class="mt-0 mb-1">{{ $notification->data['username'] }} {{ __('b.order_placed')}} </h6>
                                         <div class="font-size-12 text-muted">
-                                            <p class="mb-1">You have an new order from {{ $notification->data['username'] }} at {{ $notification->created_at->format('M d, H:i A') }}</p>
+                                            <p class="mb-1">{{ __('you_have_new_order')}} {{ $notification->data['username'] }} {{ __('at') }} {{ $notification->created_at->format('M d, H:i A') }}</p>
                                             <p class="mb-0"><i class="mdi mdi-clock-outline"></i> {{$notification->created_at->diffForHumans()}}</p>
                                         </div>
                                     </div>
@@ -62,7 +62,7 @@
                         <a href="#" class="text-reset notification-item">
                                 <div class="d-flex align-items-start">
                                     <div class="flex-1">
-                                        <h6 class="mt-0 mb-1">No Notification Found!!!</h6>
+                                        <h6 class="mt-0 mb-1">{{ __('b.no_notifications')}}</h6>
                                     </div>
                                 </div>
                             </a>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="p-2 border-top d-grid">
                             <a class="btn btn-sm btn-link font-size-14 " href="{{ route('orders.index') }}">
-                                <i class="mdi mdi-arrow-right-circle me-1"></i> View More..
+                                <i class="mdi mdi-arrow-right-circle me-1"></i> {{ __('b.view_more')}}
                             </a>
                         </div>
                     </div>
@@ -94,10 +94,10 @@
                     <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
                         <a class="dropdown-item" href="{{ route('user.show', \Auth::user()->id) }}"><i class="bx bx-user font-size-16 align-middle me-1"></i>
-                            Profile</a> 
+                            {{__('profile') }}</a> 
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item text-danger" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();"><i
-                                class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> Logout</a>
+                                class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> {{__('b.logout') }}</a>
                         <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
                         {{ csrf_field() }}
                         </form>

@@ -75,7 +75,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        $notification = session()->flash("success", "Category Create Successfully");
+        $notification = session()->flash("success", __('b.data_created'));
 
         return redirect()->route('category.index')->with($notification);
     }
@@ -139,7 +139,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        $notification = session()->flash("success", "Category Update Successfully");
+        $notification = session()->flash("success", __('b.data_updated'));
 
         return redirect()->route('category.index')->with($notification);
     }

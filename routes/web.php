@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use  App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\BackendController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\BackendDesignController;
 
 /*
@@ -20,10 +21,10 @@ use App\Http\Controllers\Admin\BackendDesignController;
 */
 // front end controller
 Route::controller(HomeController::class)->group(function () {
-    // home static blade route
+    // home blade route
     Route::get('/', 'index')->name('home');
 
-    // about static blade route
+    // about blade route
     Route::get('/about', 'about')->name('about');
 
     // product route
@@ -33,7 +34,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/products/category/{slug}', 'App\Http\Controllers\Frontend\ProductController@category')->name('show.category');
 
     // Product cart routes
-    Route::get('/cart', 'App\Http\Controllers\Frontend\ProductController@cart')->name('product.cart');
+    Route::get('/cart', 'App\Http\Controllers\Frontend\ProductController@cart')->middleware(['auth'])->name('product.cart');
     Route::get('/add-to-cart/{id}', 'App\Http\Controllers\Frontend\ProductController@addToCart')->name('add.to.cart');
     Route::patch('/update-cart', 'App\Http\Controllers\Frontend\ProductController@update')->name('update.cart');
     Route::delete('/remove-from-cart', 'App\Http\Controllers\Frontend\ProductController@remove' )->name('remove.from.cart');
@@ -41,17 +42,17 @@ Route::controller(HomeController::class)->group(function () {
     // Checkout page
     Route::get('/checkout', 'App\Http\Controllers\Frontend\ProductController@checkout')->name('checkout.cart');
     Route::get('/filter/attributes', 'App\Http\Controllers\Frontend\ProductController@filter')->name('filter.attribute');
+    Route::post('/search/query', 'App\Http\Controllers\Frontend\ProductController@searchComplete')->name('searchComplete');
     
-    // contact static blade route
+    // contact blade route
     Route::get('contact', 'contact')->name('products.contact');
-
-    // auth static blade route
-    Route::get('frontend/invoice', 'invoice')->name('frontend.invoice'); 
+    Route::post('contact', 'contact_store')->name('products.contact_store');
 
     // Admin Login Form
     Route::get('admin/register', 'App\Http\Controllers\Auth\RegisterController@showRegistrationForm')->name('admin.register');
     Route::get('admin/login', 'App\Http\Controllers\Auth\LoginController@adminloginform')->name('admin.login');
 
+    // Customer Login Form
     Route::get('/login', function () {
         return redirect(route('customer.loginform'));
     });
@@ -60,6 +61,7 @@ Route::controller(HomeController::class)->group(function () {
     // Customer Login and Registration
     Route::get('customer/login', 'App\Http\Controllers\Auth\LoginController@showloginform')->name('customer.loginform');
     Route::get('customer/register', 'App\Http\Controllers\Auth\LoginController@showregisterform')->name('customer.registerform');
+    
     // Customer Registration and verification
     Route::post('customer/register', 'App\Http\Controllers\Auth\RegisterController@CustomerRegistration')->name('customer.registration');
     Route::post('customer/login', 'App\Http\Controllers\Auth\LoginController@logincustomer')->name('customer.login');
@@ -97,7 +99,7 @@ Auth::routes();
 
 Route::middleware(['verified'])->group(function () {
     Route::group(['prefix' => 'auth'], function(){
-        Route::group(['middleware' => 'auth'], function () {
+        Route::group(['middleware' => 'admin'], function () {
             Route::get('/dashboard', 'App\Http\Controllers\Backend\DashboardController@index')->name('admin.dashboard');
 
             Route::get('/mark-as-read/{id}', 'App\Http\Controllers\Backend\DashboardController@markNotification')->name('markNotification');
@@ -112,6 +114,11 @@ Route::middleware(['verified'])->group(function () {
                 Route::resource('blog', 'App\Http\Controllers\Backend\BlogController');
             });
 
+            // Contact management
+            Route::group(['prefix' => 'contacts'], function() {
+                Route::resource('contact', 'App\Http\Controllers\Backend\ContactController');
+            });
+
             // Blog management
             Route::group(['prefix' => 'sliders'], function() {
                 Route::resource('slider', 'App\Http\Controllers\Backend\SliderController');
@@ -121,6 +128,7 @@ Route::middleware(['verified'])->group(function () {
             Route::group(['prefix' => 'brands'], function() {
                 Route::resource('brand', 'App\Http\Controllers\Backend\BrandController');
             });
+
             // Product Group management
             Route::group(['prefix' => 'productsgrpup'], function() {
                 Route::resource('productgroup', 'App\Http\Controllers\Backend\ProductGroupController');
@@ -165,27 +173,7 @@ Route::middleware(['verified'])->group(function () {
     });
 });
 
-Route::controller(BackendController::class)->group(function () {
-    Route::get('/categories', 'categories')->name('dashboard.categories'); 
-});
-
-// back end design controller
-Route::controller(BackendDesignController::class)->group(function () {
-    // user static route start
-    Route::get('static/users', 'users')->name('dashboard.users');  
-    Route::get('static/users/add', 'user_add')->name('dashboard.users.add');  
-    Route::get('static/users/edit', 'user_edit')->name('dashboard.users.edit');  
-    Route::get('static/users/profile', 'user_view')->name('dashboard.users.view');  
-
-    // discount static route start
-    Route::get('static/discount', 'discount')->name('dashboard.discount');
-    Route::get('static/discount/add', 'discount_add')->name('dashboard.discount.add');
-    Route::get('static/discount/view', 'discount_view')->name('dashboard.discount.view');
-    Route::get('static/discount/edit', 'discount_edit')->name('dashboard.discount.edit');
-
-    // invoice static route start
-    Route::get('static/invoice', 'invoice')->name('dashboard.invoice');
-
-    // order static route start
-    Route::get('static/orders', 'orders')->name('dashboard.orders');
-}); 
+// Route::controller(BackendController::class)->group(function () {
+//     Route::get('/categories', 'categories')->name('dashboard.categories'); 
+// });
+ 

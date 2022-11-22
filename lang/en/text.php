@@ -49,6 +49,25 @@ return [
     'add_to_cart' => 'Add to cart',
     'prev' => ' Prev',
     'previous' => 'Previous',
-    'next' => 'Next'
+    'next' => 'Next',
+    'you_are_searching' => 'You are searching',
+    'sorry_no_product_found' => 'Sorry! Product Not Found...',
+    'follow_us' => 'Follow Us',
+    'get_in_touch' => 'Get In Touch',
+    'name' => 'Name',
+    'email' => 'Email',
+    'subject' => 'Subject',
+    'your_message' => 'Your Message',
+    'send' => 'Verzenden',
+    'my_account' => 'My Account',
+    'username_or_email_address' => 'Username or email address',
+    'user_email' => 'Username / Email',
+    'Password' => 'Password',
+    'enter_password' => 'Enter password',
+    'remember_me' => 'Remember me',
+    'forgot_password' => 'Forgot Password?',
+    'login' => 'Inloggen',
+    'dont_have_account' => 'Don\'t have an account?',
+    'register_here' => 'Register Here'
 
 ];

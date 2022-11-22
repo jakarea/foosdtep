@@ -15,6 +15,7 @@
         if (scroll < 350) {
             $(".sticky-header").removeClass("is-sticky");
         } else{
+            $('#result_query').hide();
             $(".sticky-header").addClass("is-sticky");
         }
     });
@@ -96,11 +97,11 @@
 
         if ($lis.length > 0) {
             $ul
-                .append($('<li class="expand">' + (isExpanded ? '<a href="javascript:;"><div><i class="icon-minus-square"></i>Close Categories</div></a>' : '<a href="javascript:;"><div><i class="icon-plus-square"></i>More Categories</div></a>') + '</li>')
+                .append($('<li class="expand">' + (isExpanded ? '<a href="javascript:;"><div><i class="icon-minus-square"></i>Categorieën sluiten</div></a>' : '<a href="javascript:;"><div><i class="icon-plus-square"></i>alle categorieën</div></a>') + '</li>')
                     .on('click', function (event) {
                         var isExpanded = $ul.hasClass('expanded');
                         event.preventDefault();
-                        $(this).html(isExpanded ? '<a href="javascript:;"><div><i class="icon-plus-square"></i>More Categories</div></a>' : '<a href="javascript:;"><div><i class="icon-minus-square"></i>Close Categories</div></a>');
+                        $(this).html(isExpanded ? '<a href="javascript:;"><div><i class="icon-plus-square"></i>alle categorieën</div></a>' : '<a href="javascript:;"><div><i class="icon-minus-square"></i>Categorieën sluiten</div></a>');
                         $ul.toggleClass('expanded');
                         $lis.toggle(300);
                     }));
@@ -116,8 +117,8 @@
 
         e.preventDefault();
         $(".category-menu li.hidden").toggle(500);
-        var htmlAfter = '<i class="ion-ios-minus-empty" aria-hidden="true"></i> Less Categories';
-        var htmlBefore = '<i class="ion-ios-plus-empty" aria-hidden="true"></i> More Categories';
+        var htmlAfter = '<i class="ion-ios-minus-empty" aria-hidden="true"></i> Minder categorieën';
+        var htmlBefore = '<i class="ion-ios-plus-empty" aria-hidden="true"></i> alle categorieën';
 
 
         if ($(this).html() == htmlBefore) {
@@ -127,7 +128,7 @@
         }
     });
 
-    /******************************
+ /******************************
      * Hero Slider - [Single Grid]
      *****************************/
         $('.hero').slick({
@@ -554,5 +555,64 @@
         Scroll To Top Active
     -----------------------------------*/
     $('body').materialScrollTop();
+
+     /*----------------------------------
+        Auto Result Suggest for search
+    -----------------------------------*/
+    
+
+    $('body').click(function(e) {
+
+        var boxClose = "";
+        
+        boxClose = $('.search__headerm').val();
+
+        var boxLength = boxClose.length;
+
+        if(boxLength == 0){
+            
+            $('#result_query').hide();
+        }
+    });
+
+    $('.search__headerm').keyup(function(e) {
+        e.preventDefault();
+        var timer2 = '';
+        $('#result_query').hide();
+ 
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        let token = $('meta[name="csrf_token"]').attr('content');
+        let user_id = $('meta[name="user_id"]').attr('content');
+        var inputdata = $(this).val();
+        clearTimeout(timer2);
+        timer2 = setTimeout(function() {
+            $.ajax({
+                type: 'post',
+                dataType: "json",
+                url: '/search/query',
+                data:{_token: token, "inputdata": inputdata},
+                success:function(data){
+                    
+                    $('.result_querym').show();
+                    $('.result_html').empty();
+                    if( data.length > 0 ){
+                        $.each( data, function( key, value ) { 
+                           
+                                $('.result_html').append('<a href="/products/'+value.slug+'""><div class="search-item d-inline-block align-item-center align-middle"><div class="search__p-image d-inline-block"><img src="/frontend/assets/img/product/'+value.image+'" alt="Image" class="img-fluid" width="50" style="vertical-align: bottom; margin-right:5px"></div><div class="search__p-product d-inline-block"><h5 class="m-0">'+value.name+'</h5><p class="m-0">'+value.short_description.slice(0, 60)+'...</p></div></div></a><hr>');
+                           
+                        })
+                    } else {
+                        // $('#result_query').hide();
+                        $('.result_html').append('Data Not found');
+                    }
+                }
+            });
+        }, 100);
+    })
 
 })(jQuery);

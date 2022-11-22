@@ -133,7 +133,7 @@
                 <!-- Start Rightside - Product Type View -->
                 <div class="col-lg-9"> 
                     <div class="alert alert-success">
-                        <span>You are visiting category: {{ $cat->name }}</span>
+                        <span>{{__('messages.you_arevisiting_cat')}}: {{ $cat->name }}</span>
                     </div>
                     <!-- ::::::  Start Sort Box Section  ::::::  -->
                     <div class="sort-box m-tb-40">
@@ -152,11 +152,11 @@
                             <div class="sort-box__option">
                                 <label class="select-sort__arrow">
                                     <select name="select-sort" class="select-sort">
-                                        <option value="1">Relevance</option>
-                                        <option value="2">Name, A to Z</option>
-                                        <option value="3"> Name, Z to A </option>
-                                        <option value="4"> Price, low to high</option>
-                                        <option value="5">Price, high to low</option>
+                                        <option value="1">{{ __('messages.relevance')}}</option>
+                                        <option value="2">{{ __('messages.name_a_z')}}</option>
+                                        <option value="3">{{ __('messages.name_z_a')}}  </option>
+                                        <option value="4"> {{ __('messages.price_low_high')}}</option>
+                                        <option value="5">{{ __('messages.price_high_low')}}</option>
                                     </select>
                                 </label>
                             </div>
@@ -166,8 +166,8 @@
                     </div> <!-- ::::::  Start Sort Box Section  ::::::  -->
 
                     <div class="sort-box-item">
-                            <span>Showing {{ $products->onFirstPage() . __(' - '). $products->count() }} of {{ $products->count() }} result</span>
-                        </div>
+                        <span>{{ __('messages.showing') }} {{ $products->onFirstPage() . __(' - '). $products->count() }} {{ __('messages.of') }} {{ $products->count() }} {{ __('messages.result') }}</span>
+                    </div>
 
                     <div class="product-tab-area pb-5 attributes_wise" id="attributes_wise">
                         <div class="tab-content tab-animate-zoom">
@@ -226,7 +226,7 @@
                                                                     <h5 class="title title--normal m-b-20">{{ $product->name }}</h5>
                                                                     @if(Auth::check())
                                                                     <div class="product__price">
-                                                                        <span class="product__price-del">{{ __('$'). $product->discount($product->id) }}</span>
+                                                                        <span class="product__price-del">{{ __('€'). $product->discount($product->id) }}</span>
                                                                     </div>
                                                                     @endif
                                                                     <div class="product__desc m-t-25 m-b-30">
@@ -235,16 +235,10 @@
                                                                     @if( Auth::check() )
                                                                     <div class="product-var p-t-30">
                                                                         <div class="product-quantity product-var__item d-flex align-items-center flex-wrap">
-                                                                        <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn--block btn--long btn--radius-tiny btn--green btn--green-hover-black text-uppercase m-r-35">Buy It Now</a>
+                                                                        <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn--block btn--long btn--radius-tiny btn--green btn--green-hover-black text-uppercase m-r-35">{{ __('text.buy_it_now')}}</a>
                                                                         </div>
                                                                     </div>
                                                                     @endif
-                                                                    <div class="product-links">
-                                                                        <div class="product-social m-tb-30">
-                                                                            <span>SHARE THIS PRODUCT</span>
-                                                                            {!! Share::page(url('/products/'. $product->slug))->facebook()->twitter()->whatsapp() !!}
-                                                                        </div>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>

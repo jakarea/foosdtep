@@ -9,9 +9,9 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-4">
                         <span>
-                        <h4 class="card-title">Blogs List</h4> 
+                        <h4 class="card-title">Lijst met blogs</h4> 
                         </span>
-                        <a href="{{ route('blog.create') }}" class="btn btn-primary btn-sm">Add blog</a> 
+                        <a href="{{ route('blog.create') }}" class="btn btn-primary btn-sm">blogs toevoegen</a> 
                     </div>
 
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
@@ -75,10 +75,10 @@
         e.preventDefault();
         var id = $(this).data('id');
         Swal.fire({
-                title: "Are you sure!",
+                title: "Weet je het zeker!",
                 icon: "error",
                 confirmButtonClass: "btn-danger",
-                confirmButtonText: "Yes!",
+                confirmButtonText: "Ja!",
                 showCancelButton: true,
             }).then((result) => {
             if (result.isConfirmed) {

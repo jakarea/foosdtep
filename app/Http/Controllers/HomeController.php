@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Backend\Product;
 use App\Models\Backend\Blog;
+use App\Models\Contact;
 use App\Models\Backend\Slider;
 use App\Models\Backend\Category;
 use App\Models\Backend\ProductGroup;
@@ -42,19 +43,32 @@ class HomeController extends Controller
 
     // contact method start
     public function contact()
-    {
+    { 
         return view('frontend/contact');
     }
 
-    // order method start
-    public function invoice()
-    {
-        return view('frontend/invoice');
+    public function contact_store(Request $request)
+    {  
+        $request->validate([
+            'name'      =>  ['required', 'string', 'max:255'], 
+            'email'      =>  ['required', 'string', 'max:255'], 
+            'subject'      =>  ['required', 'string', 'max:255'], 
+            'message'    =>  ['required','string'], 
+        ]);
+
+        $contact = new Contact;
+
+        $contact->name        =   $request->name;
+        $contact->email        =   $request->email;
+        $contact->subject        =   $request->subject;
+        $contact->message        =   $request->message;
+
+        $contact->save();
+
+        $notification = session()->flash("success", __("messages.contact_send_success"));
+
+        return redirect()->route('products.contact')->with($notification);
     }
-    
-    // profile method start
-    public function profile()
-    {
-        return view('frontend/profile');
-    }
+
+      
 }

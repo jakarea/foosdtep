@@ -8,7 +8,7 @@
 
             <div class="d-flex justify-content-between mb-4">
                 <span>
-                <h4 class="card-title">Products List</h4> 
+                <h4 class="card-title">{{ __('b.product_list')}}</h4> 
                 </span>
                 <a href="{{ route('product.create') }}" class="btn btn-primary btn-sm">Add Product</a> 
             </div> 
@@ -17,13 +17,13 @@
                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                         <tr>
-                            <th>No</th>
-                            <th>Product Name</th>
-                            <th>Category</th>
-                            <th>Price</th>
-                            <th>Status</th>
-                            <th>Brand</th>
-                            <th>Action</th>
+                            <th>{{ __('b.no')}}</th>
+                            <th>{{ __('b.product_name')}}</th>
+                            <th>{{ __('b.category')}}</th>
+                            <th>{{ __('b.price')}}</th>
+                            <th>{{ __('b.status')}}</th>
+                            <th>{{ __('b.brand')}}</th>
+                            <th>{{ __('b.action')}}</th>
                         </tr>
                     </thead>
 
@@ -41,12 +41,12 @@
                                 
                                 @endforeach
                             </td>
-                            <td>${{ __($product->price) }}</td>
+                            <td>€{{ __($product->price) }}</td>
                             <td>
                                 @if( $product->status == 'active' )
-                                <span class="bg-success badge">{{ __('Active') }}</span>
+                                <span class="bg-success badge">{{ __('b.active')}} </span>
                                 @else
-                                <span class="bg-danger badge">{{ __('In Active') }}</span>
+                                <span class="bg-danger badge">{{ __('b.inactive')}} </span>
                                 @endif
                             </td>
 
@@ -99,10 +99,10 @@
         e.preventDefault();
         var id = $(this).data('id');
         Swal.fire({
-                title: "Are you sure!",
+                title: "Weet je het zeker!",
                 icon: "error",
                 confirmButtonClass: "btn-danger",
-                confirmButtonText: "Yes!",
+                confirmButtonText: "Ja!",
                 showCancelButton: true,
             }).then((result) => {
             if (result.isConfirmed) {

@@ -9,9 +9,9 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-4">
                         <span>
-                        <h4 class="card-title">Categories List</h4> 
+                        <h4 class="card-title">{{__('b.categories_list')}}</h4> 
                         </span>
-                        <a href="{{ route('category.create') }}" class="btn btn-primary btn-sm">Add Category</a> 
+                        <a href="{{ route('category.create') }}" class="btn btn-primary btn-sm">{{__('b.categories_add')}}</a> 
                     </div>
 
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
@@ -83,10 +83,10 @@
         e.preventDefault();
         var id = $(this).data('id');
         Swal.fire({
-                title: "Are you sure!",
+                title: "Weet je het zeker!",
                 icon: "error",
                 confirmButtonClass: "btn-danger",
-                confirmButtonText: "Yes!",
+                confirmButtonText: "Ja!",
                 showCancelButton: true,
             }).then((result) => {
             if (result.isConfirmed) {

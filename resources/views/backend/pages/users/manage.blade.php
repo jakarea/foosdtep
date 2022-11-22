@@ -89,10 +89,10 @@
         e.preventDefault();
         var id = $(this).data('id');
         Swal.fire({
-                title: "Are you sure!",
+                title: "Weet je het zeker!",
                 icon: "error",
                 confirmButtonClass: "btn-danger",
-                confirmButtonText: "Yes!",
+                confirmButtonText: "Ja!",
                 showCancelButton: true,
             }).then((result) => {
             if (result.isConfirmed) {

@@ -63,19 +63,19 @@
                         <tbody>
                             <tr>
                                 <td>01</td>
-                                <td>FoodStep - Admin & Dashboard Template</td>
+                                <td>FoodStep - Admin & Dashboard </td>
                                 <td class="text-end">$499.00</td>
                             </tr>
 
                             <tr>
                                 <td>02</td>
-                                <td>FoodStep - Responsive Landing Template</td>
+                                <td>FoodStep - Responsive Landing </td>
                                 <td class="text-end">$399.00</td>
                             </tr>
 
                             <tr>
                                 <td>03</td>
-                                <td>Veltrix - Admin & Dashboard Template</td>
+                                <td>Foodstep - Admin & Dashboard </td>
                                 <td class="text-end">$499.00</td>
                             </tr>
                             <tr>

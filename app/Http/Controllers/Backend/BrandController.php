@@ -73,7 +73,7 @@ class BrandController extends Controller
 
         $brand->save();
 
-        $notification = session()->flash("success", "Brand Create Successfully");
+        $notification = session()->flash("success", __('b.data_created'));
 
         return redirect()->route('brand.index')->with($notification);
     }
@@ -136,7 +136,7 @@ class BrandController extends Controller
 
         $brand->save();
 
-        $notification = session()->flash("success", "Brand Update Successfully");
+        $notification = session()->flash("success", __('b.data_updated'));
 
         return redirect()->route('brand.index')->with($notification);
     }

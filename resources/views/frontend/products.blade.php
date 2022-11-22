@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
-@section('title') {{ __('Products') }} @endsection
-@section('breadcumbTitle') {{ __('Products') }} @endsection
+@section('title') {{ __('Producten') }} @endsection
+@section('breadcumbTitle') {{ __('Producten') }} @endsection
 @section('content')
 
 <!-- breadcumb start -->
@@ -192,7 +192,7 @@
                                                 <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a>
                                                 @if(Auth::check())
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">{{ __('$'). $product->discount($product->id) }}</span>
+                                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
                                                 </div>
                                                 @endif
                                             </div> <!-- End Product Content -->
@@ -224,7 +224,7 @@
                                                                     <h5 class="title title--normal m-b-20">{{ $product->name }}</h5>
                                                                     @if(Auth::check())
                                                                     <div class="product__price">
-                                                                        <span class="product__price-del">{{ __('$'). $product->discount($product->id) }}</span>
+                                                                        <span class="product__price-del">{{ __('€'). $product->discount($product->id) }}</span>
                                                                     </div>
                                                                     @endif
                                                                     <div class="product__desc m-t-25 m-b-30">
@@ -233,16 +233,10 @@
                                                                     @if( Auth::check() )
                                                                     <div class="product-var p-t-30">
                                                                         <div class="product-quantity product-var__item d-flex align-items-center flex-wrap">
-                                                                        <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn--block btn--long btn--radius-tiny btn--green btn--green-hover-black text-uppercase m-r-35">Buy It Now</a>
+                                                                        <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn--block btn--long btn--radius-tiny btn--green btn--green-hover-black text-uppercase m-r-35">{{ __('text.buy_it_now')}}</a>
                                                                         </div>
                                                                     </div>
                                                                     @endif
-                                                                    <div class="product-links">
-                                                                        <div class="product-social m-tb-30">
-                                                                            <span>{{ __('text.share_this_product')}}</span>
-                                                                            {!! Share::page(url('/products/'. $product->slug))->facebook()->twitter()->whatsapp() !!}
-                                                                        </div>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -271,7 +265,7 @@
                                                 <a href="{{ route('show.product', $product->slug) }}" class="product__link"><h5 class="font--regular">{{ $product->name }}</h5></a>
                                                 @if(Auth::check())
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">{{ __('$'). $product->discount($product->id) }}</span>
+                                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
                                                 </div>
                                                 @endif
                                                 <div class="product__desc">

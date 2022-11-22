@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-body">
+            <div class="card-body" id="printableArea">
                 <div class="invoice-title align-items-center">
                     <h4 class="float-end mb-0 font-size-16">Order # {{ $order->order_number }}</h4>
                     <div>
@@ -69,14 +69,14 @@
                                 <td>{{ $item->product->name }}</td>
                                 <td>{{ $item->quantity }}</td>
                                 <td class="text-end">
-                                    {{ __('$'). $item->product->discount($item->product_id) * $item->quantity }}
+                                    {{ __('€'). $item->product->discount($item->product_id) * $item->quantity }}
                                 </td>
                             </tr>
                             @endforeach
                             
                             <tr>
                                 <td colspan="3" class="text-end">Sub Total</td>
-                                <td class="text-end">{{ __('$'). $order->grand_total }}</td>
+                                <td class="text-end">{{ __('€'). $order->grand_total }}</td>
                             </tr>
 
                             <tr>
@@ -84,7 +84,7 @@
                                     <strong>Total</strong>
                                 </td>
                                 <td class="border-0 text-end">
-                                    <h4 class="m-0">{{ __('$'). $order->grand_total }}</h4>
+                                    <h4 class="m-0">{{ __('€'). $order->grand_total }}</h4>
                                 </td>
                             </tr>
                         </tbody>
@@ -103,9 +103,10 @@
                                     <a class="dropdown-item" href="#">Completed</a>
                                 </div>
                             </div>
-                        <a href="javascript:window.print()"
-                            class="btn btn-success waves-effect waves-light"><i
+                            
+                            <a href="javascript:void(0)" onclick="printDiv('printableArea')" class="btn btn-success waves-effect waves-light" type="submit"><i
                                 class="fa fa-print"></i></a>
+   
                         <a href="#" class="btn btn-primary w-md waves-effect waves-light">{{ __('messages.send') }}</a>
                     </div>
                 </div>
@@ -114,4 +115,21 @@
     </div>
     </div>
 <!-- invoice form end -->
+@endsection
+
+@section('script')
+
+<script>
+    function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+</script>
+
 @endsection

@@ -31,7 +31,7 @@
                         <tr>
                             <td>01</td>
                             <td>Tiger Nixon</td>
-                            <td>admin@foodstep.com</td>
+                            <td>admin@ood-steps.nl</td>
                             <td>01000 000 00</td>
                             <td>Active</td>
                             <td>123, NY-USA</td>
@@ -50,7 +50,7 @@
                         <tr>
                             <td>01</td>
                             <td>Tiger Nixon</td>
-                            <td>admin@foodstep.com</td>
+                            <td>admin@ood-steps.nl</td>
                             <td>01000 000 00</td>
                             <td>Active</td>
                             <td>123, NY-USA</td>
@@ -69,7 +69,7 @@
                         <tr>
                             <td>01</td>
                             <td>Tiger Nixon</td>
-                            <td>admin@foodstep.com</td>
+                            <td>admin@ood-steps.nl</td>
                             <td>01000 000 00</td>
                             <td>Active</td>
                             <td>123, NY-USA</td>
@@ -88,7 +88,7 @@
                         <tr>
                             <td>01</td>
                             <td>Tiger Nixon</td>
-                            <td>admin@foodstep.com</td>
+                            <td>admin@ood-steps.nl</td>
                             <td>01000 000 00</td>
                             <td>Active</td>
                             <td>123, NY-USA</td>
@@ -107,7 +107,7 @@
                         <tr>
                             <td>01</td>
                             <td>Tiger Nixon</td>
-                            <td>admin@foodstep.com</td>
+                            <td>admin@ood-steps.nl</td>
                             <td>01000 000 00</td>
                             <td>Active</td>
                             <td>123, NY-USA</td>
