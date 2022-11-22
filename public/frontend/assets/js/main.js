@@ -128,7 +128,7 @@
         }
     });
 
-    /******************************
+ /******************************
      * Hero Slider - [Single Grid]
      *****************************/
         $('.hero').slick({
@@ -602,11 +602,9 @@
                     $('.result_html').empty();
                     if( data.length > 0 ){
                         $.each( data, function( key, value ) { 
-                            if(user_id == 0){
+                           
                                 $('.result_html').append('<a href="/products/'+value.slug+'""><div class="search-item d-inline-block align-item-center align-middle"><div class="search__p-image d-inline-block"><img src="/frontend/assets/img/product/'+value.image+'" alt="Image" class="img-fluid" width="50" style="vertical-align: bottom; margin-right:5px"></div><div class="search__p-product d-inline-block"><h5 class="m-0">'+value.name+'</h5><p class="m-0">'+value.short_description.slice(0, 60)+'...</p></div></div></a><hr>');
-                            }else{
-                                $('.result_html').append('<a href="/add-to-cart/'+value.id+'""><div class="search-item d-inline-block align-item-center align-middle"><div class="search__p-image d-inline-block"><img src="/frontend/assets/img/product/'+value.image+'" alt="Image" class="img-fluid" width="50" style="vertical-align: bottom; margin-right:5px"></div><div class="search__p-product d-inline-block"><h5 class="m-0">'+value.name+'</h5><p class="m-0">'+value.short_description.slice(0, 60)+'...</p></div></div></a><hr>');
-                            }
+                           
                         })
                     } else {
                         // $('#result_query').hide();
