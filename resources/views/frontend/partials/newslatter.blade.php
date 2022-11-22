@@ -17,8 +17,8 @@
                                     <label class="pos-absolute" for="newsletter-mail"><i class="icon-mail"></i></label>
                                     <input type="email" name="email" id="newsletter-mail" placeholder="{{ __('text.your_email_address')}}">
                                     @error('email')
-                                        <span class="invalid-feedback3" role="alert">
-                                            <strong>{{ $message }}</strong>
+                                        <span class="invalid-feedback3">
+                                            <span>{{ $message }}</span>
                                         </span>
                                     @enderror
                                     <button class="text-uppercase pos-absolute" type="submit" >{{ __('text.subscribe')}}</button>
