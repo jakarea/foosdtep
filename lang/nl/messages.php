@@ -104,5 +104,5 @@ return [
     'customer_services' => 'Klantenservice ',
     'general_question' => 'Algemene vragen ',
     'blogs' => 'Nieuws ',
-    
+    'subscribe_success' => 'e-mail abonnement succes'
 ];

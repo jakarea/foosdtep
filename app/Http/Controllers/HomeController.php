@@ -14,6 +14,7 @@ use App\Models\Backend\Line;
 use App\Models\Backend\Content;
 use App\Models\Backend\AllergensDP;
 use App\Models\Backend\Brand;
+use App\Models\Backend\Subscribe;
 
 class HomeController extends Controller
 {
@@ -54,6 +55,19 @@ class HomeController extends Controller
         return view('frontend/blog_single',compact('blog','blogs'));
     }
 
+    public function subscribe(Request $request){
+        $request->validate([
+            'email'      =>  ['required', 'string', 'max:255']
+        ]);
+
+        $subscribe = new Subscribe;
+        $subscribe->email        =   $request->email;
+        $subscribe->save();
+
+        $notification = session()->flash("success", __("messages.subscribe_success"));
+
+        return redirect()->route('home')->with($notification);
+    }
     // contact method start
     public function contact()
     { 
