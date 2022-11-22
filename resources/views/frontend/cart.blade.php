@@ -212,6 +212,7 @@
         });
 
         let token = $('meta[name="csrf_token"]').attr('content');
+        let user_id = $('meta[name="user_id"]').attr('content');
         var inputdata = $(this).val();
 
         clearTimeout(timer);
@@ -226,7 +227,11 @@
                     $('.result_html').empty();
                     if( data.length > 0 ){
                         $.each( data, function( key, value ) { 
-                            $('.result_html').append('<a href="/add-to-cart/'+value.id+'""><div class="search-item d-inline-block align-item-center align-middle"><div class="search__p-image d-inline-block"><img src="/frontend/assets/img/product/'+value.image+'" alt="Image" class="img-fluid" width="50" style="vertical-align: bottom; margin-right:5px"></div><div class="search__p-product d-inline-block"><h5 class="m-0">'+value.name+'</h5><p class="m-0">'+value.short_description.slice(0, 50)+'...</p></div></div></a><hr>');
+                            if(user_id == 0){
+                                $('.result_html').append('<a href="/products/'+value.slug+'""><div class="search-item d-inline-block align-item-center align-middle"><div class="search__p-image d-inline-block"><img src="/frontend/assets/img/product/'+value.image+'" alt="Image" class="img-fluid" width="50" style="vertical-align: bottom; margin-right:5px"></div><div class="search__p-product d-inline-block"><h5 class="m-0">'+value.name+'</h5><p class="m-0">'+value.short_description.slice(0, 60)+'...</p></div></div></a><hr>');
+                            }else{
+                                $('.result_html').append('<a href="/add-to-cart/'+value.id+'""><div class="search-item d-inline-block align-item-center align-middle"><div class="search__p-image d-inline-block"><img src="/frontend/assets/img/product/'+value.image+'" alt="Image" class="img-fluid" width="50" style="vertical-align: bottom; margin-right:5px"></div><div class="search__p-product d-inline-block"><h5 class="m-0">'+value.name+'</h5><p class="m-0">'+value.short_description.slice(0, 60)+'...</p></div></div></a><hr>');
+                            }
                         })
                     } else {
                         // $('#cart__result').hide();

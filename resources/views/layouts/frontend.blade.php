@@ -10,6 +10,12 @@
      <!-- CSRF Token -->
      <meta name="csrf-token" content="{{ csrf_token() }}">
 
+     @if(Auth::check())
+        <meta name="user_id" content="{{ Auth::user()->id }}">
+    @else
+        <meta name="user_id" content="0">
+    @endif
+
     <!-- ::::::::::::::Favicon icon::::::::::::::-->
     <!-- <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png"> -->
 

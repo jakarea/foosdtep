@@ -66,7 +66,12 @@ class DashboardController extends Controller
     public function show($id)
     {
         //
-        $data = Order::find($id);
+        $data = Order::findOrFail($id);
+
+        if($data && $data->user_id !== Auth::user()->id){
+            $notification = session()->flash("success", __('b.not_my_invocie'));
+            return redirect()->route('customer.dashboard')->with($notification);
+        }
 
        // return $data;
 
