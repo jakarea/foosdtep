@@ -34,7 +34,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/products/category/{slug}', 'App\Http\Controllers\Frontend\ProductController@category')->name('show.category');
 
     // Product cart routes
-    Route::get('/cart', 'App\Http\Controllers\Frontend\ProductController@cart')->name('product.cart');
+    Route::get('/cart', 'App\Http\Controllers\Frontend\ProductController@cart')->middleware(['auth'])->name('product.cart');
     Route::get('/add-to-cart/{id}', 'App\Http\Controllers\Frontend\ProductController@addToCart')->name('add.to.cart');
     Route::patch('/update-cart', 'App\Http\Controllers\Frontend\ProductController@update')->name('update.cart');
     Route::delete('/remove-from-cart', 'App\Http\Controllers\Frontend\ProductController@remove' )->name('remove.from.cart');

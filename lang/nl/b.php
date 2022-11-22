@@ -74,7 +74,6 @@ return [
     'message' => 'Bericht',
     'categories_list' => 'Categorieën Lijst',
     'categories_add' => 'Categorieën toevoegen',
-    
-
+    'not_my_invocie' => 'U mag deze factuur niet tonen'
 ];
 ?>
