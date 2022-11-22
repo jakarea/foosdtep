@@ -135,38 +135,35 @@
                         </div>  <!-- End Section Title -->
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="default-slider default-slider--hover-bg-red">
-                            <div class="blog-feed-slider-3grid default-slider gap__col--30 ">
-                                @foreach($blogs as $blog)
-                                <!-- Start Single Blog Feed -->
-                                <div class="blog-feed">
-                                    <!-- Start Blog Feed Image -->
-                                    <div class="blog-feed__img-box">
-                                        <a href="{{url('blog/'. $blog->slug)}}" class="blog-feed__img--link">
-                                        <img src="{{ asset('backend/assets/images/blog/'. $blog->image) }}" alt="Cate" class="img-fluid" >
-                                        </a>
-                                    </div> <!-- End  Blog Feed Image -->
-                                    <!-- Start  Blog Feed Content -->
-                                    <div class="blog-feed__content ">
-                                        <a href=" {{url('blog/'. $blog->slug) }}" class="blog-feed__link">{{$blog->title}}</a>
-                                        
-                                        <div class="blog-feed__post-meta">
-                                            {{ __('messages.by')}}
-                                            <a class="blog-feed__post-meta--link" href="javascript:void(0)"><span class="blog-feed__post-meta--author">{{$blog->user->name}} /</span></a> 
-                                            <a class="blog-feed__post-meta--link" href="javascript:void(0)"><span class="blog-feed__post-meta--date">{{ date('M d,Y', strtotime($blog->created_at)); }}</span></a> 
-                                            
-                                        </div>
-                                        <p class="blog-feed__excerpt">{{ substr($blog->body,0,170)}}</p>
-                                        <!-- <a href="blog-single-sidebar-left.html" class="btn btn--small btn--radius btn--green btn--green-hover-black font--regular text-uppercase text-capitalize">Continue Reading</a> -->
-                                    </div> <!-- End  Blog Feed Content -->
-                                </div> 
-                                <!-- End Single Blog Feed --> 
-                                @endforeach
-                            </div>
+                <div class="row"> 
+                    @foreach($blogs as $blog)
+                        <div class="col-lg-6">
+                        <!-- Start Single Blog Feed -->
+                        <div class="blog-feed">
+                            <!-- Start Blog Feed Image -->
+                            <div class="blog-feed__img-box">
+                                <a href="{{url('blog/'. $blog->slug)}}" class="blog-feed__img--link">
+                                <img src="{{ asset('backend/assets/images/blog/'. $blog->image) }}" alt="Cate" class="img-fluid" >
+                                </a>
+                            </div> <!-- End  Blog Feed Image -->
+                            <!-- Start  Blog Feed Content -->
+                            <div class="blog-feed__content ">
+                                <a href="javascript:void(0)" class="blog-feed__link">{{$blog->title}}</a>
+                                
+                                <div class="blog-feed__post-meta">
+                                    {{ __('messages.by')}}
+                                    <a class="blog-feed__post-meta--link" href="javascript:void(0)"><span class="blog-feed__post-meta--author">{{$blog->user->name}} /</span></a> 
+                                    <a class="blog-feed__post-meta--link" href="javascript:void(0)"><span class="blog-feed__post-meta--date">{{ date('M d,Y', strtotime($blog->created_at)); }}</span></a> 
+                                    
+                                </div>
+                                <p class="blog-feed__excerpt">{{ substr($blog->body,0,170)}}</p>
+
+                                <a href="{{url('blog/'. $blog->slug)}}" class="btn btn--small btn--radius btn--green btn--green-hover-black font--regular text-uppercase text-capitalize">{{__('text.more_info')}}</a>
+                            </div> <!-- End  Blog Feed Content -->
+                        </div> 
+                        <!-- End Single Blog Feed --> 
                         </div>
-                    </div>
+                    @endforeach 
                 </div>
             </div>
         </div> <!-- ::::::  End  Blog News   ::::::  -->

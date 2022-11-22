@@ -25,16 +25,16 @@
                     @php
                         $i = 1;
                         @endphp
-                        @foreach($blogs as $blog)
+                        @foreach($blogs as $blog2)
                         <li class="d-flex align-items-center ">
-                        @if($blog->image)
-                            <a class="sidebar__post-img img-responsive" href="{{url('blog/'. $blog->slug) }}">
-                                <img src="{{ asset('backend/assets/images/blog/'. $blog->image) }}" alt="" style="width:82px">
+                        @if($blog2->image)
+                            <a class="sidebar__post-img img-responsive" href="{{url('blog/'. $blog2->slug) }}">
+                                <img src="{{ asset('backend/assets/images/blog/'. $blog2->image) }}" alt="" style="width:82px">
                             </a>
                             @endif
                             <div class="sidebar__post-content">
-                                <span class="d-block color-gray">{{ date('M d,Y', strtotime($blog->created_at)); }}</span>
-                                <a class="link--gray" href="{{url('blog/'. $blog->slug) }}">{{$blog->title,0,70}}</a>
+                                <span class="d-block color-gray">{{ date('M d,Y', strtotime($blog2->created_at)); }}</span>
+                                <a class="link--gray" href="{{url('blog/'. $blog2->slug) }}">{{$blog2->title,0,70}}</a>
                             </div>
                         </li>
                         @php

@@ -130,5 +130,7 @@ return [
     'add_prodct' => 'Producten Toevoegen',
     'find_product' => 'Product zoeken',
     'print' => 'afdrukken',
-    'recent_post' => 'recente post'
+    'recent_post' => 'recente post',
+    'product_group' => 'PRODUCTGROEP',
+    'more_info' => 'Meer informatie',
 ];

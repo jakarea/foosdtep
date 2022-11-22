@@ -14,8 +14,9 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-content">
-                    <h5 class="section-content__title">{{ __('text.purchase_list')}}</h5>
-
+                <h5 class="section-content__title">{{ __('text.purchase_list')}}</h5>
+                </div>
+                <div class="section-content justify-content-start"> 
                     <!-- add product form start -->
                     <form class="add_product_box position-relative">
                         <label for="">{{ __('text.add_prodct') }}</label>

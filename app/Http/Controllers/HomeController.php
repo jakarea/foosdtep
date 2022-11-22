@@ -31,7 +31,7 @@ class HomeController extends Controller
 
         $products = Product::where('status', 'active')->take('12')->get();
 
-        $blogs = Blog::where('status', 'active')->orderby('id', 'desc')->take('12')->get(); 
+        $blogs = Blog::where('status', 'active')->orderby('id', 'desc')->take('2')->get(); 
 
         $sliders = Slider::where('status', 'active')->orderby('id', 'desc')->take('3')->get(); 
 
