@@ -144,19 +144,18 @@
                                 <div class="blog-feed">
                                     <!-- Start Blog Feed Image -->
                                     <div class="blog-feed__img-box">
-                                        <a href="{{route('blog.index')}}" class="blog-feed__img--link">
+                                        <a href="{{url('blog/'. $blog->slug)}}" class="blog-feed__img--link">
                                         <img src="{{ asset('backend/assets/images/blog/'. $blog->image) }}" alt="Cate" class="img-fluid" >
                                         </a>
                                     </div> <!-- End  Blog Feed Image -->
                                     <!-- Start  Blog Feed Content -->
                                     <div class="blog-feed__content ">
-                                        <a href="{{route('blog.index')}}" class="blog-feed__link">{{$blog->title}}</a>
+                                        <a href=" {{url('blog/'. $blog->slug) }}" class="blog-feed__link">{{$blog->title}}</a>
                                         
                                         <div class="blog-feed__post-meta">
                                             {{ __('messages.by')}}
                                             <a class="blog-feed__post-meta--link" href="javascript:void(0)"><span class="blog-feed__post-meta--author">{{$blog->user->name}} /</span></a> 
                                             <a class="blog-feed__post-meta--link" href="javascript:void(0)"><span class="blog-feed__post-meta--date">{{ date('M d,Y', strtotime($blog->created_at)); }}</span></a> 
-                                            
                                             
                                         </div>
                                         <p class="blog-feed__excerpt">{{ substr($blog->body,0,170)}}</p>

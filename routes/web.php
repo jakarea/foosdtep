@@ -26,7 +26,8 @@ Route::controller(HomeController::class)->group(function () {
 
     // about blade route
     Route::get('/about', 'about')->name('about');
-
+    Route::get('/blog', 'blog')->name('blog');
+    Route::get('/blog/{slug}', 'single_blog')->name('single_blog');
     // product route
     Route::get('/products', 'App\Http\Controllers\Frontend\ProductController@index')->name('products');
     Route::post('/products', 'App\Http\Controllers\Frontend\ProductController@autocompleteSearch')->name('autocompleteSearch');

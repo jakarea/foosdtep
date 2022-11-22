@@ -130,4 +130,5 @@ return [
     'add_prodct' => 'Producten Toevoegen',
     'find_product' => 'Product zoeken',
     'print' => 'afdrukken',
+    'recent_post' => 'recente post'
 ];

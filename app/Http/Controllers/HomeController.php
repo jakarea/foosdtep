@@ -41,6 +41,19 @@ class HomeController extends Controller
         return view('frontend/about');
     }
 
+    public function blog()
+    {
+        $blogs = Blog::where('status', 'active')->orderby('id', 'desc')->take('12')->get(); 
+        return view('frontend/blog',compact('blogs'));
+    }
+
+    public function single_blog($slug)
+    {
+        $blogs = Blog::where('status', 'active')->orderby('id', 'desc')->take('12')->get(); 
+        $blog = Blog::where('slug', $slug)->first();
+        return view('frontend/blog_single',compact('blog','blogs'));
+    }
+
     // contact method start
     public function contact()
     { 
