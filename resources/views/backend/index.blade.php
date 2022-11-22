@@ -10,7 +10,10 @@
                         <span class="avatar-title bg-soft-primary text-primary rounded">
                             <i class="mdi mdi-tag-plus-outline"></i>
                         </span>
+                       
                     </div>
+
+                    
                     <div class="flex-1">
                         <div class="font-size-16 mt-2">{{ __('b.new_orders') }} </div>
                     </div>

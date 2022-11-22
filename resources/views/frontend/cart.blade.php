@@ -71,10 +71,9 @@
                 </div>  <!-- End Cart Table -->
                     <!-- Start Cart Table Button -->
                 <div class="cart-table-button m-t-10">
-                    <div class="cart-table-button--left">
+                    <div class="cart-table-button--left cart-custom-bttn">
                         <!-- <a href="{{ route('products') }}" class="btn btn--box btn--large btn--radius btn--green btn--green-hover-black btn--uppercase font--bold m-t-20">{{ __('text.continue_shopping')}} </a> -->
                         <a href="javascript:void(0)" onclick="printDiv('printableArea')" class="btn p-2 btn--radius btn-primary btn--green-hover-black btn--uppercase font--semi-bold" type="submit">{{ __('text.print')}} </a>
-  
 
                     </div>
                     <!-- <div class="cart-table-button--right">

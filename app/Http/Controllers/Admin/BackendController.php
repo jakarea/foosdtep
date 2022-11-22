@@ -16,12 +16,12 @@ class BackendController extends Controller
 
         return view('backend/index')->with($notification);
     }
-    public function categories()
-    {
-        $notification = array(
-            'message' => 'Login Successfully!!',
-            'alert-type' => 'success'
-        );
-        return view('backend/categories')->with($notification);
-    }
+    // public function categories()
+    // {
+    //     $notification = array(
+    //         'message' => 'Login Successfully!!',
+    //         'alert-type' => 'success'
+    //     );
+    //     return view('backend/categories')->with($notification);
+    // }
 }

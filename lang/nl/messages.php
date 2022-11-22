@@ -64,7 +64,7 @@ return [
     'buy_it_now' => 'Koop het nu',
     'description' => 'Beschrijvingen',
     'prod_details' => 'Productdetails',
-    'related_prod' => 'Verwant product',
+    'related_prod' => 'Gerelateerde producten',
     'more_prod' => 'Meer producten',
     'home' => 'huis',
     'products' => 'Producten',
