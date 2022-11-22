@@ -108,7 +108,7 @@ return [
     'cart_item' =>'Uw winkelwagenitems',
     'image' => 'Afbeelding',
     'product_name' => 'productnaam',
-    'unit_price' => 'Tot prijs',
+    'unit_price' => 'Prijs',
     'qty' => 'Aantal',
     'sub_total' => 'Subtotaal',
     'action' => 'Actie',

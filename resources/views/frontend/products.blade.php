@@ -16,6 +16,7 @@
                         <!-- Category Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
+                                <h3 class="mb-3">PRODUCTGROEP</h3>
                                 <h5 class="sidebar__title">{{ __('text.category')}}</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
@@ -250,7 +251,7 @@
                             </div>
                             <div class="tab-pane shop-list" id="sort-list">
                                 <div class="row">
-                                    @foreach( $products as $key => $product )
+                                    @foreach( $products as $key => $product)
                                     <!-- Start Single List Product -->
                                     <div class="col-12">
                                         <div class="product__box product__box--list">

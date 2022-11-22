@@ -39,10 +39,12 @@
                 </div>
             </div>
             <div class="col-lg-3">
+                @if(!Auth::check())
                 <div class="slogan-bttn-wrap">
                     <a href="{{url('register')}}">{{ __('text.become_member')}}</a>
                     <a href="{{url('login')}}"><i class="fas fa-lock"></i>{{ __('text.login')}}</a>
                 </div>
+                @endif
             </div>
         </div>
     </div>

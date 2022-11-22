@@ -3,10 +3,12 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                @if(!Auth::check())
                 <div class="slogan-bttn-wrap">
                     <a href="{{url('register')}}">{{ __('text.become_member')}}</a>
                     <a href="{{url('login')}}"><i class="fas fa-lock"></i>{{ __('text.login')}}</a>
                 </div>
+                @endif
                 </div>
             </div>
             <div class="row align-items-center">

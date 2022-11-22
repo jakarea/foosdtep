@@ -1,8 +1,32 @@
+<!-- ::::::  Start  Company Logo Section  ::::::  -->
+<div class="company-logo m-t-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="company-logo__area default-slider align-items-center"> 
+                            @foreach(App\Models\Backend\Category::all() as $categorys) 
+                                @if($categorys->image)
+                                    <!-- Start Single Company Logo Item -->
+                                    <div class="company-logo__item">
+                                        <a href="{{ route('show.category', $categorys->slug)}}" class="company__logo--link">
+                                            <img class="product__img img-fluid" src="{{asset('backend/assets/images/category/'.$categorys->image)  }}" alt="{{$categorys->name}}" title="{{ $categorys->name }}">
+                                        </a>
+                                    </div> 
+                                    <!-- End Single Company Logo Item --> 
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- ::::::  End  Company Logo Section  ::::::  -->
+
 <!-- ::::::  Start  Footer ::::::  -->
-<footer class="footer">
-        <div class="container">
+<footer class="footer mt-5">
+        <div class="container"> 
             <!-- Start Footer Top Section --> 
              <div class="footer__top">
+             
                 <div class="row"> 
                     <div class="col-lg-4 col-md-5">
                         <div class="footer__about">
@@ -42,9 +66,8 @@
                             <ul class="footer__nav">
                                 @foreach(App\Models\Backend\Category::all() as $key => $category)
                                     <li class="footer__list"><a href="{{ route('show.category', $category->slug)}}" class="footer__link">{{ $category->name }} </a></li> 
-                                @endforeach
- 
-                                
+                                @endforeach 
+
                             </ul>
                         </div>
                     </div>
@@ -52,6 +75,9 @@
                         <div class="footer__menu">
                             <h4 class="footer__nav-title footer__nav-title--dash footer__nav-title--dash-red">{{__('messages.my_account')}}</h4>
                             <ul class="footer__nav">  
+                                <li class="footer__list"><a href="#" class="footer__link">{{__('messages.customer_services')}}</a></li> 
+                                <li class="footer__list"><a href="#" class="footer__link">{{__('messages.general_question')}}</a></li>
+                                <li class="footer__list"><a href="{{ url('blog') }}" class="footer__link">{{__('messages.blogs')}}</a></li>  
                                 <li class="footer__list"><a href="#" class="footer__link">{{__('messages.store_location')}}</a></li> 
                                 <li class="footer__list"><a href="{{ url('login') }}" class="footer__link">{{__('messages.login')}}</a></li>
                                 <li class="footer__list"><a href="{{ url('register') }}" class="footer__link">{{__('messages.signup')}}</a></li>
@@ -77,20 +103,13 @@
             <!-- Start Footer Bottom Section --> 
             <div class="footer__bottom">
                 <div class="row">
-                    <div class="col-lg-8 col-md-6 col-12">
+                    <div class="col-lg-12 col-md-12 col-12">
                         <!-- Start Footer Copyright Text -->
-                        <div class="footer__copyright-text"> 
-                            <p>&copy; 2022 <a href="#">FoodStep.</a> {{ __('text.crafted_with')}} <i class="fas fa-heart text-danger"></i></p>
-                        </div> <!-- End Footer Copyright Text -->
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-12">
-                         <!-- Start Footer Payment Logo -->
-                        <div class="footer__payment">
-                            <a href="#" class="footer__payment-link">
-                                <img src="assets/img/company-logo/payment.png" alt="" class="footer__payment-img">
-                            </a>
-                        </div>  <!-- End Footer Payment Logo -->
-                    </div>
+                        <div class="footer__copyright-text text-center"> 
+                            <p>Ontworpen en ontwikkelt door <a href="https://gonextlevel.agency/">Go Next Level Marketing Agency</a> {{ __('text.crafted_with')}} <i class="fas fa-heart text-danger"></i></p>
+                        </div> 
+                        <!-- End Footer Copyright Text -->
+                    </div> 
                 </div>
             </div> <!-- End Footer Bottom Section --> 
         </div>

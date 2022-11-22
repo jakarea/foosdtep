@@ -104,7 +104,8 @@
                     <table>
                         <tr>
                             <th style="padding: 10px;">{{ __('text.image')}}</th>
-                            <th style="text-align: center; padding: 10px;">{{ __('text.product_name')}}</th>  
+                            <th style="text-align: center; padding: 10px;">{{ __('text.product_name')}}</th> 
+                            <th style="text-align: center; padding: 10px;">{{ __('text.unit_price')}}</th> 
                             <th style="text-align: center;  padding: 10px;">{{ __('text.qty')}}</th>
                         </tr>
                         @if(session('cart'))
@@ -114,6 +115,7 @@
                                         <img class="img-fluid" src="{{ asset('frontend/assets/img/product/'. $details['image'] ) }}" alt="" width="60">
                                     </td>
                                     <td style="padding: 10px;" class="product-name">{{ $details['name'] }}</td>  
+                                    <td class="product-price-cart"><span class="amount">€{{ $details['price'] }}</span></td> 
                                     <td style="padding: 10px;" class="product-name">{{ $details['quantity'] }}</td>  
                                 </tr>
                             @endforeach
