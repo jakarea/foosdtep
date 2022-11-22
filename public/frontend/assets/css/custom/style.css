@@ -388,7 +388,16 @@ input[type=radio].shipping-select::after,
   }
 
   .section-content {
-    justify-content: center;
+    justify-content: center; 
+  }
+  .blog.m-t-100,
+  .product.m-t-100{
+    margin-top: 20px!important;
+  }
+
+  .m-b-35{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
   }
 
   .header__user-action-icon li span {
@@ -424,9 +433,9 @@ input[type=radio].shipping-select::after,
   }
 
   .section-content {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column; 
   }
+
   .search__p-product h5{
     font-size: 12px;
   }
