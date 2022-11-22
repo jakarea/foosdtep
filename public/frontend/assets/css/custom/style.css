@@ -1,10 +1,10 @@
 body {
-  background-color: #e0c7790d !important;
+  background-color: #fff !important;
 }
 
 @font-face {
   font-family: rock-regular;
-  src: url('./../../fonts/rock/rock.ttf');
+  src: url('./../../fonts/rock/rock.ttf'); 
 }
 
 @font-face {
@@ -257,6 +257,10 @@ input[type=radio].shipping-select::after,
 
 .tablist--style-black .nav-link::after {
   background-color: #e0c77a;
+}
+
+.section-content {
+  justify-content: center; 
 }
 
 .slogan-bttn-wrap {
@@ -558,8 +562,12 @@ input[type=radio].shipping-select::after,
   color: #fff;
 }
 
-
 .cart-custom-bttn a{
   background-color: #e0c77a;
   border-color: #a58629;
+}
+
+.company-logo .slick-track{
+  display: flex;
+  align-items: center;
 }

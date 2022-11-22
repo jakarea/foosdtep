@@ -70,7 +70,7 @@
                                 <td>{{ $item->product->name }}</td>
                                 <td>{{ $item->quantity }}</td>
                                 <td class="text-end">
-                                    {{ __('£'). $item->product->discount($item->product_id) * $item->quantity }}
+                                    {{ __('€'). $item->product->discount($item->product_id) * $item->quantity }}
                                 </td>
                             </tr>
                             @endforeach

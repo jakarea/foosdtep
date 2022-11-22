@@ -72,7 +72,7 @@ return [
     'about' => 'Over',
     'categories' => 'Categorieën',
     'refund' => 'Terugbetaling & Retourneren',
-    'my_account' => 'Mijn rekening',
+    'my_account' => 'INFORMATIE',
     'store_location' => 'Winkel locatie',
     'login' => 'Log in',
     'signup' => 'Aanmelden',
@@ -100,5 +100,9 @@ return [
     'save_info' => 'Informatie opslaan',
     'logout_success' => 'Uitloggen gelukt',
     'contact_send_success' => 'Mail verzonden succes, we nemen spoedig contact met je op!',
-    'login_success' => 'Succesvol ingelogd'
+    'login_success' => 'Succesvol ingelogd',
+    'customer_services' => 'Klantenservice ',
+    'general_question' => 'Algemene vragen ',
+    'blogs' => 'Nieuws ',
+    
 ];
