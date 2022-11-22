@@ -571,3 +571,20 @@ input[type=radio].shipping-select::after,
   display: flex;
   align-items: center;
 }
+
+.blog-feed__img-box img {  
+  width: 100%;
+  display: block;
+  height: 352px;
+}
+
+.blog-feed__content  {
+  text-align: center;
+  background: #fff;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  top: -63px;
+  padding: .4rem 1.6rem;
+  /* box-shadow: 1px 1px 4px #ccc; */
+}

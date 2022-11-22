@@ -17,7 +17,8 @@
                         <!-- Category Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY CATEGORY</h5>
+                                <h3 class="mb-3">{{ __('text.product_group') }}</h3>
+                                <h5 class="sidebar__title">{{ __('text.category')}}</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
                                 @foreach(App\Models\Backend\Category::all() as $key => $category)
@@ -33,7 +34,7 @@
                         <!-- Brand Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY BRAND</h5>
+                                <h5 class="sidebar__title">{{__('text.brand')}}</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
                                 @foreach(App\Models\Backend\Brand::all() as $key => $brand)
@@ -49,7 +50,7 @@
                         <!-- ProductGroup Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY PRODUCT GROUP</h5>
+                                <h5 class="sidebar__title">{{ __('text.product_group') }}</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
                                 @foreach(App\Models\Backend\ProductGroup::all() as $key => $PGroup)
@@ -65,7 +66,7 @@
                         <!-- Faith Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY FAITH</h5>
+                                <h5 class="sidebar__title">{{ __('text.faith') }}</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
                                 @foreach(App\Models\Backend\Faith::all() as $key => $faith)
@@ -81,7 +82,7 @@
                         <!-- Faith Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY LINES</h5>
+                                <h5 class="sidebar__title">{{ __('text.lines') }}</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
                                 @foreach(App\Models\Backend\Line::all() as $key => $line)
@@ -97,7 +98,7 @@
                         <!-- Faith Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY CONTENTS</h5>
+                                <h5 class="sidebar__title">{{ __('text.contents') }}</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
                                 @foreach(App\Models\Backend\Content::all() as $key => $content)
@@ -113,7 +114,7 @@
                         <!-- Faith Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY Allergens & Diet Preference</h5>
+                                <h5 class="sidebar__title">{{__('text.allerge_and_diet')}}</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
                                 @foreach(App\Models\Backend\AllergensDP::all() as $key => $AllergensDP)

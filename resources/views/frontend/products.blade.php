@@ -16,7 +16,7 @@
                         <!-- Category Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
-                                <h3 class="mb-3">PRODUCTGROEP</h3>
+                                <h3 class="mb-3">{{ __('text.product_group') }}</h3>
                                 <h5 class="sidebar__title">{{ __('text.category')}}</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
