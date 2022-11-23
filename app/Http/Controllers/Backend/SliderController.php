@@ -46,12 +46,11 @@ class SliderController extends Controller
         //
         $request->validate([
             'title'      =>  ['required', 'string', 'max:255'],
-
             'top_subtitle'    =>  ['required', 'string'],
             'bottom_subtitle'    =>  ['required', 'string'],
             'button_text'    =>  ['required', 'string'],
             'status'    =>  ['required', 'not_in:0'],
-            'image'     =>  ['required', 'mimes:jpg,jpeg,png,gif|max:1024']
+            'image'     =>  ['required', 'mimes:jpg,jpeg,png,webp,gif|max:1024']
         ]);
 
         $slider = new Slider;
@@ -59,6 +58,7 @@ class SliderController extends Controller
         $slider->title              =   $request->title;
         $slider->top_subtitle       =   $request->top_subtitle;
         $slider->bottom_subtitle    =   $request->bottom_subtitle;
+        $slider->text_bg            =   $request->text_bg;
         $slider->button_text        =   $request->button_text;
         $slider->button_link        =   $request->button_link;
         $slider->status             =   $request->status;
@@ -126,6 +126,7 @@ class SliderController extends Controller
         $slider->top_subtitle       =   $request->top_subtitle;
         $slider->bottom_subtitle    =   $request->bottom_subtitle;
         $slider->button_text        =   $request->button_text;
+        $slider->text_bg            =   $request->text_bg;
         $slider->button_link        =   $request->button_link;
         $slider->status             =   $request->status;
 

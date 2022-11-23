@@ -22,13 +22,29 @@
                 <form class="custom-validation" action="{{ route('slider.store') }}" method="post" enctype="multipart/form-data">
                     @csrf  
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-9">
                             <div class="mb-3">
                                 <label class="form-label">Slider Title</label>
                                 <div>
                                     <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title')}}" placeholder="Enter Slider title">
                                     <span class="text-danger">@error('title'){{ $message }} @enderror</span>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="mb-3">
+                                <label class="form-label">Title Background</label>
+                                <div class="d-flex mt-2">
+                                <div class="me-3">
+                                    <input type="radio" value="hero_ol_white" name="text_bg" id="white_bg" checked class="@error('text_bg') is-invalid @enderror"><label for="white_bg">&nbsp; White</label>
+                                    <span class="text-danger">@error('text_bg'){{ $message }} @enderror</span>
+                                </div>
+                                <div>
+                                    <input type="radio" value="hero_ol_dark" name="text_bg" id="dark_bg" class="@error('text_bg') is-invalid @enderror"><label for="dark_bg">&nbsp; Dark</label>
+                                    <span class="text-danger">@error('text_bg'){{ $message }} @enderror</span>
+                                </div>
+                                </div>
+                                
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -71,7 +87,7 @@
                             </div>
                         </div>
                         
-                        <div class="col-lg-7    ">
+                        <div class="col-lg-7">
                             <div class="mb-3">
                                 <label class="form-label">Slider Image</label>
                                 <div>
@@ -80,6 +96,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="col-lg-5">
                             <div class="mb-3">
                                 <label class="form-label">Status</label>
