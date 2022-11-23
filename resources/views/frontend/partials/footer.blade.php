@@ -106,7 +106,7 @@
                     <div class="col-lg-12 col-md-12 col-12">
                         <!-- Start Footer Copyright Text -->
                         <div class="footer__copyright-text text-center"> 
-                            <p>Ontworpen en ontwikkelt door <a href="https://gonextlevel.agency/">Go Next Level Marketing Agency</a> {{ __('text.crafted_with')}} <i class="fas fa-heart text-danger"></i></p>
+                            <p>Ontworpen en ontwikkelt door <a href="https://gonextlevel.agency/">Go Next Level Marketing Agency</a></p>
                         </div> 
                         <!-- End Footer Copyright Text -->
                     </div> 
