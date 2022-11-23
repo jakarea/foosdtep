@@ -453,6 +453,14 @@ input[type=radio].shipping-select::after,
     width: 100%; 
     left: 0;
   }
+  .banner__content--center{
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .banner__box--single-text-style-2 h6{
+    font-size: 12px;
+  }
 }
 
 #printableArea {
