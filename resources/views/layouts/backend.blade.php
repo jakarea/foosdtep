@@ -8,7 +8,7 @@
         <meta content="FoodStep" name="description" />
         <meta content="FoodStep" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.ico') }}">
+        <link rel="shortcut icon" href="{{ asset('frontend/assets/img/favicon.png') }}" type="image/png">
         <!-- All Header Css -->
         @include('backend.partials.css')
         <link href="{{ asset('backend/assets/custom-css/style.css') }}" rel="stylesheet" type="text/css" />

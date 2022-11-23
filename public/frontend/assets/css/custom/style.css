@@ -1,5 +1,5 @@
 body {
-  background-color: #fff !important;
+  background-color: rgba(243, 245, 247, 0.772)!important;
 }
 
 @font-face {
@@ -453,6 +453,14 @@ input[type=radio].shipping-select::after,
     width: 100%; 
     left: 0;
   }
+  .banner__content--center{
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .banner__box--single-text-style-2 h6{
+    font-size: 12px;
+  }
 }
 
 #printableArea {
@@ -598,3 +606,60 @@ input[type=radio].shipping-select::after,
 .newsletter__form-content input:focus-within{
   background-color: transparent!important;
 }
+
+.section-content--border { 
+  border-bottom: 1px solid #000;
+}
+
+.footer__top{
+  border-top: 1px solid transparent;
+}
+
+.company-logo__item {
+  text-align: center;
+  width: 140px!important;
+  height: 153px!important;
+  background: #fff;
+  display: flex!important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+ 
+
+@media (min-width: 1566px){
+  .hero .hero-slider img {
+    height: 732px;
+  }
+}
+
+
+/* hero area white css start */
+.hero_ol_white{ 
+  background-color: rgba(255, 255, 255, 0.3)!important;
+  padding: 2rem; 
+}
+
+.hero_ol_white .hero__content--inner  p,
+.hero_ol_white .hero__content--inner  h4,
+.hero_ol_white .hero__content--inner  h6,
+.hero_ol_white .hero__content--inner h1{
+  color: #000!important;
+}
+/* hero area white css end */
+
+
+/* hero area dark css start */
+.hero_ol_dark{ 
+  background-color: rgba(0, 0, 0, 0.3)!important;
+  padding: 2rem; 
+}
+
+.hero_ol_dark .hero__content--inner  p,
+.hero_ol_dark .hero__content--inner  h4,
+.hero_ol_dark .hero__content--inner  h6,
+.hero_ol_dark .hero__content--inner h1{
+  color: #fff!important;
+}
+
+/* hero area dark css end */

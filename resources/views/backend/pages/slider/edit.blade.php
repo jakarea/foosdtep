@@ -14,13 +14,29 @@
                 <input type="hidden" name="_method" value="PUT">
                     @csrf  
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-9">
                             <div class="mb-3">
                                 <label class="form-label">Slider Title</label>
                                 <div>
                                     <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $slider->title }}" placeholder="Enter Slider title">
                                     <span class="text-danger">@error('title'){{ $message }} @enderror</span>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="mb-3">
+                                <label class="form-label">Title Background</label>
+                                <div class="d-flex mt-2">
+                                <div class="me-3">
+                                    <input type="radio" value="hero_ol_white" name="text_bg" id="white_bg"  class="@error('text_bg') is-invalid @enderror" {{ $slider->text_bg == 'hero_ol_white' ? 'checked' : ''}}><label for="white_bg">&nbsp; White</label>
+                                    <span class="text-danger">@error('text_bg'){{ $message }} @enderror</span>
+                                </div>
+                                <div>
+                                    <input type="radio" value="hero_ol_dark" name="text_bg" id="dark_bg" class="@error('text_bg') is-invalid @enderror" {{ $slider->text_bg == 'hero_ol_dark' ? 'checked' : ''}}><label for="dark_bg">&nbsp; Dark</label>
+                                    <span class="text-danger">@error('text_bg'){{ $message }} @enderror</span>
+                                </div>
+                                </div>
+                                
                             </div>
                         </div>
 

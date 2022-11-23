@@ -17,7 +17,7 @@
     @endif
 
     <!-- ::::::::::::::Favicon icon::::::::::::::-->
-    <!-- <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png"> -->
+    <link rel="shortcut icon" href="{{ asset('frontend/assets/img/favicon.png') }}" type="image/png">
 
     <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/vendor/vendor.min.css') }}"/>
