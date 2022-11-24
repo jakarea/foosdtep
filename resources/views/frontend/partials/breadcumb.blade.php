@@ -1,5 +1,5 @@
 <!-- ::::::  Start  Breadcrumb Section  ::::::  -->
-<div class="page-breadcrumb" style="background-image: url({{ asset('frontend/assets/img/bredcumb/Breadcumb.webp') }}); background-size: cover; background-repeat: no-repeat; background-position: center center;">
+<div class="page-breadcrumb" style="background-image: url({{ asset('frontend/assets/img/bredcumb/Breadcumb.jpeg') }}); background-size: cover; background-repeat: no-repeat; background-position: center center;">
     <div class="container">
         <div class="row">
             <div class="col-12">

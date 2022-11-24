@@ -14,7 +14,7 @@
                     <h5 class="section-content__title text-center">{{ __('text.my_account')}}</h5>
                 </div>
                 <div class="login-form-container">
-                    <h5 class="sidebar__title">{{__('text.register') }}</h5>
+                    <h5 class="sidebar__title">{{__('messages.create_free_account') }}</h5>
                     <div class="login-register-form">
                         @if (count($errors) > 0)
                         <div class = "alert alert-danger">
@@ -78,7 +78,7 @@
                             </div>
                             <div class="d-flex align-items-center justify-content-between flex-wrap m-tb-20 pt-3 align-middle">
                             <div class="regiter-acc text-end">
-                                    <span>{{__('text.already_have_account') }} <a href="{{ url('login') }}">{{__('text.login_here') }}</a></span>
+                                    <span>{{__('messages.already_have_accnt') }} <a href="{{ url('login') }}">{{__('text.login_here') }}</a></span>
                                 </div>
                                 <button class="btn btn--box btn--medium btn--radius btn--black btn--black-hover-green btn--uppercase font--semi-bold" type="submit">{{__('text.register_now') }} </button>
                                
@@ -88,14 +88,10 @@
                 </div>
             </div>  <!-- End Login Area -->
             <div class="col-lg-6 col-md-8 col-12 ps-md-0">
-                <div class="login-txt-wrap" style="height: 90.5%;">
-                    <h4>Onbezorgd ondernemen. <br> Word nu FoodSteps klant.</h4>
-
-                    <p>Als ondernemer of instelling inkopen doen bij een FoodSteps-vestiging? Krijg met de klantenkaart vandaag nog exclusief toegang tot al onze vestigingen.</p>
-                    <p>Grote verpakkingen, kleine prijzen <br>
-Breed assortiment A-merken en eigen merken <br>
-Altijd dichtbij en makkelijk bereikbaar <br>
-Persoonlijk advies van échte vakmensen</p> <a href="{{url('login')}}"><i class="fas fa-lock me-2"></i>{{ __('text.login')}}</a>
+                <div class="login-txt-wrap d-flex align-items-center justify-content-center flex-column" style="height: 90.5%;">
+                <h4>Wordt nu een klant van Food Steps.</h4>
+                <p> Als ondernemer of instelling inkopen doen bij Food Steps? Maak een gratis account aan en krijg exclusieve toegang tot onze producten</p> 
+                <a href="{{url('login')}}"><i class="fas fa-lock me-2"></i>{{ __('messages.already_have_accnt_click')}}</a>
                 </div>
             </div>
         </div>

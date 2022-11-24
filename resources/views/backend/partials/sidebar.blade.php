@@ -24,7 +24,7 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title">Menu</li>
+                <li class="menu-title">{{__('b.menu') }}</li>
 
                 <li class="@if( Route::currentRouteNamed('admin.dashboard')) mm-active @endif">
                     <a href="{{ route('admin.dashboard') }}" class="waves-effect-@if( Route::currentRouteNamed('admin.dashboard')) active @endif">
@@ -73,37 +73,37 @@
                     <li class="@if( Route::currentRouteNamed('brand.index')) mm-active @endif">
                         <a href="{{ route('brand.index') }}" class="waves-effect-@if( Route::currentRouteNamed('brand.index')) active @endif">
                             <i class="mdi mdi-newspaper"></i>
-                            <span>{{ __('b.')}} Brand</span>
+                            <span>{{ __('b.brand')}}</span>
                         </a>
                     </li>
                     <li class="@if( Route::currentRouteNamed('productgroup.index')) mm-active @endif">
                         <a href="{{ route('productgroup.index') }}" class="waves-effect-@if( Route::currentRouteNamed('productgroup.index')) active @endif">
                             <i class="mdi mdi-newspaper"></i>
-                            <span>{{ __('b.')}} Productgroup</span>
+                            <span>{{ __('b.product_group')}}</span>
                         </a>
                     </li>
                     <li class="@if( Route::currentRouteNamed('faith.index')) mm-active @endif">
                         <a href="{{ route('faith.index') }}" class="waves-effect-@if( Route::currentRouteNamed('faith.index')) active @endif">
                             <i class="mdi mdi-newspaper"></i>
-                            <span>{{ __('b.')}} Faith</span>
+                            <span>{{ __('b.faith')}} </span>
                         </a>
                     </li>
                     <li class="@if( Route::currentRouteNamed('line.index')) mm-active @endif">
                         <a href="{{ route('line.index') }}" class="waves-effect-@if( Route::currentRouteNamed('line.index')) active @endif">
                             <i class="mdi mdi-newspaper"></i>
-                            <span>{{ __('b.')}} Line</span>
+                            <span>{{ __('b.line')}} </span>
                         </a>
                     </li>
                     <li class="@if( Route::currentRouteNamed('content.index')) mm-active @endif">
                         <a href="{{ route('content.index') }}" class="waves-effect-@if( Route::currentRouteNamed('content.index')) active @endif">
                             <i class="mdi mdi-newspaper"></i>
-                            <span>{{ __('b.')}} Content</span>
+                            <span>{{ __('b.content')}} </span>
                         </a>
                     </li>
                     <li class="@if( Route::currentRouteNamed('AllergensDP.index')) mm-active @endif">
                         <a href="{{ route('AllergensDP.index') }}" class="waves-effect-@if( Route::currentRouteNamed('AllergensDP.index')) active @endif">
                             <i class="mdi mdi-newspaper"></i>
-                            <span>{{ __('b.')}} AllergensDP</span>
+                            <span>{{ __('b.all_dsngrp')}}</span>
                         </a>
                     </li>
                     </ul>

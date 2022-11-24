@@ -96,6 +96,7 @@
                                 <button id="btnStatusUpdate" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{__('b.'.$order->status)}} <i class="mdi mdi-chevron-down"></i>
                                 </button>
+
                                 <div class="dropdown-menu" id="selectStatus" aria-labelledby="btnStatusUpdate">
                                     <span data-value="pending" class="selectStatus dropdown-item">{{__('b.pending') }}</span>
                                     <span data-value="processing" class="selectStatus dropdown-item">{{__('b.processing') }}</span>
