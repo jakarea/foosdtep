@@ -4,28 +4,26 @@
 
     <!-- Blogs form start -->
     <div class="row justify-content-center">
-    <div class="col-12">
+        <div class="col-12">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-4">
                         <span>
-                        <h4 class="card-title">Lijst met blogs</h4> 
+                        <h4 class="card-title">{{ __('b.list_of_blog') }}</h4> 
                         </span>
-                        <a href="{{ route('blog.create') }}" class="btn btn-primary btn-sm">blogs toevoegen</a> 
+                        <a href="{{ route('blog.create') }}" class="btn btn-primary btn-sm">{{ __('b.add_blog') }}</a> 
                     </div>
-
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
                         style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Image</th> 
-                                <th>Blog Title</th> 
-                                <th>Body</th> 
-                                <th>Action</th> 
+                                <th>{{ __('b.no') }}</th>
+                                <th>{{ __('b.image') }}</th> 
+                                <th>{{ __('b.blog_title') }}</th> 
+                                <th>{{ __('b.body') }}</th> 
+                                <th width="8%">{{ __('b.action') }}</th> 
                             </tr>
                         </thead>
-
                         <tbody>
                             @foreach( $blogs as $key => $data )
                             <tr id="table_rrow{{$data->id}}">

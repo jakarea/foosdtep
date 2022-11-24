@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-4">
                         <span>
-                        <h4 class="card-title">Contactlijst</h4> 
+                        <h4 class="card-title">{{__('b.contact_list')}}</h4> 
                         </span>
                         <!-- <a href="#" class="btn btn-primary btn-sm">Add</a>  -->
                     </div>

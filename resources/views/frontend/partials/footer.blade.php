@@ -1,5 +1,5 @@
 <!-- ::::::  Start  Company Logo Section  ::::::  -->
-<div class="company-logo m-t-100">
+<div class="company-logo p-t-100 bg-white">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -22,11 +22,10 @@
         </div> <!-- ::::::  End  Company Logo Section  ::::::  -->
 
 <!-- ::::::  Start  Footer ::::::  -->
-<footer class="footer mt-5">
+    <footer class="footer pt-5">
         <div class="container"> 
             <!-- Start Footer Top Section --> 
              <div class="footer__top">
-             
                 <div class="row"> 
                     <div class="col-lg-4 col-md-5">
                         <div class="footer__about">
@@ -113,9 +112,8 @@
                 </div>
             </div> <!-- End Footer Bottom Section --> 
         </div>
-    </footer> <!-- ::::::  End  Footer ::::::  -->
-
-
+    </footer> 
+    <!-- ::::::  End  Footer ::::::  -->
     
     <!-- material-scrolltop button -->
     <button class="material-scrolltop" type="button"></button>

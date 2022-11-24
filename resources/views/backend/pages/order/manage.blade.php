@@ -8,21 +8,21 @@
 
             <div class="d-flex justify-content-between mb-4">
                 <span>
-                <h4 class="card-title">{{ __('messages.orders_list') }}</h4> 
+                <h4 class="card-title">{{ __('b.orders_list') }}</h4> 
                 </span>
-                <!-- <a href="{{ url('static/discount/add') }}" class="btn btn-primary btn-sm">Add</a>  -->
+                 
             </div> 
 
             <table id="datatable" class="table table-bordered dt-responsive nowrap"
                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                         <tr>
-                            <th>No</th>
-                            <th>Order ID</th>
-                            <th>Order Item</th>
-                            <th>Customer Name</th> 
-                            <th>Amount</th> 
-                            <th>Action</th>
+                            <th>{{ __('b.no') }}</th>
+                            <th>{{ __('b.order_id') }}</th>
+                            <th>{{ __('b.order_item') }}<</th>
+                            <th>{{ __('b.customer_name') }}</th> 
+                            <th>{{ __('b.amount') }}</th> 
+                            <th>{{ __('b.action') }}</th>
                         </tr>
                     </thead>
 
@@ -44,14 +44,11 @@
                             </td>
                         </tr>
                     @endforeach    
-                        
                     </tbody>
                 </table>
-
             </div>
         </div>
-    </div>
-    <!-- end col -->
+    </div> 
 </div>
 @endsection
 
