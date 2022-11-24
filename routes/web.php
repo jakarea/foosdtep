@@ -165,6 +165,7 @@ Route::middleware(['verified'])->group(function () {
             Route::group(['prefix' => 'orderviews'], function() {
                 Route::resource('orders', 'App\Http\Controllers\Backend\OrderRecievedController');
             });
+            Route::post('orders/{id}/status', 'App\Http\Controllers\Backend\OrderController@changeOrderStatus');
             // Setting Setup
             Route::group(['prefix' => 'settings'], function() {
                 Route::resource('setting', 'App\Http\Controllers\Backend\SettingController');
