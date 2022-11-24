@@ -96,7 +96,7 @@
                                 <button id="btnStatusUpdate" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Status <i class="mdi mdi-chevron-down"></i>
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="btnStatusUpdate" style="">
+                                <div class="dropdown-menu" aria-labelledby="btnStatusUpdate">
                                     <a class="dropdown-item" href="#">Cancel</a>
                                     <a class="dropdown-item" href="#">Pending</a>
                                     <a class="dropdown-item" href="#">Approved</a>

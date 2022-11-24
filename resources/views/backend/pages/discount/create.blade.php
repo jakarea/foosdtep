@@ -10,17 +10,17 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between mb-4">
                     <h4 class="card-title">Assign User Discount</h4>
-                    <a href="{{ route('discount.index') }}" class="btn btn-primary btn-sm">Back</a> 
+                    <a href="{{ route('discounts.index') }}" class="btn btn-primary btn-sm">Back</a> 
                 </div>
 
-                <form class="custom-validation" action="{{ route('discount.store') }}" method="post" enctype="multipart/form-data">
+                <form class="custom-validation" action="{{ route('discounts.store') }}" method="post" enctype="multipart/form-data">
                     @csrf  
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">Discount(%)</label>
                                 <div>
-                                    <input type="text" class="form-control @error('discount') is-invalid @enderror" name="discount" placeholder="Enter Discount">
+                                    <input type="text" class="form-control @error('discount') is-invalid @enderror" name="discount" placeholder="Enter Discount" value="{{old('discount')}}">
                                     <span class="text-danger">@error('discount'){{ $message }} @enderror</span>
                                 </div>
                             </div>
@@ -29,13 +29,15 @@
                             <div class="mb-3">
                                 <label class="form-label">Discount Type</label><br>
                                 <div class="form-check mb-2 d-inline-block">
-                                    <input class="form-check-input" type="radio" name="discount_type" id="discount_type" value="percentage" >
+                                    <input class="form-check-input" type="radio" name="discount_type" id="discount_type" value="percentage" {{ old('discount_type')  == 'percentage' ? 'checked' : ''}}>
                                     <label class="form-check-label" for="discount_type">Percentage</label>&nbsp;
                                 </div>
                                 <div class="form-check mb-2 d-inline-block">
-                                    <input class="form-check-input" type="radio" name="discount_type" id="flat_discount" value="numeric">
+                                    <input class="form-check-input" type="radio" name="discount_type" id="flat_discount" value="numeric" {{ old('discount_type')  == 'numeric' ? 'checked' : ''}}>
                                     <label class="form-check-label" for="flat_discount">Flat</label>
                                 </div>
+                                <br/>
+                                <span class="text-danger">@error('discount_type'){{ $message }} @enderror</span>
                             </div>
                         </div>
                         <div class="col-lg-12">

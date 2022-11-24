@@ -7,10 +7,10 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between mb-4">
                     <h4 class="card-title">Discount Edit</h4>
-                    <a href="{{ route('discount.index') }}" class="btn btn-primary btn-sm">Back</a> 
+                    <a href="{{ route('discounts.index') }}" class="btn btn-primary btn-sm">Back</a> 
                 </div>
 
-                <form class="custom-validation" action="{{ route('discount.update', $discount->id) }}" method="post">
+                <form class="custom-validation" action="{{ route('discounts.update', $discount->id) }}" method="post">
                 <input type="hidden" name="_method" value="PUT">
                     @csrf  
                     <div class="row">
@@ -25,15 +25,18 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label class="form-label">Discount Type</label><br>
+                                <label class="form-label">Discount Type </label><br>
                                 <div class="form-check mb-2 d-inline-block">
-                                    <input class="form-check-input" type="radio" name="discount_type" id="discount_type" value="percentage" >
+                                
+                                    <input class="form-check-input" type="radio" {{ $discount->type  == 'percentage' ? 'checked' : ''}} name="discount_type" id="discount_type" value="percentage" >
                                     <label class="form-check-label" for="discount_type">Percentage</label>&nbsp;
                                 </div>
                                 <div class="form-check mb-2 d-inline-block">
-                                    <input class="form-check-input" type="radio" name="discount_type" id="flat_discount" value="numeric">
+                                    <input class="form-check-input" type="radio" name="discount_type"  {{ $discount->type  == 'numeric' ? 'checked' : ''}} id="flat_discount" value="numeric">
                                     <label class="form-check-label" for="flat_discount">Flat</label>
                                 </div>
+                                <br/>
+                                <span class="text-danger">@error('discount_type'){{ $message }} @enderror</span>
                             </div>
                         </div>
                         <div class="col-lg-12">
