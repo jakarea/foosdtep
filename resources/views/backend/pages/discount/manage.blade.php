@@ -11,7 +11,7 @@
                         <span>
                         <h4 class="card-title">Discount List</h4> 
                         </span>
-                        <a href="{{ route('discount.create') }}" class="btn btn-primary btn-sm">Add Discount</a> 
+                        <a href="{{ route('discounts.create') }}" class="btn btn-primary btn-sm">Add Discount</a> 
                     </div>
 
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
@@ -42,7 +42,7 @@
                                     @endif
                                 </td>
                                 <td valign="middle">
-                                    <a href="{{ route('discount.edit', $data->id) }}" class="me-2"><i class="fas fa-pencil-alt"></i></a>
+                                    <a href="{{ route('discounts.update', $data->id) }}" class="me-2"><i class="fas fa-pencil-alt"></i></a>
                                     <a href="javascript:void(0)" class="text-danger cat_delete" data-id="{{$data->id}}"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>   
@@ -90,7 +90,7 @@
                 });
                 $.ajax({
                     type: "DELETE",
-                    url:  "{{url('/auth/discounts/discount')}}/" + id,
+                    url:  "{{url('/auth/discounts')}}/" + id,
                     data: {_token: CSRF_TOKEN, id: id},
                     dataType: 'JSON',
                     success: function (results) {

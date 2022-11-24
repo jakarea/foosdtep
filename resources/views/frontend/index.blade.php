@@ -3,18 +3,18 @@
 @section('content')
 
 
- <!-- :::::: Start Main Container Wrapper :::::: -->
- <main id="main-container" class="main-container pb-0">
+    <!-- :::::: Start Main Container Wrapper :::::: -->
+    <main id="main-container" class="main-container pb-0">
         <!-- ::::::  Start Hero Section  ::::::  -->
         @include('frontend.partials.hero')
-         <!-- ::::::  End Hero Section  ::::::  -->
- 
+        <!-- ::::::  End Hero Section  ::::::  -->
+
         <!-- ::::::  Start  Product Style - Catagory Section  ::::::  -->
         <div class="product m-t-100">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                         <!-- Start Section Title -->
+                        <!-- Start Section Title -->
                         <div class="section-content section-content--border m-b-35">
                             <h5 class="section-content__title">{{ __('text.top_cats')}}</h5>
                             
@@ -52,7 +52,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                         <!-- Start Section Title -->
+                        <!-- Start Section Title -->
                         <div class="section-content section-content--border m-b-35">
                             <h5 class="section-content__title">{{ __('text.products')}}</h5>
                             
@@ -60,16 +60,10 @@
                     </div>
                 </div>
                 <div class="row">
-                @foreach( $prodcutCat as $keyCat => $category )
-
-                @php
-                $catWiseProduct = App\Models\Backend\Product::where('cat_id','like','%'.trim($category->id).'%')->where('status', 'active')->take('12')->get();
-                @endphp
-                @foreach( $catWiseProduct as $keyProduct => $product )
-                
+                @foreach( $products as $keyProduct => $product )
                     <div class="col-lg-3 col-md-4 col-sm-6 col-12 ">
-                         <!-- Start Single Default Product -->
-                         <div class="product__box product__default--single text-center">
+                        <!-- Start Single Default Product -->
+                        <div class="product__box product__default--single text-center">
                             <!-- Start Product Image -->
                             <div class="product__img-box  pos-relative">
                                 <a href="{{ route('show.product', $product->slug) }}" class="product__img--link">
@@ -97,15 +91,14 @@
                         </div> <!-- End Single Default Product -->
                     </div>
                     @endforeach
-                    @endforeach 
                 </div>
             </div>
         </div> <!-- ::::::  End  Product Style - Default Section  ::::::  -->
 
-         <!-- ::::::  Start banner Section  ::::::  -->
-         <div class="banner m-t-100 pos-relative">
+        <!-- ::::::  Start banner Section  ::::::  -->
+        <div class="banner m-t-100 pos-relative">
             <div class="banner__bg">
-                 <img src="{{ asset('frontend/assets/img/newsletter/Nieuwsbrief.jpeg')}}" alt="Nieuwsbrief">
+                <img src="{{ asset('frontend/assets/img/newsletter/Nieuwsbrief.webp')}}" alt="Nieuwsbrief">
             </div>
             <div class="banner__box banner__box--single-text-style-2">
                 <div class="container">
@@ -168,9 +161,9 @@
             </div>
         </div> <!-- ::::::  End  Blog News   ::::::  -->
 
-         <!-- ::::::  Start Newsletter Section  ::::::  -->
-         @include('frontend.partials.newslatter')
-         <!-- ::::::  End newsletter Section  ::::::  -->
+        <!-- ::::::  Start Newsletter Section  ::::::  -->
+        @include('frontend.partials.newslatter')
+        <!-- ::::::  End newsletter Section  ::::::  -->
  
 
     </main>  <!-- :::::: End MainContainer Wrapper :::::: -->

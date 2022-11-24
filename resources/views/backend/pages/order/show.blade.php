@@ -96,11 +96,15 @@
                                 <button id="btnStatusUpdate" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{__('b.status')}} <i class="mdi mdi-chevron-down"></i>
                                 </button>
+
                                 <div class="dropdown-menu" aria-labelledby="btnStatusUpdate" style="">
                                     <a class="dropdown-item" href="#">{{__('b.cancle') }}</a>
                                     <a class="dropdown-item" href="#">{{__('b.pending') }}</a>
                                     <a class="dropdown-item" href="#">{{__('b.approved') }}</a>
                                     <a class="dropdown-item" href="#">{{__('b.completed') }}</a>
+
+               
+
                                 </div>
                             </div>
                             

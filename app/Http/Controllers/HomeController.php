@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
         $categories = Category::where('parent_cat', 0)->orderby('name', 'asc')->get();
         
-        $prodcutCat = Category::where('parent_cat', 0)->with('products')->take(3)->get();
+        $prodcutCat = Category::where('parent_cat', 0)->with('products')->get();
 
         $products = Product::where('status', 'active')->take('12')->get();
 
