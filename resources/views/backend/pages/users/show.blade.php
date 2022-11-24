@@ -45,7 +45,7 @@
                         <div class="row align-items-center">
                             <div class="col-8">
                                 <p class="mb-2">{{ __('b.total_order')  }}</p>
-                                <h4 class="mb-0">{{ count(App\Models\Backend\Order::where('user_id', Auth::user()->id)->get() ) }}</h4>
+                                <h4 class="mb-0">{{ count(App\Models\Backend\Order::where('user_id',$user->id)->get() ) }}</h4>
                             </div>
                             <div class="col-4">
                                 <div class="text-end">
@@ -64,7 +64,7 @@
                         <div class="row align-items-center">
                             <div class="col-8">
                                 <p class="mb-2">{{__('b.total_discount') }}</p>
-                                <h4 class="mb-0">{{ count(App\Models\Backend\Discount::where('user_id', Auth::user()->id)->get() ) }}</h4>
+                                <h4 class="mb-0">{{ count(App\Models\Backend\Discount::where('user_id', $user->id)->get() ) }}</h4>
                             </div>
                             <div class="col-4">
                                 <div class="text-end">
@@ -83,7 +83,7 @@
                         <div class="row align-items-center">
                             <div class="col-8">
                                 <p class="mb-2">{{__('b.status') }}</p>
-                                <h4 class="mb-0">{{ Auth::user()->status }}</h4>
+                                <h4 class="mb-0">{{ $user->status }}</h4>
                             </div>
                             <div class="col-4">
                                 <div class="text-end">
@@ -142,21 +142,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach( App\Models\Backend\Order::orderby('id', 'desc')->where('user_id', Auth::user()->id)->get() as $order )
+                        @foreach( App\Models\Backend\Order::orderby('id', 'desc')->where('user_id', $user->id)->get() as $order )
                             <tr>
                                 <td>{{ $key+1 }}</td>
                                 <td>{{ $order->order_number }}</td> 
                                 <td>{{ $order->order_number }}</td> 
-                                <td>{{ __('$'). $order->grand_total }}</td> 
+                                <td>{{ __('€'). $order->grand_total }}</td> 
                                 <td>
                                     @if( $order->status == 'pending' )
-                                    <span class="badge badge-soft-danger font-size-12">{{__('b.pending') }}Pending</span>
+                                    <span class="badge badge-soft-danger font-size-12">{{__('b.pending') }}</span>
                                     @elseif( $order->status == 'processing' )
-                                    <span class="badge badge-soft-info font-size-12">{{__('b.processing') }}Processing</span>
+                                    <span class="badge badge-soft-info font-size-12">{{__('b.processing') }}</span>
                                     @elseif( $order->status == 'completed' )
-                                    <span class="badge badge-soft-success font-size-12">{{__('b.completed') }}Completed</span>
+                                    <span class="badge badge-soft-success font-size-12">{{__('b.completed') }}</span>
                                     @elseif( $order->status == 'decline' )
-                                    <span class="badge badge-soft-warning font-size-12">{{__('b.decline') }}Declined</span>
+                                    <span class="badge badge-soft-warning font-size-12">{{__('b.decline') }}</span>
                                     @endif
                                 </td>
                                 <td><a href="{{ route('orders.show', $order->id) }}" class="btn btn-primary btn-sm">{{__('b.details') }}</a></td>
