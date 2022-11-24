@@ -10,7 +10,7 @@
 
 <!-- ::::::  Start  Main Container Section  ::::::  -->
 
-<main id="main-container" class="main-container m-b-40">
+<main id="main-container" class="main-container m-b-0">
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-5">
@@ -101,6 +101,13 @@
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="contact-map-wrap">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9916.164288568947!2d4.317110737919633!3d51.585810625230714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c46ab67b0de2e3%3A0x532ecc15b77c207d!2sBurgemeester%20van%20Loonstraat%2083%2C%204651%20CC%20Steenbergen%2C%20Netherlands!5e0!3m2!1sen!2sbd!4v1669273202405!5m2!1sen!2sbd" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>

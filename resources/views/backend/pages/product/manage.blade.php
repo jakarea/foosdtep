@@ -10,7 +10,7 @@
                 <span>
                 <h4 class="card-title">{{ __('b.product_list')}}</h4> 
                 </span>
-                <a href="{{ route('product.create') }}" class="btn btn-primary btn-sm">Add Product</a> 
+                <a href="{{ route('product.create') }}" class="btn btn-primary btn-sm">{{__('b.add_product') }}</a> 
             </div> 
 
                 <table id="datatable" class="table table-bordered dt-responsive nowrap"
@@ -59,10 +59,7 @@
                                 <span class="bg-success badge">{{ $product->brandName($brandID) }}</span>
                                 @endforeach
                             </td>
-                            <td>
-                                <!-- <a href="{{ url('static/users/profile') }}">
-                                    <i class="fas fa-eye"></i>
-                                </a> -->
+                            <td> 
                                 <a href="{{ route('product.edit', $product->id) }}" class="mx-2">
                                     <i class="fas fa-pen text-success"></i>
                                 </a>

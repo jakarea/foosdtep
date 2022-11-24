@@ -10,23 +10,23 @@
 
             <div class="d-flex justify-content-between mb-4">
                 <span>
-                <h4 class="card-title">Users List</h4> 
+                <h4 class="card-title">{{__('b.user_list') }}</h4> 
                 </span>
-                <a href="{{ route('user.create') }}" class="btn btn-primary btn-sm">Add</a> 
+                <a href="{{ route('user.create') }}" class="btn btn-primary btn-sm">{{__('b.add_user') }}</a> 
             </div> 
 
                 <table id="datatable" class="table table-bordered dt-responsive nowrap"
                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                         <tr>
-                            <th>No</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Address</th>
-                            <th>Status</th>
-                            <th>Role</th>
-                            <th>Action</th>
+                            <th>{{__('b.no') }}</th>
+                            <th>{{__('b.name') }}</th>
+                            <th>{{__('b.email') }}</th>
+                            <th>{{__('b.phone') }}</th>
+                            <th>{{__('b.address') }}</th>
+                            <th>{{__('b.status') }}</th>
+                            <th>{{__('b.role') }}</th>
+                            <th>{{__('b.action') }}</th>
                         </tr>
                     </thead>
 
@@ -40,9 +40,9 @@
                             <td>{{ $data->officeaddress }}</td>
                             <td>
                                 @if($data->status == 'active')
-                                <span class="text-success">Active</span>
+                                <span class="text-success">{{__('b.active') }}</span>
                                 @else
-                                <span class="text-success">In-Active</span>
+                                <span class="text-success">{{__('b.inactive') }}</span>
                                 @endif
                             </td>
                             <td>
