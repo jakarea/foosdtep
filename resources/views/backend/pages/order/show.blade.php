@@ -99,6 +99,7 @@
 
                                 <div class="dropdown-menu" aria-labelledby="btnStatusUpdate" style="">
                                     <a class="dropdown-item" href="#">{{__('b.cancle') }}</a>
+                                    <a class="dropdown-item" href="#">{{__('b.processing') }}</a>
                                     <a class="dropdown-item" href="#">{{__('b.pending') }}</a>
                                     <a class="dropdown-item" href="#">{{__('b.approved') }}</a>
                                     <a class="dropdown-item" href="#">{{__('b.completed') }}</a>
