@@ -43,7 +43,7 @@ class DiscountController extends Controller
     {
         //
         $request->validate([
-            'discount'          =>  ['required'],
+            'discount'          =>  ['required','numeric'],
             'users'             =>  ['required', 'not_in:0'],
             'discount_type'     =>  ['required', 'not_in:0'],
             'status'            =>  ['required', 'not_in:0'],
@@ -53,8 +53,7 @@ class DiscountController extends Controller
 
         foreach( $usersId as $user ){
             $userExit = Discount::where('user_id', $user)->first();
-
-            if( $user == $userExit->user_id  )
+            if( $userExit && $user == $userExit->user_id  )
             {
                 Discount::where('user_id', $userExit->user_id)->update([
                     'value'         => $request->discount,
@@ -76,7 +75,7 @@ class DiscountController extends Controller
 
         $notification = session()->flash("success", __('b.data_created'));
 
-        return redirect()->route('discount.index')->with($notification);
+        return redirect()->route('discounts.index')->with($notification);
     }
 
     /**
@@ -87,7 +86,7 @@ class DiscountController extends Controller
      */
     public function show($id)
     {
-        //
+        return redirect('auth/discounts/'.$id.'/edit');
     }
 
     /**
@@ -96,6 +95,10 @@ class DiscountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function redirectToEdit($id){
+        return redirect('/discounts/'.$id.'/edit');
+    }
     public function edit($id)
     {
         //
@@ -113,24 +116,26 @@ class DiscountController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
         $request->validate([
             'discount'  =>  ['required'],
             'users'     =>  ['required', 'not_in:0'],
             'status'    =>  ['required', 'not_in:0'],
+            'discount_type' => ['required']
         ]);
 
         $discount = Discount::find($id);
 
-        $discount->discount    =   $request->discount;
+        $discount->value    =   $request->discount;
         $discount->status      =   $request->status;
         $discount->user_id      =  $request->users;
+        $discount->type      =  $request->discount_type;
 
         $discount->save();
 
         $notification = session()->flash("success", __('b.data_updated'));
 
-        return redirect()->route('discount.index')->with($notification);
+        return redirect()->route('discounts.index')->with($notification);
     }
 
     /**

@@ -119,7 +119,7 @@ class UserController extends Controller
     public function edit($id)
     {
         //
-        $user = User::find($id);
+        $user = User::with('myRole')->find($id);
         return view('backend/pages/users/edit', compact('user'));
     }
 

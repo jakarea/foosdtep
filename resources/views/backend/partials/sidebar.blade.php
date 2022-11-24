@@ -59,7 +59,7 @@
                 <li class="@if( Route::currentRouteNamed('orders.index')) mm-active @endif">
                     <a href="{{ route('orders.index') }}" class="waves-effect-@if( Route::currentRouteNamed('orders.index')) active @endif">
                         <i class="mdi mdi-newspaper"></i>
-                        <span class="badge rounded-pill bg-danger float-end">{{ App\Models\Backend\Order::OrderCount() }}</span>
+                        <span class="badge rounded-pill bg-danger float-end">{{ App\Models\Backend\Order::pendingOrderCount() }}</span>
                         <span>{{ __('b.order')}}</span>
                     </a>
                 </li>
@@ -151,7 +151,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('discount.index') }}" class="waves-effect">
+                    <a href="{{ route('discounts.index') }}" class="waves-effect">
                         <i class="fab fa-dochub"></i>
                         <span>{{ __('b.discount')}} </span>
                     </a>

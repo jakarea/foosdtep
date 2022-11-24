@@ -87,8 +87,8 @@
                                 <label class="form-label">{{ __('User Role') }}</label>
                                 <div>
                                     <select name="auth_role" class="form-select" id="auth_role">
-                                        <option value="2">Customer</option>
-                                        <option value="1">Admin</option>
+                                        <option value="2" {{ $user->myRole->role_id == 2 ? 'selected' : ''}}>Customer</option>
+                                        <option value="1" {{ $user->myRole->role_id == 1 ? 'selected' : ''}}>Admin</option>
                                     </select>
                                 </div>
                             </div>

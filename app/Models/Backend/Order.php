@@ -42,6 +42,12 @@ class Order extends Model
         return $count;
     }
 
+    public static function pendingOrderCount()
+    {
+        $count = Order::where('status', 'pending')->count();
+        return $count;
+    }
+
     public static function CustomerOrderCount($user_id)
     {
         $count = Order::where('user_id', $user_id)->count();
