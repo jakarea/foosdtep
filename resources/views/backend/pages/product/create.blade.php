@@ -8,18 +8,8 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between mb-4">
                     <h4 class="card-title">{{ __('b.add_product')}}</h4>
-                    <a href="{{ url('static/products') }}" class="btn btn-primary btn-sm">{{ __('messages.view_all') }}</a> 
-                </div>
-
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+                    <a href="{{ url('auth/products/product') }}" class="btn btn-primary btn-sm">{{ __('messages.view_all') }}</a> 
+                </div> 
 
                 <form class="custom-validation" action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf

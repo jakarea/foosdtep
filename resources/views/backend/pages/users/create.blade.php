@@ -72,11 +72,11 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="mb-3"> 
-                                <label class="form-label">{{ __('User Role') }}</label>
+                                <label class="form-label">{{ __('b.role') }}</label>
                                 <div>
                                     <select name="auth_role" class="form-select" id="auth_role">
-                                        <option value="2">Customer</option>
-                                        <option value="1">Admin</option>
+                                        <option value="2">{{__('b.customer') }}</option>
+                                        <option value="1">{{__('b.admin') }}</option>
                                     </select>
                                 </div>
                             </div>
@@ -93,9 +93,9 @@
                         </div>
                         <div class="col-lg-2">
                             <div class="mb-3"> 
-                                <label class="form-label">{{ __('messages.preview') }}</label>
+                                <label class="form-label">{{ __('b.preview') }}</label>
                                 <div>
-                                    <img src="{{ asset('backend/assets/images/users/default.jpeg')}}" alt="User" style="width: 40px; border-radius: 4px;" class="img-fluid" id="image">
+                                    <img src="{{ asset('backend/assets/images/users/default.jpeg')}}" alt="{{__('b.add_photo') }}" style="width: 40px; border-radius: 4px;" class="img-fluid" id="image">
                                 </div>
                             </div>
                         </div>

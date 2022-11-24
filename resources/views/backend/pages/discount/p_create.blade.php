@@ -9,13 +9,47 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between mb-4">
-                    <h4 class="card-title">{{__('b.assign_user_discount') }}</h4>
-                    <a href="{{ route('discounts.index') }}" class="btn btn-primary btn-sm">{{__('b.back')}}</a> 
+                    <h4 class="card-title">{{__('b.discount_by_product') }}</h4>
+                    <a href="{{ route('discounts.index') }}" class="btn btn-primary btn-sm">{{__('b.back') }}</a> 
                 </div>
 
                 <form class="custom-validation" action="{{ route('discounts.store') }}" method="post" enctype="multipart/form-data">
                     @csrf  
                     <div class="row">
+                       
+                        <div class="col-lg-8">
+                            <div class="mb-3">
+                                <label class="form-label">{{ __('b.product_name')}} </label>
+                                <div>
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="{{ __('messages.enter_name') }}" name="name" value="{{ old('name') }}" disabled>
+                                    <span class="text-danger">@error('name'){{ $message }} @enderror</span>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label for="Price">{{ __('b.price')}}</label>
+                                <input type="text" name="price" value="{{ old('price') }}" class="form-control @error('price') is-invalid @enderror" placeholder="{{ __('b.enter_price')}}" disabled>
+                                <span class="text-danger">@error('price'){{ $message }} @enderror</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="mb-3">
+                                <label class="form-label">{{ __('b.short_desc')}} </label>
+                                <textarea id="elm3" name="short_desc" class="form-control @error('short_desc') is-invalid @enderror" name="short_desc" style="min-height: 125px; " disabled>{{ old('short_desc') }}</textarea>
+                                <span class="text-danger">@error('short_desc'){{ $message }} @enderror</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                        <div class="mb-3">
+                                <label class="form-label">{{__('b.preview')}}</label>
+                                <div>
+                                <img src="{{ asset('frontend/assets/img/product/1669256120.webp') }}" alt="image" width="110" class="img-fluid mt-2">
+                                </div>
+                            </div>
+                        
+                        </div>
+
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">{{ __('b.discount') }}(%)</label>
@@ -24,23 +58,7 @@
                                     <span class="text-danger">@error('discount'){{ $message }} @enderror</span>
                                 </div>
                             </div>
-                        </div>
-                        <!-- <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label class="form-label">{{ __('b.discount_type') }}</label><br>
-                                <div class="form-check mb-2 d-inline-block">
-                                    <input class="form-check-input" type="radio" name="discount_type" id="discount_type" value="percentage" {{ old('discount_type')  == 'percentage' ? 'checked' : ''}}>
-                                    <label class="form-check-label" for="discount_type">Percentage</label>&nbsp;
-                                </div>
-                                <div class="form-check mb-2 d-inline-block">
-                                    <input class="form-check-input" type="radio" name="discount_type" id="flat_discount" value="numeric" {{ old('discount_type')  == 'numeric' ? 'checked' : ''}}>
-                                    <label class="form-check-label" for="flat_discount">Flat</label>
-                                </div>
-                                <br/>
-                                <span class="text-danger">@error('discount_type'){{ $message }} @enderror</span>
-                            </div>
-                        </div> -->
-                        
+                        </div> 
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">{{__('b.status') }}</label>
@@ -61,18 +79,17 @@
                                 <div>
                                     <select name="users[]" class="select2 form-control select2-multiple" multiple="multiple"
                                             data-placeholder="Choose ...">
-                                        @foreach( $users as $user )
-                                            <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                        @endforeach
+                                         
+                                        <option value="">User List</option>
                                     </select> 
                                     <span class="text-danger">@error('status'){{ $message }} @enderror</span>
                                 </div>
                             </div>
                         </div>
                     <div class="col-lg-12">
-                        <div class="text-end">
+                        <div class="text-end pb-4 me-3">
                             <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
-                                {{ __('b.submit_discount') }}
+                               {{__('b.submit_discount')}}
                             </button> 
                         </div>
                     </div>

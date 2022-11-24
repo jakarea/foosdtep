@@ -18,7 +18,6 @@
                                 class="avatar-lg mx-auto img-thumbnail rounded-circle img-fluid">
                         @endif 
  
-
                             <div class="online-circle"><i class="fas fa-circle text-success"></i>
                             </div>
                         </div> 
@@ -26,7 +25,7 @@
                         <div class="row mt-4 border border-start-0 border-end-0 p-3" style="border-bottom: 0px!important;">
                             <div class="col-md-12">
                                 <h6 class="text-muted">
-                                    Email
+                                    {{__('b.email') }}
                                 </h6>
                                 <h5 class="mb-0">{{ $user->email }} </h5>
                             </div> 
@@ -45,8 +44,8 @@
                     <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <p class="mb-2">Total Orders</p>
-                                <h4 class="mb-0">{{ count(App\Models\Backend\Order::where('user_id', Auth::user()->id)->get() ) }}</h4>
+                                <p class="mb-2">{{ __('b.total_order')  }}</p>
+                                <h4 class="mb-0">{{ count(App\Models\Backend\Order::where('user_id',$user->id)->get() ) }}</h4>
                             </div>
                             <div class="col-4">
                                 <div class="text-end">
@@ -64,13 +63,13 @@
                     <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <p class="mb-2">Total Discount</p>
-                                <h4 class="mb-0">0</h4>
+                                <p class="mb-2">{{__('b.total_discount') }}</p>
+                                <h4 class="mb-0">{{ count(App\Models\Backend\Discount::where('user_id', $user->id)->get() ) }}</h4>
                             </div>
                             <div class="col-4">
                                 <div class="text-end">
                                     <div>
-                                        <i class="mdi mdi-cart text-primary ml-1" style="font-size: 30px;"></i>
+                                        <i class="mdi mdi-currency-usd  text-primary ml-1" style="font-size: 30px;"></i>
                                     </div> 
                                 </div>
                             </div>
@@ -83,13 +82,14 @@
                     <div class="card-body">
                         <div class="row align-items-center">
                             <div class="col-8">
-                                <p class="mb-2">User Status</p>
-                                <h4 class="mb-0">Active</h4>
+                                <p class="mb-2">{{__('b.status') }}</p>
+                                <h4 class="mb-0">{{ $user->status }}</h4>
                             </div>
                             <div class="col-4">
                                 <div class="text-end">
-                                    <div>
-                                        <i class="mdi mdi-cart text-secondary ml-1" style="font-size: 30px;"></i>
+                                    <div> 
+                                        <i class="mdi mdi-eye text-secondary ml-1" style="font-size: 30px; color: green;"></i> 
+                                        
                                     </div> 
                                 </div>
                             </div>
@@ -100,7 +100,7 @@
         </div>
         <div class="card">
         <div class="card-body">
-            <h5 class="card-title mb-3">Personal Information</h5>
+            <h5 class="card-title mb-3">{{ __('b.personal_info') }}</h5>
 
             <p class="card-title-desc">
                 {{ $user->bio }}
@@ -109,17 +109,17 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <p class="font-size-12 text-muted mb-1">Email Address</p>
+                    <p class="font-size-12 text-muted mb-1">{{ __('b.email') }}</p>
                     <h6 class="">{{ $user->email }}</h6>
                 </div>
                 <div class="col-md-6">
-                <p class="font-size-12 text-muted mb-1">Phone number</p>
+                <p class="font-size-12 text-muted mb-1">{{ __('b.phone') }}</p>
                 <h6 class="">{{ $user->phone }}</h6>
                 </div>
             </div> 
 
             <div class="mt-3">
-                <p class="font-size-12 text-muted mb-1">Office Address</p>
+                <p class="font-size-12 text-muted mb-1">{{ __('b.offc_addres') }}</p>
                 <h6 class="">{{ $user->officeaddress }}</h6>
             </div>
 
@@ -127,39 +127,39 @@
     </div>
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title mb-4">Recent Orders</h4>
+                <h4 class="card-title mb-4">{{ __('b.recent_orders') }}</h4>
 
                 <div class="table-responsive">
                     <table class="table table-centered mb-0">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Product Name</th>
-                                <th scope="col">Order Id</th> 
-                                <th scope="col">Amount</th>
-                                <th scope="col">Order Status</th>
-                                <th scope="col" colspan="2">Action</th>
+                                <th scope="col">{{ __('b.no') }}</th>
+                                <th scope="col">{{ __('b.product') }} {{ __('b.name') }}</th>
+                                <th scope="col">{{ __('b.order_id') }}</th> 
+                                <th scope="col">{{ __('b.amount') }}</th>
+                                <th scope="col">{{ __('b.status') }}</th>
+                                <th scope="col" colspan="2">{{ __('b.action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach( App\Models\Backend\Order::orderby('id', 'desc')->where('user_id', Auth::user()->id)->get() as $order )
+                        @foreach( App\Models\Backend\Order::orderby('id', 'desc')->where('user_id', $user->id)->get() as $order )
                             <tr>
                                 <td>{{ $key+1 }}</td>
                                 <td>{{ $order->order_number }}</td> 
                                 <td>{{ $order->order_number }}</td> 
-                                <td>{{ __('$'). $order->grand_total }}</td> 
+                                <td>{{ __('€'). $order->grand_total }}</td> 
                                 <td>
                                     @if( $order->status == 'pending' )
-                                    <span class="badge badge-soft-danger font-size-12">Pending</span>
+                                    <span class="badge badge-soft-danger font-size-12">{{__('b.pending') }}</span>
                                     @elseif( $order->status == 'processing' )
-                                    <span class="badge badge-soft-info font-size-12">Processing</span>
+                                    <span class="badge badge-soft-info font-size-12">{{__('b.processing') }}</span>
                                     @elseif( $order->status == 'completed' )
-                                    <span class="badge badge-soft-success font-size-12">Completed</span>
+                                    <span class="badge badge-soft-success font-size-12">{{__('b.completed') }}</span>
                                     @elseif( $order->status == 'decline' )
-                                    <span class="badge badge-soft-warning font-size-12">Declined</span>
+                                    <span class="badge badge-soft-warning font-size-12">{{__('b.decline') }}</span>
                                     @endif
                                 </td>
-                                <td><a href="{{ route('orders.show', $order->id) }}" class="btn btn-primary btn-sm">Details</a></td>
+                                <td><a href="{{ route('orders.show', $order->id) }}" class="btn btn-primary btn-sm">{{__('b.details') }}</a></td>
                             </tr>
                         @endforeach
                         </tbody>

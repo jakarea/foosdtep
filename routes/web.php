@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\BackendController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\BackendDesignController;
+use App\Http\Controllers\Backend\DiscountCodeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -156,7 +157,15 @@ Route::middleware(['verified'])->group(function () {
                 Route::resource('user', 'App\Http\Controllers\Backend\UserController');
             });
             // Manage Discount
+
             Route::resource('discounts', 'App\Http\Controllers\Backend\DiscountController');
+
+            // discount custom route
+            Route::controller(DiscountCodeController::class)->group(function () {
+                Route::get('by-products/discounts', 'index')->name('discounts.by-product'); 
+                Route::get('by-products/discounts/create', 'create')->name('discounts.by-product.create'); 
+            });
+
             // Manage Products
             Route::group(['prefix' => 'products'], function() {
                 Route::resource('product', 'App\Http\Controllers\Backend\ProductController');
