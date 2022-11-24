@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(243, 245, 247, 0.772)!important;
+  background-color: #fff;
 }
 
 @font-face {
@@ -182,7 +182,9 @@ input[type=radio].shipping-select::after,
 }
 
 .product__box {
-  background-color: #fff !important;
+  background-color: #fff !important; 
+  box-shadow: 0 0 30px 0 rgb(0 0 0 / 15%);
+  border: none;
 }
 
 .blog-feed__link:hover {
@@ -586,7 +588,7 @@ input[type=radio].shipping-select::after,
   height: 352px;
 }
 
-.blog-feed__content  {
+.blog-feed__content {
   text-align: center;
   background: #fff;
   width: 90%;
@@ -594,7 +596,8 @@ input[type=radio].shipping-select::after,
   position: relative;
   top: -63px;
   padding: .4rem 1.6rem;
-  /* box-shadow: 1px 1px 4px #ccc; */
+  box-shadow: 0 0 30px 0 rgb(0 0 0 / 15%);
+  padding-bottom: 2rem;
 }
 
 .invalid-feedback3 span{

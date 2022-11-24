@@ -104,5 +104,10 @@ return [
     'customer_services' => 'Klantenservice ',
     'general_question' => 'Algemene vragen ',
     'blogs' => 'Nieuws ',
-    'subscribe_success' => 'e-mail abonnement succes'
+    'subscribe_success' => 'e-mail abonnement succes', 
+    'cant_see_price' => 'Waarom kan ik geen prijzen zien?',
+    'create_account' => 'Account aanmaken',
+    'create_free_account' => 'Maak een gratis account aan',
+    'already_have_accnt' => 'Heb je al een account?',
+    'already_have_accnt_click' => 'Heb je al een account? Klik hier om in te loggen.',
 ];

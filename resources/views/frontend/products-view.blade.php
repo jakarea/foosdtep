@@ -39,12 +39,12 @@
                         <div class="card" id="parent_clse">
                             <div class="card-body"> 
                                 <div class="d-flex align-items-center justify-content-between">
-                                    <h6>WAAROM KAN IK GEEN PRIJZEN ZIEN?</h6>
+                                    <h6>{{__('messages.cant_see_price')}}</h6>
                                     <a href="javascript:void(0)" onclick="parent_close();"><i class="fas fa-times"></i></a>
                                 </div>
                                 <p>Je kunt alleen prijzen zien als je ingelogd bent. Geen inlog? Dan kan je het assortiment verkennen en je laten inspireren. Nog geen klant?</p>
 
-                                <a href="{{url('login')}}" class="btn btn-primarys">klantenkaart aanvragen</a>
+                                <a href="{{url('login')}}" class="btn btn-primarys">{{__('messages.create_account')}}</a>
                             </div>
                         </div> 
                     </div>

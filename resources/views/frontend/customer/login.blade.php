@@ -51,25 +51,22 @@
                             </div>
                             <div class="d-flex align-items-center justify-content-between flex-wrap m-tb-20 pt-3 align-middle">
                             <div class="regiter-acc text-end">
-                                    <span>{{ __('text.dont_have_account') }}  <a href="{{ url('register') }}">{{ __('text.register_here') }} </a></span>
-                                </div>
-                                <button class="btn btn--box btn--medium btn--radius btn--black btn--black-hover-green btn--uppercase font--semi-bold" type="submit">{{ __('text.login') }} </button>
-                                
+                                    <span>{{ __('text.dont_have_account') }}  <a href="{{ url('register') }}">{{ __('messages.create_free_account') }} </a></span>
+                                </div> 
+                            </div>
+                            <div class="text-end">
+                            <button class="btn btn--box btn--medium btn--radius btn--black btn--black-hover-green btn--uppercase font--semi-bold" type="submit">{{ __('text.login') }} </button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>  <!-- End Login Area -->
             <div class="col-lg-6 col-md-8 col-12 ps-md-0">
-                <div class="login-txt-wrap">
-                    <h4>Onbezorgd ondernemen. <br> Word nu FoodSteps klant.</h4>
+                <div class="login-txt-wrap d-flex align-items-center justify-content-center flex-column">
+                    <h4>Wordt nu een klant van Food Steps.</h4>
 
-                    <p>Als ondernemer of instelling inkopen doen bij een FoodSteps-vestiging? Krijg met de klantenkaart vandaag nog exclusief toegang tot al onze vestigingen.</p>
-                    <p>Grote verpakkingen, kleine prijzen <br>
-Breed assortiment A-merken en eigen merken <br>
-Altijd dichtbij en makkelijk bereikbaar <br>
-Persoonlijk advies van échte vakmensen</p>
-<a href="{{url('register')}}">{{ __('text.become_member')}}</a>
+                    <p>Als ondernemer of instelling inkopen doen bij Food Steps? Maak een gratis account aan en krijg exclusieve toegang tot onze producten</p>
+                    <a href="{{url('register')}}">{{ __('text.become_member')}}</a>
                 </div>
             </div>
         </div>
