@@ -612,7 +612,7 @@ input[type=radio].shipping-select::after,
 }
 
 .footer__top{
-  border-top: 1px solid transparent;
+  border-top: 1px solid #000;
 }
 
 .company-logo__item {
@@ -636,7 +636,7 @@ input[type=radio].shipping-select::after,
 
 /* hero area white css start */
 .hero_ol_white{ 
-  background-color: rgba(255, 255, 255, 0.3)!important;
+  /* background-color: rgba(255, 255, 255, 0.3)!important; */
   padding: 2rem; 
 }
 
@@ -651,7 +651,7 @@ input[type=radio].shipping-select::after,
 
 /* hero area dark css start */
 .hero_ol_dark{ 
-  background-color: rgba(0, 0, 0, 0.3)!important;
+  /* background-color: rgba(0, 0, 0, 0.3)!important; */
   padding: 2rem; 
 }
 

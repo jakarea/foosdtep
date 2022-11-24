@@ -43,7 +43,6 @@
                     </div>
                     <div class="flex-1">
                         <div class="font-size-16 mt-2">{{ __('b.new_users') }} </div>
-
                     </div>
                 </div>
                 <h4 class="mt-4">{{ App\Models\User::UserCount() }}</h4>

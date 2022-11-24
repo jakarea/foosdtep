@@ -105,9 +105,9 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="banner__content banner__content--center pos-absolute">
-                                <h6 class="banner__title  font--medium m-b-10">{{ __('text.special_discount')}}</h6>
-                                <h1 class="banner__title banner__title--large font--regular text-capitalize">{{ __('text.for_all_grocery')}} <br></h1>
-                                <h6 class="banner__title font--medium m-b-40">{{ __('text.20_off')}}</h6>
+                                <h6 class="banner__title  font--medium m-b-10 text-white">{{ __('text.special_discount')}}</h6>
+                                <h1 class="banner__title banner__title--large font--regular text-capitalize  text-white">{{ __('text.for_all_grocery')}} <br></h1>
+                                <h6 class="banner__title font--medium m-b-40  text-white">{{ __('text.20_off')}}</h6>
                                 <a href="{{ url('products')}}" class="btn btn--large btn--radius btn--black btn--black-hover-green font--bold text-uppercase">{{ __('text.shop_now')}}</a>
                             </div> 
                         </div>

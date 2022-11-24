@@ -8,7 +8,7 @@
         <div class="card">
             <div class="card-body" id="printableArea">
                 <div class="invoice-title align-items-center">
-                    <h4 class="float-end mb-0 font-size-16">Order # {{ $order->order_number }}</h4>
+                    <h4 class="float-end mb-0 font-size-16">{{__('b.order')}} # {{ $order->order_number }}</h4>
                     <div>
                         <img src="{{asset('backend/assets/img/logo/logo.png')}}" alt="logo" height="40" />
                     </div>
@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-6">
                         <address>
-                            <strong>{{ __('messages.billed_to') }}</strong><br>
+                            <strong>{{ __('b.billed_to') }}</strong><br>
                             {{ $order->user->name }}<br>
                             @if( $order->address_type == 1 )
                             {{ $order->user->officeaddress }}<br>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-6 text-end">
                         <address>
-                            <strong>{{ __('Billing From') }}</strong><br>
+                            <strong>{{ __('b.bolling_from') }}</strong><br>
                             Kenny Rigdon<br>
                             1234 Main<br>
                             Apt. 4B<br>
@@ -44,22 +44,22 @@
                     </div>
                     <div class="col-6 mt-3 text-end">
                         <address>
-                            <strong>{{ __('messages.order_date') }}</strong><br>
+                            <strong>{{ __('b.order_date') }}</strong><br>
                             {{ date('d M, Y', strtotime($order->created_at)); }}<br><br>
                         </address>
                     </div>
                 </div>
                 <div class="py-2 mt-3">
-                    <h3 class="font-size-15 fw-bold">{{ __('messages.order_summary') }}</h3>
+                    <h3 class="font-size-15 fw-bold">{{ __('b.order_summary') }}</h3>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-nowrap">
                         <thead>
                             <tr>
-                                <th style="width: 70px;">No.</th>
-                                <th>Item</th>
-                                <th>Qty</th>
-                                <th class="text-end">Price</th>
+                                <th style="width: 70px;">{{ __('b.no') }}</th>
+                                <th>{{ __('b.item') }}</th>
+                                <th>{{ __('b.qty') }}</th>
+                                <th class="text-end">{{ __('b.price') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -75,13 +75,13 @@
                             @endforeach
                             
                             <tr>
-                                <td colspan="3" class="text-end">Sub Total</td>
+                                <td colspan="3" class="text-end">{{__('b.sub_total')}}</td>
                                 <td class="text-end">{{ __('€'). $order->grand_total }}</td>
                             </tr>
 
                             <tr>
                                 <td colspan="3" class="border-0 text-end">
-                                    <strong>Total</strong>
+                                    <strong>{{__('b.total')}}</strong>
                                 </td>
                                 <td class="border-0 text-end">
                                     <h4 class="m-0">{{ __('€'). $order->grand_total }}</h4>
@@ -94,13 +94,17 @@
                     <div class="float-end">
                             <div class="btn-group" role="group">
                                 <button id="btnStatusUpdate" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Status <i class="mdi mdi-chevron-down"></i>
+                                {{__('b.status')}} <i class="mdi mdi-chevron-down"></i>
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="btnStatusUpdate">
-                                    <a class="dropdown-item" href="#">Cancel</a>
-                                    <a class="dropdown-item" href="#">Pending</a>
-                                    <a class="dropdown-item" href="#">Approved</a>
-                                    <a class="dropdown-item" href="#">Completed</a>
+
+                                <div class="dropdown-menu" aria-labelledby="btnStatusUpdate" style="">
+                                    <a class="dropdown-item" href="#">{{__('b.cancle') }}</a>
+                                    <a class="dropdown-item" href="#">{{__('b.pending') }}</a>
+                                    <a class="dropdown-item" href="#">{{__('b.approved') }}</a>
+                                    <a class="dropdown-item" href="#">{{__('b.completed') }}</a>
+
+               
+
                                 </div>
                             </div>
                             

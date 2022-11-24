@@ -9,21 +9,21 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-4">
                         <span>
-                        <h4 class="card-title">Lijst met schuifregelaars</h4> 
+                        <h4 class="card-title">{{ __('b.slider_list') }}</h4> 
                         </span>
-                        <a href="{{ route('slider.create') }}" class="btn btn-primary btn-sm">schuifregelaars toevoegen</a> 
+                        <a href="{{ route('slider.create') }}" class="btn btn-primary btn-sm">{{ __('b.add_slider') }}</a> 
                     </div>
 
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
                         style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Image</th>
-                                <th>Title</th>
-                                <th>Top SubTitle</th>
-                                <th>Bottom SubTitle</th>  
-                                <th>Action</th> 
+                                <th>{{ __('b.no') }}</th>
+                                <th>{{ __('b.image') }}</th>
+                                <th>{{ __('b.title') }}</th>
+                                <th>{{ __('b.top_subtitle') }}</th>
+                                <th>{{ __('b.bottom_subtitle') }}</th>  
+                                <th>{{ __('b.action') }}</th> 
                             </tr>
                         </thead>
 

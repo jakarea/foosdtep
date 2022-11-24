@@ -18,12 +18,12 @@
                         style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Image</th>
-                                <th>Name</th>
-                                <th>Parent Category</th>
-                                <th>Slug</th>
-                                <th>Action</th> 
+                                <th>{{ __('b.no') }}</th>
+                                <th>{{ __('b.image') }}</th>
+                                <th>{{ __('b.name') }}</th>
+                                <th>{{ __('b.parent_category') }}</th>
+                                <th>{{ __('b.slug') }}</th>
+                                <th>{{ __('b.action') }}</th> 
                             </tr>
                         </thead>
 
