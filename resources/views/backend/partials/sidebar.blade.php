@@ -149,24 +149,20 @@
                         </li>
                     </ul>
                 </li>
-
-                <li>
-                    <a href="{{ route('discounts.index') }}" class="waves-effect">
-                        <i class="fab fa-dochub"></i>
-                        <span>{{ __('b.discount')}} </span>
-                    </a>
-                </li>
-                
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="mdi mdi-settings"></i>
-                        <span>{{ __('b.settings')}} </span>
+                        <i class="mdi mdi-account"></i>
+                        <span>{{ __('b.discount')}} </span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li class="@if( Route::currentRouteNamed('setting.index')) mm-active @endif"><a href="{{ route('setting.index') }}" class="waves-effect-@if( Route::currentRouteNamed('setting.index')) active @endif">{{ __('b.b_settings')}}</a></li>
+                        <li class="@if( Route::currentRouteNamed('discounts.index')) mm-active @endif">
+                            <a href="{{ route('discounts.index') }}" class="waves-effect-@if( Route::currentRouteNamed('discounts.index')) active @endif">{{ __('b.general')}}</a>
+                        </li>
+                        <li class="@if( Route::currentRouteNamed('discounts.by-product')) mm-active @endif">
+                            <a href="{{ route('discounts.by-product') }}" class="waves-effect-@if( Route::currentRouteNamed('discounts.by-product')) active @endif">{{ __('b.by_product')}}</a>
+                        </li>
                     </ul>
                 </li>
-
             </ul>
         </div>
         <!-- Sidebar -->
