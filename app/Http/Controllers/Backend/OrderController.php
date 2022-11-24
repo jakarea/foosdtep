@@ -171,8 +171,12 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function changeOrderStatus(Request $request, $id)
     {
-        //
+        return $order = Order::where('id', $id)
+        ->update(['status' => $request->status]);
+        
     }
+
+
 }

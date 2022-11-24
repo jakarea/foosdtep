@@ -94,25 +94,22 @@
                     <div class="float-end">
                             <div class="btn-group" role="group">
                                 <button id="btnStatusUpdate" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{__('b.status')}} <i class="mdi mdi-chevron-down"></i>
+                                {{__('b.'.$order->status)}} <i class="mdi mdi-chevron-down"></i>
                                 </button>
 
-                                <div class="dropdown-menu" aria-labelledby="btnStatusUpdate" style="">
-                                    <a class="dropdown-item" href="#">{{__('b.cancle') }}</a>
-                                    <a class="dropdown-item" href="#">{{__('b.processing') }}</a>
-                                    <a class="dropdown-item" href="#">{{__('b.pending') }}</a>
-                                    <a class="dropdown-item" href="#">{{__('b.approved') }}</a>
-                                    <a class="dropdown-item" href="#">{{__('b.completed') }}</a>
-
-               
-
+                                <div class="dropdown-menu" id="selectStatus" aria-labelledby="btnStatusUpdate">
+                                    <span data-value="pending" class="selectStatus dropdown-item">{{__('b.pending') }}</span>
+                                    <span data-value="processing" class="selectStatus dropdown-item">{{__('b.processing') }}</span>
+                                    <span data-value="approved" class="selectStatus dropdown-item">{{__('b.approved') }}</span>
+                                    <span data-value="completed" class="selectStatus dropdown-item">{{__('b.completed') }}</span>
+                                    <span data-value="decline" class="selectStatus dropdown-item">{{__('b.cancle') }}</span>
                                 </div>
                             </div>
                             
                             <a href="javascript:void(0)" onclick="printDiv('printableArea')" class="btn btn-success waves-effect waves-light" type="submit"><i
                                 class="fa fa-print"></i></a>
    
-                        <a href="#" class="btn btn-primary w-md waves-effect waves-light">{{ __('messages.send') }}</a>
+                        <!-- <a href="#" class="btn btn-primary w-md waves-effect waves-light">{{ __('messages.send') }}</a> -->
                     </div>
                 </div>
             </div>
@@ -135,6 +132,49 @@
 
      document.body.innerHTML = originalContents;
 }
+        
+        var status = "{{ $order->status }}"
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        var id = "{{ $order->id }}"
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': '{{csrf_token()}}'
+            }
+        });
+
+        $('.selectStatus').click(function(e) {
+
+            
+            status = $(this).attr("data-value");
+            console.log({status, CSRF_TOKEN, id})
+            $.ajax({
+                type: "POST",
+                url:  "{{url('/auth/orders/')}}/" + id +'/status',
+                data: {_token: CSRF_TOKEN, id, status},
+                dataType: 'JSON',
+                success: function (results) {
+                    console.log(1234)
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Update successfully'
+                    })
+                }         
+            });
+        });
+
 </script>
 
 @endsection

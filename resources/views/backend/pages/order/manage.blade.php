@@ -19,8 +19,9 @@
                         <tr>
                             <th>{{ __('b.no') }}</th>
                             <th>{{ __('b.order_id') }}</th>
-                            <th>{{ __('b.order_item') }}<</th>
+                            <th>{{ __('b.order_item') }}</th>
                             <th>{{ __('b.customer_name') }}</th> 
+                            <th>{{ __('b.status') }}</th> 
                             <th>{{ __('b.amount') }}</th> 
                             <th>{{ __('b.action') }}</th>
                         </tr>
@@ -33,6 +34,7 @@
                             <td>{{ $data->order_number }}</td> 
                             <td>{{ $data->item_count }}</td>
                             <td>{{ $data->user->name }}</td>
+                            <td>{{ $data->status }}</td>
                             <td>{{ __('$'). $data->grand_total }}</td> 
                             <td>
                                 <a href="{{ route('orders.show', $data->id) }}" class="me-2">
