@@ -111,7 +111,7 @@
         <div class="row">
             <div class="col-12">
                  <!-- Start Section Title -->
-                <div class="section-content section-content--border m-b-35">
+                <div class="section-content section-content--border section-content--border-related m-b-35">
                     <h5 class="section-content__title"> {{ __('messages.related_prod')}} : </h5>
                     <a href="{{ route('products') }}" class="btn btn--icon-left btn--small btn--radius btn--transparent btn--border-green btn--border-green-hover-green font--regular text-capitalize">{{ __('messages.more_prod')}}<i class="fal fa-angle-right"></i></a>
                 </div>  <!-- End Section Title -->
