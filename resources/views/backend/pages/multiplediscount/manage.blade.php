@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title') Manage Discount @endsection
+@section('title') Manage Multiple Discount @endsection
 @section('content')
 
     <!-- Brand form start -->
@@ -9,9 +9,9 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-4">
                         <span>
-                        <h4 class="card-title">Discount List</h4> 
+                        <h4 class="card-title">Multiple Discount List</h4> 
                         </span>
-                        <a href="{{ route('discount.create') }}" class="btn btn-primary btn-sm">Add Discount</a> 
+                        <a href="{{ route('multidiscount.create') }}" class="btn btn-primary btn-sm">Add Multiple Discount</a> 
                     </div>
 
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
@@ -20,18 +20,37 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Discount</th>
-                                <th>User</th>
+                                <th>Users</th>
+                                <th>Products</th>
                                 <th>Status</th>
                                 <th>Action</th> 
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach( $discount as $key => $data )
+                            @foreach( $multiplediscount as $key => $data )
+
+
                             <tr id="table_rrow{{$data->id}}">
                                 <td valign="middle">{{ $key+1 }}</td>
                                 <td valign="middle">{{ $data->value }}%</td>
-                                <td valign="middle"></td>
+                                <td valign="middle">
+                                @php 
+                                    $users = explode(',', $data->user_id);
+                                @endphp
+                                @foreach($users as $user)
+                                <span class="bg-success badge">{{ $data->users($user) }}</span>                                
+                                @endforeach
+                                </td>
+                                <td valign="middle">
+                                @php 
+                                    $products = explode(',', $data->product_id);
+                                @endphp
+                                @foreach($products as $product)
+                                <span class="bg-success badge">{{ $data->products($product) }}</span>                                
+                                @endforeach
+                                
+                                </td>
                                 <td valign="middle">
                                     @if( $data->status == 'active' )
                                     <span class="text-success">Active</span>
@@ -40,7 +59,7 @@
                                     @endif
                                 </td>
                                 <td valign="middle">
-                                    <a href="{{ route('discount.edit', $data->id) }}" class="me-2"><i class="fas fa-pencil-alt"></i></a>
+                                    <a href="{{ route('multidiscount.edit', $data->id) }}" class="me-2"><i class="fas fa-pencil-alt"></i></a>
                                     <a href="javascript:void(0)" class="text-danger cat_delete" data-id="{{$data->id}}"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>   
@@ -88,7 +107,7 @@
                 });
                 $.ajax({
                     type: "DELETE",
-                    url:  "{{url('/auth/discounts/discount')}}/" + id,
+                    url:  "{{url('/auth/multidiscounts/multidiscount')}}/" + id,
                     data: {_token: CSRF_TOKEN, id: id},
                     dataType: 'JSON',
                     success: function (results) {
