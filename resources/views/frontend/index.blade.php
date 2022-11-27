@@ -53,7 +53,7 @@
                 <div class="row">
                     <div class="col-12">
                         <!-- Start Section Title -->
-                        <div class="section-content section-content--border m-b-35">
+                        <div class="section-content section-content--border section-content--border-product m-b-35">
                             <h5 class="section-content__title">{{ __('text.products')}}</h5>
                             
                         </div>  <!-- End Section Title -->
