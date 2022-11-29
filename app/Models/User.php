@@ -20,6 +20,8 @@ class User extends Authenticatable {
     protected $fillable = [
         'name',
         'email',
+        'kvk',
+        'vat',
         'phone',
         'address',
         'bio',
@@ -50,6 +52,11 @@ class User extends Authenticatable {
         'email_verified_at' => 'datetime',
     ];
 
+
+    public function myRole()
+    {
+        return $this->hasOne(UserRole::class);
+    }
 
     public function Userrole()
     {

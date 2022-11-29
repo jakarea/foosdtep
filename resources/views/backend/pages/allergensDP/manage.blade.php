@@ -69,16 +69,18 @@
 
 <!-- Datatable init js -->
 <script src="{{ asset('backend/assets/js/pages/datatables.init.js') }}"></script>
-
+<!-- admin_food_step
+db_food_step
+admin_food_step6fz9itxv1G!@ -->
 <script>
     $(document).on('click', '.cat_delete', function (e) {
         e.preventDefault();
         var id = $(this).data('id');
         Swal.fire({
-                title: "Are you sure!",
+                title: "Weet je het zeker!",
                 icon: "error",
                 confirmButtonClass: "btn-danger",
-                confirmButtonText: "Yes!",
+                confirmButtonText: "Ja!",
                 showCancelButton: true,
             }).then((result) => {
             if (result.isConfirmed) {

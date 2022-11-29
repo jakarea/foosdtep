@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-6 col-12">
                 <div class="section-content m-b-40">
-                    <h5 class="section-content__title text-center">Reset Password</h5>
+                    <h5 class="section-content__title text-center">{{ __('text.reset_password') }}</h5>
                 </div>
             </div>
             <div class="col-lg-12"></div>
@@ -23,7 +23,7 @@
                         <form action="{{ route('forget.password.post') }}" method="POST">
                             @csrf
                             <div class="form-box__single-group">
-                                <label for="email">Username or email address *</label>
+                                <label for="email">{{ __('text.username_or_email_address') }} *</label>
                                 <input type="text" id="email_address" class="form-control" name="email" required autofocus>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -33,9 +33,9 @@
                             </div>
 
                             <div class="d-flex justify-content-between flex-wrap m-tb-20 pt-3 align-middle">
-                                <button class="btn btn--box btn--medium btn--radius btn--black btn--black-hover-green btn--uppercase font--semi-bold" type="submit">Reset Password</button>
+                                <button class="btn btn--box btn--medium btn--radius btn--black btn--black-hover-green btn--uppercase font--semi-bold" type="submit">{{ __('text.reset_password')}} </button>
                                 <div class="regiter-acc text-end">
-                                    <span>Do you remeber Password? <a href="{{ route('customer.loginform') }}">Login Here</a></span>
+                                    <span>{{__('text.do_you_remember_password')}} <a href="{{ route('customer.loginform') }}">{{__('text.login_here')}}</a></span>
                                 </div>
                             </div>
                         </form>

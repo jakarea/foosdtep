@@ -88,7 +88,7 @@ class UserController extends Controller
             'role_id'   =>  $request->auth_role,
         ]);
 
-        $notification = session()->flash("success", "Data Create Successfully");
+        $notification = session()->flash("success", __('b.data_created'));
 
         return redirect()->route('user.index')->with($notification);
 
@@ -119,7 +119,7 @@ class UserController extends Controller
     public function edit($id)
     {
         //
-        $user = User::find($id);
+        $user = User::with('myRole')->find($id);
         return view('backend/pages/users/edit', compact('user'));
     }
 
@@ -147,7 +147,7 @@ class UserController extends Controller
 
         $user->name             =   $request->name;
         if( !empty($request->password) ){
-            $user->password         =   Hash::make($request->only('password'));
+            $user->password         =   Hash::make($request->password);
         }
         $user->email            =   $request->email;
         $user->phone            =   $request->phone;
@@ -179,7 +179,7 @@ class UserController extends Controller
             'role_id'   =>  $request->auth_role,
         ]);
 
-        $notification = session()->flash("success", "Data Update Successfully");
+        $notification = session()->flash("success", __('b.data_updated'));
 
         return redirect()->route('user.index')->with($notification);
     }

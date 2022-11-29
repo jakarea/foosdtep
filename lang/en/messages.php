@@ -49,4 +49,5 @@ return [
     'send' => 'Send',
     'orders_list' => 'Orders List',
     'discount_single_view' => 'Discount Single View',
+    'singin_continue' => 'Please signin to continue'
 ];

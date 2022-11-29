@@ -25,23 +25,23 @@ class CustomerMiddleware
                 if(Auth::user()->status == 'inactive'){
                     Auth::logout();
                     $notification = array(
-                        'message' => 'Your Account Disabled!',
-                        'alert-type' => 'error'
+                        'message' => 'Uw account uitgeschakeld!',
+                        'alert-type' => 'fout'
                     );
                     return redirect()->route('customer.loginform')->with($notification);
                 }
     
-                if (Auth::user()->status == 'active' && Auth::user()->Userrole[0]->id == 3) {
+                if (Auth::user()->status == 'active' && Auth::user()->Userrole[0]->id === 3) {
                     return $next($request);
                 }
                 else{
                     Auth::logout();
-                    $notification = session()->flash("error", "Sorry! You\'re not customer.");
+                    $notification = session()->flash("fout", "Sorry! Je bent geen klant.");
                     return redirect()->route('customer.loginform')->with($notification);
                 }
             }
             else {
-                $notification = session()->flash("error", "Something Wrong!");
+                $notification = session()->flash("error", "Er is iets mis!");
                 Auth::logout();
                 return redirect()->route('customer.loginform')->with($notification);
             }

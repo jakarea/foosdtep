@@ -12,16 +12,16 @@ class BackendController extends Controller
     public function index()
     {
         
-        $notification = session()->flash("title", "Hi!", "success", "Logged Successfully");
+        $notification = session()->flash("title", "Hi!", "success", __("messages.login_success"));
 
         return view('backend/index')->with($notification);
     }
-    public function categories()
-    {
-        $notification = array(
-            'message' => 'Login Successfully!!',
-            'alert-type' => 'success'
-        );
-        return view('backend/categories')->with($notification);
-    }
+    // public function categories()
+    // {
+    //     $notification = array(
+    //         'message' => 'Login Successfully!!',
+    //         'alert-type' => 'success'
+    //     );
+    //     return view('backend/categories')->with($notification);
+    // }
 }

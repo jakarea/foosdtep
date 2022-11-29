@@ -9,21 +9,21 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-4">
                         <span>
-                        <h4 class="card-title">Brand List</h4> 
+                        <h4 class="card-title">{{ __('b.brand_list') }}</h4> 
                         </span>
-                        <a href="{{ route('brand.create') }}" class="btn btn-primary btn-sm">Add Brand</a> 
+                        <a href="{{ route('brand.create') }}" class="btn btn-primary btn-sm">{{ __('b.add_brand') }}</a> 
                     </div>
 
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
                         style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Image</th>
-                                <th>Name</th>
-                                <th>Parent Brand</th>
-                                <th>Slug</th>
-                                <th>Action</th> 
+                                <th>{{ __('b.no') }}</th>
+                                <th>{{ __('b.image') }}</th>
+                                <th>{{ __('b.name') }}</th>
+                                <th>{{ __('b.parent_brand') }}</th>
+                                <th>{{ __('b.slug') }}</th>
+                                <th>{{ __('b.action') }}</th> 
                             </tr>
                         </thead>
 
@@ -35,13 +35,13 @@
                                     @if( !empty($data->image) )
                                     <img src="{{ asset('backend/assets/images/brands/'. $data->image) }}" alt="Cate" class="img-fluid" width="50">
                                     @else
-                                    <span class="text-danger">No Photo</span>
+                                    <span class="text-danger">{{__('b.no_photo')}}</span>
                                     @endif
                                 </td>
                                 <td valign="middle">{{ $data->name }}</td>
                                 <td valign="middle">
                                     @if( $data->parent_id == 0 )
-                                        <span class="text-success">Primary</span>
+                                        <span class="text-success">{{__('b.primary')}}</span>
                                     @else
                                         <span class="text-dark">{{ $data->parentName->name }}</span>
                                     @endif
@@ -83,10 +83,10 @@
         e.preventDefault();
         var id = $(this).data('id');
         Swal.fire({
-                title: "Are you sure!",
+                title: "Weet je het zeker!",
                 icon: "error",
                 confirmButtonClass: "btn-danger",
-                confirmButtonText: "Yes!",
+                confirmButtonText: "Ja!",
                 showCancelButton: true,
             }).then((result) => {
             if (result.isConfirmed) {

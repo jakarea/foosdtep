@@ -105,7 +105,7 @@ class OrderController extends Controller
 
 
         // Order Notification
-        $data["email"] = ["arifypp@gmail.com", $request->email];
+        $data["email"] = ["foodstep@yopmail.com", $request->email];
         $data["title"] = "From FoodStep.com";
 
         $data["order"] = $order;
@@ -171,8 +171,12 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function changeOrderStatus(Request $request, $id)
     {
-        //
+        return $order = Order::where('id', $id)
+        ->update(['status' => $request->status]);
+        
     }
+
+
 }

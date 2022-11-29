@@ -60,7 +60,7 @@ class FaithController extends Controller
 
         $faith->save();
 
-        $notification = session()->flash("success", "Data Create Successfully");
+        $notification = session()->flash("success", __('b.data_created'));
 
         return redirect()->route('faith.index')->with($notification);
     }
@@ -108,7 +108,7 @@ class FaithController extends Controller
 
         $faith->save();
 
-        $notification = session()->flash("success", "Data Update Successfully");
+        $notification = session()->flash("success", __('b.data_updated'));
 
         return redirect()->route('faith.index')->with($notification);
     }

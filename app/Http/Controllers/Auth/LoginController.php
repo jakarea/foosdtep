@@ -72,7 +72,7 @@ class LoginController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password], true) ) {
             // if(Auth::user()->auth_role == 3)
             // {
-                $notification = session()->flash("success", "Login Successfull!");
+                $notification = session()->flash("success", __("messages.login_success"));
 
                 return redirect()->route('customer.dashboard')->with($notification);
             // }
@@ -90,7 +90,7 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::logout();
-        $notification = session()->flash("success", "Logout Success");
+        $notification = session()->flash("success", __("messages.logout_success"));
         return redirect('/customer/login')->with($notification);
     }
 }

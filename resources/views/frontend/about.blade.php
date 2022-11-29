@@ -1,4 +1,7 @@
-@extends('layouts.frontend')
+@extends('layouts.frontend') 
+
+@section('title') {{ __('Over Ons') }} @endsection
+@section('breadcumbTitle') {{ __('Over Ons') }} @endsection
 
 @section('content')
 
@@ -15,7 +18,7 @@
                     <div class="col-md-6">
                         <div class="about-img">
                             <div class="img-responsive">
-                            <img src="https://thumbs.dreamstime.com/b/woman-shopping-supermarket-young-grocery-store-mature-checking-food-label-latin-holding-basket-94502144.jpg" alt="">
+                            <img src="{{ asset('frontend/assets/img/about/about-us.webp')}}" alt="">
                             </div>
                         </div>
                     </div>
@@ -28,12 +31,7 @@ Puur op basis van kwaliteit en smaak maken wij een bewuste keuze voor leverancie
 <p class="para__text">Food Steps verkoopt en distribueert producten in Belgie en Nedertland op basis van importeursafspraken met de producenten en het maakt dan ook onderdeel uit van de keten. In overleg met zowel de chefs in beide landen als de leveranciers bepalen we wat interessant is voor onze markt. De producten zijn van uitmuntende kwaliteit en winnen waar mogelijk zelfs prijzen over de hele wereld.
 </p>
 <p class="para__text">We nodigen u graag uit voor een gesprek met ons en we laten u hierbij ook graag producten proeven want U weet wat u zoekt en wat bij uw onderneming past!
-</p>
-<p class="para__text">We hebben nu (en in de toekomst) de volgende categorieën nodig op de site. Is het mogelijk een aantal categorieën nog niet zichtbaar te laten zijn op de site? Of is het beter om deze later toe te voegen?
-</p>
-<p class="para__text">Is het mogelijk dat je via twee wegen bij 1 product kunt komen, bijvoorbeeld via conserven EN via vis bij een blikje sardines?
-</p>
-<p class="para__text"></p>
+</p> 
 
                             
                         </div>
@@ -42,51 +40,6 @@ Puur op basis van kwaliteit en smaak maken wij een bewuste keuze voor leverancie
             </div>         
         </div>
 
-        <!-- ::::::  Start CMS Section  ::::::  -->
-        <div class="cms m-t-100 m-b-100">
-            <div class="container">
-                <div class="row">
-                    <!-- Start Single CMS box -->
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="cms__content">
-                            <div class="cms__icon">
-                                <i class="fas fa-truck"></i>
-                            </div>
-                            <div class="cms__text">
-                                <h6 class="cms__title">Free Shipping</h6>
-                                <p class="para__text">Erat metus sodales eget dolor consectetuer, porta ut purus at et alias, nulla ornare velit amet</p>
-                            </div>
-                        </div>
-                    </div> <!-- End Single CMS box -->
-                    <!-- Start Single CMS box -->
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="cms__content">
-                            <div class="cms__icon">
-                                <i class="far fa-money-bill-alt"></i>
-                            </div>
-                            <div class="cms__text">
-                                <h6 class="cms__title">100% Money Back Guarantee</h6>
-                                <p class="para__text">Erat metus sodales eget dolor consectetuer, porta ut purus at et alias, nulla ornare velit amet</p>
-                            </div>
-                        </div>
-                    </div> <!-- End Single CMS box -->
-                    <!-- Start Single CMS box -->
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="cms__content">
-                            <div class="cms__icon">
-                                <i class="far fa-life-ring"></i>
-                            </div>
-                            <div class="cms__text">
-                                <h6 class="cms__title">Online Support 24/7</h6>
-                                <p class="para__text">Erat metus sodales eget dolor consectetuer, porta ut purus at et alias, nulla ornare velit amet</p>
-                            </div>
-                        </div>
-                    </div> <!-- End Single CMS box -->
-                </div>
-            </div>
-        </div> <!-- ::::::  End CMS Section  ::::::  -->
-         
-       
     </main> <!-- ::::::  End  Main Container Section  ::::::  -->
 
 

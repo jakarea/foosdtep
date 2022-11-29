@@ -66,7 +66,14 @@ class DashboardController extends Controller
     public function show($id)
     {
         //
-        $data = Order::find($id);
+        $data = Order::findOrFail($id);
+
+        if($data && $data->user_id !== Auth::user()->id){
+            $notification = session()->flash("success", __('b.not_my_invocie'));
+            return redirect()->route('customer.dashboard')->with($notification);
+        }
+
+       // return $data;
 
         return view('frontend.customer.invoice', compact('data'));
     }
@@ -107,7 +114,7 @@ class DashboardController extends Controller
         
         $user->name             =   $request->name;
         if( !empty($request->password) ){
-            $user->password         =   Hash::make($request->only('password'));
+            $user->password         =   Hash::make($request->password);
         }
         $user->email            =   $request->email;
         $user->phone            =   $request->phone;
@@ -134,7 +141,7 @@ class DashboardController extends Controller
 
         $user->save();
 
-        $notification = session()->flash("success", "Data Update Successfully");
+        $notification = session()->flash("success", __('b.data_updated'));
 
         return redirect()->route('customer.dashboard')->with($notification);
     }
@@ -217,8 +224,8 @@ class DashboardController extends Controller
 
 
         // Order Notification
-        $data["email"] = ["arifypp@gmail.com", $reorder->user->email];
-        $data["title"] = "From FoodStep.com";
+        $data["email"] = ["admin@food-steps.nl", $reorder->user->email];
+        $data["title"] = "From food-steps.nl";
 
         $data["order"] = $order;
   

@@ -8,21 +8,22 @@
 
             <div class="d-flex justify-content-between mb-4">
                 <span>
-                <h4 class="card-title">{{ __('messages.orders_list') }}</h4> 
+                <h4 class="card-title">{{ __('b.orders_list') }}</h4> 
                 </span>
-                <!-- <a href="{{ url('static/discount/add') }}" class="btn btn-primary btn-sm">Add</a>  -->
+                 
             </div> 
 
             <table id="datatable" class="table table-bordered dt-responsive nowrap"
                     style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                         <tr>
-                            <th>No</th>
-                            <th>Order ID</th>
-                            <th>Order Item</th>
-                            <th>Customer Name</th> 
-                            <th>Amount</th> 
-                            <th>Action</th>
+                            <th>{{ __('b.no') }}</th>
+                            <th>{{ __('b.order_id') }}</th>
+                            <th>{{ __('b.order_item') }}</th>
+                            <th>{{ __('b.customer_name') }}</th> 
+                            <th>{{ __('b.status') }}</th> 
+                            <th>{{ __('b.amount') }}</th> 
+                            <th>{{ __('b.action') }}</th>
                         </tr>
                     </thead>
 
@@ -33,6 +34,7 @@
                             <td>{{ $data->order_number }}</td> 
                             <td>{{ $data->item_count }}</td>
                             <td>{{ $data->user->name }}</td>
+                            <td>{{ $data->status }}</td>
                             <td>{{ __('$'). $data->grand_total }}</td> 
                             <td>
                                 <a href="{{ route('orders.show', $data->id) }}" class="me-2">
@@ -44,14 +46,11 @@
                             </td>
                         </tr>
                     @endforeach    
-                        
                     </tbody>
                 </table>
-
             </div>
         </div>
-    </div>
-    <!-- end col -->
+    </div> 
 </div>
 @endsection
 
@@ -72,10 +71,10 @@
         e.preventDefault();
         var id = $(this).data('id');
         Swal.fire({
-                title: "Are you sure!",
+                title: "Weet je het zeker!",
                 icon: "error",
                 confirmButtonClass: "btn-danger",
-                confirmButtonText: "Yes!",
+                confirmButtonText: "Ja!",
                 showCancelButton: true,
             }).then((result) => {
             if (result.isConfirmed) {

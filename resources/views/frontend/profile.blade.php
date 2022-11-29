@@ -39,7 +39,7 @@
                                             Account Details</a>
                                     </li>
                                     <li>
-                                        <a class="link--icon-left" href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                                        <a class="link--icon-left" href="{{url('customer/login')}}"><i class="fas fa-sign-out-alt"></i> Logout</a>
                                     </li>
                                 </ul>
                             </div>

@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
-@section('title') {{ __('Products') }} @endsection
-@section('breadcumbTitle') {{ __('Products') }} @endsection
+@section('title') {{ __('Producten') }} @endsection
+@section('breadcumbTitle') {{ __('Producten') }} @endsection
 @section('content')
 
 <!-- breadcumb start -->
@@ -16,7 +16,8 @@
                         <!-- Category Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY CATEGORY</h5>
+                                <h3 class="mb-3">{{ __('text.product_group') }}</h3>
+                                <h5 class="sidebar__title">{{ __('text.category')}}</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
                                 @foreach($categories as $key => $category)
@@ -32,7 +33,7 @@
                         <!-- Brand Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY BRAND</h5>
+                                <h5 class="sidebar__title">{{ __('text.brand')}}</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
                                 @foreach($brands as $key => $brand)
@@ -48,7 +49,7 @@
                         <!-- ProductGroup Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY PRODUCT GROUP</h5>
+                                <h5 class="sidebar__title">{{ __('text.group')}} </h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
                                 @foreach($PGroups as $key => $PGroup)
@@ -64,7 +65,7 @@
                         <!-- Faith Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY FAITH</h5>
+                                <h5 class="sidebar__title">{{ __('text.faith')}} </h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
                                 @foreach($faiths as $key => $faith)
@@ -80,7 +81,7 @@
                         <!-- Faith Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY LINES</h5>
+                                <h5 class="sidebar__title">{{ __('text.lines')}} </h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
                                 @foreach($lines as $key => $line)
@@ -96,7 +97,7 @@
                         <!-- Faith Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY CONTENTS</h5>
+                                <h5 class="sidebar__title">{{ __('text.contents')}}</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
                                 @foreach($contents as $key => $content)
@@ -112,7 +113,7 @@
                         <!-- Faith Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY Allergens & Diet Preference</h5>
+                                <h5 class="sidebar__title">{{ __('text.allerge_and_diet')}}</h5>
                             </div>
                             <ul class="sidebar__menu-filter ">
                                 @foreach($AllergensDPs as $key => $AllergensDP)
@@ -130,9 +131,9 @@
 
                 <!-- Start Rightside - Product Type View -->
                 <div class="col-lg-9"> 
-                    <div class="img-responsive">
+                    <!-- <div class="img-responsive">
                         <img src="https://template.hasthemes.com/gsore/gsore/assets/img/banner/size-wide/banner-shop-1-img-1-wide.jpg" alt="">
-                    </div>
+                    </div> -->
                     <!-- ::::::  Start Sort Box Section  ::::::  -->
                     <div class="sort-box m-tb-40">
                         <!-- Start Sort Left Side -->
@@ -146,15 +147,15 @@
                         </div> <!-- Start Sort Left Side -->
 
                         <div class="sort-box-item d-flex align-items-center flex-warp">
-                            <span>Sort By:</span>
+                            <span>{{ __('text.sort_by')}}</span>
                             <div class="sort-box__option">
                                 <label class="select-sort__arrow">
                                     <select name="select-sort" class="select-sort">
-                                        <option value="1">Relevance</option>
-                                        <option value="2">Name, A to Z</option>
-                                        <option value="3"> Name, Z to A </option>
-                                        <option value="4"> Price, low to high</option>
-                                        <option value="5">Price, high to low</option>
+                                        <option value="1">{{ __('text.relevance')}}</option>
+                                        <option value="2">{{ __('text.name_a_z')}}</option>
+                                        <option value="3"> {{ __('text.name_z_a')}}</option>
+                                        <option value="4"> {{ __('text.price_low_high')}}</option>
+                                        <option value="5">{{ __('text.price_high_low')}} </option>
                                     </select>
                                 </label>
                             </div>
@@ -164,7 +165,7 @@
                     </div> <!-- ::::::  Start Sort Box Section  ::::::  -->
 
                     <div class="sort-box-item">
-                            <span>Showing {{ $products->onFirstPage() . __(' - '). $products->count() }} of {{ $products->count() }} result</span>
+                            <span>{{ __('text.showing')}} {{ $products->onFirstPage() . __(' - '). $products->count() }} {{__('text.of') }} {{ $products->count() }} {{ __('result')}}</span>
                         </div>
 
                     <div class="product-tab-area pb-5 attributes_wise" id="attributes_wise">
@@ -192,7 +193,7 @@
                                                 <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a>
                                                 @if(Auth::check())
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">{{ __('$'). $product->discount($product->id) }}</span>
+                                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
                                                 </div>
                                                 @endif
                                             </div> <!-- End Product Content -->
@@ -224,7 +225,7 @@
                                                                     <h5 class="title title--normal m-b-20">{{ $product->name }}</h5>
                                                                     @if(Auth::check())
                                                                     <div class="product__price">
-                                                                        <span class="product__price-del">{{ __('$'). $product->discount($product->id) }}</span>
+                                                                        <span class="product__price-del">{{ __('€'). $product->discount($product->id) }}</span>
                                                                     </div>
                                                                     @endif
                                                                     <div class="product__desc m-t-25 m-b-30">
@@ -233,16 +234,10 @@
                                                                     @if( Auth::check() )
                                                                     <div class="product-var p-t-30">
                                                                         <div class="product-quantity product-var__item d-flex align-items-center flex-wrap">
-                                                                        <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn--block btn--long btn--radius-tiny btn--green btn--green-hover-black text-uppercase m-r-35">Buy It Now</a>
+                                                                        <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn--block btn--long btn--radius-tiny btn--green btn--green-hover-black text-uppercase m-r-35">{{ __('text.buy_it_now')}}</a>
                                                                         </div>
                                                                     </div>
                                                                     @endif
-                                                                    <div class="product-links">
-                                                                        <div class="product-social m-tb-30">
-                                                                            <span>SHARE THIS PRODUCT</span>
-                                                                            {!! Share::page(url('/products/'. $product->slug))->facebook()->twitter()->whatsapp() !!}
-                                                                        </div>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -256,7 +251,7 @@
                             </div>
                             <div class="tab-pane shop-list" id="sort-list">
                                 <div class="row">
-                                    @foreach( $products as $key => $product )
+                                    @foreach( $products as $key => $product)
                                     <!-- Start Single List Product -->
                                     <div class="col-12">
                                         <div class="product__box product__box--list">
@@ -264,17 +259,14 @@
                                             <div class="product__img-box  pos-relative text-center">
                                                 <a href="{{ route('show.product', $product->slug) }}" class="product__img--link">
                                                     <img class="product__img img-fluid" src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="{{ $product->slug }}">
-                                                </a>
-                                                <!-- Start Procuct Label -->
-                                                    <span class="product__label product__label--sale-dis">-31%</span>
-                                                <!-- End Procuct Label -->
+                                                </a> 
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
                                             <div class="product__content">
                                                 <a href="{{ route('show.product', $product->slug) }}" class="product__link"><h5 class="font--regular">{{ $product->name }}</h5></a>
                                                 @if(Auth::check())
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">{{ __('$'). $product->discount($product->id) }}</span>
+                                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
                                                 </div>
                                                 @endif
                                                 <div class="product__desc">
@@ -282,10 +274,12 @@
                                                         {{ $product->short_description }}
                                                     </p>
                                                 </div>
+                                                @if(Auth::check())
                                                 <!-- Start Product Action Link-->
                                                 <ul class="product__action--link-list m-t-30">
-                                                    <li><a href="{{ route('add.to.cart', $product->id) }}" class="btn--black btn--black-hover-green">Add to cart</a></li>
+                                                    <li><a href="{{ route('add.to.cart', $product->id) }}" class="btn--black btn--black-hover-green">{{ __('text.add_to_cart')}}</a></li>
                                                 </ul> <!-- End Product Action Link -->
+                                                @endif
                                             </div> <!-- End Product Content -->
                                         </div> 
                                     </div> <!-- End Single List Product -->
@@ -300,8 +294,8 @@
                             <ul class="page-pagination__list">
                                 <li class="{{ ($products->currentPage() == 1) ? ' disabled' : '' }} page-pagination__item">
                                     <a class="page-pagination__link" href="{{ $products->url(1) }}" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo; Prev</span>
-                                        <span class="sr-only">Previous</span>
+                                        <span aria-hidden="true">&laquo; {{ __('text.prev')}}</span>
+                                        <span class="sr-only">{{ __('text.previous')}} </span>
                                     </a>
                                 </li>
                                 @for ($i = 1; $i <= $products->lastPage(); $i++)
@@ -311,8 +305,8 @@
                                 @endfor
                                 <li class="{{ ($products->currentPage() == $products->lastPage()) ? ' disabled' : '' }} page-pagination__item">
                                     <a href="{{ $products->url($products->currentPage()+1) }}" class="page-pagination__link" aria-label="Next">
-                                        <span aria-hidden="true">Next &raquo;</span>
-                                        <span class="sr-only">Next</span>
+                                        <span aria-hidden="true">{{ __('text.numfmt_set_text_attribute')}} &raquo;</span>
+                                        <span class="sr-only">{{ __('text.next')}}</span>
                                     </a>
                                 </li>
                             </ul>

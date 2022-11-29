@@ -3,28 +3,27 @@
 @section('content')
 
 
- <!-- :::::: Start Main Container Wrapper :::::: -->
- <main id="main-container" class="main-container">
+    <!-- :::::: Start Main Container Wrapper :::::: -->
+    <main id="main-container" class="main-container pb-0">
         <!-- ::::::  Start Hero Section  ::::::  -->
         @include('frontend.partials.hero')
-         <!-- ::::::  End Hero Section  ::::::  -->
- 
+        <!-- ::::::  End Hero Section  ::::::  -->
+
         <!-- ::::::  Start  Product Style - Catagory Section  ::::::  -->
-        <div class="product m-t-100">
+        <div class="product p-t-100" style="background: rgba(243, 245, 247, 0.772)!important;">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                         <!-- Start Section Title -->
+                        <!-- Start Section Title -->
                         <div class="section-content section-content--border m-b-35">
-                            <h5 class="section-content__title">Top categories</h5>
+                            <h5 class="section-content__title">{{ __('text.top_cats')}}</h5>
                             
                         </div>  <!-- End Section Title -->
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="product__catagory">
-
+                        <div class="product__catagory custom-img-cls">
                         @foreach($categories as $cateogry)
                             <!-- Start Single catagory Product -->
                             <div class="product__catagory--single">
@@ -49,87 +48,67 @@
         </div> <!-- ::::::  End  Product Style - Catagory Section  ::::::  -->
 
         <!-- ::::::  Start  Product Style - Default Section  ::::::  -->
-        <div class="product m-t-100">
+        <div class="product p-t-100 pb-5" style="background: rgba(243, 245, 247, 0.772)!important;">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                         <!-- Start Section Title -->
-                        <div class="section-content section-content--border m-b-35">
-                            <h5 class="section-content__title">Top categories</h5>
-                            <ul class="tablist tablist--style-blue tablist--style-gap-20 nav">
-                            @foreach( $prodcutCat as $keyCat => $category )
-                                <li><a class="nav-link {{ $keyCat == 0 ? 'active' : '' }}" data-bs-toggle="tab" href="#{{ $category->slug.$category->id }}">{{ $category->name }}</a></li>
-                            @endforeach
-                            </ul>
+                        <!-- Start Section Title -->
+                        <div class="section-content section-content--border section-content--border-product m-b-35">
+                            <h5 class="section-content__title">{{ __('text.products')}}</h5>
+                            
                         </div>  <!-- End Section Title -->
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12">
-                        <div class="tab-content tab-animate-zoom">
-                        @foreach( $prodcutCat as $keyCat => $category )
-                            <!-- Start Single Tab Item -->
-                            <div class="tab-pane show {{ $keyCat == 0 ? 'active' : '' }}" id="{{ $category->slug.$category->id }}">
-                                <div class="default-slider default-slider--hover-bg-red product-default-slider">
-                                    <div class="product-default-slider-4grid-2rows gap__col--30 gap__row--40"> 
-                                        @php
-                                        $catWiseProduct = App\Models\Backend\Product::where('cat_id','like','%'.trim($category->id).'%')->where('status', 'active')->take('12')->get();
-                                        @endphp
-                                        @foreach( $catWiseProduct as $keyProduct => $product )       
-                                        <!-- Start Single Default Product -->
-                                        <div class="product__box product__default--single text-center">
-                                            <!-- Start Product Image -->
-                                            <div class="product__img-box  pos-relative">
-                                                <a href="{{ route('show.product', $product->slug) }}" class="product__img--link">
-                                                    <img class="product__img img-fluid" src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="{{$product->slug}}">
-                                                </a>                                               
-                                                <ul class="product__action--link pos-absolute">
-                                                    @if( Auth::check() )
-                                                    <li><a href="{{ route('add.to.cart', $product->id) }}"><i class="icon-shopping-cart"></i></a></li>
-                                                    @endif
-                                                    <li><a href="#modalQuickView{{$product->id}}" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
-                                                </ul> <!-- End Product Action Link -->
-                                            </div> <!-- End Product Image -->
-                                            <!-- Start Product Content -->
-                                            <div class="product__content m-t-20">
-                                                <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a>
-                                                @if(Auth::check())
-                                                <div class="product__price m-t-5">
-                                                    <span class="product__price">{{ __('$'). $product->discount($product->id) }}</span>
-                                                </div>
-                                                @endif
-                                            </div> <!-- End Product Content -->
-                                        </div> 
-                                        <!-- End Single Default Product -->
-                                        @endforeach
-                                    </div>
+                @foreach( $products as $keyProduct => $product )
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 ">
+                        <!-- Start Single Default Product -->
+                        <div class="product__box product__default--single text-center">
+                            <!-- Start Product Image -->
+                            <div class="product__img-box  pos-relative">
+                                <a href="{{ route('show.product', $product->slug) }}" class="product__img--link">
+                                    <img class="product__img img-fluid" src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="">
+                                </a>
+                                <!-- Start Procuct Label --> 
+                                <!-- End Procuct Label -->
+                                <!-- Start Product Action Link-->
+                                <ul class="product__action--link pos-absolute">
+                                    @if( Auth::check() )
+                                    <li><a href="{{ route('add.to.cart', $product->id) }}"><i class="icon-shopping-cart"></i></a></li>
+                                    @endif
+                                    <li><a href="#modalQuickView{{$product->id}}" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
+                                </ul> <!-- End Product Action Link -->
+                            </div> <!-- End Product Image -->
+                            <!-- Start Product Content -->
+                            <div class="product__content m-t-20"> 
+                                <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a>
+                                @if(Auth::check())
+                                <div class="product__price m-t-5">
+                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
                                 </div>
-                            </div> 
-                             <!-- End Single Tab Item -->
-                            @endforeach
-
-                            
-                        </div>
+                                @endif
+                            </div> <!-- End Product Content -->
+                        </div> <!-- End Single Default Product -->
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div> <!-- ::::::  End  Product Style - Default Section  ::::::  -->
 
-         <!-- ::::::  Start banner Section  ::::::  -->
-         <div class="banner m-t-100 pos-relative">
+        <!-- ::::::  Start banner Section  ::::::  -->
+        <div class="banner pos-relative">
             <div class="banner__bg">
-                <img src="https://template.hasthemes.com/gsore/gsore/assets/img/banner/size-extra-large-wide/banner-home-1-img-1-extra-large-wide.jpg" alt="">
+                <img src="{{ asset('frontend/assets/img/newsletter/Nieuwsbrief.jpeg')}}" alt="Nieuwsbrief">
             </div>
             <div class="banner__box banner__box--single-text-style-2">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
                             <div class="banner__content banner__content--center pos-absolute">
-                                <h6 class="banner__title  font--medium m-b-10">SPECIAL DISCOUNT</h6>
-                                <h1 class="banner__title banner__title--large font--regular text-capitalize">For all Grocery <br>
-                                    products</h1>
-                                <h6 class="banner__title font--medium m-b-40">Take now 20% off for all grocer product.</h6>
-                                <a href="{{ url('products')}}" class="btn btn--large btn--radius btn--black btn--black-hover-green font--bold text-uppercase">Shop now</a>
+                                <h6 class="banner__title  font--medium m-b-10">{{ __('text.special_discount')}}</h6>
+                                <h1 class="banner__title banner__title--large font--regular text-capitalize ">{{ __('text.for_all_grocery')}} <br></h1>
+                                <h6 class="banner__title font--medium m-b-40 ">{{ __('text.20_off')}}</h6>
+                                <a href="{{ url('products')}}" class="btn btn--large btn--radius btn--black btn--black-hover-green font--bold text-uppercase">{{ __('text.shop_now')}}</a>
                             </div> 
                         </div>
                     </div>
@@ -142,115 +121,49 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                         <!-- Start Section Title -->
+                        <!-- Start Section Title -->
                         <div class="section-content section-content--border m-b-35">
-                            <h5 class="section-content__title">Our Latest News</h5>
-                            <a href="blog-list-sidebar-left.html" class="btn btn--icon-left btn--small btn--radius btn--transparent btn--border-green btn--border-green-hover-green font--regular text-capitalize">More blogs <i class="fal fa-angle-right"></i></a>
+                            <h5 class="section-content__title">{{ __('text.our_latest_news')}}</h5>
+                            <!-- <a href="blog-list-sidebar-left.html" class="btn btn--icon-left btn--small btn--radius btn--transparent btn--border-green btn--border-green-hover-green font--regular text-capitalize">More blogs <i class="fal fa-angle-right"></i></a> -->
                         </div>  <!-- End Section Title -->
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="default-slider default-slider--hover-bg-red">
-                            <div class="blog-feed-slider-3grid default-slider gap__col--30 ">
-                                <!-- Start Single Blog Feed -->
-                                <div class="blog-feed">
-                                    <!-- Start Blog Feed Image -->
-                                    <div class="blog-feed__img-box">
-                                        <a href="blog-single-sidebar-left.html" class="blog-feed__img--link">
-                                            <img class="img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/blog/feed/blog-feed-home-1-img-1.jpg" alt="">
-                                        </a>
-                                    </div> <!-- End  Blog Feed Image -->
-                                    <!-- Start  Blog Feed Content -->
-                                    <div class="blog-feed__content ">
-                                        <a href="blog-single-sidebar-left.html" class="blog-feed__link">Consectetur adipisicing</a>
-                                        
-                                        <div class="blog-feed__post-meta">
-                                            By
-                                            <a class="blog-feed__post-meta--link" href="blog-grid-sidebar-left.html"><span class="blog-feed__post-meta--author">Partner 2020 /</span></a>
-                                            <a class="blog-feed__post-meta--link" href="blog-grid-sidebar-left.html"><span class="blog-feed__post-meta--date">July 23, 2020</span></a>
-                                            
-                                        </div>
-                                        <p class="blog-feed__excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid...</p>
-                                        <a href="blog-single-sidebar-left.html" class="btn btn--small btn--radius btn--green btn--green-hover-black font--regular text-uppercase text-capitalize">Continue Reading</a>
-                                    </div> <!-- End  Blog Feed Content -->
-                                </div> <!-- End Single Blog Feed -->
-                                <!-- Start Single Blog Feed -->
-                                <div class="blog-feed">
-                                    <!-- Start Blog Feed Image -->
-                                    <div class="blog-feed__img-box">
-                                        <a href="blog-single-sidebar-left.html" class="blog-feed__img--link">
-                                            <img class="img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/blog/feed/blog-feed-home-1-img-2.jpg" alt="">
-                                        </a>
-                                    </div> <!-- End  Blog Feed Image -->
-                                    <!-- Start  Blog Feed Content -->
-                                    <div class="blog-feed__content ">
-                                        <a href="blog-single-sidebar-left.html" class="blog-feed__link">Consectetur adipisicing</a>
-                                        
-                                        <div class="blog-feed__post-meta">
-                                            By
-                                            <a class="blog-feed__post-meta--link" href="blog-grid-sidebar-left.html"><span class="blog-feed__post-meta--author">Partner 2020 /</span></a>
-                                            <a class="blog-feed__post-meta--link" href="blog-grid-sidebar-left.html"><span class="blog-feed__post-meta--date">July 23, 2020</span></a>
-                                            
-                                        </div>
-                                        <p class="blog-feed__excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid...</p>
-                                        <a href="blog-single-sidebar-left.html" class="btn btn--small btn--radius btn--green btn--green-hover-black font--regular text-uppercase text-capitalize">Continue Reading</a>
-                                    </div> <!-- End  Blog Feed Content -->
-                                </div> <!-- End Single Blog Feed -->
-                                <!-- Start Single Blog Feed -->
-                                <div class="blog-feed">
-                                    <!-- Start Blog Feed Image -->
-                                    <div class="blog-feed__img-box">
-                                        <a href="blog-single-sidebar-left.html" class="blog-feed__img--link">
-                                            <img class="img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/blog/feed/blog-feed-home-1-img-3.jpg" alt="">
-                                        </a>
-                                    </div> <!-- End  Blog Feed Image -->
-                                    <!-- Start  Blog Feed Content -->
-                                    <div class="blog-feed__content ">
-                                        <a href="blog-single-sidebar-left.html" class="blog-feed__link">Consectetur adipisicing</a>
-                                        
-                                        <div class="blog-feed__post-meta">
-                                            By
-                                            <a class="blog-feed__post-meta--link" href="blog-grid-sidebar-left.html"><span class="blog-feed__post-meta--author">Partner 2020 /</span></a>
-                                            <a class="blog-feed__post-meta--link" href="blog-grid-sidebar-left.html"><span class="blog-feed__post-meta--date">July 23, 2020</span></a>
-                                            
-                                        </div>
-                                        <p class="blog-feed__excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid...</p>
-                                        <a href="blog-single-sidebar-left.html" class="btn btn--small btn--radius btn--green btn--green-hover-black font--regular text-uppercase text-capitalize">Continue Reading</a>
-                                    </div> <!-- End  Blog Feed Content -->
-                                </div> <!-- End Single Blog Feed -->
-                                <!-- Start Single Blog Feed -->
-                                <div class="blog-feed">
-                                    <!-- Start Blog Feed Image -->
-                                    <div class="blog-feed__img-box">
-                                        <a href="blog-single-sidebar-left.html" class="blog-feed__img--link">
-                                            <img class="img-fluid" src="https://template.hasthemes.com/gsore/gsore/assets/img/blog/feed/blog-feed-home-1-img-4.jpg" alt="">
-                                        </a>
-                                    </div> <!-- End  Blog Feed Image -->
-                                    <!-- Start  Blog Feed Content -->
-                                    <div class="blog-feed__content ">
-                                        <a href="blog-single-sidebar-left.html" class="blog-feed__link">Consectetur adipisicing</a>
-                                        
-                                        <div class="blog-feed__post-meta">
-                                            By
-                                            <a class="blog-feed__post-meta--link" href="blog-grid-sidebar-left.html"><span class="blog-feed__post-meta--author">Partner 2020 /</span></a>
-                                            <a class="blog-feed__post-meta--link" href="blog-grid-sidebar-left.html"><span class="blog-feed__post-meta--date">July 23, 2020</span></a>
-                                            
-                                        </div>
-                                        <p class="blog-feed__excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid...</p>
-                                        <a href="blog-single-sidebar-left.html" class="btn btn--small btn--radius btn--green btn--green-hover-black font--regular text-uppercase text-capitalize">Continue Reading</a>
-                                    </div> <!-- End  Blog Feed Content -->
-                                </div> <!-- End Single Blog Feed -->
-                            </div>
+                <div class="row"> 
+                    @foreach($blogs as $blog)
+                        <div class="col-lg-6">
+                        <!-- Start Single Blog Feed -->
+                        <div class="blog-feed">
+                            <!-- Start Blog Feed Image -->
+                            <div class="blog-feed__img-box">
+                                <a href="{{url('blog/'. $blog->slug)}}" class="blog-feed__img--link">
+                                <img src="{{ asset('backend/assets/images/blog/'. $blog->image) }}" alt="Cate" class="img-fluid" >
+                                </a>
+                            </div> <!-- End  Blog Feed Image -->
+                            <!-- Start  Blog Feed Content -->
+                            <div class="blog-feed__content ">
+                                <a href="javascript:void(0)" class="blog-feed__link">{{$blog->title}}</a>
+                                
+                                <div class="blog-feed__post-meta">
+                                    {{ __('messages.by')}}
+                                    <a class="blog-feed__post-meta--link" href="javascript:void(0)"><span class="blog-feed__post-meta--author">{{$blog->user->name}} /</span></a> 
+                                    <a class="blog-feed__post-meta--link" href="javascript:void(0)"><span class="blog-feed__post-meta--date">{{ date('M d,Y', strtotime($blog->created_at)); }}</span></a> 
+                                    
+                                </div>
+                                <p class="blog-feed__excerpt">{{ substr($blog->body,0,170)}}</p>
+
+                                <a href="{{url('blog/'. $blog->slug)}}" class="btn btn--small btn--radius btn--green btn--green-hover-black font--regular text-uppercase text-capitalize">{{__('text.more_info')}}</a>
+                            </div> <!-- End  Blog Feed Content -->
+                        </div> 
+                        <!-- End Single Blog Feed --> 
                         </div>
-                    </div>
+                    @endforeach 
                 </div>
             </div>
         </div> <!-- ::::::  End  Blog News   ::::::  -->
 
-         <!-- ::::::  Start Newsletter Section  ::::::  -->
-         @include('frontend.partials.newslatter')
-         <!-- ::::::  End newsletter Section  ::::::  -->
+        <!-- ::::::  Start Newsletter Section  ::::::  -->
+        @include('frontend.partials.newslatter')
+        <!-- ::::::  End newsletter Section  ::::::  -->
  
 
     </main>  <!-- :::::: End MainContainer Wrapper :::::: -->

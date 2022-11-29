@@ -3,17 +3,6 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-lg-12">
-
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between mb-4">
@@ -84,11 +73,11 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="mb-3"> 
-                                <label class="form-label">{{ __('User Role') }}</label>
+                                <label class="form-label">{{ __('b.role') }}</label>
                                 <div>
                                     <select name="auth_role" class="form-select" id="auth_role">
-                                        <option value="2">Customer</option>
-                                        <option value="1">Admin</option>
+                                        <option value="2" {{ $user->myRole->role_id == 2 ? 'selected' : ''}}>{{__('b.customer') }}</option>
+                                        <option value="1" {{ $user->myRole->role_id == 1 ? 'selected' : ''}}>{{__('b.admin') }}</option>
                                     </select>
                                 </div>
                             </div>
@@ -105,7 +94,7 @@
                         </div>
                         <div class="col-lg-2">
                             <div class="mb-3"> 
-                                <label class="form-label">{{ __('messages.preview') }}</label>
+                                <label class="form-label">{{ __('b.preview') }}</label>
                                 <div>
                                     @if( $user->avater != null )
                                         <img src="{{ asset('frontend/assets/img/user/'. $user->avater) }}" alt="" class="avatar-md"  style="width: 40px; border-radius: 4px;" class="img-fluid" id="image">

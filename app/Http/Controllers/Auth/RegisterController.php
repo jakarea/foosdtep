@@ -58,6 +58,8 @@ class RegisterController extends Controller
     {
         $validation =   $request->validate([
             'name'          =>  ['required', 'string', 'unique:users,name', 'max:255'],
+            'kvk'         =>  ['required', 'string', 'max:255'],
+            'vat'         =>  ['required', 'string', 'max:255'],
             'email'         =>  ['required', 'email', 'unique:users,email', 'max:255'],
             'password'      =>  ['required', 'string', 'min:6'],
         ]);
@@ -67,6 +69,8 @@ class RegisterController extends Controller
         {
             $user = User::create([
                 'name'   =>  $request->name,
+                'kvk'   =>  $request->kvk,
+                'vat'   =>  $request->vat,
                 'email'   =>  $request->email,
                 'password'   =>  Hash::make($request->password),
             ]);
@@ -76,11 +80,11 @@ class RegisterController extends Controller
                 'role_id'   =>  3,
             ]);
 
-            $notification = session()->flash("success", "Account Created Successfull!");
+            $notification = session()->flash("success", __('b.account_created'));
             return redirect()->route('customer.loginform')->with($notification);
         }
         else {
-            $notification = session()->flash("error", "Data Not Found");
+            $notification = session()->flash("error", __('b.no_data'));
             return back()->with($notification);
         }
     }
