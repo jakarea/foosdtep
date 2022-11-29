@@ -165,7 +165,10 @@ Route::middleware(['verified'])->group(function () {
                 Route::get('by-products/discounts', 'index')->name('discounts.by-product'); 
                 Route::get('by-products/discounts/create', 'create')->name('discounts.by-product.create'); 
             });
-
+            // Manage Multi Discount
+            Route::group(['prefix' => 'multidiscounts'], function() {
+                Route::resource('multidiscount', 'App\Http\Controllers\Backend\MultipleDiscountController');
+            });
             // Manage Products
             Route::group(['prefix' => 'products'], function() {
                 Route::resource('product', 'App\Http\Controllers\Backend\ProductController');

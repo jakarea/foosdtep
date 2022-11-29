@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Backend\Brand;
 use App\Models\Backend\Category;
 use App\Models\Backend\Discount;
+use App\Models\Backend\MultipleDiscount;
 use App\Models\User;
 use Auth;
-
+use DB;
 class Product extends Model
 {
     use HasFactory;
@@ -73,10 +74,33 @@ class Product extends Model
     {
 
         $discount = Discount::where('user_id', Auth::user()->id )->first();
-
+        
         $p = Product::where('id', $p_id)->first();
 
-        if( !is_null($discount) ){
+
+        $multidiscount =  MultipleDiscount::where('user_id','like','%'.trim(Auth::user()->id).'%')->first();
+
+        $mdvalue = MultiDiscountType::where('product_id', $p_id)->where('multidiscount_id', $multidiscount->id)->first();        
+
+        // return  $mdvalue;
+        
+        if( !is_null($mdvalue) || is_null($discount) ){
+            if( $discount->value <= $mdvalue->value ){
+
+                $p_val = $p->price / 100 * $mdvalue->value ;
+                $p_price = $p->price - $p_val;
+                
+            }else if($discount->value >= $mdvalue->value){
+                if( $discount->type == 'percentage' ){
+                    $p_val = $p->price / 100 * $discount->value;
+                    $p_price = $p->price - $p_val;
+                }
+                else {
+                    $p_val = $p->price - $discount->value;
+                    $p_price = $p_val;
+                }
+            }
+        }else if( !is_null($discount) ){
             if( $discount->type == 'percentage' ){
                 $p_val = $p->price / 100 * $discount->value;
                 $p_price = $p->price - $p_val;

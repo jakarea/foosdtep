@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title') Manage Discount @endsection
+@section('title') Manage Multiple Discount @endsection
 @section('content')
 
     <!-- Brand form start -->
@@ -9,38 +9,54 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-4">
                         <span>
-                        <h4 class="card-title">{{__('b.discount_list') }}</h4> 
+                        <h4 class="card-title">Multiple Discount List</h4> 
                         </span>
-                        <a href="{{ route('discounts.create') }}" class="btn btn-primary btn-sm">{{ __('b.add_discount') }}</a> 
+                        <a href="{{ route('multidiscount.create') }}" class="btn btn-primary btn-sm">Add Multiple Discount</a> 
                     </div>
 
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
                         style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                             <tr>
-                                <th>{{__('b.no') }}</th>
-                                <th>{{__('b.discount_percent') }}</th>
-                                <th>{{__('b.user') }}</th>
-                                <th>{{__('b.status') }}</th>
-                                <th>{{__('b.action') }}</th> 
+                                <th>ID</th>
+                                <th>Discount</th>
+                                <th>Users</th>
+                                <th>Products</th>
+                                <th>Status</th>
+                                <th>Action</th> 
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach( $discount as $key => $data )
+                            @foreach( $multiplediscount as $key => $data )
+
+
                             <tr id="table_rrow{{$data->id}}">
                                 <td valign="middle">{{ $key+1 }}</td>
-                                <td valign="middle">{{ $data->value }}%</td>
-                                <td valign="middle"></td>
+                                <td valign="middle">{{ $data->name }}</td>
+                                <td valign="middle">
+                                @php 
+                                    $users = explode(',', $data->user_id);
+                                @endphp
+                                @foreach($users as $user)
+                                <span class="bg-success badge">{{ $data->users($user) }}</span>                                
+                                @endforeach
+                                </td>
+                                <td valign="middle">
+                                @foreach($data->typeItems as $product)
+                                <span class="bg-success badge">{{ $product->product->name }}</span>                                
+                                @endforeach
+                                
+                                </td>
                                 <td valign="middle">
                                     @if( $data->status == 'active' )
-                                    <span class="text-success">{{__('b.active') }}</span>
+                                    <span class="text-success">Active</span>
                                     @else
-                                    <span class="text-danger">{{__('b.inactive') }}</span>
+                                    <span class="text-danger">In-active</span>
                                     @endif
                                 </td>
                                 <td valign="middle">
-                                    <a href="{{ route('discounts.update', $data->id) }}" class="me-2"><i class="fas fa-pencil-alt"></i></a>
+                                    <a href="{{ route('multidiscount.edit', $data->id) }}" class="me-2"><i class="fas fa-pencil-alt"></i></a>
                                     <a href="javascript:void(0)" class="text-danger cat_delete" data-id="{{$data->id}}"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>   
@@ -73,10 +89,10 @@
         e.preventDefault();
         var id = $(this).data('id');
         Swal.fire({
-                title: "Weet je het zeker!",
+                title: "Are you sure!",
                 icon: "error",
                 confirmButtonClass: "btn-danger",
-                confirmButtonText: "Ja!",
+                confirmButtonText: "Yes!",
                 showCancelButton: true,
             }).then((result) => {
             if (result.isConfirmed) {
@@ -88,7 +104,7 @@
                 });
                 $.ajax({
                     type: "DELETE",
-                    url:  "{{url('/auth/discounts')}}/" + id,
+                    url:  "{{url('/auth/multidiscounts/multidiscount')}}/" + id,
                     data: {_token: CSRF_TOKEN, id: id},
                     dataType: 'JSON',
                     success: function (results) {
@@ -107,7 +123,7 @@
 
                         Toast.fire({
                             icon: 'success',
-                            title: 'Succesvol verwijderen'
+                            title: 'Delete successfully'
                         })
                         $('#table_rrow' + id).remove();
                         }         

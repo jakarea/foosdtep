@@ -99,7 +99,7 @@ class ProductController extends Controller
             $cart[$id] = [
                 "name" => $product->name,
                 "quantity" => 1,
-                "price" => $product->discount($id) ? : $product->price,
+                "price" => $product->discount($product->id), //? : $product->price,
                 "image" => $product->image
             ];
         }
