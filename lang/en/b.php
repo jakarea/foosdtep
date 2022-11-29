@@ -17,13 +17,5 @@ return [
     'declinedDeclined',
     'details'=>'Details',
     'no_order'=>'No Order',
-    ''=>'',
-    ''=>'',
-    ''=>'',
-    ''=>'',
-    ''=>'',
-    ''=>'',
-    ''=>'',
-    ''=>'',
 ];
 ?>
