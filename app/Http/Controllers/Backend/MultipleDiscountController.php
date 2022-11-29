@@ -97,7 +97,7 @@ class MultipleDiscountController extends Controller
     public function edit($id)
     {
         //
-        $multidiscount = MultipleDiscount::where('id', $id)->first();
+        $multidiscount = MultipleDiscount::with('typeItems')->where('id', $id)->first();
         $users = User::all();
         $products = Product::where('status', 'active')->get();
         return view('backend/pages/multiplediscount/edit', compact('multidiscount', 'users', 'products'));
@@ -113,22 +113,35 @@ class MultipleDiscountController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $request->validate([
-            'discount'          =>  ['required'],
-            'users'             =>  ['required', 'not_in:0'],
-            'products'          =>  ['required', 'not_in:0'],
-            'discount_type'     =>  ['required', 'not_in:0'],
-            'status'            =>  ['required', 'not_in:0'],
-        ]);
-
         $data = MultipleDiscount::find($id);
-        $data->value        =   $request->discount;
-        $data->type         =   $request->discount_type;
+        $data->name         =   $request->name;
         $data->status       =   $request->status;
         $data->user_id      =   implode(",", $request->users);
-        $data->product_id   =   implode(",", $request->products);
-
         $data->save();
+        
+        
+        $datatype = $request->discount;
+
+        $dataTypeItem = [];
+
+        if( isset($datatype) ){
+
+            foreach($datatype as $key => $type_data) {
+
+                MultiDiscountType::updateOrCreate(
+                [
+                    'id' => $type_data['item_type_id'] 
+                ],
+                [
+                    'product_id'            => $type_data['products'],
+                    'value'                 => $type_data['value'],
+                    'type'                  => $type_data['type'],
+                    'multidiscount_id'      => $data->id,
+                ]);
+
+            }
+
+        }
 
         $notification = session()->flash("success", "Data Create Successfully");
 

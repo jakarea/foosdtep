@@ -43,9 +43,6 @@
                                 @endforeach
                                 </td>
                                 <td valign="middle">
-                                @php 
-                                    $products = explode(',', $data->product_id);
-                                @endphp
                                 @foreach($data->typeItems as $product)
                                 <span class="bg-success badge">{{ $product->product->name }}</span>                                
                                 @endforeach

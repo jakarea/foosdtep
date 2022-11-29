@@ -80,18 +80,24 @@ class Product extends Model
 
         $multidiscount =  MultipleDiscount::where('user_id','like','%'.trim(Auth::user()->id).'%')->with('typeItems')->first();
 
-        // foreach ($multidiscount->typeItems as $key => $value) {
+        // $ddd = MultiDiscountType::all();
+        $orderdetail = MultiDiscountType::where('multidiscount_id',$multidiscount->id)->pluck('value');
+
+        // $sss = []; 
+        // $i= 0;
+        // foreach ($orderdetail as $key => $value) {
         //     # code...
-        //     return $value->id;
+        //     return $value;
         // }
+
 
         
         if( !is_null($multidiscount) || is_null($discount) ){
             foreach ($multidiscount->typeItems as $key => $mdiscount) {
                 # code...
-                
+                $discprice = explode(',', $orderdetail);
                 if( $discount->value <= $mdiscount->value ){
-                    if( $discount->type == 'percentage' ){
+                    if( $mdiscount->type == 'percentage' ){
                         $p_val = $p->price / 100 * $mdiscount->value;
                         $p_price = $p->price - $p_val;
                     }
