@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Backend\MultipleDiscount;
+use App\Models\Backend\MultiDiscountType;
 use App\Models\Backend\Product;
 use App\Models\User;
 class MultipleDiscountController extends Controller
@@ -17,8 +18,8 @@ class MultipleDiscountController extends Controller
     public function index()
     {
         //
-        $multiplediscount = MultipleDiscount::orderby('id', 'DESC')->with('user')->get();
-
+        $multiplediscount = MultipleDiscount::orderby('id', 'DESC')->with('user')->with('typeItems')->get();
+        // return $multiplediscount;
         return view('backend/pages/multiplediscount/manage', compact('multiplediscount'));
     }
 
@@ -44,22 +45,32 @@ class MultipleDiscountController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'discount'          =>  ['required'],
-            'users'             =>  ['required', 'not_in:0'],
-            'products'          =>  ['required', 'not_in:0'],
-            'discount_type'     =>  ['required', 'not_in:0'],
-            'status'            =>  ['required', 'not_in:0'],
-        ]);
-
         $data = new MultipleDiscount;
-        $data->value        =   $request->discount;
-        $data->type         =   $request->discount_type;
+        $data->name         =   $request->name;
         $data->status       =   $request->status;
         $data->user_id      =   implode(",", $request->users);
-        $data->product_id   =   implode(",", $request->products);
-
         $data->save();
+        
+        
+        $datatype = $request->discount;
+
+        $dataTypeItem = [];
+
+        if( isset($datatype) ){
+
+            foreach($datatype as $key => $type_data) {
+
+                $dataTypeItem[] = [
+                    'product_id'            => $type_data['products'],
+                    'value'                 => $type_data['value'],
+                    'type'                  => $type_data['type'],
+                    'multidiscount_id'      => $data->id,
+                ];
+
+            }
+
+            MultiDiscountType::insert($dataTypeItem);
+        }
 
         $notification = session()->flash("success", "Data Create Successfully");
 

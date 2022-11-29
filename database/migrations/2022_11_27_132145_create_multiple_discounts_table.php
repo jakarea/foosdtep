@@ -15,10 +15,8 @@ return new class extends Migration
     {
         Schema::create('multiple_discounts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('value')->default('0');
-            $table->enum('type', ['percentage', 'numeric'])->default('percentage');
+            $table->string('name')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->string('product_id')->nullable();
             $table->string('user_id')->nullable();
             $table->timestamps();
         });

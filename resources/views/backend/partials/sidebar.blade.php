@@ -161,6 +161,9 @@
                         <li class="@if( Route::currentRouteNamed('discounts.by-product')) mm-active @endif">
                             <a href="{{ route('discounts.by-product') }}" class="waves-effect-@if( Route::currentRouteNamed('discounts.by-product')) active @endif">{{ __('b.by_product')}}</a>
                         </li>
+                        <li class="@if( Route::currentRouteNamed('multidiscount.index')) mm-active @endif">
+                            <a href="{{ route('multidiscount.index') }}" class="waves-effect-@if( Route::currentRouteNamed('multidiscount.index')) active @endif">{{ __('Multi Discount')}}</a>
+                        </li>
                     </ul>
                 </li>
             </ul>

@@ -33,7 +33,7 @@
 
                             <tr id="table_rrow{{$data->id}}">
                                 <td valign="middle">{{ $key+1 }}</td>
-                                <td valign="middle">{{ $data->value }}%</td>
+                                <td valign="middle">{{ $data->name }}</td>
                                 <td valign="middle">
                                 @php 
                                     $users = explode(',', $data->user_id);
@@ -46,8 +46,8 @@
                                 @php 
                                     $products = explode(',', $data->product_id);
                                 @endphp
-                                @foreach($products as $product)
-                                <span class="bg-success badge">{{ $data->products($product) }}</span>                                
+                                @foreach($data->typeItems as $product)
+                                <span class="bg-success badge">{{ $product->product->name }}</span>                                
                                 @endforeach
                                 
                                 </td>

@@ -15,6 +15,7 @@
 
                 <form class="custom-validation" action="{{ route('multidiscount.update', $multidiscount->id) }}" method="post" enctype="multipart/form-data">
                     @csrf  
+                    <input type="hidden" name="_method" value="PUT">
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="mb-3">
