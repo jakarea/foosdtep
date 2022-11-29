@@ -196,6 +196,23 @@
                                                     <span class="product__price">{{ __('$'). $product->discount($product->id) }}</span>
                                                 </div>
                                                 @endif
+
+
+                                               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                             </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
                                     </div>

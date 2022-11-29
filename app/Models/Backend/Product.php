@@ -78,38 +78,26 @@ class Product extends Model
         $p = Product::where('id', $p_id)->first();
 
 
-        $multidiscount =  MultipleDiscount::where('user_id','like','%'.trim(Auth::user()->id).'%')->with('typeItems')->first();
+        $multidiscount =  MultipleDiscount::where('user_id','like','%'.trim(Auth::user()->id).'%')->first();
 
-        // $ddd = MultiDiscountType::all();
-        $orderdetail = MultiDiscountType::where('multidiscount_id',$multidiscount->id)->pluck('value');
+        $mdvalue = MultiDiscountType::where('product_id', $p_id)->where('multidiscount_id', $multidiscount->id)->first();        
 
-        // $sss = []; 
-        // $i= 0;
-        // foreach ($orderdetail as $key => $value) {
-        //     # code...
-        //     return $value;
-        // }
-
-
+        // return  $mdvalue;
         
-        if( !is_null($multidiscount) || is_null($discount) ){
-            foreach ($multidiscount->typeItems as $key => $mdiscount) {
-                # code...
-                $discprice = explode(',', $orderdetail);
-                if( $discount->value <= $mdiscount->value ){
-                    if( $mdiscount->type == 'percentage' ){
-                        $p_val = $p->price / 100 * $mdiscount->value;
-                        $p_price = $p->price - $p_val;
-                    }
-                }else{
-                    if( $discount->type == 'percentage' ){
-                        $p_val = $p->price / 100 * $discount->value;
-                        $p_price = $p->price - $p_val;
-                    }
-                    else {
-                        $p_val = $p->price - $discount->value;
-                        $p_price = $p_val;
-                    }
+        if( !is_null($mdvalue) || is_null($discount) ){
+            if( $discount->value <= $mdvalue->value ){
+
+                $p_val = $p->price / 100 * $mdvalue->value ;
+                $p_price = $p->price - $p_val;
+                
+            }else if($discount->value >= $mdvalue->value){
+                if( $discount->type == 'percentage' ){
+                    $p_val = $p->price / 100 * $discount->value;
+                    $p_price = $p->price - $p_val;
+                }
+                else {
+                    $p_val = $p->price - $discount->value;
+                    $p_price = $p_val;
                 }
             }
         }
