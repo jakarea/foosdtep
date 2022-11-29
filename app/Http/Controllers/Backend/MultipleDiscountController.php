@@ -45,6 +45,14 @@ class MultipleDiscountController extends Controller
     public function store(Request $request)
     {
         //
+        // return $request;
+        $request->validate([
+            'name'                  =>  'required', 'string', 'max:255',
+            'users'                 =>  'required',
+            'discount.*.products'   => 'required',
+            'discount.*.value'      =>  'required', 'numeric',
+        ]);
+
         $data = new MultipleDiscount;
         $data->name         =   $request->name;
         $data->status       =   $request->status;
@@ -113,6 +121,13 @@ class MultipleDiscountController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'name'                  =>  'required', 'string', 'max:255',
+            'users'                 =>  'required',
+            'discount.*.products'   => 'required',
+            'discount.*.value'      =>  'required', 'numeric',
+        ]);
+        
         $data = MultipleDiscount::find($id);
         $data->name         =   $request->name;
         $data->status       =   $request->status;

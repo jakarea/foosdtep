@@ -39,7 +39,7 @@
                                         <option value="{{ $user->id }}" {{ in_array($user->id, $userID) ? "selected" : "" }}>{{ $user->name }}</option>
                                         @endforeach
                                     </select> 
-                                    <span class="text-danger">@error('status'){{ $message }} @enderror</span>
+                                    <span class="text-danger">@error('users'){{ $message }} @enderror</span>
                                 </div>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                                                         <option value="{{ $product->id }}" {{ $product->id == $item->product_id ? "selected" : "" }}>{{ $product->name }}</option>
                                                     @endforeach
                                                 </select> 
-                                                <span class="text-danger">@error('status'){{ $message }} @enderror</span>
+                                                <span class="text-danger">@error('products'){{ $message }} @enderror</span>
                                             </td>
                                             <td>
                                                 <input type="text" class="form-control @error('discount') is-invalid @enderror" name="discount[][value]" placeholder="Enter Discount" value="{{ $item->value }}">

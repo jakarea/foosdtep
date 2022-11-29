@@ -100,6 +100,15 @@ class Product extends Model
                     $p_price = $p_val;
                 }
             }
+        }else if( !is_null($discount) ){
+            if( $discount->type == 'percentage' ){
+                $p_val = $p->price / 100 * $discount->value;
+                $p_price = $p->price - $p_val;
+            }
+            else {
+                $p_val = $p->price - $discount->value;
+                $p_price = $p_val;
+            }
         }
         else {
             $p_price = $p->price;

@@ -58,11 +58,11 @@
                                                         <option value="{{ $product->id }}">{{ $product->name }}</option>
                                                     @endforeach
                                                 </select> 
-                                                <span class="text-danger">@error('status'){{ $message }} @enderror</span>
+                                                <span class="text-danger">@error('products'){{ $message }} @enderror</span>
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control @error('discount') is-invalid @enderror" name="discount[][value]" placeholder="Enter Discount">
-                                                <span class="text-danger">@error('discount'){{ $message }} @enderror</span>
+                                                <input type="text" class="form-control @error('value') is-invalid @enderror" name="discount[][value]" placeholder="Enter Discount">
+                                                <span class="text-danger">@error('value'){{ $message }} @enderror</span>
                                             </td>
                                             <td>
                                                 <div class="form-check mb-2 d-inline-block">
