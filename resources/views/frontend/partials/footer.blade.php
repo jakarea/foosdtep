@@ -78,8 +78,11 @@
                                 <li class="footer__list"><a href="#" class="footer__link">{{__('messages.general_question')}}</a></li>
                                 <li class="footer__list"><a href="{{ url('blog') }}" class="footer__link">{{__('messages.blogs')}}</a></li>  
                                 <li class="footer__list"><a href="#" class="footer__link">{{__('messages.store_location')}}</a></li> 
+                                @if(!Auth::check())
                                 <li class="footer__list"><a href="{{ url('login') }}" class="footer__link">{{__('messages.login')}}</a></li>
                                 <li class="footer__list"><a href="{{ url('register') }}" class="footer__link">{{__('messages.signup')}}</a></li>
+                                @endif
+                               
                                 <li class="footer__list"><a href="#" class="footer__link">{{__('messages.refund')}}</a></li>
                             </ul>
                         </div>
