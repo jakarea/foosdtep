@@ -172,5 +172,11 @@ return [
     'add' => 'Toevoegen', 
     'save_changes' => 'Wijzigingen opslaan', 
     'assign_user_dis' => 'Gebruikerskorting toekennen', 
+    'diet_pref' => 'Allergieën en dieetvoorkeurslijst', 
+    'add_pref' => 'Allergenen en dieetvoorkeuren toevoegen', 
+    'alleg_content' => 'Inhoud Allergenen & Dieetvoorkeur', 
+    'alldrs_name' => 'AllergenenDP-naam', 
+    'submit_aldsgn' => 'AllergenenDP indienen', 
+    'submit_aldsgn' => 'Allergieën en dieetvoorkeuren Bewerken', 
 ];
 ?>

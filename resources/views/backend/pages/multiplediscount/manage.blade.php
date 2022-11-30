@@ -20,7 +20,7 @@
                             <tr>
                                 <th>{{__('b.no') }}</th>
                                 <th>{{__('b.discount') }}</th>
-                                <th>{{__('b.user') }}<</th>
+                                <th>{{__('b.user') }}</th>
                                 <th>{{__('b.product') }}</th>
                                 <th>{{__('b.status') }}</th>
                                 <th>{{__('b.action') }}</th> 
@@ -89,10 +89,10 @@
         e.preventDefault();
         var id = $(this).data('id');
         Swal.fire({
-                title: "Are you sure!",
+                title: "Weet je het zeker!",
                 icon: "error",
                 confirmButtonClass: "btn-danger",
-                confirmButtonText: "Yes!",
+                confirmButtonText: "Ja!",
                 showCancelButton: true,
             }).then((result) => {
             if (result.isConfirmed) {

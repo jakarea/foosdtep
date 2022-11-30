@@ -31,7 +31,9 @@
                             <tr id="table_rrow{{$data->id}}">
                                 <td valign="middle">{{ $key+1 }}</td>
                                 <td valign="middle">{{ $data->value }}%</td>
-                                <td valign="middle"></td>
+                                <td valign="middle">
+                                    
+                                </td>
                                 <td valign="middle">
                                     @if( $data->status == 'active' )
                                     <span class="text-success">{{__('b.active') }}</span>
