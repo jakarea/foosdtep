@@ -77,20 +77,28 @@ class Product extends Model
         
         $p = Product::where('id', $p_id)->first();
 
-
         $multidiscount =  MultipleDiscount::where('user_id','like','%'.trim(Auth::user()->id).'%')->first();
 
-        $mdvalue = MultiDiscountType::where('product_id', $p_id)->where('multidiscount_id', $multidiscount->id)->first();        
+        if( !is_null($multidiscount) || is_null($discount) ){
+            $mdvalue = MultiDiscountType::where('product_id', $p_id)->where('multidiscount_id', $multidiscount->id)->first();
 
-        // return  $mdvalue;
-        
-        if( !is_null($mdvalue) || is_null($discount) ){
-            if( $discount->value <= $mdvalue->value ){
+            if( !empty($mdvalue) ){
+                if( $discount->value <= $mdvalue->value ){
 
-                $p_val = $p->price / 100 * $mdvalue->value ;
-                $p_price = $p->price - $p_val;
-                
-            }else if($discount->value >= $mdvalue->value){
+                    $p_val = $p->price / 100 * $mdvalue->value ;
+                    $p_price = $p->price - $p_val;
+                    
+                }else if($discount->value >= $mdvalue->value){
+                    if( $discount->type == 'percentage' ){
+                        $p_val = $p->price / 100 * $discount->value;
+                        $p_price = $p->price - $p_val;
+                    }
+                    else {
+                        $p_val = $p->price - $discount->value;
+                        $p_price = $p_val;
+                    }
+                } 
+            }else {
                 if( $discount->type == 'percentage' ){
                     $p_val = $p->price / 100 * $discount->value;
                     $p_price = $p->price - $p_val;
