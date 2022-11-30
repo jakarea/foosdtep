@@ -74,13 +74,16 @@ class Product extends Model
     {
 
         $discount = Discount::where('user_id', Auth::user()->id )->first();
-        
+
         $p = Product::where('id', $p_id)->first();
 
         $multidiscount =  MultipleDiscount::where('user_id','like','%'.trim(Auth::user()->id).'%')->first();
 
-        if( !is_null($multidiscount) || is_null($discount) ){
+        // return dd($multidiscount);
+
+        if( !is_null($multidiscount) && is_null($discount) ){
             $mdvalue = MultiDiscountType::where('product_id', $p_id)->where('multidiscount_id', $multidiscount->id)->first();
+            return $mdvalue;
 
             if( !empty($mdvalue) ){
                 if( $discount->value <= $mdvalue->value ){
