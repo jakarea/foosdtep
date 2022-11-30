@@ -10,6 +10,9 @@ class MultiDiscountType extends Model
 {
     use HasFactory;
 
+    protected $table = 'multi_discount_types';
+
+
     protected $fillable = ['product_id', 'value', 'type', 'multidiscount_id'];
 
     public function items()
