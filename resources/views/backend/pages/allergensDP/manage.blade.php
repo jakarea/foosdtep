@@ -111,7 +111,7 @@ admin_food_step6fz9itxv1G!@ -->
 
                         Toast.fire({
                             icon: 'success',
-                            title: 'Delete successfully'
+                            title: 'Succesvol verwijderen'
                         })
                         $('#table_rrow' + id).remove();
                         }         

@@ -123,7 +123,7 @@
 
                         Toast.fire({
                             icon: 'success',
-                            title: 'Delete successfully'
+                            title: 'Succesvol verwijderen'
                         })
                         $('#datatable' + id).remove();
                         }         
