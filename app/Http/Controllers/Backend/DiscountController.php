@@ -45,8 +45,6 @@ class DiscountController extends Controller
         $request->validate([
             'discount'          =>  ['required','numeric'],
             'users'             =>  ['required', 'not_in:0'],
-            'discount_type'     =>  ['required', 'not_in:0'],
-            'status'            =>  ['required', 'not_in:0'],
         ]);
 
         $usersId     =  $request->users;
@@ -57,7 +55,7 @@ class DiscountController extends Controller
             {
                 Discount::where('user_id', $userExit->user_id)->update([
                     'value'         => $request->discount,
-                    'type'          => $request->discount_type,
+                    'type'          => 'percentage',
                     'status'        => $request->status,
                     'user_id'       => $user
                 ]);
@@ -66,7 +64,7 @@ class DiscountController extends Controller
             {
                 Discount::insert([
                     'value'         => $request->discount,
-                    'type'          => $request->discount_type,
+                    'type'          => 'percentage',
                     'status'        => $request->status,
                     'user_id'       => $user
                 ]);
@@ -129,7 +127,7 @@ class DiscountController extends Controller
         $discount->value    =   $request->discount;
         $discount->status      =   $request->status;
         $discount->user_id      =  $request->users;
-        $discount->type      =  $request->discount_type;
+        $discount->type      =  'percentage';
 
         $discount->save();
 

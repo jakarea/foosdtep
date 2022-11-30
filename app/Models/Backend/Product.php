@@ -73,59 +73,71 @@ class Product extends Model
     public static function discount($p_id)
     {
 
-        $discount = Discount::where('user_id', Auth::user()->id )->first();
-
         $p = Product::where('id', $p_id)->first();
+        $discount = Discount::where('user_id', Auth::user()->id )->first();
+        $p_price = $p->price;
+
+        $user_disccout = 0;
+        $product_disccout = 0;
+
+        if($discount){
+            $user_disccout = $p->price / 100 * $discount->value;
+        }
 
         $multidiscount =  MultipleDiscount::where('user_id','like','%'.trim(Auth::user()->id).'%')->first();
 
-        // return dd($multidiscount);
-
-        if( !is_null($multidiscount) && is_null($discount) ){
+        if($multidiscount){
             $mdvalue = MultiDiscountType::where('product_id', $p_id)->where('multidiscount_id', $multidiscount->id)->first();
-            return $mdvalue;
+            if($mdvalue)
+                $product_disccout = $p->price / 100 * $mdvalue->value ;
+        }
+        return $user_disccout > $product_disccout ? $p_price - $user_disccout : $p_price - $product_disccout;
 
-            if( !empty($mdvalue) ){
-                if( $discount->value <= $mdvalue->value ){
+        // if( !is_null($multidiscount) && is_null($discount) ){
+        //     $mdvalue = MultiDiscountType::where('product_id', $p_id)->where('multidiscount_id', $multidiscount->id)->first();
 
-                    $p_val = $p->price / 100 * $mdvalue->value ;
-                    $p_price = $p->price - $p_val;
+        //     if( !empty($mdvalue) ){
+        //         if( $discount->value <= $mdvalue->value ){
+
+        //             $p_val = $p->price / 100 * $mdvalue->value ;
+        //             $p_price = $p->price - $p_val;
                     
-                }else if($discount->value >= $mdvalue->value){
-                    if( $discount->type == 'percentage' ){
-                        $p_val = $p->price / 100 * $discount->value;
-                        $p_price = $p->price - $p_val;
-                    }
-                    else {
-                        $p_val = $p->price - $discount->value;
-                        $p_price = $p_val;
-                    }
-                } 
-            }else {
-                if( $discount->type == 'percentage' ){
-                    $p_val = $p->price / 100 * $discount->value;
-                    $p_price = $p->price - $p_val;
-                }
-                else {
-                    $p_val = $p->price - $discount->value;
-                    $p_price = $p_val;
-                }
-            }
-        }else if( !is_null($discount) ){
-            if( $discount->type == 'percentage' ){
-                $p_val = $p->price / 100 * $discount->value;
-                $p_price = $p->price - $p_val;
-            }
-            else {
-                $p_val = $p->price - $discount->value;
-                $p_price = $p_val;
-            }
-        }
-        else {
-            $p_price = $p->price;
-        }
+        //         }else if($discount->value >= $mdvalue->value){
+        //             if( $discount->type == 'percentage' ){
+        //                 $p_val = $p->price / 100 * $discount->value;
+        //                 $p_price = $p->price - $p_val;
+        //             }
+        //             else {
+        //                 $p_val = $p->price - $discount->value;
+        //                 $p_price = $p_val;
+        //             }
+        //         }
 
-        return $p_price;
+        //     } else {
+        //         if( $discount->type == 'percentage' ){
+        //             $p_val = $p->price / 100 * $discount->value;
+        //             $p_price = $p->price - $p_val;
+        //         }
+        //         else {
+        //             $p_val = $p->price - $discount->value;
+        //             $p_price = $p_val;
+        //         }
+        //     }
+        // }else if( !is_null($discount) ){
+        //     if( $discount->type == 'percentage' ){
+        //         $p_val = $p->price / 100 * $discount->value;
+        //         $p_price = $p->price - $p_val;
+        //     }
+        //     else {
+        //         $p_val = $p->price - $discount->value;
+        //         $p_price = $p_val;
+        //     }
+        // }
+        // else {
+        //     $p_price = $p->price;
+        // }
+
+        // return $p_price;
 
     }
 
