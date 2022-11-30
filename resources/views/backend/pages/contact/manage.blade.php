@@ -123,7 +123,7 @@
 
                         Toast.fire({
                             icon: 'success',
-                            title: 'Delete successfully'
+                            title: 'Succesvol verwijderen'
                         })
                         $('#table_rrow' + id).remove();
                         }         
