@@ -163,5 +163,14 @@ return [
     'discount_edit' => 'korting Bewerken', 
     'enter_price' => 'Prijs invoeren', 
     'assign_discount' => 'korting toekennen', 
+    'group_discount' => 'Groepskorting', 
+    'multi_discount_list' => 'Meerdere kortingslijst', 
+    'add_multi_discount' => 'Meerdere kortingen toevoegen', 
+    'update_user_pro_discount' => 'Update gebruikers- en productkorting', 
+    'percentage' => 'Percentage', 
+    'delete' => 'Verwijderen', 
+    'add' => 'Toevoegen', 
+    'save_changes' => 'Wijzigingen opslaan', 
+    'assign_user_dis' => 'Gebruikerskorting toekennen', 
 ];
 ?>

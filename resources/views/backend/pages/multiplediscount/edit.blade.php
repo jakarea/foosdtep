@@ -9,8 +9,8 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex justify-content-between mb-4">
-                    <h4 class="card-title">Update User & Product Discount</h4>
-                    <a href="{{ route('multidiscount.index') }}" class="btn btn-primary btn-sm">Back</a> 
+                    <h4 class="card-title">{{ __('b.update_user_pro_discount') }}</h4>
+                    <a href="{{ route('multidiscount.index') }}" class="btn btn-primary btn-sm">{{__('b.back')}}</a> 
                 </div>
 
                 <form class="custom-validation" action="{{ route('multidiscount.update', $multidiscount->id) }}" method="post" enctype="multipart/form-data">
@@ -19,9 +19,9 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="mb-3">
-                                <label class="form-label">Discount Name</label>
+                                <label class="form-label">{{__('b.discount')}} {{__('b.name')}}</label>
                                 <div>
-                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="Enter Name" value="{{ old('name', $multidiscount->name) }}">
+                                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="{{__('b.name')}}" value="{{ old('name', $multidiscount->name) }}">
                                     <span class="text-danger">@error('name'){{ $message }} @enderror</span>
                                 </div>
                             </div>
@@ -31,7 +31,7 @@
                                 @php
                                     $userID = explode(',', $multidiscount->user_id);
                                 @endphp
-                                <label class="form-label">Select Users</label>
+                                <label class="form-label">{{__('b.select_user')}}</label>
                                 <div>
                                     <select name="users[]" class="select2 form-control select2-multiple" multiple="multiple"
                                             data-placeholder="Choose ...">
@@ -48,9 +48,9 @@
                                 <table class="table table-responsive align-middle repeater_discount">
                                     <thead>
                                         <tr>
-                                            <th class="col-md-4">Product Name</th>
-                                            <th class="col-md-4">Discount %</th>
-                                            <th class="col-md-4">Customers</th>
+                                            <th class="col-md-4">{{__('b.product_name')}}</th>
+                                            <th class="col-md-4">{{__('b.discount')}} %</th>
+                                            <th class="col-md-4">{{__('b.customer')}}</th>
                                         </tr>
                                     </thead>
                                     <tbody data-repeater-list="discount">
@@ -66,18 +66,18 @@
                                                 <span class="text-danger">@error('products'){{ $message }} @enderror</span>
                                             </td>
                                             <td>
-                                                <input type="text" class="form-control @error('discount') is-invalid @enderror" name="discount[][value]" placeholder="Enter Discount" value="{{ $item->value }}">
+                                                <input type="text" class="form-control @error('discount') is-invalid @enderror" name="discount[][value]" placeholder="{{__('b.discount')}}" value="{{ $item->value }}">
                                                 <span class="text-danger">@error('discount'){{ $message }} @enderror</span>
                                             </td>
                                             <td>
                                                 <div class="form-check mb-2 d-inline-block">
                                                     <input class="form-check-input" type="radio" name="discount[][type]"  value="percentage" checked>
-                                                    <label class="form-check-label" for="discount_type">Percentage</label>&nbsp;
+                                                    <label class="form-check-label" for="discount_type">{{__('b.percentage')}}</label>&nbsp;
                                                 </div>
                                             </td>
                                             <td>
                                             <input type="hidden" name="item_type_id" value="{{ $item->id }}">
-                                            <span data-repeater-delete="" class="btn btn-danger btn-sm">Delete</span>
+                                            <span data-repeater-delete="" class="btn btn-danger btn-sm">{{__('b.delete')}}</span>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -85,7 +85,7 @@
                                     <tfoot>
                                     <tr>
                                         <td>
-                                            <span data-repeater-create="" class="btn btn-info btn-sm">Add</span>
+                                            <span data-repeater-create="" class="btn btn-info btn-sm">{{__('b.add')}}</span>
                                         </td>
                                     </tr>
                                     </tfoot>
@@ -94,12 +94,12 @@
                         </div>
                         <div class="col-lg-12">
                             <div class="mb-3">
-                                <label class="form-label">Status</label>
+                                <label class="form-label">{{__('b.status') }}</label>
                                 <div>
                                     <select name="status" id="" class="form-select @error('status') is-invalid @enderror" aria-label="Default select example">
-                                        <option selected disabled>Select Below</option>
-                                        <option value="active" {{ $multidiscount->status == 'active' ? 'selected' : '' }}>Active</option>
-                                        <option value="inactive" {{ $multidiscount->status == 'inactive' ? 'selected' : '' }}>In-Active</option>
+                                        <option selected disabled>{{__('b.select_below') }}</option>
+                                        <option value="active" {{ $multidiscount->status == 'active' ? 'selected' : '' }}>{{__('b.active') }}</option>
+                                        <option value="inactive" {{ $multidiscount->status == 'inactive' ? 'selected' : '' }}>{{__('b.inactive') }}</option>
                                     </select> 
                                     <span class="text-danger">@error('status'){{ $message }} @enderror</span>
                                 </div>
@@ -109,7 +109,7 @@
                     <div class="col-lg-12">
                         <div class="text-end">
                             <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
-                                Save Changes
+                                {{__('b.save_changes')}}
                             </button> 
                         </div>
                     </div>
