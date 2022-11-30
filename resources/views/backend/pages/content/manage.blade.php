@@ -9,20 +9,20 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-4">
                         <span>
-                        <h4 class="card-title">Content List</h4> 
+                        <h4 class="card-title">{{__('b.contant_list')}}</h4> 
                         </span>
-                        <a href="{{ route('content.create') }}" class="btn btn-primary btn-sm">Add Content</a> 
+                        <a href="{{ route('content.create') }}" class="btn btn-primary btn-sm">{{__('b.contant_add')}}</a> 
                     </div>
 
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap"
                         style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Slug</th>
-                                <th>Status</th>
-                                <th>Action</th> 
+                                <th>{{__('b.no')}}</th>
+                                <th>{{__('b.name')}}</th>
+                                <th>{{__('b.slug')}}</th>
+                                <th>{{__('b.status')}}</th>
+                                <th>{{__('b.action')}}</th> 
                             </tr>
                         </thead>
 
@@ -36,9 +36,9 @@
                                 </td>
                                 <td valign="middle">
                                     @if( $data->status == 'active' )
-                                    <span class="text-success">Active</span>
+                                    <span class="text-success">{{__('b.active')}}</span>
                                     @else
-                                    <span class="text-danger">In-active</span>
+                                    <span class="text-danger">{{__('b.inactive')}}</span>
                                     @endif
                                 </td>
                                 <td valign="middle">

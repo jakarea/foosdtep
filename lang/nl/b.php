@@ -177,6 +177,13 @@ return [
     'alleg_content' => 'Inhoud Allergenen & Dieetvoorkeur', 
     'alldrs_name' => 'AllergenenDP-naam', 
     'submit_aldsgn' => 'AllergenenDP indienen', 
-    'submit_aldsgn' => 'Allergieën en dieetvoorkeuren Bewerken', 
+    'aldsgn_edit' => 'Allergieën en dieetvoorkeuren Bewerken', 
+    'aldsgn_update' => 'Update AllergenenDP', 
+    'contant_list' => 'Inhoudslijst', 
+    'contant_add' => 'content toevoegen', 
+    'contant_name' => 'inhoud naam', 
+    'contant_submit' => 'inhoud indienen', 
+    'contant_edit' => 'Inhoud bewerken', 
+    'contant_update' => 'Inhoud bijwerken', 
 ];
 ?>
