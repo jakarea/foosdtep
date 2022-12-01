@@ -50,7 +50,7 @@ class SliderController extends Controller
             'bottom_subtitle'    =>  ['required', 'string'],
             'button_text'    =>  ['required', 'string'],
             'status'    =>  ['required', 'not_in:0'],
-            'image'     =>  ['required', 'mimes:jpg,jpeg,png,webp,gif|max:1024']
+            'image'     =>  ['required', 'mimes:jpg,jpeg,png,gif,webp,svg,avif|max:1024']
         ]);
 
         $slider = new Slider;

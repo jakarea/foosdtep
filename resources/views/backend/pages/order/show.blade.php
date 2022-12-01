@@ -99,8 +99,7 @@
 
                                 <div class="dropdown-menu" id="selectStatus" aria-labelledby="btnStatusUpdate">
                                     <span data-value="pending" class="selectStatus dropdown-item">{{__('b.pending') }}</span>
-                                    <span data-value="processing" class="selectStatus dropdown-item">{{__('b.processing') }}</span>
-                                    <span data-value="approved" class="selectStatus dropdown-item">{{__('b.approved') }}</span>
+                                    <span data-value="processing" class="selectStatus dropdown-item">{{__('b.processing') }}</span> 
                                     <span data-value="completed" class="selectStatus dropdown-item">{{__('b.completed') }}</span>
                                     <span data-value="decline" class="selectStatus dropdown-item">{{__('b.cancle') }}</span>
                                 </div>

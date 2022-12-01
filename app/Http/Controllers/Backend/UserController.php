@@ -55,7 +55,7 @@ class UserController extends Controller
             // 'password'      =>  ['required', 'string', 'min:6','regex:/[a-z]/','regex:/[A-Z]/','regex:/[0-9]/','regex:/[@$!%*#?&]/'],
             // 'phone'         =>  ['required', 'regex:/(01)[0-9]{9}/', 'min:6'],
             'status'        =>  ['required'],
-            'file'          =>  ['image|mimes:jpeg,png,jpg,gif,svg|max:2048'],
+            'image'     =>  ['required', 'mimes:jpg,jpeg,png,gif,webp,svg,avif|max:1024'],
         ]);
 
         $user = new User;

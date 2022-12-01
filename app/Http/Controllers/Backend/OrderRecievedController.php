@@ -102,6 +102,22 @@ class OrderRecievedController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Order::where('id', $id)->delete();
+
+        // check data deleted or not
+        if ($delete == 1) {
+            $success = true;
+            $message = "ডিলেট সম্পন্ন হয়েছে!!!";
+            
+        } else {
+            $success = true;
+            $message = "ডিলেটে ত্রুটি রয়েছে!!!";
+        }
+
+        //  Return response
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+        ]);
     }
 }

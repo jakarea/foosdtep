@@ -29,7 +29,7 @@
 
                     <tbody>
                         @foreach( $products as $key => $product )
-                        <tr id="#table_rrow{{ $product->id }}">
+                        <tr id="table_rrow{{ $product->id }}">
                             <td>{{ $key+1 }}</td>
                             <td>{{ __($product->name) }}</td>
                             <td>

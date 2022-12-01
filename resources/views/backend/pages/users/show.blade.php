@@ -142,9 +142,12 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @php 
+                            $i = 1;
+                        @endphp
                         @foreach( App\Models\Backend\Order::orderby('id', 'desc')->where('user_id', $user->id)->get() as $order )
                             <tr>
-                                <td>{{ $key+1 }}</td>
+                                <td>{{ $i++ }}</td>
                                 <td>{{ $order->order_number }}</td> 
                                 <td>{{ $order->order_number }}</td> 
                                 <td>{{ __('€'). $order->grand_total }}</td> 
