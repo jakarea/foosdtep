@@ -52,6 +52,26 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="mb-3">
+                                <label class="form-label">{{ __("KVK nummer *") }}</label>
+                                <div>
+                                <input type="text" class="@error('kvk') is-invalid @enderror form-control" id="kvk"
+                                value="{{ old('kvk', $user->kvk) }}" name="kvk" placeholder="KVK number"
+                                    <span class="text-danger">@error('kvk'){{ $message }} @enderror</span>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-lg-4">
+                            <div class="mb-3">
+                                <label class="form-label">{{ __("VAT nummer *") }}</label>
+                                <div>
+                                <input type="text" class="@error('vat') is-invalid @enderror  form-control" id="vat"
+                                value="{{ old('vat', $user->vat) }}" name="vat" placeholder="Vat number">
+                                    <span class="text-danger">@error('vat'){{ $message }} @enderror</span>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="col-lg-4">
+                            <div class="mb-3">
                                 <label class="form-label">{{ __('messages.zip_code') }}</label>
                                 <div>
                                     <input type="text" name="zipcode" class="form-control" placeholder="{{ __('messages.enter_zip_code') }}" value="{{ old('zipcode', $user->zipcode) }}">

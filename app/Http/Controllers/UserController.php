@@ -96,6 +96,8 @@ class UserController extends Controller {
      * @throws MissingAbilityException
      */
     public function update(Request $request, User $user) {
+
+        
         $user->name = $request->name ?? $user->name;
         $user->email = $request->email ?? $user->email;
         $user->password = $request->password ? Hash::make($request->password) : $user->password;

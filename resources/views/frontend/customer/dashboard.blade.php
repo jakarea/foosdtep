@@ -262,12 +262,22 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-box__single-group">
-                                                        <label for="">{{__('messages.profile')}} Preview</label>
+                                                        <label for="">{{__('messages.profile')}}</label>
                                                         @if( !empty(Auth::user()->avater) )
                                                         <img src="{{ asset('frontend/assets/img/user/'. Auth::user()->avater ) }}" alt="a" class="img-fluid" style="width: 40px;" id="image">
                                                         @else
                                                         <img src="{{ asset('frontend/assets/img/user/default.jpg') }}" alt="a" class="img-fluid" style="width: 40px;" id="image">
                                                         @endif
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-box__single-group">
+                                                        <input type="text" placeholder="Vat Number" name="vat" value="{{ Auth::user()->vat }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-box__single-group">
+                                                        <input type="text" placeholder="Kvk Number" name="kvk" value="{{ Auth::user()->kvk }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">

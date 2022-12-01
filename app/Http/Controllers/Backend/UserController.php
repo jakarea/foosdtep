@@ -138,6 +138,8 @@ class UserController extends Controller
             'name'          =>  ['required', 'string', 'max:255'],
             'email'         =>  ['required', 'email', 'max:255'],
             'phone'         =>  ['required', 'min:6'],
+            'kvk'         =>  ['required', 'string', 'max:255'],
+            'vat'         =>  ['required', 'string', 'max:255'],
             'status'        =>  ['required'],
         ]);
 
@@ -151,6 +153,8 @@ class UserController extends Controller
         }
         $user->email            =   $request->email;
         $user->phone            =   $request->phone;
+        $user->kvk              =   $request->kvk;
+        $user->vat              =   $request->vat;
         $user->officeaddress    =   $request->addressoffice;
         $user->homeaddress      =   $request->addresshome;
         $user->zipcode          =   $request->zipcode;
