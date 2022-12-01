@@ -31,10 +31,9 @@
                     <div class="col-6 text-end">
                         <address>
                             <strong>{{ __('b.bolling_from') }}</strong><br>
-                            Kenny Rigdon<br>
-                            1234 Main<br>
-                            Apt. 4B<br>
-                            Springfield, ST 54321
+                            Burgemeester van <br>
+                            loonstraat 83,<br>
+                            4651 VG,<br> Steenbergen 
                         </address>
                     </div>
                 </div>
