@@ -49,7 +49,7 @@ class BlogController extends Controller
             'title'      =>  ['required', 'string', 'max:255'],
             'status'    =>  ['required', 'not_in:0'],
             'body'    =>  ['required','string'],
-            'image'     =>  ['required', 'mimes:jpg,jpeg,png,gif|max:1024'],
+            'image'     =>  ['required', 'mimes:jpg,jpeg,png,gif,webp,svg,avif|max:1024'],
         ]);
 
         $blog = new Blog;

@@ -214,11 +214,11 @@ class ProductController extends Controller
         // check data deleted or not
         if ($delete == 1) {
             $success = true;
-            $message = "Data Deleted Successfull!!!";
+            $message = "Gegevens succesvol verwijderd!!!";
             
         } else {
             $success = true;
-            $message = "Something is wrong!!!";
+            $message = "Er is iets fout!!!";
         }
 
         //  Return response

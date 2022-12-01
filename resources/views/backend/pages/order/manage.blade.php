@@ -29,19 +29,19 @@
 
                     <tbody>
                     @foreach( $orders as $key => $data )
-                        <tr>
+                        <tr id="table_rrow{{ $data->id }}">
                             <td>{{ $key+1 }}</td>
                             <td>{{ $data->order_number }}</td> 
                             <td>{{ $data->item_count }}</td>
                             <td>{{ $data->user->name }}</td>
                             <td>{{ $data->status }}</td>
-                            <td>{{ __('$'). $data->grand_total }}</td> 
+                            <td>{{ __('€'). $data->grand_total }}</td> 
                             <td>
                                 <a href="{{ route('orders.show', $data->id) }}" class="me-2">
                                     <i class="fas fa-eye"></i>
                                 </a> 
-                                <a href="#">
-                                    <i class="fas fa-trash text-danger"></i>
+                                <a href="javascript:void(0)" class="text-danger cat_delete" data-id="{{$data->id}}">
+                                    <i class="fas fa-trash"></i>
                                 </a>
                             </td>
                         </tr>
@@ -69,7 +69,7 @@
 <script>
     $(document).on('click', '.cat_delete', function (e) {
         e.preventDefault();
-        var id = $(this).data('id');
+        var id = $(this).data('id'); 
         Swal.fire({
                 title: "Weet je het zeker!",
                 icon: "error",
@@ -86,11 +86,11 @@
                 });
                 $.ajax({
                     type: "DELETE",
-                    url:  "{{url('/auth/products/product')}}/" + id,
+                    url:  "{{url('/auth/orderviews/orders')}}/" + id,
                     data: {_token: CSRF_TOKEN, id: id},
                     dataType: 'JSON',
                     success: function (results) {
-                        //
+                        console.log(results);
                         const Toast = Swal.mixin({
                             toast: true,
                             position: 'top-end',

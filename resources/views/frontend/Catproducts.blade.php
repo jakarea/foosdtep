@@ -195,7 +195,7 @@
                                                 <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a>
                                                 @if(Auth::check())
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">{{ __('$'). $product->discount($product->id) }}</span>
+                                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
                                                 </div>
                                                 @endif
                                             </div> <!-- End Product Content -->
@@ -271,7 +271,7 @@
                                                 <a href="{{ route('show.product', $product->slug) }}" class="product__link"><h5 class="font--regular">{{ $product->name }}</h5></a>
                                                 @if(Auth::check())
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">{{ __('$'). $product->discount($product->id) }}</span>
+                                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
                                                 </div>
                                                 @endif
                                                 <div class="product__desc">

@@ -76,7 +76,7 @@
                                 <label class="form-label">{{ __('b.role') }}</label>
                                 <div>
                                     <select name="auth_role" class="form-select" id="auth_role">
-                                        <option value="2" {{ $user->myRole->role_id == 2 ? 'selected' : ''}}>{{__('b.customer') }}</option>
+                                        <option value="3" {{ $user->myRole->role_id == 3 ? 'selected' : ''}}>{{__('b.customer') }}</option>
                                         <option value="1" {{ $user->myRole->role_id == 1 ? 'selected' : ''}}>{{__('b.admin') }}</option>
                                     </select>
                                 </div>
@@ -97,7 +97,7 @@
                                 <label class="form-label">{{ __('b.preview') }}</label>
                                 <div>
                                     @if( $user->avater != null )
-                                        <img src="{{ asset('frontend/assets/img/user/'. $user->avater) }}" alt="" class="avatar-md"  style="width: 40px; border-radius: 4px;" class="img-fluid" id="image">
+                                        <img src="{{ asset('frontend/assets/img/user/'. $user->avater) }}" alt="" class="avatar-md"  style="width: 70px; border-radius: 4px;" class="img-fluid" id="image">
                                     @else
                                 
                                         <img src="{{asset('backend/assets/img/user/default.jpg')}}" alt="" class="avatar-md" style="width: 68px; border-radius: 4px;" class="img-fluid" id="image">

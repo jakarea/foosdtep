@@ -201,5 +201,6 @@ return [
     'submit_productgrp' => 'Productgroep indienen', 
     'edit_productgrp' => 'Productgroep Bewerken', 
     'update_productgrp' => 'Update Productgroep', 
+    'ppecifications' => 'Productspecificatie', 
 ];
 ?>

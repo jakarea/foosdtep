@@ -106,7 +106,7 @@ class DashboardController extends Controller
             'old_password'          => $request->old_password != null ?'sometimes|confirmed|min:8': '',
             'password'              => $request->password != null ?'sometimes|required|min:8': '',
             'password_confirmation' => $request->password_confirmation != null ?'sometimes|required|same:password': '',
-            'image'                  => 'sometimes|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image'     =>  ['required', 'mimes:jpg,jpeg,png,gif,webp,svg,avif|max:1024'],
         ]);
 
         $user = User::find($id);

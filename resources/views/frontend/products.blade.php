@@ -183,7 +183,9 @@
                                                 </a>                                               
                                                 <ul class="product__action--link pos-absolute">
                                                     @if( Auth::check() )
-                                                    <li><a href="{{ route('add.to.cart', $product->id) }}"><i class="icon-shopping-cart"></i></a></li>
+                                                    <li><a href="{{ route('add.to.cart', $product->id) }}">
+                                                        <img src="{{ asset('frontend/assets/img/cart.png') }}" alt="Cart" width="20" class="img-fluid">
+                                                    </a></li>
                                                     @endif
                                                     <li><a href="#modalQuickView{{$product->id}}" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
                                                 </ul> <!-- End Product Action Link -->
@@ -193,7 +195,7 @@
                                                 <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a>
                                                 @if(Auth::check())
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">{{ __('$'). $product->discount($product->id) }}</span>
+                                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
                                                 </div>
                                                 @endif
                                             </div> <!-- End Product Content -->

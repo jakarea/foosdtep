@@ -134,7 +134,7 @@
                     <td>{{ $index+1 }}</td>
                     <td >{{ $item->product->name }}</td>
                     <td>{{ $item->quantity }}</td>
-                    <td style="text-align: right;">{{ __('$'). $item->product->discount($item->product_id) * $item->quantity }}</td>
+                    <td style="text-align: right;">{{ __('€'). $item->product->discount($item->product_id) * $item->quantity }}</td>
                   </tr>
                   @endforeach
                
@@ -148,7 +148,7 @@
                   <tr>
                     <th>Total</th>
                     <th>&nbsp;</th>
-                    <th style="text-align: right;">{{ __('$'). $order->grand_total }}</th>
+                    <th style="text-align: right;">{{ __('€'). $order->grand_total }}</th>
                     
                   </tr>
                 </thead>

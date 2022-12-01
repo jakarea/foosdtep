@@ -38,7 +38,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="Price">{{ __('b.price')}}</label>
-                                <input type="text" name="price" value="{{ old('price') }}" class="form-control @error('price') is-invalid @enderror" placeholder="{{ __('b.')}}Enter Price">
+                                <input type="text" name="price" value="{{ old('price') }}" class="form-control @error('price') is-invalid @enderror" placeholder="{{ __('b.enter_price')}}">
                                 <span class="text-danger">@error('price'){{ $message }} @enderror</span>
                             </div>
                         </div>

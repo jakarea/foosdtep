@@ -74,7 +74,9 @@
                                 <!-- Start Product Action Link-->
                                 <ul class="product__action--link pos-absolute">
                                     @if( Auth::check() )
-                                    <li><a href="{{ route('add.to.cart', $product->id) }}"><i class="icon-shopping-cart"></i></a></li>
+                                    <li><a href="{{ route('add.to.cart', $product->id) }}">
+                                    <img src="{{ asset('frontend/assets/img/cart.png') }}" alt="Cart" width="20" class="img-fluid">
+                                    </a></li>
                                     @endif
                                     <li><a href="#modalQuickView{{$product->id}}" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
                                 </ul> <!-- End Product Action Link -->
@@ -90,6 +92,54 @@
                             </div> <!-- End Product Content -->
                         </div> <!-- End Single Default Product -->
                     </div>
+
+                    <!-- Start Modal Quickview cart -->
+                    <div class="modal fade" id="modalQuickView{{ $product->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog  modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col text-end">
+                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true"> <i class="fal fa-times"></i></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="product-gallery-box m-b-60">
+                                                    <div class="modal-product-image--large">
+                                                        <img class="img-fluid" src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="{{$product->slug}}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="product-details-box">
+                                                    <h5 class="title title--normal m-b-20">{{ $product->name }}</h5>
+                                                    @if(Auth::check())
+                                                    <div class="product__price">
+                                                        <span class="product__price-del">{{ __('€'). $product->discount($product->id) }}</span>
+                                                    </div>
+                                                    @endif
+                                                    <div class="product__desc m-t-25 m-b-30">
+                                                        <p>{{ $product->short_description }}</p>
+                                                    </div>
+                                                    @if( Auth::check() )
+                                                    <div class="product-var p-t-30">
+                                                        <div class="product-quantity product-var__item d-flex align-items-center flex-wrap">
+                                                        <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn--block btn--long btn--radius-tiny btn--green btn--green-hover-black text-uppercase m-r-35">{{ __('text.buy_it_now')}}</a>
+                                                        </div>
+                                                    </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- End Modal Quickview cart -->
                     @endforeach
                 </div>
             </div>

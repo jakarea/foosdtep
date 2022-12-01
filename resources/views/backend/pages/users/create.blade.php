@@ -75,7 +75,7 @@
                                 <label class="form-label">{{ __('b.role') }}</label>
                                 <div>
                                     <select name="auth_role" class="form-select" id="auth_role">
-                                        <option value="2">{{__('b.customer') }}</option>
+                                        <option value="3">{{__('b.customer') }}</option>
                                         <option value="1">{{__('b.admin') }}</option>
                                     </select>
                                 </div>
