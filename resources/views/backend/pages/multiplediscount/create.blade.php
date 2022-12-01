@@ -65,12 +65,6 @@
                                                 <span class="text-danger">@error('value'){{ $message }} @enderror</span>
                                             </td>
                                             <td>
-                                                <div class="form-check mb-2 d-inline-block">
-                                                    <input class="form-check-input" type="radio" name="discount[][type]"  value="percentage" checked>
-                                                    <label class="form-check-label" for="discount_type">{{__('b.percentage')}}</label>&nbsp;
-                                                </div>
-                                            </td>
-                                            <td>
                                             <span data-repeater-delete="" class="btn btn-danger btn-sm">{{__('b.delete')}}</span>
                                             </td>
                                         </tr>

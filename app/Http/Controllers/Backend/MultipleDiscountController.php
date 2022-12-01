@@ -71,7 +71,7 @@ class MultipleDiscountController extends Controller
                 $dataTypeItem[] = [
                     'product_id'            => $type_data['products'],
                     'value'                 => $type_data['value'],
-                    'type'                  => $type_data['type'],
+                    'type'                  => 'percentage',
                     'multidiscount_id'      => $data->id,
                 ];
 
@@ -150,7 +150,7 @@ class MultipleDiscountController extends Controller
                 [
                     'product_id'            => $type_data['products'],
                     'value'                 => $type_data['value'],
-                    'type'                  => $type_data['type'],
+                    'type'                  => 'percentage',
                     'multidiscount_id'      => $data->id,
                 ]);
 

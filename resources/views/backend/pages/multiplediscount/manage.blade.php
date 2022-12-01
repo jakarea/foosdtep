@@ -4,7 +4,7 @@
 
     <!-- Brand form start -->
     <div class="row justify-content-center">
-    <div class="col-12">
+        <div class="col-12">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-between mb-4">
@@ -29,8 +29,6 @@
 
                         <tbody>
                             @foreach( $multiplediscount as $key => $data )
-
-
                             <tr id="table_rrow{{$data->id}}">
                                 <td valign="middle">{{ $key+1 }}</td>
                                 <td valign="middle">{{ $data->name }}</td>

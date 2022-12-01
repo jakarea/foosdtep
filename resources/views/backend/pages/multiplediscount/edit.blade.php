@@ -69,12 +69,7 @@
                                                 <input type="text" class="form-control @error('discount') is-invalid @enderror" name="discount[][value]" placeholder="{{__('b.discount')}}" value="{{ $item->value }}">
                                                 <span class="text-danger">@error('discount'){{ $message }} @enderror</span>
                                             </td>
-                                            <td>
-                                                <div class="form-check mb-2 d-inline-block">
-                                                    <input class="form-check-input" type="radio" name="discount[][type]"  value="percentage" checked>
-                                                    <label class="form-check-label" for="discount_type">{{__('b.percentage')}}</label>&nbsp;
-                                                </div>
-                                            </td>
+                                            
                                             <td>
                                             <input type="hidden" name="item_type_id" value="{{ $item->id }}">
                                             <span data-repeater-delete="" class="btn btn-danger btn-sm">{{__('b.delete')}}</span>
