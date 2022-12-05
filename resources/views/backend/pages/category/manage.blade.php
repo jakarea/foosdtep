@@ -35,13 +35,13 @@
                                     @if( !empty($data->image) )
                                     <img src="{{ asset('backend/assets/images/category/'. $data->image) }}" alt="Cate" class="img-fluid" width="50">
                                     @else
-                                    <span class="text-danger">No Photo</span>
+                                    <span class="text-danger">{{__('Geen foto')}}</span>
                                     @endif
                                 </td>
                                 <td valign="middle">{{ $data->name }}</td>
                                 <td valign="middle">
                                     @if( $data->parent_cat == 0 )
-                                        <span class="text-success">Primary</span>
+                                        <span class="text-success">{{__('Primaire')}}</span>
                                     @else
                                         <span class="text-dark">{{ $data->parentName->name }}</span>
                                     @endif

@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title') Edit Category @endsection
+@section('title') Categorie bewerken @endsection
 @section('content')
 <div class="row justify-content-center">
     <div class="col-lg-12">

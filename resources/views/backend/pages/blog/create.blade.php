@@ -1,5 +1,5 @@
 @extends('layouts.backend')
-@section('title') Create Blog @endsection
+@section('title') Blog aanmaken @endsection
 @section('content')
 <div class="row justify-content-center">
     <div class="col-lg-12">
@@ -16,7 +16,7 @@
                             <div class="mb-3">
                                 <label class="form-label">{{__('b.title')}}</label>
                                 <div>
-                                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title')}}" placeholder="Enter Blog Title">
+                                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title')}}" placeholder="{{__('Vul de titel van de blog in') }}">
                                     <span class="text-danger">@error('title'){{ $message }} @enderror</span>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                             <div class="mb-3">
                                 <label class="form-label">{{__('b.body')}}</label>
                                 <div>
-                                    <textarea name="body" placeholder="Enter Blog Description" class="form-control @error('body') is-invalid @enderror">{{ old('body')}}</textarea>
+                                    <textarea name="body" placeholder="{{__('Vul de inhoud van de blog in.') }}" class="form-control @error('body') is-invalid @enderror">{{ old('body')}}</textarea>
                                      
                                     <span class="text-danger">@error('body'){{ $message }} @enderror</span>
                                 </div>
