@@ -48,7 +48,7 @@
         </div> <!-- ::::::  End  Product Style - Catagory Section  ::::::  -->
 
         <!-- ::::::  Start  Product Style - Default Section  ::::::  -->
-        <div class="product p-t-100 pb-5" style="background: rgba(243, 245, 247, 0.772)!important;">
+        <div class="product product-suctm-margin p-t-100 pb-5" style="background: rgba(243, 245, 247, 0.772)!important;">
             <div class="container">
                 <div class="row">
                     <div class="col-12">

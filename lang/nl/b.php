@@ -79,7 +79,7 @@ return [
     'parent_category' => 'Bovenliggende categorie',
     'slug' => 'Naaktslak',
     'categories_edit' => 'Categorieën Bewerken',
-    'back' => 'Rug',
+    'back' => 'Terug',
     'select_below' => 'Selecteer hieronder',
     'update_category' => 'Categorie bijwerken',
     'submit_category' => 'Categorie indienen',

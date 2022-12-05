@@ -586,6 +586,10 @@ input[type=radio].shipping-select::after,
 }
 
 
+.product-suctm-margin .product__box product__default--single{
+  margin-bottom: 1.5rem!important;
+}
+
 /* Extra small devices (portrait phones, less than 576px) XS */
 @media(min-width: 320px) and (max-width: 767px) {
 

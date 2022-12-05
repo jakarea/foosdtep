@@ -160,65 +160,26 @@
 
                                         </div>
                                     </div>
-                                </div>
-                                <div class="tab-pane fade" id="pills-download" role="tabpanel"
-                                    aria-labelledby="pills-download-tab">
-                                    <div class="my-account-download account-wrapper">
-                                        <h4 class="account-title">{{__('messages.profile')}} Download</h4>
-                                        <div class="account-table text-center m-t-30 table-responsive">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="name">{{__('messages.profile')}} Product</th>
-                                                        <th class="date">{{__('messages.profile')}} Date</th>
-                                                        <th class="status">{{__('messages.profile')}} Expire</th>
-                                                        <th class="action">{{__('messages.profile')}} Download</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Mostarizing Oil</td>
-                                                        <td>Aug 22, 2020</td>
-                                                        <td>Yes</td>
-                                                        <td><a href="#">Download File</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Katopeno Altuni</td>
-                                                        <td>July 22, 2020</td>
-                                                        <td>Never</td>
-                                                        <td><a href="#">Download File</a></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="pills-payment" role="tabpanel"
-                                    aria-labelledby="pills-payment-tab">
-                                    <div class="my-account-payment account-wrapper">
-                                        <h4 class="account-title">Home Adress</h4>
-                                        <p class="m-t-30">Your Home Adress details.</p>
-                                    </div>
-                                </div>
+                                </div> 
                                 <div class="tab-pane fade" id="pills-address" role="tabpanel"
                                     aria-labelledby="pills-address-tab">
                                     <div class="row">
                                         <div class="col-md-6">
                                                 <div class="my-account-address account-wrapper">
-                                                <h4 class="account-title"> {{__('messages.profile')}} Home Adress</h4>
+                                                <h4 class="account-title"> {{__('messages.profile')}} {{__('Huis adres')}}</h4>
                                                 <div class="account-address m-t-30">
-                                                    <p>Address: {{ Auth::user()->homeaddress }}</p>
-                                                    <p>Mobile: {{ Auth::user()->phone }}</p>
+                                                    <p>{{__('Adres')}}: {{ Auth::user()->homeaddress }}</p>
+                                                    <p>{{__('Mobiel')}}: {{ Auth::user()->phone }}</p>
                                                     
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                                 <div class="my-account-address account-wrapper">
-                                                <h4 class="account-title">{{__('messages.profile')}} Office Adress</h4>
+                                                <h4 class="account-title">{{__('messages.profile')}} {{__('Kantoor adres') }}</h4>
                                                 <div class="account-address m-t-30">
-                                                    <p>Address: {{ Auth::user()->officeaddress }}</p>
-                                                    <p>Mobile: {{ Auth::user()->phone }}</p>
+                                                    <p>{{__('Adres')}}: {{ Auth::user()->officeaddress }}</p>
+                                                    <p>{{__('Mobiel')}}: {{ Auth::user()->phone }}</p>
                                                    
                                                 </div>
                                             </div>
@@ -228,7 +189,7 @@
                                 <div class="tab-pane fade" id="pills-account" role="tabpanel"
                                     aria-labelledby="pills-account-tab">
                                     <div class="my-account-details account-wrapper">
-                                        <h4 class="account-title">{{__('messages.profile')}} Account Details</h4>
+                                        <h4 class="account-title">{{__('messages.profile')}} {{__('Accountgegevens')}}</h4>
 
                                         <div class="account-details">
                                             <form action="{{ route('customer.update', Auth::user()->id) }}" method="POST" enctype="multipart/form-data">                                                
@@ -236,27 +197,27 @@
                                                 @csrf
                                                 <div class="col-md-6">
                                                     <div class="form-box__single-group">
-                                                        <input type="text" placeholder="{{__('messages.profile')}} Your Name" name="name" value="{{ Auth::user()->name }}">
+                                                        <input type="text" placeholder="{{__('messages.enter_name')}}" name="name" value="{{ Auth::user()->name }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-box__single-group">
-                                                        <input type="email" placeholder="{{__('messages.profile')}} Email Address" name="email" value="{{ Auth::user()->email }}">
+                                                        <input type="email" placeholder="{{__('E-mailadres')}}" name="email" value="{{ Auth::user()->email }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="form-box__single-group">
-                                                        <input type="text" placeholder=" {{__('messages.profile')}} Phone Number" name="phone" value="{{ Auth::user()->phone }}">
+                                                        <input type="text" placeholder="{{__('Mobiel nummer')}}" name="phone" value="{{ Auth::user()->phone }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-box__single-group">
-                                                        <input type="text" placeholder="{{__('messages.profile')}} Zip Code" name="zipcode" value="{{ Auth::user()->zipcode }}">
+                                                        <input type="text" placeholder="{{__('Postcode ')}}" name="zipcode" value="{{ Auth::user()->zipcode }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="form-box__single-group">
-                                                        <label for="">Image</label>
+                                                        <label for="">{{ __('messages.image') }}</label>
                                                         <input type="file" name="image" onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])">
                                                     </div>
                                                 </div>
@@ -272,29 +233,29 @@
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="form-box__single-group">
-                                                        <input type="text" placeholder="Vat Number" name="vat" value="{{ Auth::user()->vat }}">
+                                                        <input type="text" placeholder="{{ __('BTW nummer') }}" name="vat" value="{{ Auth::user()->vat }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="form-box__single-group">
-                                                        <input type="text" placeholder="Kvk Number" name="kvk" value="{{ Auth::user()->kvk }}">
+                                                        <input type="text" placeholder="{{ __('Kvk nummer') }}" name="kvk" value="{{ Auth::user()->kvk }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-box__single-group">
-                                                        <input type="text" placeholder="Home Address" name="homeaddress" value="{{ Auth::user()->homeaddress }}">
+                                                        <input type="text" placeholder="{{__('Thuis adres')}}" name="homeaddress" value="{{ Auth::user()->homeaddress }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-box__single-group">
-                                                        <input type="text" placeholder="Office Address" name="officeaddress" value="{{ Auth::user()->officeaddress }}">
+                                                        <input type="text" placeholder="{{__('Kantoor adres') }}" name="officeaddress" value="{{ Auth::user()->officeaddress }}">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12">
+                                                <!-- <div class="col-md-12">
                                                     <div class="form-box__single-group">
                                                         <textarea placeholder="Bio" name="bio" id="" cols="10" rows="3">{{ Auth::user()->bio }}</textarea>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 <div class="col-md-6">
                                                     <div class="form-box__single-group">
                                                         <button type="submit" class="btn btn--box btn--radius btn--small btn--black btn--black-hover-green btn--uppercase font--bold">{{ __('messages.save_info')}}</button>
