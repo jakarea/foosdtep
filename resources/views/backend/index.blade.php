@@ -102,13 +102,13 @@
                                 <td>{{ __('€'). $order->grand_total }}</td> 
                                 <td>
                                     @if( $order->status == 'pending' )
-                                    <span class="badge badge-soft-danger font-size-12">{{ __('b.pending') }} </span>
+                                    <span class="badge text-bg-warning font-size-12">{{ __('b.pending') }} </span>
                                     @elseif( $order->status == 'processing' )
-                                    <span class="badge badge-soft-info font-size-12">{{ __('b.processing') }} </span>
+                                    <span class="badge text-bg-primary font-size-12">{{ __('b.processing') }} </span>
                                     @elseif( $order->status == 'completed' )
-                                    <span class="badge badge-soft-success font-size-12">{{ __('b.completed') }} </span>
+                                    <span class="badge text-bg-success font-size-12">{{ __('b.completed') }} </span>
                                     @elseif( $order->status == 'decline' )
-                                    <span class="badge badge-soft-warning font-size-12">{{ __('b.declined') }} </span>
+                                    <span class="badge text-bg-danger font-size-12">{{ __('b.declined') }} </span>
                                     @endif
                                 </td>
                                 <td><a href="{{ route('orders.show', $order->id) }}" class="btn btn-primary btn-sm">{{ __('b.details') }} </a></td>
