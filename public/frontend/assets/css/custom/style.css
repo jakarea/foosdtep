@@ -200,7 +200,7 @@ input[type=radio].shipping-select::after,
 
 .product__box {
   background-color: #fff !important; 
-  box-shadow: 0 0 30px 0 rgb(0 0 0 / 15%);
+  box-shadow: 0 0 40px 0 rgb(0 0 0 / 32%);
   border: none;
 }
 
@@ -479,7 +479,7 @@ input[type=radio].shipping-select::after,
   position: relative;
   top: -63px;
   padding: .4rem 1.6rem;
-  box-shadow: 0 0 30px 0 rgb(0 0 0 / 15%);
+  box-shadow: 0 0 40px 0 rgb(0 0 0 / 32%);
   padding-bottom: 2rem;
 }
 
@@ -602,6 +602,14 @@ input[type=radio].shipping-select::after,
   }
 }
 
+.product__img-box a img{
+  max-height: 256px;
+}
+
+
+.product-suctm-margin .product__box product__default--single{
+  margin-bottom: 1.5rem!important;
+}
 
 /* Extra small devices (portrait phones, less than 576px) XS */
 @media(min-width: 320px) and (max-width: 767px) {

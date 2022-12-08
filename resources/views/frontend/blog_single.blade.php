@@ -1,7 +1,7 @@
 @extends('layouts.frontend') 
 
-@section('title') {{ __('Over Ons') }} @endsection
-@section('breadcumbTitle') {{ __('Over Ons') }} @endsection
+@section('title') {{ __('berichten') }} @endsection
+@section('breadcumbTitle') {{ __('berichten') }} @endsection
 
 @section('content')
 

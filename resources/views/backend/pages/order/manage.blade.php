@@ -34,7 +34,17 @@
                             <td>{{ $data->order_number }}</td> 
                             <td>{{ $data->item_count }}</td>
                             <td>{{ $data->user->name }}</td>
-                            <td>{{ $data->status }}</td>
+                            <td>
+                                @if($data->status == "completed")
+                                    <span class="badge text-bg-success">{{ __('Voltooid') }}</span>
+                                @elseif($data->status == "processing")
+                                <span class="badge text-bg-primary">{{ __('Verwerken') }}</span>
+                                @elseif($data->status == "pending")
+                                <span class="badge text-bg-warning">{{ __('In afwachting') }}</span>
+                                @else($data->status == "decline")
+                                <span class="badge text-bg-danger">{{ __('Afwijzen') }}</span>
+                                @endif
+                            </td>
                             <td>{{ __('€'). $data->grand_total }}</td> 
                             <td>
                                 <a href="{{ route('orders.show', $data->id) }}" class="me-2">

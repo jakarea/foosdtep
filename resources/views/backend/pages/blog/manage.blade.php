@@ -20,7 +20,7 @@
                                 <th>{{ __('b.no') }}</th>
                                 <th>{{ __('b.image') }}</th> 
                                 <th>{{ __('b.blog_title') }}</th> 
-                                <th>{{ __('b.body') }}</th> 
+                                <th>{{ __('Inhoud') }}</th> 
                                 <th width="8%">{{ __('b.action') }}</th> 
                             </tr>
                         </thead>
@@ -32,7 +32,7 @@
                                     @if( !empty($data->image) )
                                     <img src="{{ asset('backend/assets/images/blog/'. $data->image) }}" alt="Cate" class="img-fluid" width="50">
                                     @else
-                                    <span class="text-danger">No Photo</span>
+                                    <span class="text-danger">{{ __('Geen foto') }}</span>
                                     @endif
                                 </td>
                                 <td valign="middle">{{ $data->title }}</td> 
