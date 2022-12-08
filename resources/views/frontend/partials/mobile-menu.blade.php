@@ -85,11 +85,12 @@
                     </li> <!-- End Header Wishlist Box --> 
                     @endif 
                 </ul>
+                <h6>Menu</h6>
                 <button class="offcanvas-close"><i class="fal fa-times"></i></button>
             </div>
             
             <div class="header-menu-vertical pos-relative mb-2">
-                        <h4 class="menu-title link--icon-left d-flex justify-content-between"><span><i class="far fa-align-left"></i>{{ __('text.categories')}}</span> <i class="far fa-angle-down"></i></h4>
+                        <h4 class="menu-title link--icon-left d-flex justify-content-between bg-transparent text-dark p-0 mb-3"><span> {{ __('text.categories')}}</span> <i class="far fa-angle-right"></i></h4>
                         <ul class="menu-content pos-absolute">
                         @foreach(App\Models\Backend\Category::all() as $key => $category)
                             <li class="menu-item"><a href="{{ route('show.category', $category->slug)}}">{{ $category->name }} </a></li> 
@@ -101,19 +102,19 @@
                  
                 <div class="offcanvas-menu">
                     <ul>
-                        <li> <a href="{{ url('/') }}" >{{ __('text.home')}}</a></li>
+                        <li> <a href="{{ url('/') }}" ><span>{{ __('text.home')}}</span> <i class="far fa-angle-right"></i></a></li>
                         <li>
-                            <a href="{{ url('/about') }}">{{ __('text.about_us')}}</a>
+                            <a href="{{ url('/about') }}"><span>{{ __('text.about_us')}} </span> <i class="far fa-angle-right"></i></a>
                         </li> <!-- End Single Nav link-->
 
                         <!--Start Single Nav link-->
                         <li>
-                            <a href="{{ route('products') }}">{{ __('text.products')}}</a>
+                            <a href="{{ route('products') }}"><span>{{ __('text.products')}}</span> <i class="far fa-angle-right"></i></a>
                         </li> <!-- End Single Nav link--> 
                         
                         <!--Start Single Nav link-->
                         <li>
-                                <a href="{{ url('/contact') }}">{{ __('text.contacts')}}</a>
+                                <a href="{{ url('/contact') }}"><span>{{ __('text.contacts')}}</span> <i class="far fa-angle-right"></i></a>
                         </li>
                          
                     </ul>
