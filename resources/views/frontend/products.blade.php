@@ -23,7 +23,10 @@
                                 @foreach($categories as $key => $category)
                                  <!-- Start Single Menu Filter List -->
                                 <li class="sidebar__menu-filter-list">
-                                    <label for="cat_{{ $category->id }}"><input type="checkbox" name="catFilter" class="attributes_Filter" value="{{ $category->id }}" id="cat_{{ $category->id }}"><span>{{ $category->name }} ({{ $category->countProductByCat($category->id) }})</span></label>
+                                    <label for="cat_{{ $category->id }}">
+                                        <input type="checkbox" name="catFilter" class="attributes_Filter" value="{{ $category->id }}" id="cat_{{ $category->id }}">
+                                        <span>{{ $category->name }} ({{ $category->countProductByCat($category->id) }})</span>
+                                    </label>
                                 </li>  <!-- End Single Menu Filter List -->
                                 @endforeach
                             </ul>

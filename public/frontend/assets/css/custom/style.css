@@ -114,12 +114,29 @@ h6 {
 }
 
 .sidebar__menu-filter-list {
+  /* display: flex;
+  align-items: center; */
+}
+
+.sidebar__menu-filter-list label {
   display: flex;
   align-items: center;
 }
 
 .sidebar__menu-filter-list label {
-  display: inline;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.sidebar__menu-filter-list label input[type=checkbox]{
+  display: inline-block!important;
+  margin-top: 10px!important;
+} 
+
+.page-pagination__link.active,
+.page-pagination__link:hover {
+  background: #e0c77a!important;
 }
 
 .main-container {
