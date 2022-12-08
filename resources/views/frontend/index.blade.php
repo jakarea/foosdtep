@@ -10,13 +10,13 @@
         <!-- ::::::  End Hero Section  ::::::  -->
 
         <!-- ::::::  Start  Product Style - Catagory Section  ::::::  -->
-        <div class="product p-t-100" style="background: rgba(243, 245, 247, 0.772)!important;">
+        <div class="product p-t-100 category-custom-cls" style="background: rgba(243, 245, 247, 0.372)!important;">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <!-- Start Section Title -->
                         <div class="section-content section-content--border m-b-35">
-                            <h5 class="section-content__title">{{ __('text.top_cats')}}</h5>
+                            <h5 class="section-content__title">{{ __('Ons assortiment')}}</h5>
                             
                         </div>  <!-- End Section Title -->
                     </div>
@@ -48,7 +48,7 @@
         </div> <!-- ::::::  End  Product Style - Catagory Section  ::::::  -->
 
         <!-- ::::::  Start  Product Style - Default Section  ::::::  -->
-        <div class="product product-suctm-margin p-t-100 pb-5" style="background: rgba(243, 245, 247, 0.772)!important;">
+        <div class="product product-suctm-margin p-t-100 pb-5" style="background: rgba(243, 245, 247, 0.372)!important;">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -61,7 +61,7 @@
                 </div>
                 <div class="row">
                 @foreach( $products as $keyProduct => $product )
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12 ">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                         <!-- Start Single Default Product -->
                         <div class="product__box product__default--single text-center">
                             <!-- Start Product Image -->
@@ -84,6 +84,7 @@
                             <!-- Start Product Content -->
                             <div class="product__content m-t-20"> 
                                 <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a>
+                                <span style="font-size: 14px;">{{ $product->brand->name }}</span>
                                 @if(Auth::check())
                                 <div class="product__price m-t-5">
                                     <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
