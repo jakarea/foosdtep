@@ -51,9 +51,15 @@
         @yield('content') 
     </div>
 
+    <!-- cookie view start -->
+    @include('cookie-consent::index')
+    <!-- cookie view end -->
+
     <!-- ::::::  Start  Footer ::::::  -->
     @include('frontend.partials.footer')
     <!-- ::::::  End  Footer ::::::  -->
+
+    
 
     <script src="{{ asset('frontend/assets/js/vendor/vendor.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/plugin/plugins.min.js') }}"></script>

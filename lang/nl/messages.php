@@ -110,4 +110,10 @@ return [
     'create_free_account' => 'Maak een gratis account aan',
     'already_have_accnt' => 'Heb je al een account?',
     'already_have_accnt_click' => 'Heb je al een account? Klik hier om in te loggen.',
+    'cookie_set' => 'Je cookie instellingen',
+
+    'cookie_desc' => 'Om jouw bezoek aan deze website nóg makkelijker en persoonlijker te maken en het gebruik van deze website te kunnen blijven verbeteren, plaatsen we cookies. Ook plaatsen we cookies zodat we je gepersonaliseerde advertenties kunnen tonen. Door op ‘Akkoord’ te klikken accepteer je alle cookies. ',
+
+    'aggree' => 'Akkoord',
+    'cookie_ftr' => 'Wijzig je voorkeur via de ‘Cookie-instellingen’ onder aan de pagina. Lees het Privacybeleid en Cookiebeleid voor meer informatie.',
 ];

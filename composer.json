@@ -16,7 +16,8 @@
         "laravel/framework": "^9.23",
         "laravel/sanctum": "^2.15.1",
         "laravel/tinker": "^2.7",
-        "laravel/ui": "^4.0"
+        "laravel/ui": "^4.0",
+        "spatie/laravel-cookie-consent": "^3.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",
