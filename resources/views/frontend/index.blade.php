@@ -60,12 +60,12 @@
                     </div>
                 </div>
                 <div class="row">
-                @foreach( $products as $keyProduct => $product )
+                @foreach($products as $keyProduct => $product )
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                         <!-- Start Single Default Product -->
                         <div class="product__box product__default--single text-center">
                             <!-- Start Product Image -->
-                            <div class="product__img-box  pos-relative">
+                            <div class="product__img-box custom-product-img-box pos-relative">
                                 <a href="{{ route('show.product', $product->slug) }}" class="product__img--link">
                                     <img class="product__img img-fluid" src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="">
                                 </a>
@@ -83,8 +83,14 @@
                             </div> <!-- End Product Image -->
                             <!-- Start Product Content -->
                             <div class="product__content m-t-20"> 
-                                <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a>
-                                <span style="font-size: 14px;">{{ $product->brand->name }}</span>
+                                <a href="{{ route('show.product', $product->slug) }}" class="product__link d-none d-md-block">{{ $product->name }}</a>
+                                <a href="{{ route('show.product', $product->slug) }}" class="product__link d-md-none">{{ substr($product->name,0,10) }}</a>
+                                
+                                <span style="font-size: 12px;">{{ $product->brand->name }}</span>
+                                <p style="font-size: 14px; margin-bottom: 0;" class="d-none d-md-block">{{ substr($product->short_description ,0,50) }}</p>
+                                <p style="font-size: 14px; margin-bottom: 0;" class="d-md-none">{{ substr($product->short_description ,0,10) }}</p>
+ 
+
                                 @if(Auth::check())
                                 <div class="product__price m-t-5">
                                     <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
@@ -142,6 +148,13 @@
                         </div>
                     </div> <!-- End Modal Quickview cart -->
                     @endforeach
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="product-more-bttn text-center mt-4 mt-md-0">
+                            <a href="{{ url('/products') }}" class="btn btn-primary" style="padding: 10px 20px; border-radius: 5px; background-color: #e0c77a; border-color: #e0c77a;">{{ __('Meer producten') }}</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div> <!-- ::::::  End  Product Style - Default Section  ::::::  -->
