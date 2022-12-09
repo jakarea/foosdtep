@@ -50,7 +50,7 @@
                                 @enderror
                             </div>
                             <div class="form-box__single-group">
-                                <label for="vat">{{ __('BTW nummer *') }}</label>
+                                <label for="vat">VAT nummer *</label>
                                 <input type="text" class="@error('vat') is-invalid @enderror" id="vat"
                                 value="{{ old('vat') }}" name="vat" placeholder="VAT nummer" autofocus required>
                                 @error('vat')
@@ -62,7 +62,7 @@
                             <div class="form-box__single-group">
                                 <label for="email">{{__('text.email_address') }} *</label>
                                 <input type="email" class="@error('email') is-invalid @enderror" id="email"
-                                value="{{ old('email') }}" name="email" placeholder="{{__('Vul je email in') }}" autofocus required>
+                                value="{{ old('email') }}" name="email" placeholder="{{__('text.') }} Enter email" autofocus required>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

@@ -324,8 +324,14 @@
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
                                             <div class="product__content m-t-20">
-                                                <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a>
-                                                <span style="font-size: 14px;">{{ $product->brand->name }}</span>
+                                            <a href="{{ route('show.product', $product->slug) }}" class="product__link d-none d-md-block">{{ $product->name }}</a>
+                                <a href="{{ route('show.product', $product->slug) }}" class="product__link d-md-none">{{ substr($product->name,0,10) }}</a>
+                                
+                                <span style="font-size: 12px;">{{ $product->brand->name }}</span>
+                                <p style="font-size: 14px; margin-bottom: 0;" class="d-none d-md-block">{{ substr($product->short_description ,0,50) }}</p>
+                                <p style="font-size: 14px; margin-bottom: 0;" class="d-md-none">{{ substr($product->short_description ,0,10) }}</p>
+ 
+
                                                 @if(Auth::check())
                                                 <div class="product__price m-t-5">
                                                     <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
@@ -389,16 +395,20 @@
                                     @foreach( $products as $key => $product)
                                     <!-- Start Single List Product -->
                                     <div class="col-12">
-                                        <div class="product-box-views product__box product__box--list">
+                                        <div class="product-box-views productss-boxs product__box product__box--list">
                                             <!-- Start Product Image -->
-                                            <div class="product__img-box  pos-relative text-center">
-                                                <a href="{{ route('show.product', $product->slug) }}" class="product__img--link">
+                                            <div class="product__img-box   pos-relative text-center">
+                                                <a href="{{ route('show.product', $product->slug) }}" class="product__img--link ml-0">
                                                     <img class="product__img img-fluid" src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="{{ $product->slug }}">
                                                 </a> 
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
                                             <div class="product__content">
                                                 <a href="{{ route('show.product', $product->slug) }}" class="product__link"><h5 class="font--regular">{{ $product->name }}</h5></a>
+
+                                                <span style="font-size: 12px;">{{ $product->brand->name }}</span>
+                                <p style="font-size: 14px; margin-bottom: 0;" class="d-none d-md-block">{{ substr($product->short_description ,0,50) }}</p>
+
                                                 @if(Auth::check())
                                                 <div class="product__price m-t-5">
                                                     <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
