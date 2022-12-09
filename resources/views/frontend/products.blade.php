@@ -163,12 +163,12 @@
  
                     </div> <!-- ::::::  Start Sort Box Section  ::::::  -->
 
-                    <div class="sort-box-item mb-4">
+                    <div class="sort-box-item mb-3">
                         <span>{{ __('text.showing')}} {{ $products->onFirstPage() . __(' - '). $products->count() }} {{__('text.of') }} {{ $products->count() }} {{ __('result')}}</span>
                     </div>
 
                     <!-- mobile filter start -->
-                    <button class="btn btn-secondary px-4 py-3 d-md-none" type="button" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">  <i class="fas fa-filter"></i> FILTERS </button>
+                    <button class="btn btn-secondary px-3 py-2 d-md-none" type="button" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">  <i class="fas fa-filter"></i> FILTERS </button>
                     
                     <div class="custom-pro-filter d-md-none">
                     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
