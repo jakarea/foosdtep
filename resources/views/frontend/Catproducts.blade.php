@@ -13,7 +13,7 @@
             <div class="row flex-column-reverse flex-lg-row">
                 <!-- Start Leftside - Sidebar Widget -->
                 <div class="col-lg-3">
-                    <div class="sidebar">
+                    <div class="sidebar d-none d-md-block">
                         <!-- Category Filter -->
                         <div class="sidebar__widget">
                             <div class="sidebar__box m-t-40">
@@ -137,7 +137,7 @@
                         <span>{{__('messages.you_arevisiting_cat')}}: {{ $cat->name }}</span>
                     </div>
                     <!-- ::::::  Start Sort Box Section  ::::::  -->
-                    <div class="sort-box m-tb-40">
+                    <div class="custom-sort-box sort-box m-tb-40">
                         <!-- Start Sort Left Side -->
                         <div class="sort-box-item">
                             <div class="sort-box__tab">
@@ -166,9 +166,139 @@
                         
                     </div> <!-- ::::::  Start Sort Box Section  ::::::  -->
 
-                    <div class="sort-box-item">
+                    <div class="sort-box-item mb-3">
                         <span>{{ __('messages.showing') }} {{ $products->onFirstPage() . __(' - '). $products->count() }} {{ __('messages.of') }} {{ $products->count() }} {{ __('messages.result') }}</span>
                     </div>
+
+                    <!-- mobile filter start -->
+                    <button class="btn btn-secondary px-3 py-2 d-md-none" type="button" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">  <i class="fas fa-filter"></i> FILTERS </button>
+                    
+                    <div class="custom-pro-filter d-md-none">
+                        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="offcanvasExampleLabel">{{ __('text.product_group') }}</h5>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                            <div class="sidebar mt-0">
+                                <!-- Category Filter -->
+                                <div class="sidebar__widget">
+                                    <div class="sidebar__box m-t-40">
+                                        <h3 class="mb-3">{{ __('text.product_group') }}</h3>
+                                        <h5 class="sidebar__title">{{ __('text.category')}}</h5>
+                                    </div>
+                                    <ul class="sidebar__menu-filter ">
+                                        @foreach(App\Models\Backend\Category::all() as $key => $category)
+                                            <!-- Start Single Menu Filter List -->
+                                        <li class="sidebar__menu-filter-list">
+                                            <label for="cat_{{ $category->id }}"><input type="checkbox" name="catFilter" class="attributes_Filter" value="{{ $category->id }}" id="cat_{{ $category->id }}"><span>{{ $category->name }} ({{ $category->countProductByCat($category->id) }})</span></label>
+                                        </li>  <!-- End Single Menu Filter List -->
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <!-- Category Filter -->
+
+                                <!-- Brand Filter -->
+                                <div class="sidebar__widget">
+                                    <div class="sidebar__box m-t-40">
+                                        <h5 class="sidebar__title">{{__('text.brand')}}</h5>
+                                    </div>
+                                    <ul class="sidebar__menu-filter ">
+                                        @foreach(App\Models\Backend\Brand::all() as $key => $brand)
+                                            <!-- Start Single Menu Filter List -->
+                                        <li class="sidebar__menu-filter-list">
+                                            <label for="brand_{{ $brand->id }}"><input type="checkbox" name="brandFilter" class="attributes_Filter" value="{{ $brand->id }}" id="brand_{{ $brand->id }}"><span>{{ $brand->name }} ({{ $brand->countProductByBrand($brand->id) }})</span></label>
+                                        </li>  <!-- End Single Menu Filter List -->
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <!-- Brand Filter -->
+
+                                <!-- ProductGroup Filter -->
+                                <div class="sidebar__widget">
+                                    <div class="sidebar__box m-t-40">
+                                        <h5 class="sidebar__title">{{ __('text.product_group') }}</h5>
+                                    </div>
+                                    <ul class="sidebar__menu-filter ">
+                                        @foreach(App\Models\Backend\ProductGroup::all() as $key => $PGroup)
+                                            <!-- Start Single Menu Filter List -->
+                                        <li class="sidebar__menu-filter-list">
+                                            <label for="pgroup_{{ $PGroup->id }}"><input type="checkbox" name="pgroupFilter" class="attributes_Filter" value="{{ $PGroup->id }}" id="pgroup_{{ $PGroup->id }}"><span>{{ $PGroup->name }} ({{ $PGroup->countProductByPGroup($PGroup->id) }})</span></label>
+                                        </li>  <!-- End Single Menu Filter List -->
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <!-- ProductGroup Filter -->
+
+                                <!-- Faith Filter -->
+                                <div class="sidebar__widget">
+                                    <div class="sidebar__box m-t-40">
+                                        <h5 class="sidebar__title">{{ __('text.faith') }}</h5>
+                                    </div>
+                                    <ul class="sidebar__menu-filter ">
+                                        @foreach(App\Models\Backend\Faith::all() as $key => $faith)
+                                            <!-- Start Single Menu Filter List -->
+                                        <li class="sidebar__menu-filter-list">
+                                            <label for="faith_{{ $faith->id }}"><input type="checkbox" name="faithFilter" class="attributes_Filter" value="{{ $faith->id }}" id="faith_{{ $faith->id }}"><span>{{ $faith->name }} ({{ $faith->countProductByFaith($faith->id) }})</span></label>
+                                        </li>  <!-- End Single Menu Filter List -->
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <!-- Faith Filter -->
+
+                                <!-- Faith Filter -->
+                                <div class="sidebar__widget">
+                                    <div class="sidebar__box m-t-40">
+                                        <h5 class="sidebar__title">{{ __('text.lines') }}</h5>
+                                    </div>
+                                    <ul class="sidebar__menu-filter ">
+                                        @foreach(App\Models\Backend\Line::all() as $key => $line)
+                                            <!-- Start Single Menu Filter List -->
+                                        <li class="sidebar__menu-filter-list">
+                                            <label for="line_{{ $line->id }}"><input type="checkbox" name="lineFilter" class="attributes_Filter" value="{{ $line->id }}" id="line_{{ $line->id }}"><span>{{ $line->name }} ({{ $line->countProductByline($line->id) }})</span></label>
+                                        </li>  <!-- End Single Menu Filter List -->
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <!-- Faith Filter -->
+
+                                <!-- Faith Filter -->
+                                <div class="sidebar__widget">
+                                    <div class="sidebar__box m-t-40">
+                                        <h5 class="sidebar__title">{{ __('text.contents') }}</h5>
+                                    </div>
+                                    <ul class="sidebar__menu-filter ">
+                                        @foreach(App\Models\Backend\Content::all() as $key => $content)
+                                            <!-- Start Single Menu Filter List -->
+                                        <li class="sidebar__menu-filter-list">
+                                            <label for="conten_{{ $content->id }}"><input type="checkbox" name="contentFilter" class="attributes_Filter" value="{{ $content->id }}" id="conten_{{ $content->id }}"><span>{{ $content->name }} ({{ $content->countProductByContent($content->id) }})</span></label>
+                                        </li>  <!-- End Single Menu Filter List -->
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <!-- Faith Filter -->
+
+                                <!-- Faith Filter -->
+                                <div class="sidebar__widget">
+                                    <div class="sidebar__box m-t-40">
+                                        <h5 class="sidebar__title">{{__('text.allerge_and_diet')}}</h5>
+                                    </div>
+                                    <ul class="sidebar__menu-filter ">
+                                        @foreach(App\Models\Backend\AllergensDP::all() as $key => $AllergensDP)
+                                            <!-- Start Single Menu Filter List -->
+                                        <li class="sidebar__menu-filter-list">
+                                            <label for="AllergensDP_{{ $AllergensDP->id }}"><input type="checkbox" name="allergensFilter" class="attributes_Filter" value="{{ $AllergensDP->id }}" id="AllergensDP_{{ $AllergensDP->id }}"><span>{{ $AllergensDP->name }} ({{ $AllergensDP->countProductByAllergensDP($AllergensDP->id) }})</span></label>
+                                        </li>  <!-- End Single Menu Filter List -->
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                <!-- Faith Filter -->
+                                    
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- mobile filter end -->
 
                     <div class="product-tab-area pb-5 attributes_wise" id="attributes_wise">
                         <div class="tab-content tab-animate-zoom">
@@ -252,10 +382,10 @@
                                 </div>
                             </div>
                             <div class="tab-pane shop-list" id="sort-list">
-                                <div class="row">
+                                <div class="row no-gutters">
                                     @foreach( $products as $key => $product )
                                     <!-- Start Single List Product -->
-                                    <div class="col-12">
+                                    <div class="col-md-4 col-sm-6 col-6 nopadding">
                                         <div class="product__box product__box--list">
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative text-center">
