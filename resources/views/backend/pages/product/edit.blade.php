@@ -79,6 +79,18 @@
         </div>
     </div>
     <div class="col-lg-3">
+         <!-- Image card -->
+         <div class="card rounded">
+            <div class="card-header bg-primary text-white">
+               {{__('b.image_upload')}}
+            </div>
+            <div class="card-body">
+                <label class="form-label">{{ __('messages.image') }}</label>
+                <input type="file" name="featureimage" class="form-control mb-1" onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])">
+                <img src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="" class="img-fluid" id="image">
+            </div>
+        </div>
+        
         <!-- Category card -->
         <div class="card rounded">
             <div class="card-header bg-primary text-white">
@@ -205,17 +217,7 @@
                 @endforeach
             </div>
         </div>
-        <!-- Image card -->
-        <div class="card rounded">
-            <div class="card-header bg-primary text-white">
-               {{__('b.image_upload')}}
-            </div>
-            <div class="card-body">
-                <label class="form-label">{{ __('messages.image') }}</label>
-                <input type="file" name="featureimage" class="form-control mb-1" onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])">
-                <img src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="" class="img-fluid" id="image">
-            </div>
-        </div>
+       
 
         </form>
     </div>
