@@ -77,6 +77,9 @@ class Product extends Model
         $discount = Discount::where('user_id', Auth::user()->id )->first();
         $p_price = $p->price;
 
+        if(!is_numeric($p_price)){
+            return 'ongeldig prijsformaat';
+        }
         $user_disccout = 0;
         $product_disccout = 0;
 

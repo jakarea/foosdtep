@@ -52,7 +52,7 @@
     </div>
 
     <!-- cookie view start -->
-    <!--  include('cookie-consent::index')  -->
+    @include('cookie-consent::index') 
     <!-- cookie view end -->
 
     <!-- ::::::  Start  Footer ::::::  -->

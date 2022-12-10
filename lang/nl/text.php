@@ -133,4 +133,5 @@ return [
     'recent_post' => 'Recente berichten',
     'product_group' => 'PRODUCTGROEP',
     'more_info' => 'Meer informatie',
+    'numfmt_set_text_attribute' => 'Volgende'
 ];

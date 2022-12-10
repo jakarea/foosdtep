@@ -46,7 +46,7 @@ class ProductController extends Controller
         $contents = Content::where('parent_id', 0)->get();
         $AllergensDPs = AllergensDP::where('parent_id', 0)->get();
         
-        $products = Product::where('status', 'active')->orderby('id', 'asc')->paginate('12');
+        $products = Product::where('status', 'active')->orderby('id', 'desc')->paginate(15);
         return view('frontend/products', compact('products', 'shareButtons', 'categories', 'brands', 'PGroups', 'faiths', 'lines', 'contents', 'AllergensDPs'));
     }
 
@@ -64,8 +64,8 @@ class ProductController extends Controller
         
         $products = Product::where('cat_id','like','%'.trim($catId).'%') 
         ->where('status', 'active')
-        ->orderby('id', 'asc')
-        ->paginate('12');
+        ->orderby('id', 'desc')
+        ->paginate('15');
         
 
         return view('frontend/Catproducts', compact('products', 'cat'));
