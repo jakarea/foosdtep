@@ -27,7 +27,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::orderby('name', 'asc')->get();        
+        $products = Product::orderby('name', 'desc')->get();        
         return view('backend/pages/product/manage', compact('products'));
     }
 
@@ -62,7 +62,7 @@ class ProductController extends Controller
         $request->validate([
             'name'              =>  ['required', 'unique:products,name', 'max:255'],
             'status'            =>  ['required', 'not_in:0'],
-            'price'             =>  ['required', 'min:1'],
+            'price'             =>  ['required','numeric','min:1'],
             'cat'               =>  ['required'],
             'short_desc'        =>  ['required'],
             'description'       =>  ['required'],
@@ -153,7 +153,7 @@ class ProductController extends Controller
         $request->validate([
             'name'              =>  ['required', 'max:255'],
             'status'            =>  ['required', 'not_in:0'],
-            'price'             =>  ['required', 'min:1'],
+            'price'             =>  ['required','numeric', 'min:1'],
             'short_desc'        =>  ['required'],
             'description'       =>  ['required'],
             'specification'     =>  ['required'],
