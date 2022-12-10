@@ -202,6 +202,10 @@ input[type=radio].shipping-select::after,
 	margin-bottom: 1.5rem;
 }
 
+.height-fixedd{
+  height: 360px;
+}
+
 .blog-feed__link:hover {
   color: #e0c77a;
 }
