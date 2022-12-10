@@ -307,7 +307,7 @@
                                     @foreach( $products as $key => $product )
                                     <div class="col-md-4 col-sm-6 col-6 nopadding">
                                         <!-- Start Single Default Product -->
-                                        <div class="product__box product__default--single text-center">
+                                        <div class="product__box height-fixedd product__default--single text-center">
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
                                                 <a href="{{ route('show.product', $product->slug) }}" class="product__img--link">
@@ -407,24 +407,18 @@
                                                 <a href="{{ route('show.product', $product->slug) }}" class="product__link"><h5 class="font--regular">{{ $product->name }}</h5></a>
 
                                                 <span style="font-size: 12px;">{{ $product->brand->name }}</span>
-                                <p style="font-size: 14px; margin-bottom: 0;" class="d-none d-md-block">{{ substr($product->short_description ,0,50) }}</p>
+                                                <p style="font-size: 14px; margin-bottom: 0;" class="d-none d-md-block">{{ substr($product->short_description ,0,50) }}</p>
 
                                                 @if(Auth::check())
                                                 <div class="product__price m-t-5">
                                                     <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
+
+                                                    <span class="product__action--link-list ms-3">
+                                                    <a href="{{ route('add.to.cart', $product->id) }}" style="border-radius: 25px;" class="btn--black py-2 px-3 btn--black-hover-green">{{ __('text.add_to_cart')}}</a>
+                                                    </span>
                                                 </div>
-                                                @endif
-                                                <div class="product__desc">
-                                                    <p>
-                                                        {{ $product->short_description }}
-                                                    </p>
-                                                </div>
-                                                @if(Auth::check())
-                                                <!-- Start Product Action Link-->
-                                                <ul class="product__action--link-list m-t-30">
-                                                    <li><a href="{{ route('add.to.cart', $product->id) }}" class="btn--black btn--black-hover-green">{{ __('text.add_to_cart')}}</a></li>
-                                                </ul> <!-- End Product Action Link -->
-                                                @endif
+                                                @endif 
+                                                
                                             </div> <!-- End Product Content -->
                                         </div> 
                                     </div> <!-- End Single List Product -->

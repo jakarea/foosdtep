@@ -75,7 +75,7 @@
                                 <ul class="product__action--link pos-absolute">
                                     @if( Auth::check() )
                                     <li><a href="{{ route('add.to.cart', $product->id) }}">
-                                    <img src="{{ asset('frontend/assets/img/cart.png') }}" alt="Cart" width="20" class="img-fluid">
+                                    <img src="{{ asset('frontend/assets/img/cart.png') }}" alt="Cart" width="20" class="img-fluid" style="width: 20px; height: auto!important;">
                                     </a></li>
                                     @endif
                                     <li><a href="#modalQuickView{{$product->id}}" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
