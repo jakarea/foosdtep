@@ -324,12 +324,10 @@
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
                                             <div class="product__content m-t-20">
-                                            <a href="{{ route('show.product', $product->slug) }}" class="product__link d-none d-md-block">{{ $product->name }}</a>
-                                <a href="{{ route('show.product', $product->slug) }}" class="product__link d-md-none">{{ substr($product->name,0,10) }}</a>
+                                            <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a> 
                                 
                                 <span style="font-size: 12px;">{{ $product->brand->name }}</span>
-                                <p style="font-size: 14px; margin-bottom: 0;" class="d-none d-md-block">{{ substr($product->short_description ,0,50) }}</p>
-                                <p style="font-size: 14px; margin-bottom: 0;" class="d-md-none">{{ substr($product->short_description ,0,10) }}</p>
+                                <p style="font-size: 14px; margin-bottom: 0;" >{{ $product->short_description }}</p> 
  
 
                                                 @if(Auth::check())
