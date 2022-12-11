@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->string('slug')->nullable();
             $table->string('price')->nullable();
+            $table->string('unit')->nullable();
             $table->string('cat_id')->nullable();
             $table->string('brand_id')->nullable();
             $table->string('prodcut_group_id')->nullable();
@@ -33,6 +34,7 @@ return new class extends Migration
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->string('image')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

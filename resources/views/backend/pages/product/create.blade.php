@@ -24,7 +24,7 @@
                             </div>
                         </div> 
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-5">
                             <div class="form-group mb-3">
                                 <label for="Status">{{ __('b.status')}}</label>
                                 <select name="status" id="" class="form-select" aria-label="Default select example">
@@ -35,11 +35,19 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-5">
                             <div class="form-group">
                                 <label for="Price">{{ __('b.price')}}</label>
                                 <input type="text" name="price" value="{{ old('price') }}" class="form-control @error('price') is-invalid @enderror" placeholder="{{ __('b.enter_price')}}">
                                 <span class="text-danger">@error('price'){{ $message }} @enderror</span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2">
+                            <div class="form-group">
+                                <label for="Price">{{ __('b.unit')}}</label>
+                                <input type="text" name="unit" value="{{ old('unit') }}" class="form-control @error('unit') is-invalid @enderror" placeholder="{{ __('b.enter_unit')}}">
+                                <span class="text-danger">@error('unit'){{ $message }} @enderror</span>
                             </div>
                         </div>
 

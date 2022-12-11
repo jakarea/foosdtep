@@ -74,6 +74,7 @@ class ProductController extends Controller
         $product->name                  =   $request->name;
         $product->slug                  =   Str::slug($request->name);
         $product->price                 =   $request->price;
+        $product->unit                 =   $request->unit;
         $product->status                =   $request->status;
         $product->cat_id                =   $request->cat ? implode(',', $request->cat) : '';
         $product->brand_id              =   $request->brand ? implode(',', $request->brand) : '';
@@ -164,6 +165,7 @@ class ProductController extends Controller
         $product->name                  =   $request->name;
         $product->slug                  =   Str::slug($request->name);
         $product->price                 =   $request->price;
+        $product->unit                 =   $request->unit;
         $product->status                =   $request->status;
         $product->cat_id                =   $request->cat ? implode(',', $request->cat) : '';
         $product->brand_id              =   $request->brand ? implode(',', $request->brand) : '';
