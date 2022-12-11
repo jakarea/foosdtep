@@ -63,7 +63,7 @@
                 @foreach($products as $keyProduct => $product )
                     <div class="col-lg-3 col-md-4 col-sm-6 col-6">
                         <!-- Start Single Default Product -->
-                        <div class="product__box product__default--single text-center">
+                        <div class="product__box product-box-home product__default--single text-center">
                             <!-- Start Product Image -->
                             <div class="product__img-box custom-product-img-box pos-relative">
                                 <a href="{{ route('show.product', $product->slug) }}" class="product__img--link">
@@ -83,12 +83,10 @@
                             </div> <!-- End Product Image -->
                             <!-- Start Product Content -->
                             <div class="product__content m-t-20"> 
-                                <a href="{{ route('show.product', $product->slug) }}" class="product__link d-none d-md-block">{{ $product->name }}</a>
-                                <a href="{{ route('show.product', $product->slug) }}" class="product__link d-md-none">{{ substr($product->name,0,10) }}</a>
+                                <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a> 
                                 
                                 <span style="font-size: 12px;">{{ $product->brand->name }}</span>
-                                <p style="font-size: 14px; margin-bottom: 0;" class="d-none d-md-block">{{ substr($product->short_description ,0,50) }}</p>
-                                <p style="font-size: 14px; margin-bottom: 0;" class="d-md-none">{{ substr($product->short_description ,0,10) }}</p>
+                                <p style="font-size: 14px; margin-bottom: 0;" class="d-none d-md-block">{{ $product->short_description }}</p> 
  
 
                                 @if(Auth::check())

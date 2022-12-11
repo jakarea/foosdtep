@@ -303,9 +303,9 @@
                     <div class="product-tab-area pb-5 attributes_wise" id="attributes_wise">
                         <div class="tab-content tab-animate-zoom">
                             <div class="tab-pane show active shop-grid" id="sort-grid">
-                                <div class="row">
+                                <div class="row no-gutters">
                                     @foreach( $products as $key => $product )
-                                    <div class="col-md-4 col-12">
+                                    <div class="col-md-4 col-sm-6 col-6 nopadding">
                                         <!-- Start Single Default Product -->
                                         <div class="product__box height-fixedd product__default--single text-center">
                                             <!-- Start Product Image -->
@@ -322,12 +322,12 @@
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
                                             <div class="product__content m-t-20">
-                                            <a href="{{ route('show.product', $product->slug) }}" class="product__link d-none d-md-block">{{ substr($product->name, 0,40) }}</a>
-                                <a href="{{ route('show.product', $product->slug) }}" class="product__link d-md-none">{{ substr($product->name,0,10) }}</a>
-                                
+                                            <a href="{{ route('show.product', $product->slug) }}" class="product__link d-none d-md-block">
+                                                {{ $product->name }}</a> 
+
                                 <span style="font-size: 12px;">{{ $product->brand->name }}</span>
-                                <p style="font-size: 14px; margin-bottom: 0;" class="d-none d-md-block">{{ substr($product->short_description ,0,50) }}</p>
-                                <p style="font-size: 14px; margin-bottom: 0;" class="d-md-none">{{ substr($product->short_description ,0,10) }}</p>
+                                <p style="font-size: 14px; margin-bottom: 0;" class="d-none d-md-block">{{ $product->short_description }}</p>
+                                 
                                                 @if(Auth::check())
                                                 <div class="product__price m-t-5">
                                                     <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
