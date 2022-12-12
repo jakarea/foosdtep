@@ -27,7 +27,7 @@
                     <h4 class="font--regular m-b-20">{{ $product->name }}</h4> 
                     @if( Auth::check() )
                     <div class="product__price m-t-5">
-                        <span class="product__price product__price--large">{{ __('€'). $product->discount($product->id) }} {{ $product->unit ? ' /'. $product->unit : ''}} </span>
+                        <span class="product__price product__price--large">{{ __('€'). $product->discount($product->id) }} {{ $product->unit ? $product->unit : ''}} </span>
                     </div>
                     
                     @endif
@@ -142,7 +142,7 @@
                                 <a href="{{ route('show.product', $related->slug) }}" class="product__link">{{ $related->name }}</a>
                                 @if(Auth::check())
                                 <div class="product__price m-t-5">
-                                    <span class="product__price">{{ __('€'). $product->discount($related->id) }}</span>
+                                    <span class="product__price">{{ __('€'). $product->discount($related->id) }}  {{ $product->unit ?  $product->unit : ''}}</span>
                                 </div>
                                 @endif
                             </div> <!-- End Product Content -->
