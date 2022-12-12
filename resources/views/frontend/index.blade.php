@@ -59,9 +59,9 @@
                         </div>  <!-- End Section Title -->
                     </div>
                 </div>
-                <div class="row">
+                <div class="row px-3 px-md-0">
                 @foreach($products as $keyProduct => $product )
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-6 nopadding">
                         <!-- Start Single Default Product -->
                         <div class="product__box product-box-home product__default--single text-center">
                             <!-- Start Product Image -->

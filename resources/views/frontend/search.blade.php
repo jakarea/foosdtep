@@ -174,10 +174,10 @@
                         <div class="tab-content tab-animate-zoom">
                             <div class="tab-pane show active shop-grid" id="sort-grid">
                                 <div class="row">
-                                    @foreach( $products as $key => $product )
-                                    <div class="col-md-4 col-12">
+                                @foreach( $products as $key => $product )
+                                    <div class="col-md-4 col-sm-6 col-6 nopadding">
                                         <!-- Start Single Default Product -->
-                                        <div class="product__box product__default--single text-center">
+                                        <div class="product__box height-fixedd product__default--single text-center">
                                             <!-- Start Product Image -->
                                             <div class="product__img-box  pos-relative">
                                                 <a href="{{ route('show.product', $product->slug) }}" class="product__img--link">
@@ -185,14 +185,21 @@
                                                 </a>                                               
                                                 <ul class="product__action--link pos-absolute">
                                                     @if( Auth::check() )
-                                                    <li><a href="{{ route('add.to.cart', $product->id) }}"><i class="icon-shopping-cart"></i></a></li>
+                                                    <li><a href="{{ route('add.to.cart', $product->id) }}">
+                                                        <img src="{{ asset('frontend/assets/img/cart.png') }}" alt="Cart" width="20" class="img-fluid">
+                                                    </a></li>
                                                     @endif
                                                     <li><a href="#modalQuickView{{$product->id}}" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
                                                 </ul> <!-- End Product Action Link -->
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
                                             <div class="product__content m-t-20">
-                                                <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a>
+                                            <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a> 
+                                
+                                                <span style="font-size: 12px;">{{ $product->brand->name }}</span>
+                                                <p style="font-size: 14px; margin-bottom: 0;" >{{ $product->short_description }}</p> 
+                
+
                                                 @if(Auth::check())
                                                 <div class="product__price m-t-5">
                                                     <span class="product__price">{{ __('€'). $product->discount($product->id) }}  {{ $product->unit ?  $product->unit : ''}}</span>
@@ -227,7 +234,7 @@
                                                                     <h5 class="title title--normal m-b-20">{{ $product->name }}</h5>
                                                                     @if(Auth::check())
                                                                     <div class="product__price">
-                                                                        <span class="product__price-del">{{ __('€'). $product->discount($product->id) }}  {{ $product->unit ?  $product->unit : ''}}</span>
+                                                                        <span class="product__price-del">{{ __('€'). $product->discount($product->id) }}</span>
                                                                     </div>
                                                                     @endif
                                                                     <div class="product__desc m-t-25 m-b-30">
@@ -240,7 +247,6 @@
                                                                         </div>
                                                                     </div>
                                                                     @endif
-                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -254,36 +260,29 @@
                             </div>
                             <div class="tab-pane shop-list" id="sort-list">
                                 <div class="row">
-                                    @foreach( $products as $key => $product )
+                                @foreach( $products as $key => $product)
                                     <!-- Start Single List Product -->
                                     <div class="col-12">
-                                        <div class="product__box product__box--list">
+                                        <div class="product-box-views productss-boxs product__box product__box--list">
                                             <!-- Start Product Image -->
-                                            <div class="product__img-box  pos-relative text-center">
-                                                <a href="{{ route('show.product', $product->slug) }}" class="product__img--link">
+                                            <div class="product__img-box   pos-relative text-center">
+                                                <a href="{{ route('show.product', $product->slug) }}" class="product__img--link ml-0">
                                                     <img class="product__img img-fluid" src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="{{ $product->slug }}">
-                                                </a>
-                                                <!-- Start Procuct Label -->
-                                                    <span class="product__label product__label--sale-dis">-31%</span>
-                                                <!-- End Procuct Label -->
+                                                </a> 
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
                                             <div class="product__content">
                                                 <a href="{{ route('show.product', $product->slug) }}" class="product__link"><h5 class="font--regular">{{ $product->name }}</h5></a>
+
+                                                <span style="font-size: 12px;">{{ $product->brand->name }}</span>
+                                                <p style="font-size: 14px; margin-bottom: 0;" class="d-none d-md-block">{{ substr($product->short_description ,0,50) }}</p>
+
                                                 @if(Auth::check())
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }}  {{ $product->unit ?  $product->unit : ''}}</span>
+                                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
                                                 </div>
-                                                @endif
-                                                <div class="product__desc">
-                                                    <p>
-                                                        {{ $product->short_description }}
-                                                    </p>
-                                                </div>
-                                                <!-- Start Product Action Link-->
-                                                <ul class="product__action--link-list m-t-30">
-                                                    <li><a href="{{ route('add.to.cart', $product->id) }}" class="btn--black btn--black-hover-green">{{ __('text.add_to_cart')}}</a></li>
-                                                </ul> <!-- End Product Action Link -->
+                                                @endif 
+                                                
                                             </div> <!-- End Product Content -->
                                         </div> 
                                     </div> <!-- End Single List Product -->
