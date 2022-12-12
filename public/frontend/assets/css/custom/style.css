@@ -729,6 +729,23 @@ input[type=radio].shipping-select::after,
   margin-left: 0!important;
 }
 
+.default-slider .slick-track { 
+  display: flex;
+  align-items: stretch;  
+}
+
+.default-slider .slick-track .product__img-box a img{
+  height: 250px;
+}
+
+.default-slider .slick-track .product__box {
+  flex: 1; 
+  display: flex!important;
+  align-items: center;
+  flex-direction: column;
+  height: 100%!important;
+}
+
 @media(min-width: 320px) and (max-width: 767px) {
 
   .header__logo-img,
