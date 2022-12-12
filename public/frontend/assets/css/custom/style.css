@@ -491,6 +491,7 @@ input[type=radio].shipping-select::after,
   padding: .4rem 1.6rem;
   box-shadow: 0 0 40px 0 rgb(0 0 0 / 32%);
   padding-bottom: 2rem;
+  min-height: 235px;
 }
 
 .invalid-feedback3 span {
@@ -751,6 +752,9 @@ input[type=radio].shipping-select::after,
   .header__logo-img,
   .header__mobile-logo-img {
     width: 70px;
+  }
+  .product__action--link-list.ms-3{
+    display: none!important;
   }
 
   .productss-boxs{
