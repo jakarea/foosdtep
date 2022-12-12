@@ -323,19 +323,21 @@
                                                 </ul> <!-- End Product Action Link -->
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
-                                            <div class="product__content m-t-20">
-                                            <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a> 
-                                
-                                                <span style="font-size: 12px;">{{ $product->brand->name }}</span>
-                                                <p style="font-size: 14px; margin-bottom: 0;" >{{ $product->short_description }}</p> 
-                
+                                            <div class="product__content m-t-20"> 
 
-                                                @if(Auth::check())
-                                                <div class="product__price m-t-5">
-                                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }} {{ $product->unit ?  $product->unit : ''}}</span>
-                                                </div>
-                                                @endif
-                                            </div> <!-- End Product Content -->
+                                            <span style="font-size: 12px;">{{ $product->unit ?  $product->unit : ''}}</span>
+
+                                            <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a> 
+                                            
+                                            <span style="font-size: 12px; color: #000;">{{ $product->brand ? $product->brand->name : "" }}</span>
+                                            
+
+                                            @if(Auth::check())
+                                            <div class="product__price m-t-5">
+                                                <span class="product__price" style="color: #000;">{{ __('€'). $product->discount($product->id) }}  </span>
+                                            </div>
+                                            @endif
+                                        </div> <!-- End Product Content -->
                                         </div> <!-- End Single Default Product -->
                                     </div>
                                     <!-- Start Modal Quickview cart -->
@@ -401,23 +403,25 @@
                                                 </a> 
                                             </div> <!-- End Product Image -->
                                             <!-- Start Product Content -->
-                                            <div class="product__content">
-                                                <a href="{{ route('show.product', $product->slug) }}" class="product__link"><h5 class="font--regular">{{ $product->name }}</h5></a>
+                                            <div class="product__content"> 
 
-                                                <span style="font-size: 12px;">{{ $product->brand->name }}</span>
-                                                <p style="font-size: 14px; margin-bottom: 0;" class="d-none d-md-block">{{ substr($product->short_description ,0,150) }}</p>
+                                                <span style="font-size: 12px;">{{ $product->unit ?  $product->unit : ''}}</span>
+
+                                                <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a> 
+
+                                                <span style="font-size: 12px; color: #000;">{{ $product->brand ? $product->brand->name : "" }}</span>
+
 
                                                 @if(Auth::check())
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }} {{ $product->unit ?  $product->unit : ''}} </span>
+                                                    <span class="product__price" style="color: #000;">{{ __('€'). $product->discount($product->id) }}  </span>
 
                                                     <span class="product__action--link-list ms-3">
                                                     <a href="{{ route('add.to.cart', $product->id) }}" style="border-radius: 25px;" class="btn--black py-2 px-3 btn--black-hover-green">{{ __('text.add_to_cart')}}</a>
                                                     </span>
                                                 </div>
-                                                @endif 
-                                                
-                                            </div> <!-- End Product Content -->
+                                                @endif
+                                                </div> <!-- End Product Content -->
                                         </div> 
                                     </div> <!-- End Single List Product -->
                                     @endforeach

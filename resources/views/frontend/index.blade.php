@@ -83,15 +83,17 @@
                             </div> <!-- End Product Image -->
                             <!-- Start Product Content -->
                             <div class="product__content m-t-20"> 
+
+                                <span style="font-size: 12px;">{{ $product->unit ?  $product->unit : ''}}</span>
+
                                 <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a> 
                                 
-                                <span style="font-size: 12px;">{{ $product->brand->name }}</span>
-                                <p style="font-size: 14px; margin-bottom: 0;" class="d-none d-md-block">{{ $product->short_description }}</p> 
- 
+                                <span style="font-size: 12px; color: #000;">{{ $product->brand ? $product->brand->name : "" }}</span>
+                                
 
                                 @if(Auth::check())
                                 <div class="product__price m-t-5">
-                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }}  {{ $product->unit ?  $product->unit : ''}}</span>
+                                    <span class="product__price" style="color: #000;">{{ __('€'). $product->discount($product->id) }}  </span>
                                 </div>
                                 @endif
                             </div> <!-- End Product Content -->
