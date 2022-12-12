@@ -202,7 +202,7 @@
 
                                                 @if(Auth::check())
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }} {{ $product->unit ? ' /'. $product->unit : ''}}</span>
+                                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }}  {{ $product->unit ?  $product->unit : ''}}</span>
                                                 </div>
                                                 @endif
                                             </div> <!-- End Product Content -->
@@ -234,7 +234,7 @@
                                                                     <h5 class="title title--normal m-b-20">{{ $product->name }}</h5>
                                                                     @if(Auth::check())
                                                                     <div class="product__price">
-                                                                        <span class="product__price-del">{{ __('€'). $product->discount($product->id) }} {{ $product->unit ? ' /'. $product->unit : ''}} </span>
+                                                                        <span class="product__price-del">{{ __('€'). $product->discount($product->id) }}</span>
                                                                     </div>
                                                                     @endif
                                                                     <div class="product__desc m-t-25 m-b-30">
@@ -279,11 +279,7 @@
 
                                                 @if(Auth::check())
                                                 <div class="product__price m-t-5">
-                                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }} {{ $product->unit ? ' /'. $product->unit : ''}} </span>
-
-                                                    <span class="product__action--link-list ms-3">
-                                                    <a href="{{ route('add.to.cart', $product->id) }}" style="border-radius: 25px;" class="btn--black py-2 px-3 btn--black-hover-green">{{ __('text.add_to_cart')}}</a>
-                                                    </span>
+                                                    <span class="product__price">{{ __('€'). $product->discount($product->id) }}</span>
                                                 </div>
                                                 @endif 
                                                 
