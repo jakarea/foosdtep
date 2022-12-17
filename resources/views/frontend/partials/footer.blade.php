@@ -1,8 +1,8 @@
 <!-- ::::::  Start  Footer ::::::  -->
-    <footer class="footer pt-5">
+    <footer class="footer">
         <div class="container"> 
             <!-- Start Footer Top Section --> 
-             <div class="footer__top">
+            <div class="footer__top">
                 <div class="row"> 
                     <div class="col-lg-4 col-md-5">
                         <div class="footer__about">
