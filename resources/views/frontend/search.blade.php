@@ -29,102 +29,6 @@
                             </ul>
                         </div>
                         <!-- Category Filter -->
-
-                        <!-- Brand Filter -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY BRAND</h5>
-                            </div>
-                            <ul class="sidebar__menu-filter ">
-                                @foreach(App\Models\Backend\Brand::all() as $key => $brand)
-                                    <!-- Start Single Menu Filter List -->
-                                <li class="sidebar__menu-filter-list">
-                                    <label for="brand_{{ $brand->id }}"><input type="checkbox" name="brandFilter" class="attributes_Filter" value="{{ $brand->id }}" id="brand_{{ $brand->id }}"><span>{{ $brand->name }} ({{ $brand->countProductByBrand($brand->id) }})</span></label>
-                                </li>  <!-- End Single Menu Filter List -->
-                                @endforeach
-                            </ul>
-                        </div>
-                        <!-- Brand Filter -->
-
-                        <!-- ProductGroup Filter -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY PRODUCT GROUP</h5>
-                            </div>
-                            <ul class="sidebar__menu-filter ">
-                                @foreach(App\Models\Backend\ProductGroup::all() as $key => $PGroup)
-                                    <!-- Start Single Menu Filter List -->
-                                <li class="sidebar__menu-filter-list">
-                                    <label for="pgroup_{{ $PGroup->id }}"><input type="checkbox" name="pgroupFilter" class="attributes_Filter" value="{{ $PGroup->id }}" id="pgroup_{{ $PGroup->id }}"><span>{{ $PGroup->name }} ({{ $PGroup->countProductByPGroup($PGroup->id) }})</span></label>
-                                </li>  <!-- End Single Menu Filter List -->
-                                @endforeach
-                            </ul>
-                        </div>
-                        <!-- ProductGroup Filter -->
-
-                        <!-- Faith Filter -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY FAITH</h5>
-                            </div>
-                            <ul class="sidebar__menu-filter ">
-                                @foreach(App\Models\Backend\Faith::all() as $key => $faith)
-                                    <!-- Start Single Menu Filter List -->
-                                <li class="sidebar__menu-filter-list">
-                                    <label for="faith_{{ $faith->id }}"><input type="checkbox" name="faithFilter" class="attributes_Filter" value="{{ $faith->id }}" id="faith_{{ $faith->id }}"><span>{{ $faith->name }} ({{ $faith->countProductByFaith($faith->id) }})</span></label>
-                                </li>  <!-- End Single Menu Filter List -->
-                                @endforeach
-                            </ul>
-                        </div>
-                        <!-- Faith Filter -->
-
-                        <!-- Faith Filter -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY LINES</h5>
-                            </div>
-                            <ul class="sidebar__menu-filter ">
-                                @foreach(App\Models\Backend\Line::all() as $key => $line)
-                                    <!-- Start Single Menu Filter List -->
-                                <li class="sidebar__menu-filter-list">
-                                    <label for="line_{{ $line->id }}"><input type="checkbox" name="lineFilter" class="attributes_Filter" value="{{ $line->id }}" id="line_{{ $line->id }}"><span>{{ $line->name }} ({{ $line->countProductByline($line->id) }})</span></label>
-                                </li>  <!-- End Single Menu Filter List -->
-                                @endforeach
-                            </ul>
-                        </div>
-                        <!-- Faith Filter -->
-
-                        <!-- Faith Filter -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY CONTENTS</h5>
-                            </div>
-                            <ul class="sidebar__menu-filter ">
-                                @foreach(App\Models\Backend\Content::all() as $key => $content)
-                                    <!-- Start Single Menu Filter List -->
-                                <li class="sidebar__menu-filter-list">
-                                    <label for="conten_{{ $content->id }}"><input type="checkbox" name="contentFilter" class="attributes_Filter" value="{{ $content->id }}" id="conten_{{ $content->id }}"><span>{{ $content->name }} ({{ $content->countProductByContent($content->id) }})</span></label>
-                                </li>  <!-- End Single Menu Filter List -->
-                                @endforeach
-                            </ul>
-                        </div>
-                        <!-- Faith Filter -->
-
-                        <!-- Faith Filter -->
-                        <div class="sidebar__widget">
-                            <div class="sidebar__box m-t-40">
-                                <h5 class="sidebar__title">FILTER BY Allergens & Diet Preference</h5>
-                            </div>
-                            <ul class="sidebar__menu-filter ">
-                                @foreach(App\Models\Backend\AllergensDP::all() as $key => $AllergensDP)
-                                    <!-- Start Single Menu Filter List -->
-                                <li class="sidebar__menu-filter-list">
-                                    <label for="AllergensDP_{{ $AllergensDP->id }}"><input type="checkbox" name="allergensFilter" class="attributes_Filter" value="{{ $AllergensDP->id }}" id="AllergensDP_{{ $AllergensDP->id }}"><span>{{ $AllergensDP->name }} ({{ $AllergensDP->countProductByAllergensDP($AllergensDP->id) }})</span></label>
-                                </li>  <!-- End Single Menu Filter List -->
-                                @endforeach
-                            </ul>
-                        </div>
-                        <!-- Faith Filter -->
                             
                     </div>
                 </div>
@@ -135,38 +39,18 @@
                         <span>{{ __('text.you_are_searching') }}: <b> {{ $query }} </b></span>
                     </div>
                     <!-- ::::::  Start Sort Box Section  ::::::  -->
-                    <div class="sort-box m-tb-40">
-                        <!-- Start Sort Left Side -->
-                        <div class="sort-box-item">
-                            <div class="sort-box__tab">
-                                <ul class="sort-box__tab-list nav">
-                                    <li><a class="sort-nav-link active" data-bs-toggle="tab" href="#sort-grid"><i class="fas fa-th"></i>  </a></li>
-                                    <li><a class="sort-nav-link " data-bs-toggle="tab" href="#sort-list"><i class="fas fa-list-ul"></i></a></li>
-                                </ul>
-                            </div>
-                        </div> <!-- Start Sort Left Side -->
-
-
-                        <div class="sort-box-item d-flex align-items-center flex-warp">
-                            <span>Sort By:</span>
-                            <div class="sort-box__option">
-                                <label class="select-sort__arrow">
-                                    <select name="select-sort" class="select-sort">
-                                        <option value="1">{{ __('text.relevance')}}</option>
-                                        <option value="2">{{ __('text.name_a_z')}}</option>
-                                        <option value="3"> {{ __('text.name_z_a')}} </option>
-                                        <option value="4"> {{ __('text.price_low_high')}}</option>
-                                        <option value="5"> {{ __('text.showing')}}</option>
-                                    </select>
-                                </label>
-                            </div>
-                        </div>
-
-                        
-                    </div> <!-- ::::::  Start Sort Box Section  ::::::  -->
-
+                   
                     <div class="sort-box-item">
                         <span>{{ __('text.showing')}} {{ $products->onFirstPage() . __(' - '). $products->count() }} {{ __('text.of')}} {{ $products->count() }} {{ __('text.result')}}</span>
+                    </div>
+
+                    <div class="sort-box-item">
+                        <div class="sort-box__tab">
+                            <ul class="sort-box__tab-list nav">
+                                <li><a class="sort-nav-link active" data-bs-toggle="tab" href="#sort-grid"><i class="fas fa-th"></i>  </a></li>
+                                <li><a class="sort-nav-link " data-bs-toggle="tab" href="#sort-list"><i class="fas fa-list-ul"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
 
                     @if( count($products) > 0 )
