@@ -37,11 +37,12 @@
             <!-- End Left Sidebar Widget -->
             <!-- Start Rightside - Product Type View -->
             <div class="col-lg-9">
+                <div class="d-flex-product-filter">
                 <!-- ::::::  Start Sort Box Section  ::::::  -->
-                <div class="sort-box-item mb-3">
+                <div class="sort-box-item mb-0">
                     <span>{{ __('text.showing')}} {{ $products->onFirstPage() . __(' - '). $products->count() }} {{__('text.of') }} {{ $products->count() }} {{ __('result')}}</span>
                 </div>
-                <div class="sort-box-item">
+                <div class="sort-box-item mb-0">
                     <div class="sort-box__tab">
                         <ul class="sort-box__tab-list nav">
                             <li><a class="sort-nav-link active" data-bs-toggle="tab" href="#sort-grid"><i class="fas fa-th"></i>  </a></li>
@@ -49,6 +50,8 @@
                         </ul>
                     </div>
                 </div>
+                </div>
+                
                 <!-- mobile filter start -->
                 <button class="btn btn-secondary px-3 py-2 d-md-none" type="button" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">  <i class="fas fa-filter"></i> FILTERS </button>
                 <div class="custom-pro-filter d-md-none">

@@ -35,22 +35,22 @@
                 <!-- End Left Sidebar Widget -->
                 <!-- Start Rightside - Product Type View -->
                 <div class="col-lg-9"> 
-                    <div class="alert alert-success">
-                        <span>{{ __('text.you_are_searching') }}: <b> {{ $query }} </b></span>
-                    </div>
+                    <div class="d-flex-product-filter">
                     <!-- ::::::  Start Sort Box Section  ::::::  -->
                    
-                    <div class="sort-box-item">
+                    <div class="sort-box-item mb-0">
                         <span>{{ __('text.showing')}} {{ $products->onFirstPage() . __(' - '). $products->count() }} {{ __('text.of')}} {{ $products->count() }} {{ __('text.result')}}</span>
                     </div>
 
-                    <div class="sort-box-item">
+                    <div class="sort-box-item mb-0">
                         <div class="sort-box__tab">
                             <ul class="sort-box__tab-list nav">
                                 <li><a class="sort-nav-link active" data-bs-toggle="tab" href="#sort-grid"><i class="fas fa-th"></i>  </a></li>
                                 <li><a class="sort-nav-link " data-bs-toggle="tab" href="#sort-list"><i class="fas fa-list-ul"></i></a></li>
                             </ul>
                         </div>
+                    </div>
+
                     </div>
 
                     @if( count($products) > 0 )
