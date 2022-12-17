@@ -26,28 +26,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
-        $shareButtons = \Share::page(
-            'https://www.yoursite.com',
-            'Your share text comes here',
-        )
-        ->facebook()
-        ->twitter()
-        ->linkedin()
-        ->telegram()
-        ->whatsapp()        
-        ->reddit();
-
         $categories = Category::where('parent_cat', 0)->get();
-        $brands = Brand::where('parent_id', 0)->get();
-        $PGroups = ProductGroup::where('parent_id', 0)->get();
-        $faiths = Faith::where('parent_id', 0)->get();
-        $lines = Line::where('parent_id', 0)->get();
-        $contents = Content::where('parent_id', 0)->get();
-        $AllergensDPs = AllergensDP::where('parent_id', 0)->get();
-        
         $products = Product::where('status', 'active')->orderby('id', 'desc')->paginate(15);
-        return view('frontend/products', compact('products', 'shareButtons', 'categories', 'brands', 'PGroups', 'faiths', 'lines', 'contents', 'AllergensDPs'));
+        return view('frontend/products', compact('products',  'categories'));
     }
 
     /**
@@ -57,7 +38,6 @@ class ProductController extends Controller
      */
     public function category($slug)
     {
-        //
         $cat = Category::where('slug', $slug)->first();
 
         $catId = $cat->id;
@@ -66,9 +46,11 @@ class ProductController extends Controller
         ->where('status', 'active')
         ->orderby('id', 'desc')
         ->paginate('15');
-        
+        $categories = Category::where('parent_cat', 0)->get();
 
-        return view('frontend/Catproducts', compact('products', 'cat'));
+        return view('frontend/products', compact('products',  'categories'));
+       // return view('frontend/Catproducts', compact('products', 'cat'));
+        
     }
 
     /**

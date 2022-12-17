@@ -1,26 +1,3 @@
-<!-- ::::::  Start  Company Logo Section  ::::::  -->
-<div class="company-logo p-t-100 bg-white">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="company-logo__area default-slider align-items-center"> 
-                            @foreach(App\Models\Backend\Category::all() as $categorys) 
-                                @if($categorys->image)
-                                    <!-- Start Single Company Logo Item -->
-                                    <div class="company-logo__item">
-                                        <a href="{{ route('show.category', $categorys->slug)}}" class="company__logo--link">
-                                            <img class="product__img img-fluid" src="{{asset('backend/assets/images/category/'.$categorys->image)  }}" alt="{{$categorys->name}}" title="{{ $categorys->name }}">
-                                        </a>
-                                    </div> 
-                                    <!-- End Single Company Logo Item --> 
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- ::::::  End  Company Logo Section  ::::::  -->
-
 <!-- ::::::  Start  Footer ::::::  -->
     <footer class="footer pt-5">
         <div class="container"> 
