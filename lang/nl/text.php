@@ -30,7 +30,7 @@ return [
     'categories' => 'Categorieen',
     'category' => 'Categorie',
     'crafted_with' => 'Crafted with',
-    'brand' => 'Brand',
+    'brand' => 'Merk',
     'group' => 'Group',
     'faith' => 'Faith',
     'lines' => 'Lines',
@@ -133,5 +133,7 @@ return [
     'recent_post' => 'Recente berichten',
     'product_group' => 'PRODUCTGROEP',
     'more_info' => 'Meer informatie',
-    'numfmt_set_text_attribute' => 'Volgende'
+    'numfmt_set_text_attribute' => 'Volgende',
+    'filter_by_cat' => 'filteren op categorie',
+    'filter_by_brand' => 'filter op merk',
 ];

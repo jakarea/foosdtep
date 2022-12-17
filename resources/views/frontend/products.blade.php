@@ -32,6 +32,22 @@
                         </ul>
                     </div>
                     <!-- Category Filter -->
+
+                    <!-- Category Filter -->
+                    <div class="sidebar__widget">
+                            <div class="sidebar__box m-t-40">
+                                <h5 class="sidebar__title">{{ __('text.brand')}}</h5>
+                            </div>
+                            <ul class="sidebar__menu-filter ">
+                                @foreach($brands as $key => $brand)
+                                <!-- Start Single Menu Filter List -->
+                                <li class="sidebar__menu-filter-list">
+                                    <label for="brand_{{ $brand->id }}"><input type="checkbox" name="brandFilter" class="attributes_Filter" value="{{ $brand->id }}" id="brand_{{ $brand->id }}"><span>{{ $brand->name }} ({{ $brand->countProductByBrand($brand->id) }})</span></label>
+                                </li>  <!-- End Single Menu Filter List -->
+                                @endforeach
+                            </ul>
+                    </div>
+                    <!-- Category Filter -->
                 </div>
             </div>
             <!-- End Left Sidebar Widget -->

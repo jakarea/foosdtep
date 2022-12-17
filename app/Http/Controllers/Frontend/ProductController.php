@@ -27,8 +27,9 @@ class ProductController extends Controller
     public function index()
     {
         $categories = Category::where('parent_cat', 0)->get();
+        $brands = Brand::where('parent_id',0)->get();
         $products = Product::where('status', 'active')->orderby('id', 'desc')->paginate(15);
-        return view('frontend/products', compact('products',  'categories'));
+        return view('frontend/products', compact('products',  'categories','brands'));
     }
 
     /**
@@ -47,8 +48,8 @@ class ProductController extends Controller
         ->orderby('id', 'desc')
         ->paginate('15');
         $categories = Category::where('parent_cat', 0)->get();
-
-        return view('frontend/products', compact('products',  'categories'));
+        $brands = Brand::where('parent_id',0)->get();
+        return view('frontend/products', compact('products',  'categories','brands'));
        // return view('frontend/Catproducts', compact('products', 'cat'));
         
     }
