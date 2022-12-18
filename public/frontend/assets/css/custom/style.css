@@ -788,6 +788,10 @@ a.product__link {
   height: 100% !important;
 }
 
+.product__catagory--single .product__img-box.product__img-box--catagory a img { 
+    max-width: 100px!important;
+}
+
 @media(min-width: 320px) and (max-width: 767px) {
 
   .header__logo-img,
