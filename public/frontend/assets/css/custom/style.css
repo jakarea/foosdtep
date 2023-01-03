@@ -1522,6 +1522,12 @@ a.product__link {
   }
 }
 
+@media(min-width: 750px) and (max-width: 1352px) {
+  .product-page-column .product-box-area-infos>a {
+    height: 140px !important;
+  }
+}
+
 @media(min-width: 872px) and (max-width: 1199px) {
   .product-box-area-infos>a {
     height: 186px !important;
@@ -1579,4 +1585,8 @@ a.product__link {
 
 .rel-pro-padding h4{
   min-height: 45px!important;
+}
+
+.rel-pro-padding.default-slider .slick-track .product-box-area-infos>a {
+  height: 196px !important;
 }

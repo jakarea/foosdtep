@@ -145,7 +145,7 @@
                                 </div>
                                 <div class="product-box-bottom-area">
                                     <ul> 
-                                        @if( Auth::check() )
+                                        @if( Auth::check())
                                         <li>
                                             <a href="{{ route('add.to.cart', $product->id) }}">
                                                 <img src="{{ asset('frontend/assets/img/cart.png') }}" alt="Cart" class="img-fluid">
