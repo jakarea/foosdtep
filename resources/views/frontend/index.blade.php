@@ -59,47 +59,50 @@
                         </div>  <!-- End Section Title -->
                     </div>
                 </div>
-                <div class="row px-3 px-md-0">
-                @foreach($products as $keyProduct => $product )
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-6 nopadding">
-                        <!-- Start Single Default Product -->
-                        <div class="product__box product-box-home product__default--single text-center">
-                            <!-- Start Product Image -->
-                            <div class="product__img-box custom-product-img-box pos-relative">
-                                <a href="{{ route('show.product', $product->slug) }}" class="product__img--link">
-                                    <img class="product__img img-fluid" src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="">
-                                </a>
-                                <!-- Start Procuct Label --> 
-                                <!-- End Procuct Label -->
-                                <!-- Start Product Action Link-->
-                                <ul class="product__action--link pos-absolute">
-                                    @if( Auth::check() )
-                                    <li><a href="{{ route('add.to.cart', $product->id) }}">
-                                    <img src="{{ asset('frontend/assets/img/cart.png') }}" alt="Cart" width="20" class="img-fluid" style="width: 20px; height: auto!important;">
-                                    </a></li>
-                                    @endif
-                                    <li><a href="#modalQuickView{{$product->id}}" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
-                                </ul> <!-- End Product Action Link -->
-                            </div> <!-- End Product Image -->
-                            <!-- Start Product Content -->
-                            <div class="product__content m-t-20"> 
+                <div class="row product-custom-row"> 
+                    <!-- product box item @S -->
+                    @foreach($products as $keyProduct => $product )
+                    <div class="col">
+                        <div class="product-box-item-area">
+                            <div class="product-box-overview-area">
+                                <div class="product-box-top-area">
+                                    <div class="product-box-area-infos">
+                                        <a href="{{ route('show.product', $product->slug) }}">
+                                        <img src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="Product Image" class="img-fluid product-box-imgs">
+                                        </a> 
 
-                                <span style="font-size: 12px;">{{ $product->unit ?  $product->unit : ''}}</span>
+                                        <div class="product-box-info-content">
+                                            <h6>{{ $product->unit ?  $product->unit : ''}}</h6>
 
-                                <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a> 
-                                
-                                <span style="font-size: 12px; color: #000;">{{ $product->brand ? $product->brand->name : "" }}</span>
-                                
+                                            <h4> 
+                                                <a href="{{ route('show.product', $product->slug) }}">{{ $product->name }}</a>
+                                            </h4>
 
-                                @if(Auth::check())
-                                <div class="product__price m-t-5">
-                                    <span class="product__price" style="color: #000;">{{ __('€'). $product->discount($product->id) }}  </span>
+                                            <h6>{{ $product->brand ? $product->brand->name : "" }}</h6>
+
+                                            @if(Auth::check())
+                                            <p>{{ __('€'). $product->discount($product->id) }}</p>
+                                            @endif
+                                        </div>
+                                    </div>
                                 </div>
-                                @endif
-                            </div> <!-- End Product Content -->
-                        </div> <!-- End Single Default Product -->
+                                <div class="product-box-bottom-area">
+                                    <ul> 
+                                        @if( Auth::check() )
+                                        <li>
+                                            <a href="{{ route('add.to.cart', $product->id) }}">
+                                                <img src="{{ asset('frontend/assets/img/cart.png') }}" alt="Cart" class="img-fluid">
+                                            </a>
+                                        </li> 
+                                        @endif
+                                        <li>
+                                            <a href="#modalQuickView{{$product->id}}" data-bs-toggle="modal"><i class="icon-eye"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                     <!-- Start Modal Quickview cart -->
                     <div class="modal fade" id="modalQuickView{{ $product->id }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog  modal-dialog-centered" role="document">
@@ -107,7 +110,7 @@
                                 <div class="modal-body">
                                     <div class="container-fluid">
                                         <div class="row">
-                                            <div class="col text-end">
+                                            <div class="col-12 text-end">
                                                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true"> <i class="fal fa-times"></i></span>
                                                 </button>
@@ -148,7 +151,8 @@
                         </div>
                     </div> <!-- End Modal Quickview cart -->
                     @endforeach
-                </div>
+                    <!-- product box item @E -->  
+                </div> 
                 <div class="row">
                     <div class="col-12">
                         <div class="product-more-bttn text-center mt-4 mt-md-0">

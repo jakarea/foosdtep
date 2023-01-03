@@ -29,7 +29,7 @@ class HomeController extends Controller
         
         $prodcutCat = Category::where('parent_cat', 0)->with('products')->get();
 
-        $products = Product::where('status', 'active')->take('8')->get();
+        $products = Product::where('status', 'active')->take('10')->get();
 
         $blogs = Blog::where('status', 'active')->orderby('id', 'desc')->take('2')->get(); 
 
