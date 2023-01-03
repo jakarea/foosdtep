@@ -105,42 +105,49 @@
                 <div class="product-tab-area pb-5 attributes_wise" id="attributes_wise">
                     <div class="tab-content tab-animate-zoom">
                         <div class="tab-pane show active shop-grid" id="sort-grid">
-                            <div class="row no-gutters">
-                                @foreach( $products as $key => $product )
-                                <div class="col-md-4 col-sm-6 col-6 nopadding">
-                                    <!-- Start Single Default Product -->
-                                    <div class="product__box height-fixedd product__default--single text-center">
-                                        <!-- Start Product Image -->
-                                        <div class="product__img-box  pos-relative">
-                                            <a href="{{ route('show.product', $product->slug) }}" class="product__img--link">
-                                            <img class="product__img img-fluid" src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="{{$product->slug}}">
-                                            </a>                                               
-                                            <ul class="product__action--link pos-absolute">
-                                                @if( Auth::check() )
-                                                <li><a href="{{ route('add.to.cart', $product->id) }}">
-                                                    <img src="{{ asset('frontend/assets/img/cart.png') }}" alt="Cart" width="20" class="img-fluid">
-                                                    </a>
-                                                </li>
-                                                @endif
-                                                <li><a href="#modalQuickView{{$product->id}}" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
-                                            </ul>
-                                            <!-- End Product Action Link -->
-                                        </div>
-                                        <!-- End Product Image -->
-                                        <!-- Start Product Content -->
-                                        <div class="product__content m-t-20">
-                                            <span style="font-size: 12px;">{{ $product->unit ?  $product->unit : ''}}</span>
-                                            <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a> 
-                                            <span style="font-size: 12px; color: #000;">{{ $product->brand ? $product->brand->name : "" }}</span>
-                                            @if(Auth::check())
-                                            <div class="product__price m-t-5">
-                                                <span class="product__price" style="color: #000;">{{ __('€'). $product->discount($product->id) }}  </span>
+                            <div class="row px-3 px-md-0">
+                                <!-- product box item @S -->
+                                @foreach($products as $keyProduct => $product )
+                                <div class="col-md-3 col-6 px-0 px-md-2 product-page-column">
+                                    <div class="product-box-item-area">
+                                        <div class="product-box-overview-area">
+                                            <div class="product-box-top-area">
+                                                <div class="product-box-area-infos">
+                                                    <a href="{{ route('show.product', $product->slug) }}">
+                                                    <img src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="Product Image" class="img-fluid product-box-imgs">
+                                                    </a> 
+
+                                                    <div class="product-box-info-content">
+                                                        <h6>{{ $product->unit ?  $product->unit : ''}}</h6>
+
+                                                        <h4> 
+                                                            <a href="{{ route('show.product', $product->slug) }}">{{ $product->name }}</a>
+                                                        </h4>
+
+                                                        <h6>{{ $product->brand ? $product->brand->name : "" }}</h6>
+
+                                                        @if(Auth::check())
+                                                        <p>{{ __('€'). $product->discount($product->id) }}</p>
+                                                        @endif
+                                                    </div>
+                                                </div>
                                             </div>
-                                            @endif
+                                            <div class="product-box-bottom-area">
+                                                <ul> 
+                                                    @if( Auth::check() )
+                                                    <li>
+                                                        <a href="{{ route('add.to.cart', $product->id) }}">
+                                                            <img src="{{ asset('frontend/assets/img/cart.png') }}" alt="Cart" class="img-fluid">
+                                                        </a>
+                                                    </li> 
+                                                    @endif
+                                                    <li>
+                                                        <a href="#modalQuickView{{$product->id}}" data-bs-toggle="modal"><i class="icon-eye"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                        <!-- End Product Content -->
                                     </div>
-                                    <!-- End Single Default Product -->
                                 </div>
                                 <!-- Start Modal Quickview cart -->
                                 <div class="modal fade" id="modalQuickView{{ $product->id }}" tabindex="-1" role="dialog" aria-hidden="true">
@@ -149,9 +156,9 @@
                                             <div class="modal-body">
                                                 <div class="container-fluid">
                                                     <div class="row">
-                                                        <div class="col text-end">
+                                                        <div class="col-12 text-end">
                                                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true"> <i class="fal fa-times"></i></span>
+                                                                <span aria-hidden="true"> <i class="fal fa-times"></i></span>
                                                             </button>
                                                         </div>
                                                     </div>
@@ -168,7 +175,7 @@
                                                                 <h5 class="title title--normal m-b-20">{{ $product->name }}</h5>
                                                                 @if(Auth::check())
                                                                 <div class="product__price">
-                                                                    <span class="product__price-del">{{ __('€'). $product->discount($product->id) }} {{ $product->unit ? $product->unit : ''}} </span>
+                                                                    <span class="product__price-del">{{ __('€'). $product->discount($product->id) }}  {{ $product->unit ?  $product->unit : ''}}</span>
                                                                 </div>
                                                                 @endif
                                                                 <div class="product__desc m-t-25 m-b-30">
@@ -177,7 +184,7 @@
                                                                 @if( Auth::check() )
                                                                 <div class="product-var p-t-30">
                                                                     <div class="product-quantity product-var__item d-flex align-items-center flex-wrap">
-                                                                        <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn--block btn--long btn--radius-tiny btn--green btn--green-hover-black text-uppercase m-r-35">{{ __('text.buy_it_now')}}</a>
+                                                                    <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn--block btn--long btn--radius-tiny btn--green btn--green-hover-black text-uppercase m-r-35">{{ __('text.buy_it_now')}}</a>
                                                                     </div>
                                                                 </div>
                                                                 @endif
@@ -188,9 +195,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- End Modal Quickview cart -->
+                                </div> <!-- End Modal Quickview cart -->
                                 @endforeach
+                                <!-- product box item @E -->  
                             </div>
                         </div>
                         <div class="tab-pane shop-list" id="sort-list">

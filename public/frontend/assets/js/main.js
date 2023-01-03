@@ -195,7 +195,7 @@
     $('.product-default-slider-4grid-1rows').slick({
         arrows: true,
         infinite: false,
-        slidesToShow: 4,
+        slidesToShow: 5,
         slidesToScroll: 1,
         rows: 1,
         easing: 'ease-out',

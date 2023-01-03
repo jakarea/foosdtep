@@ -76,12 +76,12 @@
                         </div>
                     </div> 
                     <div>
-                        <div class="text-end">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
-                            {{ __('messages.submit') }}
-                            </button> 
-                        </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
+                        {{ __('messages.submit') }}
+                        </button> 
                     </div>
+                </div>
             </div>
         </div>
     </div>
