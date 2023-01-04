@@ -119,42 +119,46 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <div class="default-slider default-slider--hover-bg-red product-default-slider">
+                <div class="default-slider rel-pro-padding default-slider--hover-bg-red product-default-slider">
                     <div class="product-default-slider-4grid-1rows gap__col--30 gap__row--40 mb-3">
                         @foreach( $relatedProducts as $key => $product )
-                        <!-- Start Single Default Product -->
-                        <div class="product__box product__default--single text-center">
-                            <!-- Start Product Image -->
-                            <div class="product__img-box  pos-relative">
-                            <a href="{{ route('show.product', $product->slug) }}" class="product__img--link">
-                                    <img class="product__img img-fluid" src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="{{$product->slug}}">
-                                </a> 
-                                <ul class="product__action--link pos-absolute d-flex align-items-center justify-content-center">
-                                    @if( Auth::check() )
-                                    <li><a href="{{ route('add.to.cart', $product->id) }}">
-                                        <img src="{{ asset('frontend/assets/img/cart.png') }}" alt="Cart" style="width: 22px; height: auto;    margin-left: 0px; display: inline-block; margin-top: -4px;" class="img-fluid">
-                                    </a></li>
-                                    @endif
-                                    <li><a href="#modalQuickView{{$product->id}}" data-bs-toggle="modal"><i class="icon-eye"></i></a></li>
-                                </ul><!-- End Product Action Link -->
-                            </div> <!-- End Product Image -->
-                            <!-- Start Product Content -->
-                            <div class="product__content m-t-20"> 
+                        <div class="product-box-item-area">
+                            <div class="product-box-overview-area">
+                                <div class="product-box-top-area">
+                                    <div class="product-box-area-infos">
+                                        <a href="{{ route('show.product', $product->slug) }}">
+                                        <img src="{{ asset('frontend/assets/img/product/'. $product->image) }}" alt="Product Image" class="img-fluid product-box-imgs">
+                                        </a> 
+                                        <div class="product-box-info-content">
+                                            <h6>{{ $product->unit ?  $product->unit : ''}}</h6>
+                                            <h4> 
+                                                <a href="{{ route('show.product', $product->slug) }}">{{ $product->name }}</a>
+                                            </h4>
 
-                                <span style="font-size: 12px;">{{ $product->unit ?  $product->unit : ''}}</span>
+                                            <h6>{{ $product->brand ? $product->brand->name : "" }}</h6>
 
-                                <a href="{{ route('show.product', $product->slug) }}" class="product__link">{{ $product->name }}</a> 
-
-                                <span style="font-size: 12px; color: #000;">{{ $product->brand ? $product->brand->name : "" }}</span>
-
-
-                                @if(Auth::check())
-                                <div class="product__price m-t-5">
-                                    <span class="product__price" style="color: #000;">{{ __('€'). $product->discount($product->id) }}  </span>
+                                            @if(Auth::check())
+                                            <p>{{ __('€'). $product->discount($product->id) }}</p>
+                                            @endif
+                                        </div>
+                                    </div>
                                 </div>
-                                @endif
-                                </div><!-- End Product Content -->
-                        </div> <!-- End Single Default Product -->
+                                <div class="product-box-bottom-area">
+                                    <ul> 
+                                        @if( Auth::check())
+                                        <li>
+                                            <a href="{{ route('add.to.cart', $product->id) }}">
+                                                <img src="{{ asset('frontend/assets/img/cart.png') }}" alt="Cart" class="img-fluid">
+                                            </a>
+                                        </li> 
+                                        @endif
+                                        <li>
+                                            <a href="#modalQuickView{{$product->id}}" data-bs-toggle="modal"><i class="icon-eye"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                         @endforeach
                     </div>
                 </div>

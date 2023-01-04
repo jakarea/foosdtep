@@ -76,12 +76,12 @@
                         </div>
                     </div> 
                     <div>
-                        <div class="text-end">
-                            <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
-                            {{ __('messages.submit') }}
-                            </button> 
-                        </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary waves-effect waves-light me-1">
+                        {{ __('messages.submit') }}
+                        </button> 
                     </div>
+                </div>
             </div>
         </div>
     </div>
@@ -94,7 +94,7 @@
             <div class="card-body">
                 <label class="form-label">{{ __('messages.image') }}</label>
                 <input type="file" name="featureimage" class="form-control mb-1" onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])">
-                <img src="{{ asset('frontend/assets/img/product/no-image.png') }}" alt="" class="img-fluid" id="image">
+                <img src="{{ asset('frontend/assets/img/product/image-ratio.png') }}" alt="" class="img-fluid" id="image">
             </div>
         </div>
 
