@@ -49,7 +49,7 @@
                     </div>
                     <ul class="sidebar__menu">
                     @foreach(App\Models\Backend\Category::inRandomOrder()->limit(10)->get() as $key => $category)
-                        <li><a href="{{ route('show.category', $category->slug)}}">{{ $category->name }} </a></li> 
+                        <li><a href="{{ url('products?cat='.$category->slug)}}">{{ $category->name }} </a></li> 
                     @endforeach
                     </ul>
                 </div>  <!-- End Single Sidebar Widget - Custom Menu -->

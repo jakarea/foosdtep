@@ -24,11 +24,61 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $categories = Category::where('parent_cat', 0)->get();
         $brands = Brand::where('parent_id',0)->get();
-        $products = Product::where('status', 'active')->orderby('id', 'desc')->paginate(15);
+
+        if($request->ajax() || $request->isaj == 'sli'){
+            $product = Product::query();
+
+            // Category filter data
+            if(isset($request->cat_id)) {
+                $ids = $request->cat_id;
+                $product
+                ->where(function($query) use($ids) {
+                    foreach($ids as $id) {
+                        $query->orWhere('cat_id', 'like', "%$id%");
+                    };
+                });
+                
+            }
+    
+            // Brand Filter Data
+            if(isset($request->brand_id)) {
+                $ids = $request->brand_id;
+                $product
+                ->where(function($query) use($ids) {
+                    foreach($ids as $id) {
+                        $query->orWhere('brand_id', 'like', "%$id%");
+                    };
+                });
+            }
+            $products = $product->where('status', 'active')->orderby('id', 'desc')->paginate(15);
+
+            if($request->isaj == 'sdb'){
+                $request->instance()->query->set('isaj', 'sli');
+                return view('frontend/filter', compact('products'));
+            }
+            return view('frontend/products', compact('products',  'categories','brands'));
+        }
+
+        $query = isset($_GET['search']) ? $_GET['search'] : '';
+        $cat = isset($_GET['cat']) ? $_GET['cat'] : '';
+        $cat = Category::where('slug', $cat)->first();
+        $catId = '';
+        $condition ='';
+        if(isset($_GET['cat'])){
+            $cat = Category::where('slug', $_GET['cat'])->first();
+            $catId = $cat->id;
+        }
+        
+        $products = Product::where('name', 'LIKE', '%'. $query. '%')
+            ->where('cat_id','like','%'.trim($catId).'%')
+            ->where('status', 'active')
+            ->orderby('id', 'desc')
+            ->paginate(15);
+
         return view('frontend/products', compact('products',  'categories','brands'));
     }
 
@@ -145,62 +195,69 @@ class ProductController extends Controller
 
         // Category filter data
         if(isset($request->cat_id)) {
-            $product->orWhere('cat_id','like','%'.trim($request->cat_id).'%')
-            ->where('status', 'active')
-            ->orderby('id', 'asc')
-            ->get();
+            $ids = $request->cat_id;
+            $product
+            ->where(function($query) use($ids) {
+                foreach($ids as $id) {
+                    $query->orWhere('cat_id', 'like', "%$id%");
+                };
+            });
+            
         }
 
         // Brand Filter Data
         if(isset($request->brand_id)) {
-            $product->orWhere('brand_id','like','%'.trim($request->brand_id).'%')
-            ->where('status', 'active')
-            ->orderby('id', 'asc')
-            ->get();
+            $ids = $request->brand_id;
+            $product
+            ->where(function($query) use($ids) {
+                foreach($ids as $id) {
+                    $query->orWhere('brand_id', 'like', "%$id%");
+                };
+            });
         }
 
-        // Product Group Filter Data
-        if(isset($request->pgroup_id)) {
-            $product->orWhere('prodcut_group_id','like','%'.trim($request->pgroup_id).'%')
-            ->where('status', 'active')
-            ->orderby('id', 'asc')
-            ->get();
-        }
-        // Faith Filter Data
-        if(isset($request->faith_id)) {
-            $product->orWhere('faith_id','like','%'.trim($request->faith_id).'%')
-            ->where('status', 'active')
-            ->orderby('id', 'asc')
-            ->get();
-        }
+        // // Product Group Filter Data
+        // if(isset($request->pgroup_id)) {
+        //     $product->orWhere('prodcut_group_id','like','%'.trim($request->pgroup_id).'%')
+        //     ->where('status', 'active')
+        //     ->orderby('id', 'asc')
+        //     ->get();
+        // }
+        // // Faith Filter Data
+        // if(isset($request->faith_id)) {
+        //     $product->orWhere('faith_id','like','%'.trim($request->faith_id).'%')
+        //     ->where('status', 'active')
+        //     ->orderby('id', 'asc')
+        //     ->get();
+        // }
 
-        // Faith Filter Data
-        if(isset($request->line_id)) {
-            $product->orWhere('line_id','like','%'.trim($request->line_id).'%')
-            ->where('status', 'active')
-            ->orderby('id', 'asc')
-            ->get();
-        }
+        // // Faith Filter Data
+        // if(isset($request->line_id)) {
+        //     $product->orWhere('line_id','like','%'.trim($request->line_id).'%')
+        //     ->where('status', 'active')
+        //     ->orderby('id', 'asc')
+        //     ->get();
+        // }
 
-        // Content Filter Data
-        if(isset($request->content_id)) {
-            $product->orWhere('content_id','like','%'.trim($request->content_id).'%')
-            ->where('status', 'active')
-            ->orderby('id', 'asc')
-            ->get();
-        }
+        // // Content Filter Data
+        // if(isset($request->content_id)) {
+        //     $product->orWhere('content_id','like','%'.trim($request->content_id).'%')
+        //     ->where('status', 'active')
+        //     ->orderby('id', 'asc')
+        //     ->get();
+        // }
         
         // Content allergens_id Data
-        if(isset($request->allergens_id)) {
-            $product->orWhere('allergens_dp_id','like','%'.trim($request->allergens_id).'%')
-            ->where('status', 'active')
-            ->orderby('id', 'asc')
-            ->get();
-        }
+        // if(isset($request->allergens_id)) {
+        //     $product->orWhere('allergens_dp_id','like','%'.trim($request->allergens_id).'%')
+        //     ->where('status', 'active')
+        //     ->orderby('id', 'asc')
+        //     ->get();
+        // }
 
-        $products = $product->get();
+        $products = $product->where('status', 'active')->orderby('id', 'desc')->paginate(15);
 
-        return view('frontend.filter', compact('products'));
+        return view('frontend/filter', compact('products'));
     }
 
 
