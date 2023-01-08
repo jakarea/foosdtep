@@ -30,12 +30,12 @@
                                 <!-- Start Product Content -->
                                 <div class="product__content product__content--catagory">
 
-                                    <a href="{{ route('show.category', $cateogry->slug)}}" class="product__link">{{ $cateogry->name }}</a>
+                                    <a href="{{ url('products?cat='. $cateogry->slug)}}" class="product__link">{{ $cateogry->name }}</a>
                                     <span class="product__items--text">{{ $cateogry->countProductByCat($cateogry->id)}} Products</span>
                                 </div> <!-- End Product Content -->
                                 <!-- Start Product Image -->
                                 <div class="product__img-box product__img-box--catagory">
-                                    <a href="{{ route('show.category', $cateogry->slug)}}" class="product__img--link">
+                                    <a href="{{ url('products?cat='. $cateogry->slug)}}" class="product__img--link">
                                         <img class="product__img img-fluid" src="{{asset('backend/assets/images/category/'.$cateogry->image)  }}" alt="">
                                     </a>
                                 </div> <!-- End Product Image -->

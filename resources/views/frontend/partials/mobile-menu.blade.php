@@ -39,9 +39,7 @@
             </div>
             <div class="row">
                 <div class="col-12 mt-3">
-               
-                <form class="header-search" action="{{ route('autocompleteSearch') }}" method="post">
-                    @csrf
+                <form class="header-search" action="{{ route('products') }}" method="get">
                     <div class="header-search__content pos-relative">
                         <input type="text" class="search__headerm" id="search__header" name="search" placeholder="Zoeken" required />
                         <button class="pos-absolute" type="submit"><i class="icon-search"></i></button>
@@ -93,7 +91,7 @@
                         <h4 class="menu-title link--icon-left d-flex justify-content-between bg-transparent text-dark p-0 mb-3"><span> {{ __('text.categories')}}</span> <i class="far fa-angle-right"></i></h4>
                         <ul class="menu-content pos-absolute">
                         @foreach(App\Models\Backend\Category::all() as $key => $category)
-                            <li class="menu-item"><a href="{{ route('show.category', $category->slug)}}">{{ $category->name }} </a></li> 
+                            <li class="menu-item"><a href="{{ url('products?cat='.$category->slug)}}">{{ $category->name }} </a></li> 
                         @endforeach
                         </ul>
                     </div>

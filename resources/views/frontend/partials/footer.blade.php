@@ -43,7 +43,7 @@
                             <h4 class="footer__nav-title footer__nav-title--dash footer__nav-title--dash-red">{{__('messages.categories')}}</h4>
                             <ul class="footer__nav">
                                 @foreach(App\Models\Backend\Category::all() as $key => $category)
-                                    <li class="footer__list"><a href="{{ route('show.category', $category->slug)}}" class="footer__link">{{ $category->name }} </a></li> 
+                                    <li class="footer__list"><a href="{{ url('products?cat='.$category->slug)}}" class="footer__link">{{ $category->name }} </a></li> 
                                 @endforeach 
 
                             </ul>

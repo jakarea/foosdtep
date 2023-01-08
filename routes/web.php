@@ -32,7 +32,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/blog/{slug}', 'single_blog')->name('single_blog');
     // product route
     Route::get('/products', 'App\Http\Controllers\Frontend\ProductController@index')->name('products');
-    Route::post('/products', 'App\Http\Controllers\Frontend\ProductController@autocompleteSearch')->name('autocompleteSearch');
+    // Route::post('/products', 'App\Http\Controllers\Frontend\ProductController@autocompleteSearch')->name('autocompleteSearch');
     Route::get('/products/{slug}', 'App\Http\Controllers\Frontend\ProductController@show')->name('show.product');
     Route::get('/products/category/{slug}', 'App\Http\Controllers\Frontend\ProductController@category')->name('show.category');
 
