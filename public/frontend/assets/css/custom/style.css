@@ -1645,4 +1645,7 @@ li.page-item.page-link :hover {
     width: 100%;
     margin-left: -10px;
   } 
+  .product-box-item-area{
+    margin: 0;
+  }
 }
