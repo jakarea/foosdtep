@@ -103,7 +103,6 @@
 										@endforeach
 									</ul>
 								</div>
-
 								<!-- Category Filter -->
 							</div>
 						</div>

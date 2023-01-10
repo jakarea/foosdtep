@@ -1621,3 +1621,30 @@ li.page-item.page-link :hover {
   margin-top: 0 !important;
   border: none !important;
 }
+
+@media(min-width: 320px) and (max-width: 767px) {
+  .page-item:first-child .page-link,
+  .page-item.active .page-link,
+  a.page-link { 
+    font-size: 14px; 
+    padding: 3px 4px;
+    width: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .page-pagination{
+    padding-left: 0!important;
+    padding-right: 0!important;
+  }
+  .page-pagination nav{
+    width: 100%;
+  }
+  .pagination{
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  li.page-item{
+    flex: 0 10%;
+  }
+}
