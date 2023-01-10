@@ -1623,28 +1623,26 @@ li.page-item.page-link :hover {
 }
 
 @media(min-width: 320px) and (max-width: 767px) {
-  .page-item:first-child .page-link,
-  .page-item.active .page-link,
-  a.page-link { 
-    font-size: 14px; 
-    padding: 3px 4px;
-    width: 30px;
+  .page-item:first-child .page-link, .page-item.active .page-link, a.page-link {
+    font-size: 11px;
+    padding: 0px 1px;
+    width: 20px;
     text-align: center;
-    margin-bottom: 10px;
     display: block;
+    height: 20px;
   }
   .page-pagination{
     padding-left: 0!important;
     padding-right: 0!important;
   }
+  .page-item{
+    margin-left: 1px;
+  }
   .page-pagination nav{
     width: 100%;
   }
-  .pagination{
-    flex-wrap: wrap;
+  .pagination{ 
     width: 100%;
-  }
-  li.page-item{
-    flex: 0 10%;
-  }
+    margin-left: -10px;
+  } 
 }
